@@ -148,7 +148,6 @@ function getGoogleFonts() {
 
   $response = $client->get($url);
   $data = $response->json();
-  
   return json_encode($data);
 }
 
