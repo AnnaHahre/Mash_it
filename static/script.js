@@ -226,7 +226,7 @@
 
 function getFonts() {
   $user_choice = $("#category").val();
-  alert($user_choice);
+  //alert($user_choice);
 
    $.ajax({
         type: "GET",
