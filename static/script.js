@@ -4,9 +4,38 @@
         $("#fonta").bind("click", getFonts); //FONT
 
         window.onbeforeunload = function() {
-        return "Are you sure you want to leave? Your changes will not be saved!";
-    }
+          return "Are you sure you want to leave? Your changes will not be saved!";
+        }
 
+
+          //Set the initial state: highlight the first button...
+          $('#tabcontrols').find('li:eq(0)').addClass('selected');
+         
+          //and hide all slides except the first one
+          $('#tabs').find('> div:eq(0)').nextAll().hide();
+         
+          //actions that apply on click of any of the buttons
+          $('#tabcontrols li').click( function(event) {
+         
+            //turn off the link so it doesn't try to jump down the page
+            event.preventDefault();
+         
+            //un-highlight the buttons
+            $('#tabcontrols li').removeClass();
+         
+            //hide all the slides
+            $('#tabs > div').hide();
+         
+            //highlight the current button
+            $(this).addClass('selected');
+         
+            //get the index of the current button...
+            var index = $('#tabcontrols li').index(this);
+         
+            //and use that index to show the corresponding slide
+            $('#tabs > div:eq('+index+')').show();
+         
+          });
 
 /*        var operator = '+=';
         $('#dashboard').click(function(e){

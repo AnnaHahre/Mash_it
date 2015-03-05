@@ -31,45 +31,48 @@
 
   <!--Dashboard -->
  <div id="dashboard">
-  <ul>
+  <ul id="tabcontrols">
     <li>
-      <a>COLORS</a>
+      <a href="#colors_choice">COLORS</a>
     </li>
     <li>
-      <a>FONTS</a>
+      <a href="#font_choice">FONTS</a>
     </li>
   </ul>
+
+    <div id="tabs">
       <div id="colors_choice">
-        <h1>Choose a basecolor:</h1>
-        <!--<h2>Choose a basecolor for the palette:</h2>-->
+          <h1>Choose a basecolor:</h1>
+          <!--<h2>Choose a basecolor for the palette:</h2>-->
+          <form action="" method="GET">
+            <input type="text" id="colors" name="colors"/>
+            <input type="submit" id="submit_color" value="Get Palettes">
+            <br>
+          </form>
+
+          <div id="palette">
+            
+          </div>
+      </div><!--end .colors_choice-->
+      <div id="font_choice">
+        <h1><a href="/">Fonta mera</a></h1>
         <form action="" method="GET">
-          <input type="text" id="colors" name="colors"/>
-          <input type="submit" id="submit_color" value="Get Palettes">
-          <br>
+          <select name="font_category" id="category">
+            <option value="sans-serif">Sans-serif</option>
+            <option value="serif">Serif</option>
+            <option value="monospace">Monospace</option>
+            <option value="handwriting">Handwriting</option>
+            <option value="display">Display</option>
+          </select>
+          <input type="button" id="fonta" value="Generera font">    
         </form>
 
-        <div id="palette">
-          
-        </div>
-    </div>
-    <div id="font_choice">
-      <h1><a href="/">Fonta mera</a></h1>
-      <form action="" method="GET">
-        <select name="font_category" id="category">
-          <option value="sans-serif">Sans-serif</option>
-          <option value="serif">Serif</option>
-          <option value="monospace">Monospace</option>
-          <option value="handwriting">Handwriting</option>
-          <option value="display">Display</option>
-        </select>
-        <input type="button" id="fonta" value="Generera font">    
-      </form>
-
-      <ul id="font_list">
-        <!--Placeholding fontlist-->
-      </ul>
-    </div><!--end .font_choie-->
-  </div>
+        <ul id="font_list">
+          <!--Placeholding fontlist-->
+        </ul>
+      </div><!--end .font_choie-->
+    </div><!--end #slides-->
+  </div><!--end #dashboard-->
  
 
 
