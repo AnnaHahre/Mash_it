@@ -35,9 +35,9 @@
     <li>
       <a>COLORS</a>
     </li>
-    <!--<li>
+    <li>
       <a>FONTS</a>
-    </li>-->
+    </li>
   </ul>
       <div id="colors_choice">
         <h1>Choose a basecolor:</h1>
@@ -52,6 +52,23 @@
           
         </div>
     </div>
+    <div id="font_choice">
+      <h1><a href="/">Fonta mera</a></h1>
+      <form action="" method="GET">
+        <select name="font_category" id="category">
+          <option value="sans-serif">Sans-serif</option>
+          <option value="serif">Serif</option>
+          <option value="monospace">Monospace</option>
+          <option value="handwriting">Handwriting</option>
+          <option value="display">Display</option>
+        </select>
+        <input type="button" id="fonta" value="Generera font">    
+      </form>
+
+      <ul id="font_list">
+        <!--Placeholding fontlist-->
+      </ul>
+    </div><!--end .font_choie-->
   </div>
  
 

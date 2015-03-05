@@ -1,12 +1,14 @@
       $(document).ready(function(){
         $('#submit_color').bind("click", getPalette);
 
+        $("#fonta").bind("click", getFonts); //FONT
+
         window.onbeforeunload = function() {
         return "Are you sure you want to leave? Your changes will not be saved!";
     }
 
 
-        var operator = '+=';
+/*        var operator = '+=';
         $('#dashboard').click(function(e){
           e.stopPropagation();
           $('#dashboard').animate({left:operator + '-270'}, 1000);
@@ -21,7 +23,10 @@
         $('input').click(function(event){
           event.stopPropagation();
         })
+        */
       });
+
+
 
       function getPalette(){
         $('#palette').empty();
@@ -132,4 +137,59 @@
         });
          $('.col').bind("click", getElement);
       }
+
+
+
+
+//*------------------ FONT SCRIPT -----------------
+//*
+//*
+
+function getFonts() {
+  $user_choice = $("#category").val();
+  alert($user_choice);
+
+   $.ajax({
+        type: "GET",
+        url: "http://localhost:1234/theme/font/category/" + $user_choice,
+        dataType: "json",
+        success: function(response) {
+            showfonts(response);
+
+        },
+        error: function() {
+            alert('Not working!');
+        }
+    });
+}
+
+function showfonts(fonts) {
+
+    $("#font_list").empty(); //Tömmer #font_list på element 
+    $("link[href*='fonts.googleapis']").remove(); //Tömmer head på links-taggar (alla utan övergripande css: som innehåller style.css)
+    var script_families = [];
+    var font_tag_list = [];
+
+    $.each(fonts, function(i, obj) { //för varje objekt
+        var family = obj['family'];
+        var font_name = "<li style='font-family:" + obj['family'] + ";'>" + obj['family'] + "</li>"; //skapa ett li-item
+
+        var family_name = family.replace(' ','+');
+       // alert(family_name);
+        script_families.push(family_name);
+        font_tag_list.push(font_name);
+
+    });
+
+    //hämtar in aktuella fonter genom att skriva till head
+    for (i = 0; i < script_families.length; i++) { 
+        $("head").append("<link href='https://fonts.googleapis.com/css?family=" + script_families[i] + "' rel='stylesheet' type='text/css'>");
+    }
+
+    //skriver ut alla font-taggar
+    for (i = 0; i < font_tag_list.length; i++) { 
+        $("#font_list").append(font_tag_list[i]);
+    }
+
+}      
 
