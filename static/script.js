@@ -79,8 +79,8 @@
       }
 
       function getElement(){
-        hex = null;
         var hex = jQuery(this).attr('value');
+        alert(hex);
         setHex(hex);
       }
 
@@ -225,7 +225,7 @@ function showfonts(fonts, category) {
 
     $.each(fonts, function(i, obj) { //för varje objekt
         var family = obj['family'];
-        var font_name = "<li class='fonts' value='" + obj['family'] + "' style='font-family:" + obj['family'] + ";'>" + obj['family'] + "</li>"; //skapa ett li-item
+        var font_name = "<li class='user_fonts' value='" + obj['family'] + "' style='font-family:" + obj['family'] + ";'>" + obj['family'] + "</li>"; //skapa ett li-item
 
         var family_name = family.replace(' ','+');
        // alert(family_name);
@@ -261,7 +261,7 @@ function showfonts(fonts, category) {
     }
 
     //bindet get-element till varje li-element som innehåller fontfamiljer.
-    $('.fonts').bind("click", getElement);
+    $('.user_fonts').bind("click", getElement);
 }   
 
 function appendFonts(script_families) {
