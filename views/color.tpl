@@ -73,9 +73,15 @@
 
       </div><!--end .font_choie-->
     </div><!--end #tabs-->
+
+    <div id="tool_in_use">
+    </div>
   </div><!--end #dashboard-->
  
 
+
+
+<div id="template">
 
   <!-- Navigation -->
 
@@ -170,6 +176,7 @@
   </div>
 
   <!-- /.container -->
+</div><!--end #template-->
 
   <!-- jQuery -->
   <script src="static/js/jquery.js"></script>
