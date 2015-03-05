@@ -52,10 +52,10 @@
 
           <div id="palette">
             
-          </div>
+          </div><!--end #palette-->
       </div><!--end .colors_choice-->
       <div id="font_choice">
-        <h1><a href="/">Fonta mera</a></h1>
+        <h1>Fonta mera</h1>
         <form action="" method="GET">
           <select name="font_category" id="category">
             <option value="sans-serif">Sans-serif</option>
@@ -70,8 +70,9 @@
         <ul id="font_list">
           <!--Placeholding fontlist-->
         </ul>
+
       </div><!--end .font_choie-->
-    </div><!--end #slides-->
+    </div><!--end #tabs-->
   </div><!--end #dashboard-->
  
 
