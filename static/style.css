@@ -11,6 +11,7 @@ body{
 	background-color: rgba(200,200,200,1);
 	width:20%;
 	position:fixed;
+	overflow: auto;
 	top:0;
 	left:0;
 	z-index: 1000000;
@@ -35,20 +36,20 @@ input[type=text]{
 
 }
 
-#dashboard ul{
+#tabcontrols{
 	position: relative;
 	margin-bottom:25px;
 	z-index:-99;
 }
 
-#dashboard li{
+#tabcontrols li{
 	float:left;
 	list-style: none;
 	margin:0 10px -20px 0;
 	text-align: center;
 }
 
-#dashboard a{
+#tabcontrols a{
 	position: relative;
 	display: block;
 	width:90px;
