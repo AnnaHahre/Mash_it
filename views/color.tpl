@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Template></title>
+    <title>Test></title>
     <link rel='stylesheet' href='static/style.css' />
 
     <meta content="text/html;charset=utf-8" />
