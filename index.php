@@ -107,17 +107,16 @@ function hex2rgb($hex) {
 
 //root/theme/font/category
 $app->get('/theme/font/category', function() use ($app){
-
-  $json = file_get_contents("https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDJAA0NAK2blMwOkDSlYo56ljaqW16WoDY&sort=popularity");
+  $json = getGoogleFonts();
   echo $json;
 }); 
 
 //root/theme/category/:category_name
-//:name(/:100(/:200(/:100italic(/:200italic)))))
+//OPTIONAL PARAMETERS? :name(/:100(/:200(/:100italic(/:200italic)))))
 $app->get('/theme/font/category/:name', function($name) use ($app){
     //variants 100, 200, 300, 400, 600, 700, 800, 900, 100italic, 200italic, 300italic, 400italic, 500italic, 600italic, 700italic, 800italic, 900italic.
 
-  $json = file_get_contents("https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDJAA0NAK2blMwOkDSlYo56ljaqW16WoDY&sort=popularity");
+  $json = getGoogleFonts();  
   $fontlist = json_decode($json);
 
   $items = $fontlist->items;
@@ -139,6 +138,20 @@ $app->get('/theme/font/category/:name', function($name) use ($app){
     //$display =
 
 })->conditions(array('name' => '(monospace|sans-serif|serif|handwriting|display)')); 
+
+
+function getGoogleFonts() {
+  $client = new GuzzleHttp\Client();
+
+  $url = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDJAA0NAK2blMwOkDSlYo56ljaqW16WoDY&sort=popularity";
+  $headers = array('ACCEPT' => 'application/json');
+
+  $response = $client->get($url);
+  $data = $response->json();
+  
+  return json_encode($data);
+}
+
 
 
 $app->run();
