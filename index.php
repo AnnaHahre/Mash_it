@@ -1,9 +1,11 @@
 <?php
-require 'vendor/autoload.php';
+require'./vendor/autoload.php';
 
+/*
 error_reporting(-1);
 ini_set('display_errors', 1);
 ini_set('output_buffering', 0);
+*/
 
 use \Slim\Slim as Slim;
 
