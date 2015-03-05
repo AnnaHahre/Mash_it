@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Hej</h1>
-    <p>Testing testing
+    <p>Testing funkar??
       <a href="/theme">give it a try.</a></p>
   </body>
 </html>
