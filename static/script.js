@@ -78,75 +78,102 @@
         $('#colors').val("");
       }
 
-      function getElement(){
-        var hex = jQuery(this).attr('value');
-        alert(hex);
-        setHex(hex);
-      }
-
-      function setHex(hex){
+      function changeStyle(e){
+        //delete choice
+        choice = $(this).attr('value');
+        
         $('header h1').click(function (e) {
           e.stopPropagation();
-          if (hex.substring(0,1) == "#") {
+          if (choice.substring(0,1) == "#") {
             $('header h1').css({
-            'color' : hex
+            'color' : choice
              });
+
           }
           else {
             $('header h1').css({
-            'font-family' : hex
+            'font-family' : choice
              });
           }
          
+         alert(choice);
         });
 
         $('header h2').click(function (e) {
           e.stopPropagation();
-          if (hex.substring(0,1) == "#") {
+          if (choice.substring(0,1) == "#") {
             $('header h2').css({
-              'color' : hex
+              'color' : choice
             });
           }
           else {
             $('header h2').css({
-              'font-family' : hex
+              'font-family' : choice
             });
           }
         });
 
         $('.featurette h2').click(function (e) {
           e.stopPropagation();
-          $('.featurette h2').css({
-            'color' : hex
-          });
+          if (choice.substring(0,1) == "#") {
+            $('.featurette h2').css({
+              'color' : choice
+            });
+          }
+          else {
+            $('.featurette h2').css({
+              'font-family' : choice
+            });
+          }
         });
 
         $('span').click(function (e) {
           e.stopPropagation();
-          $('span').css({
-            'color' : hex
-          });
+          if (choice.substring(0,1) == "#") {
+            $('span').css({
+              'color' : choice
+            });
+          }
+          else {
+            $('span').css({
+              'font-family' : choice
+            });
+          }
         });
 
         $('.featurette p').click(function (e) {
           e.stopPropagation();
-          $('.featurette p').css({
-            'color' : hex
-          });
+          if (choice.substring(0,1) == "#") {
+            $('.featurette p').css({
+              'color' : choice
+            });
+          }
+          else {
+            $('.featurette p').css({
+              'font-family' : choice
+            });
+          }
         });
 
         $('nav a').click(function (e) {
           e.stopPropagation();
-          $('nav a').css({
-            'color' : hex
-          });
+          if (choice.substring(0,1) == "#") {
+            $('nav a').css({
+              'color' : choice
+            });
+          }
+          else {
+            $('nav a').css({
+              'font-family' : choice
+            });
+          }
         });
 
         $('nav').click(function (e) {
           e.stopPropagation();
           $('nav').css({
-            'background-color' : hex,
-            'border' : '1px solid' + hex
+            'background-color' : choice,
+            'border' : '1px solid' + choice
           });
         });
 
@@ -160,15 +187,22 @@
         $('header').click(function (e) {
           e.stopPropagation();
           $('header').css({
-            'background-color' : hex
+            'background-color' : choice
           });
         });
 
         $('footer p').click(function (e) {
           e.stopPropagation();
-          $('footer p').css({
-            'color' : hex
-          });
+          if (choice.substring(0,1) == "#") {
+            $('footer p').css({
+              'color' : choice
+            });
+          }
+          else {
+            $('footer p').css({
+              'font-family' : choice
+            });
+          }
         });
       }
 
@@ -182,7 +216,7 @@
            // }
           });
         });
-         $('.col').bind("click", getElement);
+         $('.col').bind("click", changeStyle);
       }
 
 
@@ -261,7 +295,7 @@ function showfonts(fonts, category) {
     }
 
     //bindet get-element till varje li-element som innehåller fontfamiljer.
-    $('.user_fonts').bind("click", getElement);
+    $('.user_fonts').bind("click", changeStyle);
 }   
 
 function appendFonts(script_families) {
