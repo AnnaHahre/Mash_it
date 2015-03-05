@@ -95,8 +95,6 @@
             'font-family' : choice
              });
           }
-         
-         alert(choice);
         });
 
         $('header h2').click(function (e) {
