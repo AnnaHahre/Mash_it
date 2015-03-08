@@ -5,7 +5,12 @@
 
         window.onbeforeunload = function() {
           return "Are you sure you want to leave? Your changes will not be saved!";
-        }
+        };
+
+        $('#change_page').bind('click', function(){
+          $('#template').load('views/blogg.html');
+
+        });
 
 
           //*---------------- TAB-CONTROLL

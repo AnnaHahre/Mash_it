@@ -13,6 +13,7 @@
     <script type='text/javascript' src="static/script.js"></script>
      <!-- Bootstrap Core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="/static/css/blog-post.css" rel="stylesheet">-->
 
     <!-- Custom CSS -->
     <link href="/static/css/one-page-wonder.css" rel="stylesheet">
@@ -49,6 +50,7 @@
             <input type="submit" id="submit_color" value="Get Palettes">
             <br>
           </form>
+          <input type="button" id="change_page" value="Change template">
 
           <div id="palette">
             
