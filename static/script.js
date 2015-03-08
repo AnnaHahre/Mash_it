@@ -9,7 +9,6 @@
 
         $('#change_page').bind('click', function(){
           $('#template').load('views/blogg.html');
-
         });
 
 
@@ -116,15 +115,15 @@
           }
         });
 
-        $('.featurette h2').click(function (e) {
+        $('.container h2').click(function (e) {
           e.stopPropagation();
           if (choice.substring(0,1) == "#") {
-            $('.featurette h2').css({
+            $('.container h2').css({
               'color' : choice
             });
           }
           else {
-            $('.featurette h2').css({
+            $('.container h2').css({
               'font-family' : choice
             });
           }
@@ -144,10 +143,10 @@
           }
         });
 
-        $('.featurette p').click(function (e) {
+        $('.container p').click(function (e) {
           e.stopPropagation();
           if (choice.substring(0,1) == "#") {
-            $('.featurette p').css({
+            $('.container p').css({
               'color' : choice
             });
           }

@@ -50,11 +50,13 @@
             <input type="submit" id="submit_color" value="Get Palettes">
             <br>
           </form>
-          <input type="button" id="change_page" value="Change template">
+
 
           <div id="palette">
             
           </div><!--end #palette-->
+
+           <input type="button" id="change_page" value="Change template">
       </div><!--end .colors_choice-->
       <div id="font_choice">
         <h1>Fonta mera</h1>
