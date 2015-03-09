@@ -9,7 +9,7 @@ body{
 	height:700px;
 	border:1px solid #888;
 	background-color: rgba(200,200,200,1);
-	width:20%;
+	width:22%;
 	position:fixed;
 	overflow: auto;
 	top:0;
@@ -52,7 +52,7 @@ input[type=text]{
 #tabcontrols a{
 	position: relative;
 	display: block;
-	width:90px;
+	width:75px;
 
 	background-color: #aaa;
 	padding:5px 10px 0px 10px;
@@ -63,7 +63,7 @@ input[type=text]{
 
 }
 
-#colors_choice, #font_choice{
+#colors_choice, #font_choice, #template_choice{
 	background-color: #aaa;
 	width:100%;
 	height:400px;
@@ -115,4 +115,18 @@ input[type=text]{
 
 	text-align:center; 
 	
+}
+
+#template_one{
+	width:48%;
+	float:left;
+	content: url('img/template_one.png') no-repeat;
+	margin-right:2%;
+}
+
+#template_two{
+	width:48%;
+	float:left;
+	margin-left:2%;
+	content: url('img/template_two.png') no-repeat;
 }

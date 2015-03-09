@@ -5,10 +5,16 @@
 
         window.onbeforeunload = function() {
           return "Are you sure you want to leave? Your changes will not be saved!";
-        };
+        }
 
-        $('#change_page').bind('click', function(){
-          $('#template').load('views/blogg.html');
+        $('#template_one').bind('click', function(){
+          $('#template').load('views/template_one.html');
+
+        });
+
+        $('#template_two').bind('click', function(){
+          $('#template').load('views/template_two.html');
+
         });
 
 
@@ -115,15 +121,15 @@
           }
         });
 
-        $('.container h2').click(function (e) {
+        $('.featurette h2').click(function (e) {
           e.stopPropagation();
           if (choice.substring(0,1) == "#") {
-            $('.container h2').css({
+            $('.featurette h2').css({
               'color' : choice
             });
           }
           else {
-            $('.container h2').css({
+            $('.featurette h2').css({
               'font-family' : choice
             });
           }
@@ -143,10 +149,10 @@
           }
         });
 
-        $('.container p').click(function (e) {
+        $('.featurette p').click(function (e) {
           e.stopPropagation();
           if (choice.substring(0,1) == "#") {
-            $('.container p').css({
+            $('.featurette p').css({
               'color' : choice
             });
           }
