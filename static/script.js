@@ -12,7 +12,7 @@
 
         });
 
-        $('#template_two').bind('click', function(){        
+        $('#template_two').bind('click', function(){
           $('#template').load('views/template_two.html');
 
         });

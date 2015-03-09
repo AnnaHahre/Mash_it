@@ -118,15 +118,14 @@ input[type=text]{
 }
 
 #template_one{
-	width:48%;
-	float:left;
+	margin:0 auto;
+	width:75%;
 	content: url('img/template_one.png') no-repeat;
-	margin-right:2%;
+	margin-bottom: 5%;
 }
 
 #template_two{
-	width:48%;
-	float:left;
-	margin-left:2%;
+	margin:0 auto;
+	width:75%;
 	content: url('img/template_two.png') no-repeat;
 }
