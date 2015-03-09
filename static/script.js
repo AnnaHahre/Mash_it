@@ -12,7 +12,7 @@
 
         });
 
-        $('#template_two').bind('click', function(){
+        $('#template_two').bind('click', function(){        
           $('#template').load('views/template_two.html');
 
         });
@@ -125,6 +125,20 @@
           }
           else {
             $('header h2').css({
+              'font-family' : choice
+            });
+          }
+        });
+
+        $('.featurette h1').click(function (e) {
+          e.stopPropagation();
+          if (choice.substring(0,1) == "#") {
+            $('.featurette h1').css({
+              'color' : choice
+            });
+          }
+          else {
+            $('.featurette h1').css({
               'font-family' : choice
             });
           }
