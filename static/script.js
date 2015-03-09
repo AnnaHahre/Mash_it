@@ -49,10 +49,10 @@
          
           });
 
-/*        var operator = '+=';
+        var operator = '+=';
         $('#dashboard').click(function(e){
           e.stopPropagation();
-          $('#dashboard').animate({left:operator + '-270'}, 1000);
+          $('#dashboard').animate({left:operator + '-300'}, 1000);
             if(operator == '+='){
               operator = '-=';
             }
@@ -64,7 +64,16 @@
         $('input').click(function(event){
           event.stopPropagation();
         })
-        */
+
+        $('#tabcontrols').click(function(event){
+          event.stopPropagation();
+        })
+
+        $('#category').click(function(event){
+          event.stopPropagation();
+        })
+        
+        
       });
 
 
