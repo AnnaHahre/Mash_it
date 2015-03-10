@@ -2,6 +2,38 @@ body{
 
 }
 
+/*Styles for API-doc*/
+.api_doc {
+	font-family: monospace;
+	margin: 0;
+	padding: 0;
+}
+.api_doc section{
+	width: 50%;
+	padding: 5%;
+	margin: auto;
+}
+
+.api_doc header {
+	background-color: #B7CBBF;
+	margin: 0;
+	padding: 0;
+}
+
+.api_doc header h1{
+	padding: 5%;
+	margin: auto;
+	text-align: center;
+}
+
+.api_doc code{
+	background-color: #eee;
+	display: block;
+	width: 96%;
+	padding: 2%;
+	border: 1px solid #cecece;
+}
+
 
 #dashboard{
 	padding:3% 1% 1% 1%;

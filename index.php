@@ -25,6 +25,12 @@ $app->get('/mash', function () use ($app) {
 	$app->render('color.tpl');
 });
 
+$app->get('/api/v1/doc', function () use ($app) {
+  $app->render('documentation.tpl');
+});
+
+
+
 //*---------------- PALETTE ENDPOINTS ----------------
 //*
 //*
