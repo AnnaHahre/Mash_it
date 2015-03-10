@@ -158,7 +158,7 @@ function getGoogleFonts($catname) {
       {
           if($item->category === $catname) {
             $font_item = array(
-              "family"=>$item->family,
+              "font-family"=>$item->family,
               "variants"=>$item->variants,
               "subsets"=>$item->subsets
               );

@@ -21,9 +21,31 @@ body{
 }
 
 .api_doc header h1{
-	padding: 5%;
+	padding: 6%;
 	margin: auto;
 	text-align: center;
+}
+
+.api_doc footer{
+	margin-top: 7%;
+	padding: 2%;
+	background-color: #222;
+}
+
+.api_doc footer p {
+	text-align: center;
+}
+
+.api_doc footer a {
+	color: #fefefe;
+}
+
+.api_doc footer a:hover, .api_doc footer a:active  {
+	text-decoration: none;
+}
+
+.api_doc footer a:visited {
+	color: #fefefe;
 }
 
 .api_doc h2 {
@@ -31,14 +53,14 @@ body{
 }
 
 .api_doc h3 {
-	margin-top: 3%;
+	margin-top: 4.5%;
 }
 
 code {
 	background-color: #eee;
 	display: block;
-	width: 96%;
-	padding: 1.5%;
+	width: 93%;
+	padding: 1%;
 	border: 1px solid #cecece;
 	line-height: 1.6em;
 }
@@ -46,8 +68,6 @@ code {
 code em {
 	background-color: #cecece;
 	padding: 0.5%;
-}
-.request {
 }
 
 .response {
@@ -170,7 +190,7 @@ input[type=text]{
 	margin-top:-10%;
 
 	text-align:center; 
-	
+
 }
 
 #template_one{

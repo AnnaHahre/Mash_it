@@ -403,8 +403,8 @@ function showfonts(fonts, category) {
     var font_tag_list = [];
 
     $.each(fonts, function(i, obj) { //för varje objekt
-        var family = obj['family'];
-        var font_name = "<li class='user_fonts' value='" + obj['family'] + "' style='font-family:" + obj['family'] + ";'>" + obj['family'] + "</li>"; //skapa ett li-item
+        var family = obj['font-family'];
+        var font_name = "<li class='user_fonts' value='" + obj['font-family'] + "' style='font-family:" + obj['font-family'] + ";'>" + obj['font-family'] + "</li>"; //skapa ett li-item
 
         var family_name = family.replace(' ','+');
        // alert(family_name);

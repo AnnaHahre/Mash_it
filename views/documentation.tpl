@@ -12,6 +12,9 @@
   	</header>
   	<section>
   		<h2>List fonts by category</h2>
+      <p>Returns a list of categorized fonts from <a href="https://www.google.com/fonts">google fonts</a>.</p>
+
+      <h3>Endpoint</h3>
   		<code class="request">GET http://www.mashit.nu/api/v1/fonts/category/<em>name</em></code>
       <p>Name (required): monospace|sans-serif|serif|handwriting|display</p>
 
@@ -26,6 +29,8 @@
   		<code class="response response_body">Test</code>
 
   		<h2>List palette by hex</h2>
+      <p>Returns a set of palettes created by the <a href="http://www.colourlovers.com/">COLOURlovers community</a>.</p>
+      
   		<code class="request">GET http://www.mashit.nu/api/v1/palette/<em>hex</em></code>
       <h3>Response</h3>
       <code class="response response_header">
@@ -43,7 +48,13 @@
       </code>
       <code class="response response_body">Test</code>
 
+      <h2>License</h2>
+      <p>Attribution-Noncommercial-Share Alike - <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a></p>
+
   	</section>
+    <footer>
+      <p><a href="/index.php">Mash:it</a></p>
+    </footer>
   </div><!--#wrapper .api_doc-->
   </body>
 </html>
