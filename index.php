@@ -29,7 +29,7 @@ $app->get('/theme', function () use ($app) {
 //*
 //*
 
-$app->get('/palette/:name', function ($name) use ($app) {
+$app->get('/api/v1/palette/:name', function ($name) use ($app) {
 	$palette = get_ColorLovers_Palette($name);
 	$response = $app->response();
 	$response->header('Content-Type', 'application/json');
@@ -76,21 +76,19 @@ $app->get('/theme/font/category/:name', function($name) use ($app){
 
 })->conditions(array('name' => '(monospace|sans-serif|serif|handwriting|display)')); 
 
-//*------------------ API ENDPOINTS -------------------
-//*
-//*
-
-$app->get('/api/v1/color/:name', function ($name) use ($app) {
-  $palette = get_ColorLovers_Palette($name);
-  echo json_encode($palette);
-
-
-}) ->conditions(array('name' => '[a-fA-F0-9]{6}'));
 
 //*-----------------ERROR HANDLING ---------------------
 //*
 //*
-
+$app->error(function(Exception $e) use ($app) {
+  $error = array(
+      'message' => 'Internal Server Error',
+      'status' => 500,  
+      'stack' => $e->getMessage()
+  );
+  
+  $app->render('error.php', $error, 500);
+});
 
 //*-------- FUNCTIONS FOR GETTING DATA FROM EXTERNAL API'S ---------
 //*

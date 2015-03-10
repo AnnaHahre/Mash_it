@@ -82,7 +82,7 @@ function getPalette(){
   event.preventDefault();
   $.ajax({
     type: "GET",
-    url: "http://localhost:1234/palette/" +hex,
+    url: "http://localhost:1234/api/v1/palette/" +hex,
     dataType: "json",
 
     success: function(response) {
