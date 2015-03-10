@@ -31,11 +31,11 @@
 <body>
 
   <!--Dashboard -->
- <div id="dashboard">
+ <div id="dashboard" style="display:none">
   <ul id="tabcontrols">
-    <li>
+    <!--<li>
       <a href="#template_choice">Template</a>
-    </li>
+    </li>-->
     <li>
       <a href="#colors_choice">Color</a>
     </li>
@@ -46,15 +46,7 @@
 
     <div id="tabs">
 
-      <!--Divs for template_choice-->
-      <div id="template_choice">
-        <div id="template_one">
-          <!--<input type="button" id="temp_one" value="Change template">-->
-        </div>
-        <div id="template_two">
-        </div>
-       
-      </div> <!--end #template_choice-->
+     
 
       <div id="colors_choice">
         <h1>Choose a basecolor:</h1>
@@ -104,96 +96,24 @@
 
   <!-- Navigation -->
 
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand">Your Homepage</a>
-          </div>
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                  <li>
-                      <a>About</a>
-                  </li>
-                  <li>
-                      <a>Services</a>
-                  </li>
-                  <li>
-                      <a>Contact</a>
-                  </li>
-              </ul>
-          </div>
-          <!-- /.navbar-collapse -->
-      </div>
-      <!-- /.container -->
-  </nav>
+   <!--Divs for template_choice-->
 
-  <!-- Full Width Image Header -->
-  <header class="header-image">
-      <div class="headline">
-          <div class="container">
-              <h1>One Page Wonder</h1>
-              <h2>Will Knock Your Socks Off</h2>
-          </div>
-      </div>
-  </header>
-
-  <!-- Page Content -->
-  <div class="container">
-
-      <hr class="featurette-divider">
-
-      <!-- First Featurette -->
-      <div class="featurette" id="about">
-          <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-          <h2 class="featurette-heading">This First Heading
-              <span class="text-muted">Will Catch Your Eye</span>
-          </h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- Second Featurette -->
-      <div class="featurette" id="services">
-          <img class="featurette-image img-circle img-responsive pull-left" src="http://placehold.it/500x500">
-          <h2 class="featurette-heading">The Second Heading
-              <span class="text-muted">Is Pretty Cool Too.</span>
-          </h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- Third Featurette -->
-      <div class="featurette" id="contact">
-          <img class="featurette-image img-circle img-responsive pull-right" src="http://placehold.it/500x500">
-          <h2 class="featurette-heading">The Third Heading
-              <span class="text-muted">Will Seal the Deal.</span>
-          </h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- Footer -->
-      <footer>
-          <div class="row">
-              <div class="col-lg-12">
-                  <p>Copyright &copy; Your Website 2014</p>
-              </div>
-          </div>
-      </footer>
-
-  </div>
-
+      <div id="template_choice">
+        <h1>Step 1: Choose a template</h1>
+        <div id="template_one">
+          <img src="static/img/template_one.png" alt="">
+          <h2>One Page Wonder</h2>
+          <p>A simple one page template</p>
+          <button id="temp_one">Use Template</button>
+        </div>
+        <div id="template_two">
+          <img src="static/img/template_two.png" alt="">
+          <h2>One Page Blogg</h2>
+          <p>A blog post one page template</p>
+          <button id="temp_two">Use Template</button>
+        </div>
+       
+      </div> <!--end #template_choice-->
   <!-- /.container -->
 </div><!--end #template-->
 

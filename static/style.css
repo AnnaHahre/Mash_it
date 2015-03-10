@@ -1,5 +1,9 @@
-body{
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Muli:300,400);
+@import url(http://fonts.googleapis.com/css?family=Architects+Daughter);
 
+body{
+	background-color: #ccc;
 }
 
 /*Styles for API-doc*/
@@ -139,7 +143,7 @@ input[type=text]{
 
 }
 
-#colors_choice, #font_choice, #template_choice{
+#colors_choice, #font_choice{
 	background-color: #aaa;
 	width:100%;
 	height:400px;
@@ -193,15 +197,66 @@ input[type=text]{
 
 }
 
-#template_one{
+#template_choice{
+	
+	width:70%;
 	margin:0 auto;
-	width:75%;
-	content: url('img/template_one.png') no-repeat;
-	margin-bottom: 5%;
+}
+
+#template_choice h1{
+	font-family: 'Architects Daughter';
+	font-size: 3em;
+	height:65px;
+	margin:9% 0% 2% 5%;
+	
+}
+
+#template_choice h2{
+	margin: 8% 0% 4% 0%;
+	font-family: 'Montserrat';
+}
+
+#template_choice p{
+	font-family: 'Muli';
+	font-size: 1.15em;
+}
+
+#template_choice button{
+	width:40%;
+	height:40px;
+	border:1px solid #ddd;
+	border-radius: 8px;
+	background-color: #fefefe;
+	margin: 5% 0%;
+	font-family: 'Muli';
+	font-size: 1.2em;
+}
+
+#template_one{
+	background:url('img/crossword.png');
+	margin:0 auto;
+	width:40%;
+	float:left;
+	margin: 0 5%;
+	border:1px solid #ccc;
+	text-align: center;
+	border-radius: 5px;
+}
+
+#template_one img, #template_two img{
+	margin:1.5%;
+	width:97%;
+	border:1px solid #ddd;
 }
 
 #template_two{
+	background:url('img/crossword.png');
 	margin:0 auto;
-	width:75%;
-	content: url('img/template_two.png') no-repeat;
+	width:40%;
+	float:left;
+	margin:0% 5%;
+	border:1px solid #ccc;
+	text-align: center;
+	border-radius: 5px;
+
 }

@@ -9,13 +9,15 @@ $(document).ready(function(){
 
   //*------------- LOADING OF TEMPLATES --------------
   //*
-  $('#template_one').bind('click', function(){
+  $('#temp_one').bind('click', function(){
     $('#template').load('views/template_one.tpl'); 
+    $('#dashboard').css({'display': 'block'});
 
   });
 
-  $('#template_two').bind('click', function(){
+  $('#temp_two').bind('click', function(){
     $('#template').load('views/template_two.tpl');
+    $('#dashboard').css({'display': 'block'});
 
   });
 
