@@ -453,9 +453,15 @@ function appendFonts(script_families) {
 function getElementStyle(){
   elements = {};
   
-  elements['header h1'] = $('header h1').attr('style');
-  elements['h2'] = $('h2').attr('style');
-  elements['.container p']  = $('.container p').attr('style');
+  if ($('header h1').attr('style') === undefined){
+    elements['header h1'] = $('header h1').css('color');
+  }
+  else{
+    elements['header h1'] = $('header h1').attr('style');
+  }
+  elements['header h2'] = $('header h2').attr('style');
+  elements['h2'] = $('.featurette h2').attr('style');
+  elements['p']  = $('.container p').attr('style');
 
     /*if (elements['header h1'] === undefined){
        alert('undefined');
@@ -463,8 +469,10 @@ function getElementStyle(){
     else{
       alert('header h1 { ' + elements['header h1'] + '}\n');
     }*/
-     
-    alert('header h1 { ' + elements['header h1'] + '}\n' + 'h2 { ' + elements['h2'] + '}\n' + 'p { ' + elements['.container p'] + '}\n');
+    $.each(elements, function(key,value){
+      alert(key + " {" + value + "}");
+    })
+    //alert('header h1 { ' + elements['header h1'] + '}\n' + 'header h2 { ' + elements['header h2'] + '}\n' + 'h2 { ' + elements['h2'] + '}\n' + 'p { ' + elements['p'] + '}\n');
 
 }
 
