@@ -25,80 +25,17 @@ $app->get('/theme', function () use ($app) {
 	$app->render('color.tpl');
 });
 
+//*---------------- PALETTE ENDPOINTS ----------------
+//*
+//*
+
 $app->get('/palette/:name', function ($name) use ($app) {
-	$palette = get_palette($name);
+	$palette = get_ColorLovers_Palette($name);
 	$response = $app->response();
 	$response->header('Content-Type', 'application/json');
 	echo json_encode($palette);
 
 }) ->conditions(array('name' => '[a-fA-F0-9]{6}'));
-
-
-//Test av skapande av egen api endpoint
-
-$app->get('/api/v1/color/:name', function ($name) use ($app) {
-	$palette = get_palette($name);
-	echo json_encode($palette);
-
-
-}) ->conditions(array('name' => '[a-fA-F0-9]{6}'));
-
-//Felmeddelandehantering
-
-
-
-
-
-//Hämtar färgpaletter från ColorLovers api
-
-function get_palette($hex) {
-	$client = new GuzzleHttp\Client();
-
-	$url = "http://www.colourlovers.com/api/palettes/top?hex=".$hex."&format=json&sortBy=asc&numResults=5";
-	$headers = array('ACCEPT' => 'application/json');
-
-	$response = $client->get($url);
-	$data = $response->json();
-
-	/*$color_data = array('palette' => $data);*/
-	$all_palettes = [];
-	foreach ($data as $color) {
-		if (count($color['colors']) == 5){
-        $palette = array("colors"=>$color['colors']);
-    }
-    else{
-    	continue;
-    }
-        //foreach ($color['colors'] as $value) {
-          		
-           // array_push($palette, $value);
-           // }
-
-   		array_push($all_palettes, $palette);
-        }
-    //}
-	return $all_palettes;
-	$hex = null;
-	
-}
-
-/*function hex2rgb($hex) {
-   $hex = str_replace("#", "", $hex);
-
-   if(strlen($hex) == 3) {
-      $r = hexdec(substr($hex,0,1).substr($hex,0,1));
-      $g = hexdec(substr($hex,1,1).substr($hex,1,1));
-      $b = hexdec(substr($hex,2,1).substr($hex,2,1));
-   } else {
-      $r = hexdec(substr($hex,0,2));
-      $g = hexdec(substr($hex,2,2));
-      $b = hexdec(substr($hex,4,2));
-   }
-   $rgb = array($r, $g, $b);
-   //return implode(",", $rgb); // returns the rgb values separated by commas
-   return $rgb; // returns an array with the rgb values
-}*/
-
 
 
 //*------------------ FONT ENDPOINTS -----------------
@@ -138,6 +75,57 @@ $app->get('/theme/font/category/:name', function($name) use ($app){
     //$display =
 
 })->conditions(array('name' => '(monospace|sans-serif|serif|handwriting|display)')); 
+
+//*------------------ API ENDPOINTS -------------------
+//*
+//*
+
+$app->get('/api/v1/color/:name', function ($name) use ($app) {
+  $palette = get_ColorLovers_Palette($name);
+  echo json_encode($palette);
+
+
+}) ->conditions(array('name' => '[a-fA-F0-9]{6}'));
+
+//*-----------------ERROR HANDLING ---------------------
+//*
+//*
+
+
+//*-------- FUNCTIONS FOR GETTING DATA FROM EXTERNAL API'S ---------
+//*
+//*
+
+function get_ColorLovers_Palette($hex) {
+  $client = new GuzzleHttp\Client();
+
+  $url = "http://www.colourlovers.com/api/palettes/top?hex=".$hex."&format=json&sortBy=asc&numResults=5";
+  $headers = array('ACCEPT' => 'application/json');
+
+  $response = $client->get($url);
+  $data = $response->json();
+
+  /*$color_data = array('palette' => $data);*/
+  $all_palettes = [];
+  foreach ($data as $color) {
+    if (count($color['colors']) == 5){
+        $palette = array("colors"=>$color['colors']);
+    }
+    else{
+      continue;
+    }
+        //foreach ($color['colors'] as $value) {
+              
+           // array_push($palette, $value);
+           // }
+
+      array_push($all_palettes, $palette);
+        }
+    //}
+  return $all_palettes;
+  $hex = null;
+  
+}
 
 
 function getGoogleFonts() {
