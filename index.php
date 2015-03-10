@@ -57,17 +57,10 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
   $fontlist = json_decode($json);
 
   $items = $fontlist->items;
-  $category_list = array();
 
-    foreach ( $items as $item => $value )
-    {
-        if($value->category === $name) {
-          array_push($category_list, $value);
-        }
-    }
+  $category_list = categorizeFonts($items, $name);
 
-    $categorys = json_encode($category_list);
-    echo $categorys;
+    echo $category_list;
     //$handwriting =
     //$monospace =
     //$sans-serif =
@@ -76,7 +69,34 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
 
 })->conditions(array('name' => '(monospace|sans-serif|serif|handwriting|display)')); 
 
-$app->get('/api/v1/theme/:hex', function ($hex) use ($app) {
+
+function categorizeFonts($items, $catname) {
+  $category_list = array();
+  //array_push($category_list, array("category"=>$catname));
+  //array_push($category_list, array("category"=>$catname));
+
+    foreach ( $items as $item )
+    {
+        if($item->category === $catname) {
+          $font_item = array("family"=>$item->family,"variants"=>$item->variants,"subsets"=>$item->subsets);
+          array_push($category_list, $font_item);
+        }
+    }
+
+    $categories = json_encode($category_list);
+    return $categories;
+    //$handwriting =
+    //$monospace =
+    //$sans-serif =
+    //$serif =
+    //$display =
+
+}
+
+
+
+
+$app->get('/api/v1/theme/:hex/:catname', function ($hex, $catname) use ($app) {
   $palette = get_ColorLovers_Palette($hex);
   $json = getGoogleFonts();
   //$response = $app->response();
@@ -117,7 +137,7 @@ function get_ColorLovers_Palette($hex) {
   $all_palettes = [];
   foreach ($data as $color) {
     if (count($color['colors']) == 5){
-        $palette = array("colors"=>$color['colors']);
+        $palette = array("palette"=>$color['colors']);
     }
     else{
       continue;
@@ -146,6 +166,7 @@ function getGoogleFonts() {
   $data = $response->json();
   return json_encode($data);
 }
+
 
 
 
