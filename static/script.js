@@ -19,6 +19,9 @@ $(document).ready(function(){
 
   });
 
+  $('#test').click(getElementStyle);
+    
+
 
   //*---------------- TAB-CONTROLL ----------------
   //*
@@ -111,7 +114,7 @@ function changeStyle(e){
   //delete choice
   choice = $(this).attr('value');
 
-  $('#template h1, h2, h3, h4, span, footer p, p').click(function(e){
+  $('#template h1, h2, h3, h4, span, footer p, .container p').click(function(e){
     e.stopPropagation();
     if (choice.substring(0,1) == "#") {
       $(e.target).css({
@@ -445,4 +448,23 @@ function appendFonts(script_families) {
           $("head").append("<link href='https://fonts.googleapis.com/css?family=" + script_families[i] + "' rel='stylesheet' type='text/css'>");
       }
 }   
+
+
+function getElementStyle(){
+  elements = {};
+  
+  elements['header h1'] = $('header h1').attr('style');
+  elements['h2'] = $('h2').attr('style');
+  elements['.container p']  = $('.container p').attr('style');
+
+    /*if (elements['header h1'] === undefined){
+       alert('undefined');
+    }
+    else{
+      alert('header h1 { ' + elements['header h1'] + '}\n');
+    }*/
+     
+    alert('header h1 { ' + elements['header h1'] + '}\n' + 'h2 { ' + elements['h2'] + '}\n' + 'p { ' + elements['.container p'] + '}\n');
+
+}
 

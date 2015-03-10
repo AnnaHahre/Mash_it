@@ -70,6 +70,8 @@
           
         </div><!--end #palette-->
 
+        <input type="button" id="test" value="Generate CSS">
+
       </div><!--end .colors_choice-->
       <div id="font_choice">
         <h1>Fonta mera</h1>
