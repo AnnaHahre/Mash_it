@@ -30,6 +30,7 @@ $app->get('/mash', function () use ($app) {
 //*
 
 $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
+  //$num_results = $app->request()->params('num');
 	$palette = get_ColorLovers_Palette($hex);
 	$response = $app->response();
 	$response->header('Content-Type', 'application/json');
@@ -53,19 +54,13 @@ $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
 $app->get('/api/v1/font/category/:name', function($name) use ($app){
     //variants 100, 200, 300, 400, 600, 700, 800, 900, 100italic, 200italic, 300italic, 400italic, 500italic, 600italic, 700italic, 800italic, 900italic.
 
-  $json = getGoogleFonts();  
+  $json = getGoogleFonts($name);  
+
   $fontlist = json_decode($json);
-
   $items = $fontlist->items;
-
   $category_list = categorizeFonts($items, $name);
 
-    echo $category_list;
-    //$handwriting =
-    //$monospace =
-    //$sans-serif =
-    //$serif =
-    //$display =
+  echo $category_list;
 
 })->conditions(array('name' => '(monospace|sans-serif|serif|handwriting|display)')); 
 
@@ -164,6 +159,8 @@ function getGoogleFonts() {
 
   $response = $client->get($url);
   $data = $response->json();
+
+  //insert categorize_fonts
   return json_encode($data);
 }
 
