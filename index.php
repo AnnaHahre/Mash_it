@@ -55,47 +55,23 @@ $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
   echo json_encode($json);
 }); */
 
+
 //root/theme/category/:category_name
 //OPTIONAL PARAMETERS? :name(/:100(/:200(/:100italic(/:200italic)))))
 $app->get('/api/v1/font/category/:name', function($name) use ($app){
     //variants 100, 200, 300, 400, 600, 700, 800, 900, 100italic, 200italic, 300italic, 400italic, 500italic, 600italic, 700italic, 800italic, 900italic.
 
-  $json = getGoogleFonts($name);  
+  $fontlist = getGoogleFonts($name);  
+  $response = $app->response();
+  $response->header('Content-Type', 'application/json');
 
-  $fontlist = json_decode($json);
-  $items = $fontlist->items;
-  $category_list = categorizeFonts($items, $name);
-
-  echo $category_list;
-
+  echo $fontlist;
 })->conditions(array('name' => '(monospace|sans-serif|serif|handwriting|display)')); 
 
 
-function categorizeFonts($items, $catname) {
-  $category_list = array();
-  //array_push($category_list, array("category"=>$catname));
-  //array_push($category_list, array("category"=>$catname));
-
-    foreach ( $items as $item )
-    {
-        if($item->category === $catname) {
-          $font_item = array("family"=>$item->family,"variants"=>$item->variants,"subsets"=>$item->subsets);
-          array_push($category_list, $font_item);
-        }
-    }
-
-    $categories = json_encode($category_list);
-    return $categories;
-    //$handwriting =
-    //$monospace =
-    //$sans-serif =
-    //$serif =
-    //$display =
-
-}
-
-
-
+//*------------------ THEME ENDPOINTS -----------------
+//*
+//*
 
 $app->get('/api/v1/theme/:hex/:catname', function ($hex, $catname) use ($app) {
   $palette = get_ColorLovers_Palette($hex);
@@ -106,6 +82,7 @@ $app->get('/api/v1/theme/:hex/:catname', function ($hex, $catname) use ($app) {
   //echo json_encode($json);
 
 }) ->conditions(array('hex' => '[a-fA-F0-9]{6}'));
+
 
 
 //*-----------------ERROR HANDLING ---------------------
@@ -157,7 +134,8 @@ function get_ColorLovers_Palette($hex) {
 }
 
 
-function getGoogleFonts() {
+
+function getGoogleFonts($catname) {
   $client = new GuzzleHttp\Client();
 
   $url = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDJAA0NAK2blMwOkDSlYo56ljaqW16WoDY&sort=popularity";
@@ -166,10 +144,30 @@ function getGoogleFonts() {
   $response = $client->get($url);
   $data = $response->json();
 
-  //insert categorize_fonts
-  return json_encode($data);
-}
+      //Categorizing fonts by $catname
+      $fontlist = json_encode($data);
+      $arr = json_decode($fontlist);
 
+      $category_list = array();
+
+      $items = $arr->items;
+      //array_push($category_list, array("category"=>$catname));
+      //array_push($category_list, array("fonts"=>[]));
+
+      foreach ( $items as $item )
+      {
+          if($item->category === $catname) {
+            $font_item = array(
+              "family"=>$item->family,
+              "variants"=>$item->variants,
+              "subsets"=>$item->subsets
+              );
+            array_push($category_list, $font_item);
+          }
+      }
+
+  return json_encode($category_list);
+}
 
 
 
