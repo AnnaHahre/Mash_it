@@ -1,5 +1,5 @@
       $(document).ready(function(){
-        $('#submit_color').bind("click", getPalette);
+        $('#submit_color').bind("click", getPalette); //COLORS
 
         $("#fonta").bind("click", getFonts); //FONT
 
@@ -7,8 +7,10 @@
           return "Are you sure you want to leave? Your changes will not be saved!";
         }
 
+        //*------------------ LOADING OF TEMPLATES
+        //*
         $('#template_one').bind('click', function(){
-          $('#template').load('views/template_one.html');
+          $('#template').load('views/template_one.html'); 
 
         });
 
@@ -61,23 +63,14 @@
             }
         });
 
-        $('input').click(function(event){
+        $('input, #tabcontrols, #category').click(function(event){
           event.stopPropagation();
-        })
-
-        $('#tabcontrols').click(function(event){
-          event.stopPropagation();
-        })
-
-        $('#category').click(function(event){
-          event.stopPropagation();
-        })
-        
+        });
         
       });
 
-
-
+      //*----------------- COLOR-SCRIPT ------------------
+      //*
       function getPalette(){
         $('#palette').empty();
         var hex = $('#colors').val();
@@ -97,6 +90,21 @@
         $('#colors').val("");
       }
 
+      function showPalette(response){
+        $.each(response, function(index, value) {
+          $.each(value, function(index, color) {
+            //if (color.length == 5){
+              $.each(color, function(index, item) {
+                 $('#palette').append("<div class='col' value='#" + item + "'><p class='col_p' style=background-color:#" +item + ";' value=" +item+ "></p><p class='hex_name'>#" +item+"</p></div>");
+              });
+           // }
+          });
+        });
+         $('.col').bind("click", changeStyle);
+      }
+
+      //*---------------- SCRIPT FOR CHANGING STYLES ON WEBPAGE ----------------
+      //*
       function changeStyle(e){
         //delete choice
         choice = $(this).attr('value');
@@ -350,19 +358,7 @@
         });*/
       }
 
-      function showPalette(response){
-        $.each(response, function(index, value) {
-          $.each(value, function(index, color) {
-            //if (color.length == 5){
-              $.each(color, function(index, item) {
-                 $('#palette').append("<div class='col' value='#" + item + "'><p class='col_p' style=background-color:#" +item + ";' value=" +item+ "></p><p class='hex_name'>#" +item+"</p></div>");
-              });
-           // }
-          });
-        });
-         $('.col').bind("click", changeStyle);
-      }
-
+      
 
 
 
