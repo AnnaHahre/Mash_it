@@ -15,8 +15,27 @@
       <p>Returns a list of categorized fonts from <a href="https://www.google.com/fonts">google fonts</a>.</p>
 
       <h3>Endpoint</h3>
-  		<code class="request">GET http://www.mashit.nu/api/v1/fonts/category/<em>name</em></code>
-      <p>Name (required): monospace|sans-serif|serif|handwriting|display</p>
+  		<code class="request">GET http://www.mashit.nu/api/v1/fonts/category/<em>name</em> <em>?num=int</em></code>
+      <table>
+      <tr>
+        <th>name</th>
+        <th>type</th>
+        <th>data-type</th>
+        <th>opt/req</th>
+      </tr>  
+      <tr>
+        <td><em>name</em></td>
+        <td>endpoint</td>
+        <td>monospace|sans-serif|serif|handwriting|display</td>
+        <td>(required)</td>
+      </tr>  
+      <tr>
+        <td><em>num</em></td>
+        <td>parameter</td>
+        <td>int</td>
+        <td>(optional)</td>
+      </tr>  
+      </table>
 
       <h3>Exemple request</h3>
       <code class="ex_request">curl http://www.mashit.nu/api/v1/fonts/category/monospace</code>

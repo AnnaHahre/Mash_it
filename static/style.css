@@ -7,81 +7,123 @@ body{
 }
 
 /*Styles for API-doc*/
-.api_doc {
-	font-family: monospace;
-	margin: 0;
-	padding: 0;
-}
-.api_doc section{
-	width: 50%;
-	padding: 0% 5%;
-	margin: auto;
-}
+	.api_doc {
+		font-family: monospace;
+		margin: 0;
+		padding: 0;
+	}
+	.api_doc section{
+		width: 50%;
+		padding: 0% 5%;
+		margin: auto;
+	}
 
-.api_doc header {
-	background-color: #B7CBBF;
-	margin: 0;
-	padding: 0;
-}
+	.api_doc header {
+		background-color: #B7CBBF;
+		margin: 0;
+		padding: 0;
+	}
 
-.api_doc header h1{
-	padding: 6%;
-	margin: auto;
-	text-align: center;
-}
+	.api_doc header h1{
+		padding: 6%;
+		margin: auto;
+		text-align: center;
+	}
 
-.api_doc footer{
-	margin-top: 7%;
-	padding: 2%;
-	background-color: #222;
-}
+	.api_doc footer{
+		margin-top: 7%;
+		padding: 2%;
+		background-color: #222;
+	}
 
-.api_doc footer p {
-	text-align: center;
-}
+	.api_doc footer p {
+		text-align: center;
+	}
 
-.api_doc footer a {
-	color: #fefefe;
-}
+	.api_doc footer a {
+		color: #cecece;
+	}
 
-.api_doc footer a:hover, .api_doc footer a:active  {
-	text-decoration: none;
-}
+	.api_doc footer a:hover, .api_doc footer a:active  {
+		text-decoration: none;
+	}
 
-.api_doc footer a:visited {
-	color: #fefefe;
-}
+	.api_doc footer a:visited {
+		color: #cecece;
+	}
 
-.api_doc h2 {
-	margin-top: 8%;
-}
+	.api_doc h2 {
+		margin-top: 8%;
+	}
 
-.api_doc h3 {
-	margin-top: 4.5%;
-}
+	.api_doc h3 {
+		margin-top: 4.5%;
+	}
 
-code {
-	background-color: #eee;
-	display: block;
-	width: 93%;
-	padding: 1%;
-	border: 1px solid #cecece;
-	line-height: 1.6em;
-}
+	.api_doc table {
+		margin: 2% 0% 0% 0%;
+		text-align: left;
+		width: 95%;
+		padding: 1%;
+		border: 1px solid #cecece;
+	}
 
-code em {
-	background-color: #cecece;
-	padding: 0.5%;
-}
+	.api_doc td, .api_doc th {
+		padding: 0.5% 2%;
+	}
 
-.response {
-	background-color: #fefefe;
-}
+	.api_doc table em {
+		background-color: #cecece;
+		padding: 4%;
+	}
 
-.response_header {
-	background-color: #eee;
-	border-bottom: 0px solid #fff;
-}
+	code {
+		background-color: #eee;
+		display: block;
+		width: 93%;
+		padding: 1%;
+		border: 1px solid #cecece;
+		line-height: 1.6em;
+	}
+
+	code em {
+		background-color: #cecece;
+		padding: 0.5%;
+	}
+
+	.response {
+		background-color: #fefefe;
+	}
+
+	.response_header {
+		background-color: #eee;
+		border-bottom: 0px solid #fff;
+	}
+
+/* */
+
+/*Styles for 404*/
+	.not_found {
+		font-family: monospace;
+		background-color: #B7CBBF;
+		width: 100%;
+		margin: auto;
+		text-align: center;
+	}
+
+	.not_found h1{
+		font-size: 4em;
+		padding: 16% 0% 2% 0%;
+	}
+
+	.not_found p {
+		line-height: 1.7em;
+	}
+
+	.not_found a:hover{
+		text-decoration: none;
+	}
+/**/
 
 #dashboard{
 	padding:3% 1% 1% 1%;
