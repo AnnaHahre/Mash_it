@@ -377,7 +377,7 @@ function getFonts() {
 
    $.ajax({
         type: "GET",
-        url: "http://localhost:1234/theme/font/category/" + $user_choice,
+        url: "http://localhost:1234/api/v1/font/category/" + $user_choice,
         dataType: "json",
         success: function(response) {
             showfonts(response, $user_choice);

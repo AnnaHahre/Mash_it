@@ -21,7 +21,7 @@ $app->get('/', function () use ($app) {
 	$app->render('index.tpl', $message);
 });
 
-$app->get('/theme', function () use ($app) {
+$app->get('/mash', function () use ($app) {
 	$app->render('color.tpl');
 });
 
@@ -29,13 +29,13 @@ $app->get('/theme', function () use ($app) {
 //*
 //*
 
-$app->get('/api/v1/palette/:name', function ($name) use ($app) {
-	$palette = get_ColorLovers_Palette($name);
+$app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
+	$palette = get_ColorLovers_Palette($hex);
 	$response = $app->response();
 	$response->header('Content-Type', 'application/json');
 	echo json_encode($palette);
 
-}) ->conditions(array('name' => '[a-fA-F0-9]{6}'));
+}) ->conditions(array('hex' => '[a-fA-F0-9]{6}'));
 
 
 //*------------------ FONT ENDPOINTS -----------------
@@ -43,14 +43,14 @@ $app->get('/api/v1/palette/:name', function ($name) use ($app) {
 //*
 
 //root/theme/font/category
-$app->get('/theme/font/category', function() use ($app){
+/*$app->get('/api/v1/font/category', function() use ($app){
   $json = getGoogleFonts();
-  echo $json;
-}); 
+  echo json_encode($json);
+}); */
 
 //root/theme/category/:category_name
 //OPTIONAL PARAMETERS? :name(/:100(/:200(/:100italic(/:200italic)))))
-$app->get('/theme/font/category/:name', function($name) use ($app){
+$app->get('/api/v1/font/category/:name', function($name) use ($app){
     //variants 100, 200, 300, 400, 600, 700, 800, 900, 100italic, 200italic, 300italic, 400italic, 500italic, 600italic, 700italic, 800italic, 900italic.
 
   $json = getGoogleFonts();  
@@ -75,6 +75,16 @@ $app->get('/theme/font/category/:name', function($name) use ($app){
     //$display =
 
 })->conditions(array('name' => '(monospace|sans-serif|serif|handwriting|display)')); 
+
+$app->get('/api/v1/theme/:hex', function ($hex) use ($app) {
+  $palette = get_ColorLovers_Palette($hex);
+  $json = getGoogleFonts();
+  //$response = $app->response();
+  //$response->header('Content-Type', 'application/json');
+  echo json_encode($palette);
+  //echo json_encode($json);
+
+}) ->conditions(array('hex' => '[a-fA-F0-9]{6}'));
 
 
 //*-----------------ERROR HANDLING ---------------------
