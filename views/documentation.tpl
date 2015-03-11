@@ -21,18 +21,22 @@
         <th>name</th>
         <th>type</th>
         <th>data-type</th>
+        <th>description</th>
         <th>opt/req</th>
       </tr>  
       <tr>
         <td><em>name</em></td>
         <td>endpoint</td>
-        <td>monospace|sans-serif|serif|handwriting|display</td>
+        <td>monospace | sans-serif | serif | handwriting | display</td>
+        <td>returns the requested category</td>
         <td>(required)</td>
       </tr>  
       <tr>
         <td><em>num</em></td>
         <td>parameter</td>
-        <td>int</td>
+        <td>100, 200, 300, 400, 600, 700, 800, 900, 100italic, 200italic, 300italic, 400italic, 500italic, 600italic, 700italic, 800italic, 900italic
+</td>
+        <td>returns the requested variants</td>
         <td>(optional)</td>
       </tr>  
       </table>
@@ -50,7 +54,30 @@
   		<h2>List palette by hex</h2>
       <p>Returns a set of palettes created by the <a href="http://www.colourlovers.com/">COLOURlovers community</a>.</p>
       
-  		<code class="request">GET http://www.mashit.nu/api/v1/palette/<em>hex</em></code>
+  		<code class="request">GET http://www.mashit.nu/api/v1/palette/<em>hex</em> <em>?num=int</em></code>
+      <table>
+        <tr>
+          <th>name</th>
+          <th>type</th>
+          <th>data-type</th>
+          <th>description</th>
+          <th>opt/req</th>
+        </tr>  
+        <tr>
+          <td><em>hex</em></td>
+          <td>endpoint</td>
+          <td>hex-code</td>
+          <td>returns a set of palettes containing ths choosen color (hex). Allowed pattern: [a-fA-F0-9]{6}</td>
+          <td>(required)</td>
+        </tr>  
+        <tr>
+          <td><em>num</em></td>
+          <td>parameter</td>
+          <td>int</td>
+          <td>returns the requested number of results (default=5 max=20)</td>
+          <td>(optional)</td>
+        </tr>  
+      </table>
       <h3>Response</h3>
       <code class="response response_header">
         Status: 200 OK<br>
@@ -59,7 +86,40 @@
       <code class="response response_body">Test</code>
 
   		<h2>List theme by hex and category</h2>
-  		<code class="request">GET http://www.mashit.nu/api/v1/theme/<em>hex</em>/<em>category</em></code>
+        <p>Returns a mix of fonts and palettes</p>
+
+  		<code class="request">GET http://www.mashit.nu/api/v1/theme/<em>hex</em>/<em>category</em> <em>?num=int</em></code>
+
+      <table>
+        <tr>
+          <th>name</th>
+          <th>type</th>
+          <th>data-type</th>
+          <th>description</th>
+          <th>opt/req</th>
+        </tr>  
+        <tr>
+          <td><em>hex</em></td>
+          <td>endpoint</td>
+          <td>hex-code</td>
+          <td>returns a set of palettes containing ths choosen color (hex). Allowed pattern: [a-fA-F0-9]{6}</td>
+          <td>(required)</td>
+        </tr>
+        <tr>
+        <td><em>name</em></td>
+        <td>endpoint</td>
+        <td>monospace|sans-serif|serif|handwriting|display</td>
+        <td>returns the requested category</td>
+        <td>(required)</td>
+        </tr>    
+        <tr>
+          <td><em>num</em></td>
+          <td>parameter</td>
+          <td>int</td>
+          <td>returns the requested number of results (default=5 max=20)</td>
+          <td>(optional)</td>
+        </tr>  
+      </table>
       <h3>Response</h3>
       <code class="response response_header">
         Status: 200 OK <br>

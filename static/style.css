@@ -71,6 +71,7 @@ body{
 
 	.api_doc td, .api_doc th {
 		padding: 0.5% 2%;
+		vertical-align: top;
 	}
 
 	.api_doc table em {

@@ -36,7 +36,7 @@ $app->get('/api/v1/doc', function () use ($app) {
 //*
 
 $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
-  //$num_results = $app->request()->params('num');
+
   $num = $app->request->get('num');
   if ($num === null)
   {
@@ -65,15 +65,31 @@ $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
 }); */
 
 //root/theme/category/:category_name
-//OPTIONAL PARAMETERS? :name(/:100(/:200(/:100italic(/:200italic)))))
 $app->get('/api/v1/font/category/:name', function($name) use ($app){
-    //variants 100, 200, 300, 400, 600, 700, 800, 900, 100italic, 200italic, 300italic, 400italic, 500italic, 600italic, 700italic, 800italic, 900italic.
+//variants 100, 200, 300, 400, 600, 700, 800, 900, 100italic, 200italic, 300italic, 400italic, 500italic, 600italic, 700italic, 800italic, 900italic.
 
-  $fontlist = getGoogleFonts($name);  
-  $response = $app->response();
-  $response->header('Content-Type', 'application/json');
+  $variants = $app->request->get('variants');
+  if ($variants === null)
+  {
+    $fontlist = getGoogleFonts($name);  
+    $response = $app->response();
+    $response->header('Content-Type', 'application/json');
 
-  echo $fontlist;
+    echo json_encode($fontlist);
+  }
+/*  }
+  else {
+    if (strpos($variants, ',') !== FALSE)
+    {
+      $variants_list = explode(',', $variants);
+      echo var_dump($variants_list);
+    }
+    else
+    {
+      echo var_dump($variants);
+    }
+  }*/
+  
 })->conditions(array('name' => '(monospace|sans-serif|serif|handwriting|display)')); 
 
 //*------------------ THEME ENDPOINTS -----------------
@@ -81,17 +97,48 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
 //*
 
 $app->get('/api/v1/theme/:hex/:catname', function ($hex, $catname) use ($app) {
-  $palette = get_ColorLovers_Palette($hex);
-  $json = getGoogleFonts($catname);
+  $num = 10;
+  $palettes = get_ColorLovers_Palette($hex, 20);
+  $fonts = getGoogleFonts($catname);
+
+  $theme = makeTheme($num, $palettes, $fonts);
+
+  $response = $app->response();
+  $response->header('Content-Type', 'application/json');
+  echo $theme;
+
+}) ->conditions(array('hex' => '[a-fA-F0-9]{6}', 'catname' => '(monospace|sans-serif|serif|handwriting|display)'));
 
 
-  //$response = $app->response();
-  //$response->header('Content-Type', 'application/json');
-  echo json_encode($palette);
-  //echo json_encode($json);
 
-}) ->conditions(array('hex' => '[a-fA-F0-9]{6}'));
+function makeTheme($num, $palettes, $fonts) {
+  
+    $keys_font = array_keys($fonts);
+      shuffle($keys_font);
+      foreach($keys_font as $key_font) {
+          $new_fonts[] = $fonts[$key_font];
+      }
+      $fonts = $new_fonts;
 
+    $keys_palettes = array_keys($palettes);
+      shuffle($keys_palettes);
+      foreach($keys_palettes as $key_palettes) {
+          $new_palettes[] = $palettes[$key_palettes];
+      }
+      $palettes = $new_palettes;
+
+    //return $palettes;
+
+    $theme = array();
+    for ($i = 0; $i <= $num; $i++) {
+      $theme_item = array(
+        "font"=>$fonts[$i],
+        "color-palette"=>$palettes[$i]
+        );
+      array_push($theme, $theme_item);
+    } 
+    return json_encode($theme);
+}
 
 
 //*-----------------ERROR HANDLING ---------------------
@@ -128,11 +175,9 @@ $app->notFound(function () use ($app) {
     $error = array(
       'message' => 'resource not found',
       'status' => 404,  
-
-  );
-  
-  $app->render('404.tpl', $error, 404);
-
+    );
+    
+    $app->render('404.tpl', $error, 404);
   }
 
 });
@@ -207,8 +252,13 @@ function getGoogleFonts($catname) {
           }
       }
 
-  return json_encode($category_list);
+  return $category_list;
 }
+
+function filterVariants($filter) {
+ //make function to filter variants
+}
+
 
 
 
