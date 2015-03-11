@@ -217,7 +217,7 @@ input[type=text]{
 
 }
 
-.selected a {
+.selected a, #tabcontrols li:hover {
 	background-color: #8caf9a;
 
 }

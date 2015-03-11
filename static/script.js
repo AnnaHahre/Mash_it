@@ -3,6 +3,17 @@ $(document).ready(function(){
 
   $("#fonta").bind("click", getFonts); //FONT
 
+  $('#test').click(getElementStyle); //GET STYLES TO GENERATE CSS
+
+  $('#tabcontrols li').click(function(){
+    $('code').empty(); //EMPTY THE CODE-BLOCK
+  });
+
+  $('#exit_icon').click(function(){
+    location.href="http://localhost:1234/index.php";
+
+  })
+
   window.onbeforeunload = function() {
     return "Are you sure you want to leave? Your changes will not be saved!";
   }
@@ -19,14 +30,7 @@ $(document).ready(function(){
     $('#template').load('views/template_two.tpl');
     $('#dashboard').css({'display': 'block'});
 
-  });
-
-  $('#test').click(getElementStyle);
-
-  $('#tabcontrols li').click(function(){
-    $('code').empty();
-  })
-    
+  });  
 
 
   //*---------------- TAB-CONTROLL ----------------
