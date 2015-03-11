@@ -7,6 +7,18 @@ $(document).ready(function(){
     return "Are you sure you want to leave? Your changes will not be saved!";
   }
 
+  $('#color_icon').click(function(){
+    $('#colors_choice').css({
+      'display':'block'
+    })
+  });
+
+  $('#font_icon').click(function(){
+    $('#font_choice').css({
+      'display':'block'
+    })
+  });
+
   //*------------- LOADING OF TEMPLATES --------------
   //*
   $('#temp_one').bind('click', function(){
@@ -58,7 +70,7 @@ $(document).ready(function(){
 
   //*------------- CODE FOR SLIDING DASHBOARD ----------------
   //*
-  var operator = '+=';
+  /*var operator = '+=';
   $('#dashboard').click(function(e){
     e.stopPropagation();
     $('#dashboard').animate({left:operator + '-300'}, 1000);
@@ -68,7 +80,7 @@ $(document).ready(function(){
       else{
         operator = '+=';
       }
-  });
+  });*/
 
   $('input, #tabcontrols, #category').click(function(event){
     event.stopPropagation();
