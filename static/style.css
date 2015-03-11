@@ -160,7 +160,7 @@ body{
 	top:80px;
 	left:0;
 	z-index: 1000000;
-	border-radius: 0 5px 5px 0;
+	border-radius: 0 5px 0px 0;
 	overflow: hidden;
 	clear:both;
 }
@@ -193,7 +193,6 @@ input[type=text]{
 	overflow: auto;
 	margin:0;
 	padding: 0;
-	border-radius: 0 5px 5px 0;
 }
 
 #tabcontrols li{
@@ -214,7 +213,7 @@ input[type=text]{
 }
 
 .selected{
-		background-color: #8caf9a;
+	background-color: #8caf9a;
 
 }
 
@@ -244,7 +243,7 @@ input[type=text]{
 	margin-left:100px;
 	display:block;
 	width:400px;
-	min-height:350px;
+	min-height:534px;
 	padding:1% 5%;
 	background-color: #8caf9a;
 	border-radius: 0 10px 10px 0;
@@ -254,7 +253,7 @@ input[type=text]{
 }
 
 #colors_choice{
-	margin-top: 11.4%;	
+	margin-top: 65px;	
 }
 
 #tabs{
@@ -264,11 +263,11 @@ input[type=text]{
 
 
 #font_choice{
-	margin-top: 28%;
+	margin-top: 13.0%;	
 }
 
 #code_choice{
-	margin-top: 44.5%;
+	margin-top: 13.0%;	
 }
 
 #colors_choice h1, #font_choice h1, #code_choice h1{

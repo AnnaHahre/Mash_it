@@ -104,7 +104,7 @@
    <!--Divs for template_choice-->
 
       <div id="template_choice">
-        <h1>Step 1: Choose a template</h1>
+        <h1>Choose a template and start mash:it;</h1>
         <div id="template_one">
           <img src="static/img/templateOne.png" alt="">
           <h2>One Page Wonder</h2>

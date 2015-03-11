@@ -7,7 +7,7 @@ $(document).ready(function(){
     return "Are you sure you want to leave? Your changes will not be saved!";
   }
 
-  //*------------- LOADING OF TEMPLATES --------------
+  //*---------------- LOAD TEMPLATES ----------------
   //*
   $('#temp_one').bind('click', function(){
     $('#template').load('views/template_one.tpl'); 
@@ -22,6 +22,10 @@ $(document).ready(function(){
   });
 
   $('#test').click(getElementStyle);
+
+  $('#tabcontrols li').click(function(){
+    $('code').empty();
+  })
     
 
 
@@ -43,33 +47,17 @@ $(document).ready(function(){
       event.preventDefault();
       $('#tabs > div').hide();
       $('#tabcontrols li').removeClass();
- 
       $(this).addClass('selected');
- 
       $(value).show();
 
     }
  
-   $('#colors_choice, #font_choice, #code_choice').click(function(){
+    $('#colors_choice, #font_choice, #code_choice').click(function(){
     $(this).hide();
     $('#tabcontrols li').removeClass();
    })
    
   });
-
-  //*------------- CODE FOR SLIDING DASHBOARD ----------------
-  //*
- /* var operator = '+=';
-  $('#dashboard').click(function(e){
-    e.stopPropagation();
-    $('#tabs').animate({left:operator + '-400'}, 1000);
-      if(operator == '+='){
-        operator = '-=';
-      }
-      else{
-        operator = '+=';
-      }
-  });*/
 
   $('input, #tabcontrols, #category').click(function(event){
     event.stopPropagation();
@@ -112,12 +100,13 @@ function showPalette(response){
 }
 
 //*---------------- SCRIPT FOR CHANGING STYLES ON WEBPAGE ----------------
+//* not the prettiest code - but it works :)
 //*
+
 function changeStyle(e){
-  //delete choice
   choice = $(this).attr('value');
 
-  $('#template h1, h2, h3, h4, span, footer p, .container p').click(function(e){
+  $('#template h1, #template h2, h3, h4, .text-muted, footer p, .lead, p').click(function(e){
     e.stopPropagation();
     if (choice.substring(0,1) == "#") {
       $(e.target).css({
@@ -183,192 +172,93 @@ function changeStyle(e){
   $('nav').click(function(e){
     e.stopPropagation();
     $('nav').css({
-      'background-color' : choice
-    });
-  });
-/*
-  
-  $('header h1').click(function (e) {
-    e.stopPropagation();
-    if (choice.substring(0,1) == "#") {
-      $('header h1').css({
-      'color' : choice
-       });
-
-    }
-    else {
-      $('header h1').css({
-      'font-family' : choice
-       });
-    }
-  });
-
-  $('header h2').click(function (e) {
-    e.stopPropagation();
-    if (choice.substring(0,1) == "#") {
-      $('header h2').css({
-        'color' : choice
-      });
-    }
-    else {
-      $('header h2').css({
-        'font-family' : choice
-      });
-    }
-  });
-
-  $('.featurette h1').click(function (e) {
-    e.stopPropagation();
-    if (choice.substring(0,1) == "#") {
-      $('.featurette h1').css({
-        'color' : choice
-      });
-    }
-    else {
-      $('.featurette h1').css({
-        'font-family' : choice
-      });
-    }
-  });
-
-  $('.featurette h2').click(function (e) {
-    e.stopPropagation();
-    if (choice.substring(0,1) == "#") {
-      $('.featurette h2').css({
-        'color' : choice
-      });
-    }
-    else {
-      $('.featurette h2').css({
-        'font-family' : choice
-      });
-    }
-  });
-
-  $('span').click(function (e) {
-    e.stopPropagation();
-    if (choice.substring(0,1) == "#") {
-      $('span').css({
-        'color' : choice
-      });
-    }
-    else {
-      $('span').css({
-        'font-family' : choice
-      });
-    }
-  });
-
-  $('.featurette p').click(function (e) {
-    e.stopPropagation();
-    if (choice.substring(0,1) == "#") {
-      $('.featurette p').css({
-        'color' : choice
-      });
-    }
-    else {
-      $('.featurette p').css({
-        'font-family' : choice
-      });
-    }
-  });
-
-  $('.lead p').click(function (e) {
-    e.stopPropagation();
-    if (choice.substring(0,1) == "#") {
-      $('.lead p').css({
-        'color' : choice
-      });
-    }
-    else {
-      $('.featurette p').css({
-        'font-family' : choice
-      });
-    }
-  });
-
-  $('.media p').click(function (e) {
-    e.stopPropagation();
-    if (choice.substring(0,1) == "#") {
-      $('.media p').css({
-        'color' : choice
-      });
-    }
-    else {
-      $('.featurette p').css({
-        'font-family' : choice
-      });
-    }
-  });
-
-  $('.well p').click(function (e) {
-    e.stopPropagation();
-    if (choice.substring(0,1) == "#") {
-      $('.well p').css({
-        'color' : choice
-      });
-    }
-    else {
-      $('.featurette p').css({
-        'font-family' : choice
-      });
-    }
-  });
-
-  $('nav a').click(function (e) {
-    e.stopPropagation();
-    if (choice.substring(0,1) == "#") {
-      $('nav a').css({
-        'color' : choice
-      });
-    }
-    else {
-      $('nav a').css({
-        'font-family' : choice
-      });
-    }
-  });
-
-  $('nav').click(function (e) {
-    e.stopPropagation();
-    $('nav').css({
       'background-color' : choice,
-      'border' : '1px solid' + choice
+      'border' : "0px"
     });
   });
 
-  /*$('.featurette-image').click(function (e) {
-    e.stopPropagation();
-    $('.featurette-image').css({
-      'border' : '2px solid #' + hex
-    });
-  });
-
-  $('header').click(function (e) {
-    e.stopPropagation();
-    $('header').css({
-      'background-color' : choice
-    });
-  });
-
-  $('footer p').click(function (e) {
+  $('.comment').click(function(e){
     e.stopPropagation();
     if (choice.substring(0,1) == "#") {
-      $('footer p').css({
+      $('.comment').css({
         'color' : choice
       });
     }
     else {
-      $('footer p').css({
+      $('.comment').css({
         'font-family' : choice
       });
     }
-  });*/
+  });
+  $('.media-heading').click(function(e){
+    e.stopPropagation();
+    if (choice.substring(0,1) == "#") {
+      $('.media-heading').css({
+        'color' : choice
+      });
+    }
+    else {
+      $('.media-heading').css({
+        'font-family' : choice
+      });
+    }
+  });
+  $('.article').click(function(e){
+    e.stopPropagation();
+    if (choice.substring(0,1) == "#") {
+      $('.article').css({
+        'color' : choice
+      });
+    }
+    else {
+      $('.article').css({
+        'font-family' : choice
+      });
+    }
+  });
+
+  $('.widget').click(function(e){
+    e.stopPropagation();
+    if (choice.substring(0,1) == "#") {
+      $('.widget').css({
+        'color' : choice
+      });
+    }
+    else {
+      $('.widget').css({
+        'font-family' : choice
+      });
+    }
+  });
+
+  $('.widget_heading').click(function(e){
+    e.stopPropagation();
+    if (choice.substring(0,1) == "#") {
+      $('.widget_heading').css({
+        'color' : choice
+      });
+    }
+    else {
+      $('.widget_heading').css({
+        'font-family' : choice
+      });
+    }
+  });
+
+  $('.cat_item').click(function(e){
+    e.stopPropagation();
+    if (choice.substring(0,1) == "#") {
+      $('.cat_item').css({
+        'color' : choice
+      });
+    }
+    else {
+      $('.cat_item').css({
+        'font-family' : choice
+      });
+    }
+  });
 }
-
-
-
-
 
 //*------------------ FONT SCRIPT -----------------
 //*
@@ -455,27 +345,96 @@ function appendFonts(script_families) {
 
 function getElementStyle(){
   elements = {};
-  
-  if ($('header h1').attr('style') === undefined){
-    elements['header h1'] = $('header h1').css('color');
+  //*--------- CODE FOR GENERATING CSS CODE FOR TEMPLATE ONE --------
+  //* not the prettiest code - but it works :)
+  //*
+
+  if ($('nav').attr('style') === undefined){ }
+  else{
+    elements['nav'] = $('nav').attr('style');
   }
+  if ($('nav a').attr('style') === undefined){ }
+  else{
+    elements['nav a'] = $('nav a').attr('style');
+  }
+  if ($('header').attr('style') === undefined){ }
+  else{
+    elements['header'] = $('header').attr('style');
+  }
+  if ($('header h1').attr('style') === undefined){ }
   else{
     elements['header h1'] = $('header h1').attr('style');
   }
-  elements['header h2'] = $('header h2').attr('style');
-  elements['h2'] = $('.featurette h2').attr('style');
-  elements['p']  = $('.container p').attr('style');
+  if ($('header h2').attr('style') === undefined){ }
+  else{
+    elements['header h2'] = $('header h2').attr('style');
+  }
+  if ($('.featurette h2').attr('style') === undefined){ }
+  else{
+    elements['h2'] = $('.featurette h2').attr('style');
+  }
+  if ($('.lead').attr('style') === undefined){ }
+  else{
+    elements['p']  = $('.lead').attr('style');
+  }
 
-    /*if (elements['header h1'] === undefined){
-       alert('undefined');
-    }
-    else{
-      alert('header h1 { ' + elements['header h1'] + '}\n');
-    }*/
-    $.each(elements, function(key,value){
-      $('.css_code').append( key + " {<br>" + value + "<br>}<br>");
-    })
-    //alert('header h1 { ' + elements['header h1'] + '}\n' + 'header h2 { ' + elements['header h2'] + '}\n' + 'h2 { ' + elements['h2'] + '}\n' + 'p { ' + elements['p'] + '}\n');
+  if ($('.text-muted').attr('style') === undefined){ }
+  else{
+    elements['span p']  = $('.text-muted').attr('style');
+  }
+
+  if ($('footer p').attr('style') === undefined){ }
+  else{
+    elements['footer p']  = $('footer p').attr('style');
+  }
+
+  //*--------- CODE FOR GENERATING CSS CODE FOR TEMPLATE ONE --------
+  //* not the prettiest code - but it works :)
+  //*
+
+  if ($('.row h1').attr('style') === undefined){ }
+  else{
+    elements['h1']  = $('.row h1').attr('style');
+  }
+  if ($('.article').attr('style') === undefined){ }
+  else{
+    elements['.container p']  = $('.article').attr('style');
+  }
+
+  if ($('.form_heading').attr('style') === undefined){ }
+  else{
+    elements['.form h4']  = $('.form_heading').attr('style');
+  }
+
+  if ($('.media-heading').attr('style') === undefined){ }
+  else{
+    elements['.comments h4']  = $('.media-heading').attr('style');
+  }
+
+  if ($('.comment').attr('style') === undefined){ }
+  else{
+    elements['.comments p']  = $('.comment').attr('style');
+  }
+
+  if ($('.widget_heading').attr('style') === undefined){ }
+  else{
+    elements['.widget h4']  = $('.widget_heading').attr('style');
+  }
+  if ($('.widget').attr('style') === undefined){ }
+  else{
+    elements['.widget p']  = $('.widget').attr('style');
+  }
+
+  if ($('.cat_item').attr('style') === undefined){ }
+  else{
+    elements['.categories li']  = $('.cat_item').attr('style');
+  }
+
+  //*--------- APPENDS CSS CODE TO CODE-BLOCK --------
+  //*
+  $.each(elements, function(key,value){
+    $('.css_code').append(key + " {<br>" + value + "<br>}<br>");
+  })
 
 }
 
