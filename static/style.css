@@ -8,6 +8,7 @@ body{
 
 /*Styles for API-doc*/
 	.api_doc {
+		background-color: #ffffff;
 		font-family: monospace;
 		margin: 0;
 		padding: 0;

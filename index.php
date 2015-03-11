@@ -105,6 +105,8 @@ $app->notFound(function () use ($app) {
   $content_type = $req->getContentType();
   if ($content_type === "application/json")
   {
+    $response = $app->response();
+    $response->header('Content-Type', 'application/json');
     echo json_encode(
             array(
                 'code' => 404,
