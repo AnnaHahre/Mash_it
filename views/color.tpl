@@ -31,41 +31,33 @@
 <body>
 
   <!--Dashboard -->
- <div id="dashboard" style="display:none">
+ <div id="dashboard"> <!--style="display:none">-->
   <ul id="tabcontrols">
     <!--<li>
       <a href="#template_choice">Template</a>
     </li>-->
-    <li>
+    <li id="color_icon">
       <a href="#colors_choice">Color</a>
     </li>
-    <li>
+    <li id="font_icon">
       <a href="#font_choice">Font</a>
     </li>
   </ul>
 
     <div id="tabs">
-
-     
-
-      <div id="colors_choice">
+      <!--<div id="colors_choice">
         <h1>Choose a basecolor:</h1>
-        <!--<h2>Choose a basecolor for the palette:</h2>-->
         <form action="" method="GET">
           <input type="text" id="colors" name="colors"/>
           <input type="submit" id="submit_color" value="Get Palettes">
           <br>
         </form>
+        <div id="palette"></div>--><!--end #palette-->
 
+        <!--<input type="button" id="test" value="Generate CSS">
+      </div>--><!--end .colors_choice-->
 
-        <div id="palette">
-          
-        </div><!--end #palette-->
-
-        <input type="button" id="test" value="Generate CSS">
-
-      </div><!--end .colors_choice-->
-      <div id="font_choice">
+      <!--<div id="font_choice">
         <h1>Fonta mera</h1>
         <form action="" method="GET">
           <select name="font_category" id="category">
@@ -78,15 +70,12 @@
           <input type="button" id="fonta" value="Generera font">    
         </form>
 
-        <ul id="font_list">
+        <ul id="font_list">-->
           <!--Placeholding fontlist-->
-        </ul>
+        <!--</ul>
 
-      </div><!--end .font_choie-->
+      </div>--><!--end .font_choie-->
     </div><!--end #tabs-->
-
-    <div id="tool_in_use">
-    </div>
   </div><!--end #dashboard-->
  
 

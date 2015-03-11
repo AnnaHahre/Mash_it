@@ -147,19 +147,18 @@ body{
 #dashboard{
 	padding:3% 1% 1% 1%;
 	margin:0;
-	height:700px;
-	border:1px solid #888;
-	background-color: rgba(200,200,200,1);
-	width:21.5%;
+	height: 300px;
+	background-color: rgba(0,0,0,1);
+	width:7%;
 	position:fixed;
 	overflow: auto;
-	top:0;
+	top:100px;
 	left:0;
 	z-index: 1000000;
 	-webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
 	-moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.75);
-	box-shadow:         5px 5px 5px 0px rgba(50, 50, 50, 0.75);
-	border-radius: 0 10px 10px 0;
+	box-shadow:         5px 5px 5px 0px rgba(150, 150, 150, 0.75);
+	border-radius: 0 5px 5px 0;
 }
 
 #dashboard p{
@@ -175,6 +174,10 @@ input[type=text]{
 #dashboard h1, #dashboard h2{
 	font-size: 1em;
 
+}
+
+#tabs{
+	background-color: #000;
 }
 
 #tabcontrols{
