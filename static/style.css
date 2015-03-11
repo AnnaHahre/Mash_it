@@ -126,7 +126,7 @@ body{
 	}
 /**/
 
-#color_icon a, #font_icon a, #css_icon a{
+#color_icon a, #font_icon a, #code_icon a, #exit_icon a{
 	width: 100px;
 	height: 100px;
 	padding:15%;
@@ -135,16 +135,21 @@ body{
 }
 
 #color_icon a {
-	content: url("img/color_icon.png");
+	background: url("img/color_icon.png");
 }
 
 #font_icon a {
-    content: url("img/font_icon.png");
+    background: url("img/font_icon.png");
 }
 
-#css_icon a {
-    content: url("img/code_icon.png");
+#code_icon a {
+    background: url("img/code_icon.png");
 }
+
+#exit_icon a{
+    background: url("img/exit_icon.png");
+}
+
 
 
 
@@ -155,8 +160,8 @@ body{
 	top:30px;
 	left:0;
 	z-index: 1000000;
-	
 	border-radius: 0 5px 5px 0;
+	overflow: hidden;
 }
 
 #dashboard p{
@@ -165,8 +170,13 @@ body{
 }
 
 input[type=text]{
-	width:55%;
+	width:68%;
 	margin-right: 3%;
+}
+
+#submit_color{
+
+
 }
 
 #dashboard h1, #dashboard h2{
@@ -177,16 +187,33 @@ input[type=text]{
 
 #tabcontrols{
 	float:left;
-	height: 800px;
+	height: 700px;
 	background-color: rgba(0,0,0,1);
 	overflow: auto;
 	margin:0;
 	padding: 0;
+	border-radius: 0 5px 5px 0;
 }
 
 #tabcontrols li{
-	border-bottom: 1px solid #555;
+	margin-top: -10px;
 	list-style: none;
+
+}
+
+#tabcontrols h2{
+	height:45px;
+	color:#fff;
+	text-align: center;
+	font-family: 'Architects Daughter';
+	font-size: 1.7em;
+	border-bottom: 1px solid #555;
+
+
+}
+
+.selected{
+		background-color: #8caf9a;
 
 }
 
@@ -212,13 +239,12 @@ input[type=text]{
 	color:#222;
 
 }*/
-
-#colors_choice{
-	float:left;
-	width:60%;
-	margin-top: 8.75%;
-	padding-left:5%;
-	height:350px;
+#colors_choice, #font_choice, #code_choice{
+	margin-left:100px;
+	display:block;
+	width:400px;
+	min-height:350px;
+	padding:1% 5%;
 	background-color: #8caf9a;
 	border-radius: 0 10px 10px 0;
 	-webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.25);
@@ -226,18 +252,37 @@ input[type=text]{
 	box-shadow:         1px 1px 2px 0px rgba(50, 50, 50, 0.75);
 }
 
+#colors_choice{
+	margin-top: 11.4%;	
+}
+
 
 #font_choice{
-	float:left;
-	width:60%;
-	margin-top: 27.2%;
-	padding-left:5%;
-	height:auto;
-	background-color: #8caf9a;
-	border-radius: 0 10px 10px 0;
-	-webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.25);
-	-moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.75);
-	box-shadow:         1px 1px 2px 0px rgba(50, 50, 50, 0.75);
+	margin-top: 28%;
+}
+
+#code_choice{
+	margin-top: 44.5%;
+}
+
+#colors_choice h1, #font_choice h1, #code_choice h1{
+	text-transform: uppercase;
+	color:#fff;
+	font-family: 'Muli';
+	font-size: 1.15em;
+}
+
+.css_code{
+	width:100%;
+	min-height:200px;	
+	color:#000;
+	font-size: .8em;
+	padding:2%;
+	margin-bottom: 5%;
+}
+
+#test, #submit_color{
+	float:right;
 }
 
 #font_list ul {
@@ -254,7 +299,7 @@ input[type=text]{
 
 #palette{
 	margin-top:10%;
-	width:90%;
+	width:100%;
 
 }
 

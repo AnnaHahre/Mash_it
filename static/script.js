@@ -7,18 +7,6 @@ $(document).ready(function(){
     return "Are you sure you want to leave? Your changes will not be saved!";
   }
 
-  $('#color_icon').click(function(){
-    $('#colors_choice').css({
-      'display':'block'
-    })
-  });
-
-  $('#font_icon').click(function(){
-    $('#font_choice').css({
-      'display':'block'
-    })
-  });
-
   //*------------- LOADING OF TEMPLATES --------------
   //*
   $('#temp_one').bind('click', function(){
@@ -40,10 +28,9 @@ $(document).ready(function(){
   //*---------------- TAB-CONTROLL ----------------
   //*
   //Set the initial state: highlight the first button...
-  $('#tabcontrols').find('li:eq(0)').addClass('selected');
  
   //and hide all slides except the first one
-  $('#tabs').find('> div:eq(0)').nextAll().hide();
+  $('#tabs').find('> div').toggle();
  
   //actions that apply on click of any of the buttons
   $('#tabcontrols li').click( function(event) {
@@ -484,7 +471,7 @@ function getElementStyle(){
       alert('header h1 { ' + elements['header h1'] + '}\n');
     }*/
     $.each(elements, function(key,value){
-      alert(key + " {" + value + "}");
+      $('.css_code').append( key + " {<br>" + value + "<br>}<br>");
     })
     //alert('header h1 { ' + elements['header h1'] + '}\n' + 'header h2 { ' + elements['header h2'] + '}\n' + 'h2 { ' + elements['h2'] + '}\n' + 'p { ' + elements['p'] + '}\n');
 

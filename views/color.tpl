@@ -33,23 +33,27 @@
   <!--Dashboard -->
  <div id="dashboard"> <!--style="display:none">-->
   <ul id="tabcontrols">
+    <h2>mash:it</h2>
     <!--<li>
       <a href="#template_choice">Template</a>
     </li>-->
     <li id="color_icon">
-      <a href="#colors_choice" class="selected">Color</a>
+      <a href="#colors_choice"></a>
     </li>
     <li id="font_icon">
-      <a href="#font_choice">Font</a>
+      <a href="#font_choice"></a>
     </li>
-    <li id="css_icon">
-      <a href="#css_choice">Font</a>
+    <li id="code_icon">
+      <a href="#code_choice"></a>
+    </li>
+    <li id="exit_icon">
+      <a href="/index.php"></a>
     </li>
   </ul>
 
     <div id="tabs">
       <div id="colors_choice">
-        <h1>Choose a basecolor:</h1>
+        <h1>Choose a color:</h1>
         <form action="" method="GET">
           <input type="text" id="colors" name="colors"/>
           <input type="submit" id="submit_color" value="Get Palettes">
@@ -57,11 +61,10 @@
         </form>
         <div id="palette"></div><!--end #palette-->
 
-        <input type="button" id="test" value="Generate CSS">
       </div><!--end .colors_choice-->
 
       <div id="font_choice">
-        <h1>Fonta mera</h1>
+        <h1>Choose font-family:</h1>
         <form action="" method="GET">
           <select name="font_category" id="category">
             <option value="sans-serif">Sans-serif</option>
@@ -78,6 +81,16 @@
         </ul>
 
       </div><!--end .font_choie-->
+      <div id="code_choice">
+        <h1>Generate CSS code:</h1>
+            <code class="css_code">
+
+            </code>
+
+          <input type="button" id="test" value="Generate CSS">
+
+
+      </div><!--end .code_choie-->
     </div><!--end #tabs-->
   </div><!--end #dashboard-->
  
