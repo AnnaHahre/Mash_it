@@ -55,7 +55,7 @@ $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
   echo json_encode($json);
 }); */
 
-
+// API group
 //root/theme/category/:category_name
 //OPTIONAL PARAMETERS? :name(/:100(/:200(/:100italic(/:200italic)))))
 $app->get('/api/v1/font/category/:name', function($name) use ($app){
@@ -67,7 +67,6 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
 
   echo $fontlist;
 })->conditions(array('name' => '(monospace|sans-serif|serif|handwriting|display)')); 
-
 
 //*------------------ THEME ENDPOINTS -----------------
 //*
@@ -103,6 +102,8 @@ $app->error(function(Exception $e) use ($app) {
 $app->notFound(function () use ($app) {
   $req = $app->request;
   $content_type = $req->getContentType();
+  //$mediaType = $req->getMediaType();
+
   if ($content_type === "application/json")
   {
     $response = $app->response();
@@ -114,40 +115,17 @@ $app->notFound(function () use ($app) {
             ));
   }
   else {
-    $app->render('404.tpl');
+    $error = array(
+      'message' => 'resource not found',
+      'status' => 404,  
+
+  );
+  
+  $app->render('404.tpl', $error, 404);
+
   }
 
 });
-
-
-/*$app->notFound(function () use ($app) {
- 
-    $mediaType = $app->request->getMediaType();
-     
-    $isAPI = (bool) preg_match('|^/api/v1.*$|', $app->request->getPath());
- 
- 
-    if ('application/json' === $mediaType || true === $isAPI) {
- 
-        $app->response->headers->set(
-            'Content-Type',
-            'application/json'
-        );
- 
-        echo json_encode(
-            array(
-                'code' => 404,
-                'message' => 'Not found'
-            )
-        );
- 
-    } else {
-        echo '<html>
-        <head><title>404 Page Not Found</title></head>
-        <body><h1>404 Page Not Found</h1><p>The page you are 
-        looking for could not be found.</p></body></html>';
-    }
-});*/
 
 
 
