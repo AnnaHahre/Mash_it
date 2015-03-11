@@ -37,7 +37,16 @@ $app->get('/api/v1/doc', function () use ($app) {
 
 $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
   //$num_results = $app->request()->params('num');
-	$palette = get_ColorLovers_Palette($hex);
+  $num = $app->request->get('num');
+  if ($num === null)
+  {
+    $num_results = 5;
+  }
+  else {
+    $num_results = $num;
+  }
+  
+	$palette = get_ColorLovers_Palette($hex, $num_results);
 	$response = $app->response();
 	$response->header('Content-Type', 'application/json');
 	echo json_encode($palette);
@@ -73,7 +82,9 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
 
 $app->get('/api/v1/theme/:hex/:catname', function ($hex, $catname) use ($app) {
   $palette = get_ColorLovers_Palette($hex);
-  $json = getGoogleFonts();
+  $json = getGoogleFonts($catname);
+
+
   //$response = $app->response();
   //$response->header('Content-Type', 'application/json');
   echo json_encode($palette);
@@ -132,10 +143,10 @@ $app->notFound(function () use ($app) {
 //*
 //*
 
-function get_ColorLovers_Palette($hex) {
+function get_ColorLovers_Palette($hex, $num) {
   $client = new GuzzleHttp\Client();
 
-  $url = "http://www.colourlovers.com/api/palettes/top?hex=".$hex."&format=json&sortBy=asc&numResults=5";
+  $url = "http://www.colourlovers.com/api/palettes/top?hex=".$hex."&format=json&sortBy=asc&numResults=".$num;
   $headers = array('ACCEPT' => 'application/json');
 
   $response = $client->get($url);
