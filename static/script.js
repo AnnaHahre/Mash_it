@@ -27,40 +27,42 @@ $(document).ready(function(){
 
   //*---------------- TAB-CONTROLL ----------------
   //*
-  //Set the initial state: highlight the first button...
+  $('#tabs').find('> div').hide();
  
-  //and hide all slides except the first one
-  $('#tabs').find('> div').toggle();
- 
-  //actions that apply on click of any of the buttons
   $('#tabcontrols li').click( function(event) {
+    var value = $(this).attr("data-value");
+
+    if ($(this).hasClass('selected')){
+      event.preventDefault();
+
+      $(value).hide();
+      $('#tabcontrols li').removeClass();
+
+    }
+    else{
+      event.preventDefault();
+      $('#tabs > div').hide();
+      $('#tabcontrols li').removeClass();
  
-    //turn off the link so it doesn't try to jump down the page
-    event.preventDefault();
+      $(this).addClass('selected');
  
-    //un-highlight the buttons
+      $(value).show();
+
+    }
+ 
+   $('#colors_choice, #font_choice, #code_choice').click(function(){
+    $(this).hide();
     $('#tabcontrols li').removeClass();
- 
-    //hide all the slides
-    $('#tabs > div').hide();
- 
-    //highlight the current button
-    $(this).addClass('selected');
- 
-    //get the index of the current button...
-    var index = $('#tabcontrols li').index(this);
- 
-    //and use that index to show the corresponding slide
-    $('#tabs > div:eq('+index+')').show();
- 
+   })
+   
   });
 
   //*------------- CODE FOR SLIDING DASHBOARD ----------------
   //*
-  /*var operator = '+=';
+ /* var operator = '+=';
   $('#dashboard').click(function(e){
     e.stopPropagation();
-    $('#dashboard').animate({left:operator + '-300'}, 1000);
+    $('#tabs').animate({left:operator + '-400'}, 1000);
       if(operator == '+='){
         operator = '-=';
       }

@@ -31,19 +31,19 @@
 <body>
 
   <!--Dashboard -->
- <div id="dashboard"> <!--style="display:none">-->
+ <div id="dashboard" style="display:none">
   <ul id="tabcontrols">
     <h2>mash:it</h2>
     <!--<li>
       <a href="#template_choice">Template</a>
     </li>-->
-    <li id="color_icon">
+    <li id="color_icon" data-value="#colors_choice">
       <a href="#colors_choice"></a>
     </li>
-    <li id="font_icon">
+    <li id="font_icon" data-value="#font_choice">
       <a href="#font_choice"></a>
     </li>
-    <li id="code_icon">
+    <li id="code_icon" data-value="#code_choice">
       <a href="#code_choice"></a>
     </li>
     <li id="exit_icon">
@@ -52,7 +52,7 @@
   </ul>
 
     <div id="tabs">
-      <div id="colors_choice">
+      <div id="colors_choice" data-value="#colors_choice">
         <h1>Choose a color:</h1>
         <form action="" method="GET">
           <input type="text" id="colors" name="colors"/>
@@ -63,7 +63,7 @@
 
       </div><!--end .colors_choice-->
 
-      <div id="font_choice">
+      <div id="font_choice" data-value="#font_choice">
         <h1>Choose font-family:</h1>
         <form action="" method="GET">
           <select name="font_category" id="category">
@@ -81,7 +81,7 @@
         </ul>
 
       </div><!--end .font_choie-->
-      <div id="code_choice">
+      <div id="code_choice" data-value="#code_choice">
         <h1>Generate CSS code:</h1>
             <code class="css_code">
 
