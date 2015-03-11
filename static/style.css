@@ -156,7 +156,7 @@ body{
 #dashboard{
 	position:fixed;
 	overflow: auto;
-	top:30px;
+	top:80px;
 	left:0;
 	z-index: 1000000;
 	border-radius: 0 5px 5px 0;
@@ -187,7 +187,7 @@ input[type=text]{
 
 #tabcontrols{
 	float:left;
-	height: 700px;
+	height: 600px;
 	background-color: rgba(0,0,0,1);
 	overflow: auto;
 	margin:0;
