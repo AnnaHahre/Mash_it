@@ -5,6 +5,9 @@ $(document).ready(function(){
 
   $('#test').click(getElementStyle); //GET STYLES TO GENERATE CSS
 
+  //$('input[name=radioName]:checked', '#myForm').val()
+
+
   $('#tabcontrols li').click(function(){
     $('code').empty(); //EMPTY THE CODE-BLOCK
   });
@@ -110,7 +113,7 @@ function showPalette(response){
 function changeStyle(e){
   choice = $(this).attr('value');
 
-  $('#template h1, #template h2, h3, h4, .text-muted, footer p, .lead, p').click(function(e){
+  $('#template h1, h2, h3, h4, .text-muted, footer p, .lead, p').click(function(e){
     e.stopPropagation();
     if (choice.substring(0,1) == "#") {
       $(e.target).css({
@@ -436,9 +439,14 @@ function getElementStyle(){
 
   //*--------- APPENDS CSS CODE TO CODE-BLOCK --------
   //*
-  $.each(elements, function(key,value){
-    $('.css_code').append(key + " {<br>" + value + "<br>}<br>");
-  })
+  if ($.isEmptyObject(elements)){
+    $('.css_code').append('No elements has been styled!')
+  }
+  else{
+    $.each(elements, function(key,value){
+      $('.css_code').append(key + " {<br>" + value + "<br>}<br>");
+    });
+  }
 
 }
 

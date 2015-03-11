@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mash:it</title>
+    <title>Mash:it;</title>
     <link rel='stylesheet' href='static/style.css' />
 
     <meta content="text/html;charset=utf-8" />
@@ -75,6 +75,7 @@
           </select>
           <input type="button" id="fonta" value="Generera font">    
         </form>
+        
 
         <ul id="font_list">
           <!--Placeholding fontlist-->
@@ -93,14 +94,8 @@
       </div><!--end .code_choie-->
     </div><!--end #tabs-->
   </div><!--end #dashboard-->
- 
-
-
 
 <div id="template">
-
-  <!-- Navigation -->
-
    <!--Divs for template_choice-->
 
       <div id="template_choice">
