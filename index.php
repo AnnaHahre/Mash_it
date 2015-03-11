@@ -55,7 +55,6 @@ $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
   echo json_encode($json);
 }); */
 
-// API group
 //root/theme/category/:category_name
 //OPTIONAL PARAMETERS? :name(/:100(/:200(/:100italic(/:200italic)))))
 $app->get('/api/v1/font/category/:name', function($name) use ($app){
