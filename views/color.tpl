@@ -101,7 +101,7 @@
       <div id="template_choice">
         <h1>Step 1: Choose a template</h1>
         <div id="template_one">
-          <img src="static/img/template_one.png" alt="">
+          <img src="static/img/templateOne.png" alt="">
           <h2>One Page Wonder</h2>
           <p>A simple one page template</p>
           <button id="temp_one">Use Template</button>

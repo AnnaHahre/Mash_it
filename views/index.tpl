@@ -8,6 +8,6 @@
   <body>
     <h1>Hej</h1>
     <p>Testing funkar??
-      <a href="/theme">give it a try.</a></p>
+      <a href="/mash">give it a try.</a></p>
   </body>
 </html>
