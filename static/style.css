@@ -9,8 +9,8 @@ body{
 
 
 .loading_space {
-	display: none;
-	z-index: 1000;
+	opacity: 0;
+	z-index: -10000;
 	position: absolute;
 	top: 145px;
 	left: 120px;
@@ -25,14 +25,20 @@ body{
     overflow: hidden;   
 }
 
+#font_list {
+	opacity: 1;
+	transition: all 1s ease;
+
+}
 #font_choice.loading #font_list {
-	display: none;
+	opacity: 0;
 }
 
 /* Anytime the body has the loading class, our
    modal element will be visible */
 #font_choice.loading .loading_space {
-    display: block;
+    opacity: 1;
+    z-index: 99999;
 }
 
 
@@ -303,6 +309,7 @@ select{
 
 .selected a, #tabcontrols li:hover {
 	background-color: #8caf9a;
+	transition: all 0.5s ease;
 
 }
 
