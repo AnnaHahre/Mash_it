@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $('#submit_color').bind("click", getPalette); //COLORS
 
-  $("#fonta").bind("click", getFonts); //FONT
+  $("#category").change("click", getFonts); //FONT
 
   $('#test').click(getElementStyle); //GET STYLES TO GENERATE CSS
 
