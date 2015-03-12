@@ -68,8 +68,8 @@ $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
 $app->get('/api/v1/font/category/:name', function($name) use ($app){
 //variants 100, 200, 300, 400, 600, 700, 800, 900, 100italic, 200italic, 300italic, 400italic, 500italic, 600italic, 700italic, 800italic, 900italic.
 
-  $variants = $app->request->get('variants');
-  if ($variants === null)
+  $num = $app->request->get('num_result');
+  if ($num === null)
   {
     $fontlist = getGoogleFonts($name);  
     $response = $app->response();
@@ -77,6 +77,25 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
 
     echo json_encode($fontlist);
   }
+  else 
+  {
+    if (strpos($num, ',') !== FALSE)
+    {
+      $num_list = explode(',', $num);
+      echo var_dump($num_list);
+    }
+    else
+    {
+      echo var_dump($num);
+    }
+
+    /*
+    if (isint($num) && $num <=10) {
+      echo ("else if");
+    }
+    else if ()*/
+  }
+
 /*  }
   else {
     if (strpos($variants, ',') !== FALSE)
@@ -97,11 +116,19 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
 //*
 
 $app->get('/api/v1/theme/:hex/:catname', function ($hex, $catname) use ($app) {
-  $num = 10;
+  $num = $app->request->get('num');
+  if ($num === null)
+  {
+    $num_results = 5;
+  }
+  else {
+    $num_results = $num;
+  }
+
   $palettes = get_ColorLovers_Palette($hex, 20);
   $fonts = getGoogleFonts($catname);
 
-  $theme = makeTheme($num, $palettes, $fonts);
+  $theme = makeTheme($num_results, $palettes, $fonts);
 
   $response = $app->response();
   $response->header('Content-Type', 'application/json');
@@ -130,7 +157,7 @@ function makeTheme($num, $palettes, $fonts) {
     //return $palettes;
 
     $theme = array();
-    for ($i = 0; $i <= $num; $i++) {
+    for ($i = 1; $i <= $num; $i++) {
       $theme_item = array(
         "font"=>$fonts[$i],
         "color-palette"=>$palettes[$i]

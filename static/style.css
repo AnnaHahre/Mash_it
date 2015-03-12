@@ -15,8 +15,8 @@ body{
 		padding: 0;
 	}
 	.api_doc section{
-		width: 50%;
-		padding: 0% 5%;
+		width: 60%;
+		padding: 4% 5%;
 		margin: auto;
 	}
 
@@ -78,6 +78,24 @@ body{
 	.api_doc table em {
 		background-color: #cecece;
 		padding: 4%;
+	}
+
+	.endpoints ul, li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.endpoints a {
+		color: #222;
+	}
+
+	.endpoints a:hover, .endpoints a:active {
+		text-decoration: none;
+	}
+
+	.endpoints a:visited {
+		color: #222;
 	}
 
 	code {
