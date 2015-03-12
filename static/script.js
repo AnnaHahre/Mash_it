@@ -272,7 +272,6 @@ function changeStyle(e){
 
 function getFonts() {
   $user_choice = $("#category").val();
-  //alert($user_choice);
 
    $.ajax({
         type: "GET",
@@ -296,17 +295,16 @@ var display = false;
 
 function showfonts(fonts, category) {
 
-    $("#font_list").empty(); //Tömmer #font_list på element 
-    //$("link[href*='fonts.googleapis']").remove(); //Tömmer head på links-taggar (alla utan övergripande css: som innehåller style.css)
+    $("#font_list").empty(); //Empty #font_list
     var script_families = [];
     var font_tag_list = [];
+    var font_list = fonts.slice(1, fonts.length); //removes description-object (object 1).
 
-    $.each(fonts, function(i, obj) { //för varje objekt
+    $.each(font_list, function(i, obj) { //for every object
         var family = obj['font-family'];
         var font_name = "<li class='user_fonts' value='" + obj['font-family'] + "' style='font-family:" + obj['font-family'] + ";'>" + obj['font-family'] + "</li>"; //skapa ett li-item
 
         var family_name = family.replace(' ','+');
-       // alert(family_name);
         script_families.push(family_name);
         font_tag_list.push(font_name);
 
