@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $('#submit_color').click(getPalette); //COLORS
 
-  $("#category").change("click", getFonts); //FONT
+  $("#fonta").click(getFonts); //FONT
 
   $('#test').click(getElementStyle); //GET STYLES TO GENERATE CSS
 
@@ -20,6 +20,19 @@ $(document).ready(function(){
     return "Are you sure you want to leave? Your changes will not be saved!";
   }
   
+ /* $('#fontsize').change('click', function(){
+    choice = $('#fontsize').val();
+    setFontsize(choice);
+  })
+
+  function setFontsize(choice){
+    $('h1,h2,p').click(function () {
+      $(this).css({
+        fontSize : parseInt(choice) +"em"
+        });
+      });
+  }*/
+
 
   //*---------------- LOAD TEMPLATES ----------------
   //*
@@ -59,13 +72,13 @@ $(document).ready(function(){
 
     }
  
-    $('#font_choice, #code_choice').click(function(){
+    $('#colors_choice, #font_choice, #code_choice').click(function(){
       $(this).hide();
       $('#tabcontrols li').removeClass();
    })
   });
 
-  $('input, #tabcontrols, #category').click(function(event){
+  $('input, #tabcontrols, #category, #fontsize').click(function(event){
     event.stopPropagation();
   });
 

@@ -75,6 +75,7 @@
             <option value="handwriting">Handwriting</option>
             <option value="display">Display</option>
           </select>
+          <input type="button" id="fonta" value="Generate font">
         </form>
         </div>
         <div id="show_fonts" style="display:block">
@@ -82,15 +83,19 @@
           <!--Placeholding fontlist-->
         </ul>
       </div>
+      <!--<h1>Set font-size</h1>
+     
+      <input type="text" id="fontsize" placeholder="Enter fontsize in em">-->
       </div><!--end .font_choie-->
       
       <div id="code_choice" data-value="#code_choice">
         <h1>Generate CSS code:</h1>
+        <input type="button" id="test" value="Generate CSS">
             <code class="css_code">
 
             </code>
 
-          <input type="button" id="test" value="Generate CSS">
+          
 
 
       </div><!--end .code_choie-->
