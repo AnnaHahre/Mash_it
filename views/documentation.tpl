@@ -3,6 +3,8 @@
   <head>
     <title>Mash:it</title>
     <link rel='stylesheet' href='/static/style.css' />
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type='text/javascript' src="/static/script_doc.js"></script>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
   </head>
   <body class="api_doc">
@@ -14,7 +16,7 @@
       <nav>
         <h1>Index</h1>
         <ul>
-          <li><a href="#font">Endpoints</a>
+          <li><a href="#endpoint">Endpoints</a>
             <ul>
               <li><a href="#font">List fonts by category</a></li>
               <li><a href="#palette">List color-palettes by color</a></li>
@@ -31,7 +33,7 @@
         </ul>
     </nav>
 
-      <h2>Endpoints</h2>
+      <h2 id="endpoint">Endpoints</h2>
         <code class="endpoints">
         <ul>
           <li><a href="#font">GET /api/v1/fonts/category</a></li>
@@ -209,10 +211,10 @@
 
         </code></pre>
 
-      <h2>Error handling</h2>
+      <h2 id="error">Error handling</h2>
       <p>400,404,500</p>
 
-      <h2>License</h2>
+      <h2 id="license">License</h2>
       <p>Attribution-Noncommercial-Share Alike - <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a></p>
 
   	</section>

@@ -65,23 +65,24 @@
 
       <div id="font_choice" data-value="#font_choice">
         <div id="font_select">
-        <h1>Choose font-family:</h1>
-        <form action="" method="GET">
-          <select name="font_category" id="category">
-            <option value="" disabled selected>Select your option</option>
-            <option value="sans-serif">Sans-serif</option>
-            <option value="serif">Serif</option>
-            <option value="monospace">Monospace</option>
-            <option value="handwriting">Handwriting</option>
-            <option value="display">Display</option>
-          </select>
-        </form>
-        </div>
+          <h1>Choose font-family:</h1>
+          <form action="" method="GET">
+            <select name="font_category" id="category">
+              <option value="" disabled selected>Select your option</option>
+              <option value="sans-serif">Sans-serif</option>
+              <option value="serif">Serif</option>
+              <option value="monospace">Monospace</option>
+              <option value="handwriting">Handwriting</option>
+              <option value="display">Display</option>
+            </select>
+          </form>
+        </div><!--end #font_selected-->
         <div id="show_fonts" style="display:block">
-        <ul id="font_list">
-          <!--Placeholding fontlist-->
-        </ul>
-      </div>
+          <div class="loading_space"></div>
+            <ul id="font_list">
+              <!--Placeholding fontlist-->
+            </ul>
+        </div><!--end #show_fonts-->
       </div><!--end .font_choie-->
       
       <div id="code_choice" data-value="#code_choice">

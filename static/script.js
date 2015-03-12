@@ -7,6 +7,10 @@ $(document).ready(function(){
 
   //$('input[name=radioName]:checked', '#myForm').val()
 
+  $(document).bind({
+      ajaxStart: function() { $('#font_choice').addClass("loading");    },
+       ajaxStop: function() { $('#font_choice').removeClass("loading"); }    
+  });
 
   $('#tabcontrols li').click(function(){
     $('code').empty(); //EMPTY THE CODE-BLOCK
