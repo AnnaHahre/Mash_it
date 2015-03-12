@@ -96,13 +96,11 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
   $num = $app->request->get('num_results');
   $random = $app->request->get('random');
 
-  if ($num == null && $random == null) { //parameter not set 
+  if ($num == null && $random == null) { //parameters not set 
     $fontlist = getGoogleFonts($name);  
-    $response = $app->response();
-    $response->header('Content-Type', 'application/json');
-    $app->response->setBody(json_encode($fontlist));
+  
   }
-  else if ($num == null || $random == null) { //check if only one parameter is used (2 required)
+  else if ($num == null || $random == null) { //check if only one parameter is set (2 required)
     $req = $app->request;
     $content_type = $req->getContentType();
 
@@ -112,27 +110,28 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
       echo json_encode(     
         array(
             'code' => 400,
-            'message' => 'bad request'
-            //lägg till fel-beskrivning (2parameter requested)
+            'message' => 'bad request',
+            'error' => '1 parameter is set, 2 required',
       ));
+      exit;
     }
     else { //error-message in text/html
       $error = array(
         'message' => 'bad request',
         'status' => 400,  
-        //lägg till fel-beskrivning (2parameter requested)
+        'error' => '1 parameter is set, 2 required',
       );
       $app->render('error.tpl', $error, 400);
+      exit;
     }
   }
-  else if (($num <= 10 && $num > 0) && ($random == 0 || $random == 1)) { //check if parametervalues are valid (1-10 | 0/1)
-    $num_results = $num;
-    $in_order = $random;
-    echo ("kör shuffle/shorten");
+  else if (($num <= 10 && $num > 0) && ($random == "0" || $random == "1")) { //check if parametervalues are valid (1-10 | 0/1)
+    $fontlist = getGoogleFonts($name, $num, $random);
   }
   else { //responding with error 400 (text/html or application/json)
     $req = $app->request;
     $content_type = $req->getContentType();
+
     if ($content_type == "application/json") {
       $response = $app->response();
       $response->header('Content-Type', 'application/json');
@@ -141,6 +140,7 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
             'code' => 400,
             'message' => 'bad request'
       ));
+      exit;
     }
     else {
       $error = array(
@@ -148,8 +148,13 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
         'status' => 400,  
       );
       $app->render('error.tpl', $error, 400);
+      exit;
     }
   }
+
+    $response = $app->response();
+    $response->header('Content-Type', 'application/json');
+    $app->response->setBody(json_encode($fontlist));
 
 })->conditions(array('name' => '(monospace|sans-serif|serif|handwriting|display)')); 
 
@@ -278,7 +283,6 @@ function get_ColorLovers_Palette($hex, $num) {
       continue;
     }
         //foreach ($color['colors'] as $value) {
-              
            // array_push($palette, $value);
            // }
 
@@ -291,8 +295,7 @@ function get_ColorLovers_Palette($hex, $num) {
 }
 
 
-
-function getGoogleFonts($catname) {
+function getGoogleFonts($catname, $num=null, $random=0) {
   $client = new GuzzleHttp\Client();
 
   $url = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDJAA0NAK2blMwOkDSlYo56ljaqW16WoDY&sort=popularity";
@@ -323,7 +326,21 @@ function getGoogleFonts($catname) {
           }
       }
 
-  return $category_list;
+  if ($num == null) {
+    return $category_list;
+  }
+  else {
+    if ($random == 1) {
+    $keys_font = array_keys($category_list);
+      shuffle($keys_font);
+      foreach($keys_font as $key_font) {
+          $new_fonts[] = $category_list[$key_font];
+      }
+      $category_list = $new_fonts;
+    }
+      $shorten = array_slice($category_list, 0, $num);
+      return $shorten;
+  }
 }
 
 function filterVariants($filter) {
