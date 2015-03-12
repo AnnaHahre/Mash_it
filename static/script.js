@@ -387,7 +387,7 @@ function getElementStyle(){
 
   if ($('.text-muted').attr('style') === undefined){ }
   else{
-    elements['span p']  = $('.text-muted').attr('style');
+    elements['p span']  = $('.text-muted').attr('style');
   }
 
   if ($('footer p').attr('style') === undefined){ }
