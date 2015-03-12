@@ -113,7 +113,7 @@ function showPalette(response){
 function changeStyle(e){
   choice = $(this).attr('value');
 
-  $('#template h1, h2, h3, h4, .text-muted, footer p, .lead, p').click(function(e){
+  $('#template h1, #template h2, h3, h4, .text-muted, footer p, .lead p').click(function(e){
     e.stopPropagation();
     if (choice.substring(0,1) == "#") {
       $(e.target).css({
@@ -405,7 +405,7 @@ function getElementStyle(){
   }
   if ($('.article').attr('style') === undefined){ }
   else{
-    elements['.container p']  = $('.article').attr('style');
+    elements['.article p']  = $('.article').attr('style');
   }
 
   if ($('.form_heading').attr('style') === undefined){ }

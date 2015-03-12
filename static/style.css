@@ -318,11 +318,12 @@ select{
 
 .css_code{
 	width:100%;
-	min-height:200px;	
+	height:400px;	
 	color:#000;
 	font-size: .8em;
 	padding:2%;
 	margin-bottom: 5%;
+	overflow: scroll;
 }
 
 #test, #submit_color, #fonta{
