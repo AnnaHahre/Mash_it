@@ -31,30 +31,56 @@ $app->get('/api/v1/doc', function () use ($app) {
 
 
 
-//*---------------- PALETTE ENDPOINTS ----------------
+//*---------------- PALETTE ENDPOINT ----------------
 //*
 //*
 
 $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
 
-  $num = $app->request->get('num');
-  if ($num === null)
-  {
+  $num = $app->request->get('num_results');
+
+  if ($num == null) { //parameter not set 
     $num_results = 6;
   }
-  else {
+  else if ($num <= 10 && $num > 0) { //parameter is inbetween 1-10
     $num_results = $num;
   }
-  
+  else { //responding with error 400 (text/html or application/json)
+    $req = $app->request;
+    $content_type = $req->getContentType();
+
+    if ($content_type == "application/json") { //error-message in json
+      $response = $app->response();
+      $response->header('Content-Type', 'application/json');
+      echo json_encode(     
+        array(
+            'code' => 400,
+            'message' => 'bad request'
+      ));
+      exit;
+    }
+    else { //error-message in text/html
+      $error = array(
+        'message' => 'bad request',
+        'status' => 400,  
+      );
+      
+      $app->render('error.tpl', $error, 400);
+      exit;
+    }
+  }
+
+  //get & return palette
 	$palette = get_ColorLovers_Palette($hex, $num_results);
 	$response = $app->response();
 	$response->header('Content-Type', 'application/json');
-	echo json_encode($palette);
+  //echo json_encode($palette);
+  $app->response->setBody(json_encode($palette));
 
 }) ->conditions(array('hex' => '[a-fA-F0-9]{6}'));
 
 
-//*------------------ FONT ENDPOINTS -----------------
+//*------------------ FONT ENDPOINT -----------------
 //*
 //*
 
@@ -64,51 +90,67 @@ $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
   echo json_encode($json);
 }); */
 
-//root/theme/category/:category_name
 $app->get('/api/v1/font/category/:name', function($name) use ($app){
 //variants 100, 200, 300, 400, 600, 700, 800, 900, 100italic, 200italic, 300italic, 400italic, 500italic, 600italic, 700italic, 800italic, 900italic.
 
-  $num = $app->request->get('num_result');
-  if ($num === null)
-  {
+  $num = $app->request->get('num_results');
+  $random = $app->request->get('random');
+
+  if ($num == null && $random == null) { //parameter not set 
     $fontlist = getGoogleFonts($name);  
     $response = $app->response();
     $response->header('Content-Type', 'application/json');
-
-    echo json_encode($fontlist);
+    $app->response->setBody(json_encode($fontlist));
   }
-  else 
-  {
-    if (strpos($num, ',') !== FALSE)
-    {
-      $num_list = explode(',', $num);
-      echo var_dump($num_list);
-    }
-    else
-    {
-      echo var_dump($num);
-    }
+  else if ($num == null || $random == null) { //check if only one parameter is used (2 required)
+    $req = $app->request;
+    $content_type = $req->getContentType();
 
-    /*
-    if (isint($num) && $num <=10) {
-      echo ("else if");
+    if ($content_type == "application/json") { //error-message in json
+      $response = $app->response();
+      $response->header('Content-Type', 'application/json');
+      echo json_encode(     
+        array(
+            'code' => 400,
+            'message' => 'bad request'
+            //lägg till fel-beskrivning (2parameter requested)
+      ));
     }
-    else if ()*/
+    else { //error-message in text/html
+      $error = array(
+        'message' => 'bad request',
+        'status' => 400,  
+        //lägg till fel-beskrivning (2parameter requested)
+      );
+      $app->render('error.tpl', $error, 400);
+    }
+  }
+  else if (($num <= 10 && $num > 0) && ($random == 0 || $random == 1)) { //check if parametervalues are valid (1-10 | 0/1)
+    $num_results = $num;
+    $in_order = $random;
+    echo ("kör shuffle/shorten");
+  }
+  else { //responding with error 400 (text/html or application/json)
+    $req = $app->request;
+    $content_type = $req->getContentType();
+    if ($content_type == "application/json") {
+      $response = $app->response();
+      $response->header('Content-Type', 'application/json');
+      echo json_encode(     
+        array(
+            'code' => 400,
+            'message' => 'bad request'
+      ));
+    }
+    else {
+      $error = array(
+        'message' => 'bad request',
+        'status' => 400,  
+      );
+      $app->render('error.tpl', $error, 400);
+    }
   }
 
-/*  }
-  else {
-    if (strpos($variants, ',') !== FALSE)
-    {
-      $variants_list = explode(',', $variants);
-      echo var_dump($variants_list);
-    }
-    else
-    {
-      echo var_dump($variants);
-    }
-  }*/
-  
 })->conditions(array('name' => '(monospace|sans-serif|serif|handwriting|display)')); 
 
 //*------------------ THEME ENDPOINTS -----------------
@@ -116,10 +158,10 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
 //*
 
 $app->get('/api/v1/theme/:hex/:catname', function ($hex, $catname) use ($app) {
-  $num = $app->request->get('num');
-  if ($num === null)
+  $num = $app->request->get('num_results');
+  if ($num == null)
   {
-    $num_results = 5;
+    $num_results = 10;
   }
   else {
     $num_results = $num;
@@ -178,17 +220,15 @@ $app->error(function(Exception $e) use ($app) {
       'stack' => $e->getMessage()
   );
   
-  $app->render('error.php', $error, 500);
+  $app->render('500.tpl', $error, 500);
 });
-
 
 
 $app->notFound(function () use ($app) {
   $req = $app->request;
   $content_type = $req->getContentType();
-  //$mediaType = $req->getMediaType();
 
-  if ($content_type === "application/json")
+  if ($content_type == "application/json")
   {
     $response = $app->response();
     $response->header('Content-Type', 'application/json');
@@ -204,7 +244,7 @@ $app->notFound(function () use ($app) {
       'status' => 404,  
     );
     
-    $app->render('404.tpl', $error, 404);
+    $app->render('error.tpl', $error, 404);
   }
 
 });
@@ -228,7 +268,11 @@ function get_ColorLovers_Palette($hex, $num) {
   $all_palettes = [];
   foreach ($data as $color) {
     if (count($color['colors']) == 5){
-        $palette = array("palette"=>$color['colors']);
+        $palette = array(
+          "palette"=>$color['colors'],
+          //"source_url"=>$color['url'],
+          //"source_api_url"=>$color['apiUrl'],
+          );
     }
     else{
       continue;
@@ -269,7 +313,7 @@ function getGoogleFonts($catname) {
 
       foreach ( $items as $item )
       {
-          if($item->category === $catname) {
+          if($item->category == $catname) {
             $font_item = array(
               "font-family"=>$item->family,
               "variants"=>$item->variants,
