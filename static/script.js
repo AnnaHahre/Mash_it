@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('#submit_color').bind("click", getPalette); //COLORS
+  $('#submit_color').click(getPalette); //COLORS
 
   $("#category").change("click", getFonts); //FONT
 
@@ -14,12 +14,12 @@ $(document).ready(function(){
 
   $('#exit_icon').click(function(){
     location.href="http://localhost:1234/index.php";
-
+    
   })
-
   window.onbeforeunload = function() {
     return "Are you sure you want to leave? Your changes will not be saved!";
   }
+  
 
   //*---------------- LOAD TEMPLATES ----------------
   //*
@@ -59,11 +59,10 @@ $(document).ready(function(){
 
     }
  
-    $('#colors_choice, #font_choice, #code_choice').click(function(){
-    $(this).hide();
-    $('#tabcontrols li').removeClass();
+    $('#font_choice, #code_choice').click(function(){
+      $(this).hide();
+      $('#tabcontrols li').removeClass();
    })
-   
   });
 
   $('input, #tabcontrols, #category').click(function(event){
@@ -74,7 +73,7 @@ $(document).ready(function(){
 
 //*----------------- COLOR-SCRIPT ------------------
 //*
-function getPalette(){
+function getPalette(event){
   $('#palette').empty();
   var hex = $('#colors').val();
   event.preventDefault();

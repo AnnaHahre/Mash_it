@@ -57,7 +57,7 @@
         <form action="" method="GET">
           <input type="text" id="colors" name="colors" placeholder="Enter a valid hexcode without #"/>
           <input type="submit" id="submit_color" value="Get Palettes">
-          <br>
+
         </form>
         <div id="palette"></div><!--end #palette-->
 

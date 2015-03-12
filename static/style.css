@@ -183,7 +183,6 @@ body{
 	overflow: auto;
 	top:80px;
 	left:0;
-	z-index: 1000000;
 	border-radius: 0 5px 0px 0;
 	overflow: hidden;
 	clear:both;
@@ -285,7 +284,7 @@ select{
 	-webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.25);
 	-moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.75);
 	box-shadow:         1px 1px 2px 0px rgba(50, 50, 50, 0.75);
-	/*overflow: scroll;*/
+	z-index:999999;
 }
 
 #font_select{
@@ -297,14 +296,6 @@ select{
 #colors_choice{
 	margin-top: 65px;	
 }
-
-
-
-#tabs{
-	position:fixed;
-	z-index:-99;
-}
-
 
 #font_choice{
 	margin-top: 13.0%;	
@@ -331,7 +322,7 @@ select{
 	overflow: scroll;
 }
 
-#test, #submit_color, #fonta{
+#test, #submit_color{
 	float:right;
 	width:110px;
 	text-align: center;
