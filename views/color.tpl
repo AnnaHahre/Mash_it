@@ -55,7 +55,7 @@
       <div id="colors_choice" data-value="#colors_choice">
         <h1>Choose a color:</h1>
         <form action="" method="GET">
-          <input type="text" id="colors" name="colors"/>
+          <input type="text" id="colors" name="colors" placeholder="Enter a valid hexcode without #"/>
           <input type="submit" id="submit_color" value="Get Palettes">
           <br>
         </form>
@@ -75,7 +75,7 @@
           </select>
           <input type="button" id="fonta" value="Generera font">    
         </form>
-        
+
 
         <ul id="font_list">
           <!--Placeholding fontlist-->

@@ -40,7 +40,7 @@ $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
   $num = $app->request->get('num');
   if ($num === null)
   {
-    $num_results = 5;
+    $num_results = 6;
   }
   else {
     $num_results = $num;
