@@ -97,7 +97,8 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
   $random = $app->request->get('random');
 
   if ($num == null && $random == null) { //parameters not set 
-    $fontlist = getGoogleFonts($name);  
+    $route = $app->request()->getPath();
+    $fontlist = getGoogleFonts($name, $route);  
   
   }
   else if ($num == null || $random == null) { //check if only one parameter is set (2 required)
@@ -125,8 +126,9 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
       exit;
     }
   }
-  else if (($num <= 10 && $num > 0) && ($random == "0" || $random == "1")) { //check if parametervalues are valid (1-10 | 0/1)
-    $fontlist = getGoogleFonts($name, $num, $random);
+  else if (($num <= 10 && $num > 0 && is_numeric($num)) && ($random == "0" || $random == "1")) { //check if parametervalues are valid numbers (1-10 | 0/1)
+    $route = $app->request()->getPath();
+    $fontlist = getGoogleFonts($name, $route, $num, $random);
   }
   else { //responding with error 400 (text/html or application/json)
     $req = $app->request;
@@ -163,23 +165,49 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
 //*
 
 $app->get('/api/v1/theme/:hex/:catname', function ($hex, $catname) use ($app) {
-  $num = $app->request->get('num_results');
-  if ($num == null)
-  {
+
+$num = $app->request->get('num_results');
+
+  if ($num == null) { //parameter not set 
     $num_results = 10;
   }
-  else {
+  else if ($num <= 10 && $num > 0 && is_numeric($num)) { //parameter value is between 1-10
     $num_results = $num;
+  }
+  else { //responding with error 400 (text/html or application/json)
+    $req = $app->request;
+    $content_type = $req->getContentType();
+
+    if ($content_type == "application/json") { //error-message in json
+      $response = $app->response();
+      $response->header('Content-Type', 'application/json');
+      echo json_encode(     
+        array(
+            'code' => 400,
+            'message' => 'bad request'
+      ));
+      exit;
+    }
+    else { //error-message in text/html
+      $error = array(
+        'message' => 'bad request',
+        'status' => 400,  
+      );
+      
+      $app->render('error.tpl', $error, 400);
+      exit;
+    }
   }
 
   $palettes = get_ColorLovers_Palette($hex, 20);
-  $fonts = getGoogleFonts($catname);
+  $route = $app->request()->getPath();
+  $fonts = getGoogleFonts($catname, $route);
 
   $theme = makeTheme($num_results, $palettes, $fonts);
 
   $response = $app->response();
   $response->header('Content-Type', 'application/json');
-  echo $theme;
+  $app->response->setBody($theme);
 
 }) ->conditions(array('hex' => '[a-fA-F0-9]{6}', 'catname' => '(monospace|sans-serif|serif|handwriting|display)'));
 
@@ -295,7 +323,7 @@ function get_ColorLovers_Palette($hex, $num) {
 }
 
 
-function getGoogleFonts($catname, $num=null, $random=0) {
+function getGoogleFonts($catname, $route, $num=null, $random=0) {
   $client = new GuzzleHttp\Client();
 
   $url = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDJAA0NAK2blMwOkDSlYo56ljaqW16WoDY&sort=popularity";
@@ -311,16 +339,32 @@ function getGoogleFonts($catname, $num=null, $random=0) {
       $category_list = array();
 
       $items = $arr->items;
-      //array_push($category_list, array("category"=>$catname));
+      array_push($category_list, array("resource_location"=>$route));
       //array_push($category_list, array("fonts"=>[]));
 
       foreach ( $items as $item )
       {
           if($item->category == $catname) {
+            $family_name=$item->family;
+            $family_name_new = str_replace(" ", "+", $family_name);
+            $font_variants = "";
+
+            foreach ($item->variants as $variant) {
+              if (preg_match('/[1-9]00|[1-9]00italic/',$variant)) {
+              $font_variants .= $variant.",";
+            }
+            $font_variants_new = substr($font_variants, 0, -1);
+            }
+
+            $css_import = "@import url(http://fonts.googleapis.com/css?family=".$family_name_new.":".$font_variants_new.");";
+            $link_import = "<link href='http://fonts.googleapis.com/css?family=".$family_name_new.":".$font_variants_new."' rel='stylesheet' type='text/css'>";
+
             $font_item = array(
               "font-family"=>$item->family,
               "variants"=>$item->variants,
-              "subsets"=>$item->subsets
+              "subsets"=>$item->subsets,
+              "css_import"=>$css_import,
+              "link_import"=>$link_import
               );
             array_push($category_list, $font_item);
           }
@@ -338,7 +382,7 @@ function getGoogleFonts($catname, $num=null, $random=0) {
       }
       $category_list = $new_fonts;
     }
-      $shorten = array_slice($category_list, 0, $num);
+      $shorten = array_slice($category_list, 0, $num+1);
       return $shorten;
   }
 }

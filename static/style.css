@@ -54,6 +54,10 @@ body{
 		color: #cecece;
 	}
 
+	.api_doc h1 {
+		font-size: 1.8em;
+	}
+
 	.api_doc h2 {
 		margin-top: 8%;
 	}
@@ -65,7 +69,7 @@ body{
 	.api_doc table {
 		margin: 2% 0% 0% 0%;
 		text-align: left;
-		width: 95%;
+		width: 99%;
 		padding: 1%;
 		border: 1px solid #cecece;
 	}
@@ -86,38 +90,54 @@ body{
 		padding: 0;
 	}
 
-	.endpoints a {
+	.endpoints ul>li>ul {
+		margin-left: 2%;
+	}
+
+	.api_doc a {
 		color: #222;
 	}
 
-	.endpoints a:hover, .endpoints a:active {
+	.api_doc a:hover, .api_doc a:active {
 		text-decoration: none;
 	}
 
-	.endpoints a:visited {
+	.api_doc a:visited {
 		color: #222;
+	}
+
+	.api_doc pre {
+		margin: 0;
+		padding: 0;		
+		max-width: 99%;
+		overflow: auto;
+		background-color: #fefefe;
+		border: 1px solid #cecece;
 	}
 
 	code {
 		background-color: #eee;
 		display: block;
-		width: 93%;
+		width: 97%;
+		margin: 0;
 		padding: 1%;
 		border: 1px solid #cecece;
 		line-height: 1.6em;
 	}
 
-	code em {
+ 	code em {
 		background-color: #cecece;
 		padding: 0.5%;
 	}
 
 	.response {
 		background-color: #fefefe;
+		border: 0px solid #fff;
 	}
 
 	.response_header {
 		background-color: #eee;
+		border: 1px solid #cecece;
 		border-bottom: 0px solid #fff;
 	}
 

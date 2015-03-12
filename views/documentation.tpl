@@ -11,14 +11,33 @@
   		<h1>API documentation { mash:it; }</h1>
   	</header>
   	<section>
+      <nav>
+        <h1>Index</h1>
+        <ul>
+          <li><a href="#font">Endpoints</a>
+            <ul>
+              <li><a href="#font">List fonts by category</a></li>
+              <li><a href="#palette">List color-palettes by color</a></li>
+              <li><a href="#theme">List theme by color and font category</a></li>
+            </ul>
+          <li><a href="#error">Error-handling</a>
+            <ul>
+              <li><a href="#400">400</a></li>
+              <li><a href="#404">404</a></li>
+              <li><a href="#500">500</a></li>
+            </ul>
+          </li>
+          <li><a href="#license">License</a></li>
+        </ul>
+    </nav>
 
-      <h1>Endpoints</h1>
-      <code class="endpoints">
-      <ul>
-        <li><a href="#font">GET /api/v1/fonts/category</a></li>
-        <li><a href="#palette">GET /api/v1/palette/hex</a></li>
-        <li><a href="#theme">GET /api/v1/theme/hex/category</a></li>
-      </ul>
+      <h2>Endpoints</h2>
+        <code class="endpoints">
+        <ul>
+          <li><a href="#font">GET /api/v1/fonts/category</a></li>
+          <li><a href="#palette">GET /api/v1/palette/hex</a></li>
+          <li><a href="#theme">GET /api/v1/theme/hex/category</a></li>
+        </ul>
       </code>
   		<h2 id="font">List fonts by category</h2>
       <p>Returns a list of categorized fonts from <a href="https://www.google.com/fonts">google fonts</a>.</p>
@@ -36,7 +55,7 @@
       <tr>
         <td><em>name</em></td>
         <td>endpoint</td>
-        <td>name = monospace | sans-serif | serif | handwriting | display (required)</td>
+        <td>name = monospace | sans-serif | serif | handwriting | display</td>
         <td>returns the full set of fonts from the requested category</td>
         <td>(required)</td>
       </tr>  
@@ -44,7 +63,7 @@
         <td><em>num_results</em></td>
         <td>parameter</td>
         <td>n = 1-10 </td>
-        <td>returns the requested number of results in default or randomized order.</td>
+        <td>returns the requested number of results in default or randomized order (default= full set of fonts).</td>
         <td>(optional) when used, parameter random required</td>
       </tr>  
       <tr>
@@ -56,17 +75,55 @@
       </tr>  
       </table>
 
-      <h3>Exemple request</h3>
+      <h3>Example request</h3>
       <code class="ex_request">curl -i http://www.mashit.nu/api/v1/fonts/category/monospace</code>
 
-      <h3>Exemple response</h3>
+      <h3>Example response</h3>
       <code class="response response_header">
         Status: 200 OK <br>
         Content-Type:application/json
       </code>
-  		<code class="response response_body">Test</code>
+  		<pre><code class="response response_body">
+[
+  {
+    "resource_location": "/api/v1/font/category/monospace"
+  },
+  {
+    "font-family": "Inconsolata",
+    "variants": [
+    "regular",
+    "700"
+    ],
+    "subsets": [
+    "latin",
+    "latin-ext"
+    ],
+    "css_import": "@import url(http://fonts.googleapis.com/css?family=Inconsolata:700);",
+    "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Inconsolata:700' rel='stylesheet' type='text/css'&gt;"
+  },
+  {
+    "font-family": "Source Code Pro",
+    "variants": [
+    "200",
+    "300",
+    "regular",
+    "500",
+    "600",
+    "700",
+    "900"
+    ],
+    "subsets": [
+    "latin",
+    "latin-ext"
+    ],
+    "css_import": "@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,500,600,700,900);",
+    "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,500,600,700,900' rel='stylesheet' type='text/css'&gt;"
+  },
+  {...}
+]
+      </code></pre>
 
-  		<h2 id="palette">List palette by hex</h2>
+  		<h2 id="palette">List color-palettes by color</h2>
         <p>Returns a set of palettes created by the <a href="http://www.colourlovers.com/">COLOURlovers community</a>.</p>
         
     		<code class="request">GET /api/v1/palette/<em>color</em> <em>?num_results=n</em></code>
@@ -82,7 +139,7 @@
             <td><em>color</em></td>
             <td>endpoint</td>
             <td>color = [a-fA-F0-9]{6} (hex-code)</td>
-            <td>returns a set of palettes based on the requested color.</td>
+            <td>returns a set of color-palettes based on the requested color.</td>
             <td>(required)</td>
           </tr>  
           <tr>
@@ -94,17 +151,17 @@
           </tr>  
         </table>
 
-        <h3>Exemple request</h3>
+        <h3>Example request</h3>
         <code class="ex_request">curl -i http://www.mashit.nu/api/v1/palette/222222?num_results=2</code>
 
-        <h3>Response</h3>
+        <h3>Example response</h3>
         <code class="response response_header">
           Status: 200 OK<br>
           Content-Type:application/json
         </code>
-        <code class="response response_body">Test</code>
+        <pre><code class="response response_body">Test</code></pre>
 
-  		<h2 id="theme">List theme by hex and category</h2>
+  		<h2 id="theme">List theme by color and font category</h2>
         <p>Returns a mix of fonts and palettes</p>
 
     		<code class="request">GET /api/v1/theme/<em>color</em>/<em>category</em> <em>?num_results=n</em></code>
@@ -121,30 +178,36 @@
             <td><em>color</em></td>
             <td>endpoint</td>
             <td>hex = [a-fA-F0-9]{6}</td>
-            <td>returns a set of palettes based on the choosen color (hex).</td>
+            <td>returns themes with palettes based on the requested color (hex).</td>
             <td>(required)</td>
           </tr>
           <tr>
           <td><em>category</em></td>
           <td>endpoint</td>
           <td>name = monospace | sans-serif | serif | handwriting | display </td>
-          <td>returns theme from the requested font category</td>
+          <td>returns themes with fonts from the requested category</td>
           <td>(required)</td>
           </tr>    
           <tr>
             <td><em>num_results</em></td>
             <td>parameter</td>
             <td>n = 1-10 </td>
-            <td>returns the requested number of results (default=5)</td>
+            <td>returns the requested number of results (default=10)</td>
             <td>(optional)</td>
           </tr>  
         </table>
-        <h3>Response</h3>
+
+        <h3>Example request</h3>
+        <code class="ex_request">curl -i http://www.mashit.nu/api/v1/palette/222222?num_results=2</code>
+
+        <h3>Example response</h3>
         <code class="response response_header">
           Status: 200 OK <br>
           Content-Type:application/json
         </code>
-        <code class="response response_body">Test</code>
+        <pre><code class="response response_body">Test
+
+        </code></pre>
 
       <h2>Error handling</h2>
       <p>400,404,500</p>
