@@ -57,37 +57,13 @@
         <form action="" method="GET">
           <input type="text" id="colors" name="colors" placeholder="Enter a valid hexcode without #"/>
           <input type="submit" id="submit_color" value="Get Palettes">
-
         </form>
         <div id="palette"></div><!--end #palette-->
-
       </div><!--end .colors_choice-->
+
 
       <div id="font_choice" data-value="#font_choice">
         <div id="font_select">
-<<<<<<< HEAD
-        <h1>Choose font-family:</h1>
-        <form action="" method="GET">
-          <select name="font_category" id="category">
-            <option value="" disabled selected>Select your option</option>
-            <option value="sans-serif">Sans-serif</option>
-            <option value="serif">Serif</option>
-            <option value="monospace">Monospace</option>
-            <option value="handwriting">Handwriting</option>
-            <option value="display">Display</option>
-          </select>
-          <input type="button" id="fonta" value="Generate font">
-        </form>
-        </div>
-        <div id="show_fonts" style="display:block">
-        <ul id="font_list">
-          <!--Placeholding fontlist-->
-        </ul>
-      </div>
-      <!--<h1>Set font-size</h1>
-     
-      <input type="text" id="fontsize" placeholder="Enter fontsize in em">-->
-=======
           <h1>Choose font-family:</h1>
           <form action="" method="GET">
             <select name="font_category" id="category">
@@ -98,6 +74,7 @@
               <option value="handwriting">Handwriting</option>
               <option value="display">Display</option>
             </select>
+            <input type="button" id="fonta" value="Generate font">
           </form>
         </div><!--end #font_selected-->
         <div id="show_fonts" style="display:block">
@@ -105,20 +82,18 @@
             <ul id="font_list">
               <!--Placeholding fontlist-->
             </ul>
+            <!--<h1>Set font-size</h1>
+     
+            <input type="text" id="fontsize" placeholder="Enter fontsize in em">-->
+
         </div><!--end #show_fonts-->
->>>>>>> FETCH_HEAD
+
       </div><!--end .font_choie-->
       
       <div id="code_choice" data-value="#code_choice">
         <h1>Generate CSS code:</h1>
         <input type="button" id="test" value="Generate CSS">
-            <code class="css_code">
-
-            </code>
-
-          
-
-
+            <code class="css_code"></code>
       </div><!--end .code_choie-->
     </div><!--end #tabs-->
   </div><!--end #dashboard-->
@@ -152,4 +127,7 @@
   <script src="static/js/bootstrap.min.js"></script>
   </body>
 </html>
+
+
+
 
