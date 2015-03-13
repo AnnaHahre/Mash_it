@@ -12,7 +12,7 @@ body{
 	opacity: 0;
 	z-index: -10000;
 	position: absolute;
-	top: 145px;
+	top: 105px;
 	left: 120px;
     height:		400px;
     width:      360px;
@@ -157,6 +157,10 @@ body{
 		overflow: auto;
 		background-color: #fefefe;
 		border: 1px solid #cecece;
+	}
+
+	.api_doc code {
+		max-height: 700px;
 	}
 
 	code {

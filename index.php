@@ -33,7 +33,7 @@ $app->get('/api/v1/doc', function () use ($app) {
 
 //*---------------- PALETTE ENDPOINT ----------------
 //*
-//*
+//* TODO: add noting found response (hex).
 
 $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
 
@@ -162,7 +162,7 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
 })->conditions(array('name' => '(monospace|sans-serif|serif|handwriting|display)')); 
 
 //*------------------ THEME ENDPOINTS -----------------
-//*
+//* TODO: how to handle less then 20 returned palettes? ex D7E8D5
 //*
 
 $app->get('/api/v1/theme/:hex/:catname', function ($hex, $catname) use ($app) {
@@ -364,13 +364,14 @@ function getGoogleFonts($catname, $route, $num=null, $random=0) {
 //*
 //*
 
-
-
 function filterVariants($filter) {
  //make function to filter variants
 }
 
-function makeTheme($num, $route, $palettes, $fonts) {
+function makeTheme($num, $route, $palette, $font) {
+
+    $palettes = array_slice($palette, 1, count($palette));
+    $fonts = array_slice($font, 1, count($font));
   
     $keys_font = array_keys($fonts);
       shuffle($keys_font);

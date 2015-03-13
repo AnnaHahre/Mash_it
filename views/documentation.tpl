@@ -89,27 +89,26 @@
         Status: 200 OK <br>
         Content-Type:application/json
       </code>
-  		<pre><code class="response response_body">
-[
+  		<pre><code class="response response_body">[
   {
     "resource_location": "/api/v1/font/category/monospace"
   },
   {
     "font-family": "Inconsolata",
     "variants": [
-    "regular",
-    "700"
+      "regular",
+      "700"
     ],
     "subsets": [
-    "latin",
-    "latin-ext"
+      "latin-ext",
+      "latin"
     ],
     "css_import": "@import url(http://fonts.googleapis.com/css?family=Inconsolata:700);",
     "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Inconsolata:700' rel='stylesheet' type='text/css'&gt;"
   },
   {
-    "font-family": "Source Code Pro",
-    "variants": [
+  "font-family": "Source Code Pro",
+  "variants": [
     "200",
     "300",
     "regular",
@@ -117,15 +116,169 @@
     "600",
     "700",
     "900"
-    ],
-    "subsets": [
-    "latin",
-    "latin-ext"
-    ],
-    "css_import": "@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,500,600,700,900);",
-    "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,500,600,700,900' rel='stylesheet' type='text/css'&gt;"
+  ],
+  "subsets": [
+    "latin-ext",
+    "latin"
+  ],
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,500,600,700,900);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,500,600,700,900' rel='stylesheet' type='text/css'&gt;"
   },
-  {...}
+  {
+  "font-family": "Droid Sans Mono",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono:);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono:' rel='stylesheet' type='text/css'&gt;"
+  },
+  {
+  "font-family": "Ubuntu Mono",
+  "variants": [
+    "regular",
+    "italic",
+    "700",
+    "700italic"
+  ],
+  "subsets": [
+    "cyrillic-ext",
+    "latin-ext",
+    "cyrillic",
+    "latin",
+    "greek-ext",
+    "greek"
+  ],
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:700,700italic);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:700,700italic' rel='stylesheet' type='text/css'&gt;"
+  },
+  {
+  "font-family": "Cousine",
+  "variants": [
+    "regular",
+    "italic",
+    "700",
+    "700italic"
+  ],
+  "subsets": [
+    "cyrillic-ext",
+    "latin-ext",
+    "cyrillic",
+    "latin",
+    "greek-ext",
+    "vietnamese",
+    "greek"
+  ],
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Cousine:700,700italic);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Cousine:700,700italic' rel='stylesheet' type='text/css'&gt;"
+  },
+  {
+  "font-family": "Anonymous Pro",
+  "variants": [
+    "regular",
+    "italic",
+    "700",
+    "700italic"
+  ],
+  "subsets": [
+    "latin-ext",
+    "cyrillic",
+    "latin",
+    "greek"
+  ],
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:700,700italic);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Anonymous+Pro:700,700italic' rel='stylesheet' type='text/css'&gt;"
+  },
+  {
+  "font-family": "PT Mono",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "cyrillic-ext",
+    "latin-ext",
+    "cyrillic",
+    "latin"
+  ],
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=PT+Mono:);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=PT+Mono:' rel='stylesheet' type='text/css'&gt;"
+  },
+  {
+  "font-family": "Nova Mono",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "greek"
+  ],
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Nova+Mono:);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Nova+Mono:' rel='stylesheet' type='text/css'&gt;"
+  },
+  {
+  "font-family": "Cutive Mono",
+  "variants": [
+    "regular"
+  ],
+    "subsets": [
+    "latin-ext",
+    "latin"
+  ],
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Cutive+Mono:);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Cutive+Mono:' rel='stylesheet' type='text/css'&gt;"
+  },
+  {
+  "font-family": "Oxygen Mono",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin-ext",
+    "latin"
+  ],
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Oxygen+Mono:);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Oxygen+Mono:' rel='stylesheet' type='text/css'&gt;"
+  },
+  {
+  "font-family": "VT323",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=VT323:);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=VT323:' rel='stylesheet' type='text/css'&gt;"
+  },
+  {
+  "font-family": "Share Tech Mono",
+    "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Share+Tech+Mono:);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Share+Tech+Mono:' rel='stylesheet' type='text/css'&gt;"
+  },
+  {
+  "font-family": "Fira Mono",
+  "variants": [
+    "regular",
+    "700"
+  ],
+  "subsets": [
+    "cyrillic-ext",
+    "latin-ext",
+    "cyrillic",
+    "latin",
+    "greek"
+  ],
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Fira+Mono:700);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Fira+Mono:700' rel='stylesheet' type='text/css'&gt;"
+  }
 ]
       </code></pre>
 
@@ -158,14 +311,85 @@
         </table>
 
         <h3>Example request</h3>
-        <code class="ex_request">curl -i http://www.mashit.nu/api/v1/palette/222222?num_results=2</code>
+        <code class="ex_request">curl -i http://www.mashit.nu/api/v1/palette/D7E8D5</code>
 
         <h3>Example response</h3>
         <code class="response response_header">
           Status: 200 OK<br>
           Content-Type:application/json
         </code>
-        <pre><code class="response response_body">Test</code></pre>
+        <pre><code class="response response_body">[
+  {
+  "resource_location": "/api/v1/palette/D7E8D5"
+  },
+  {
+    "palette": [
+      "D7E8D5",
+      "E6F0AF",
+      "E8ED76",
+      "FFCD57",
+      "4A3A47"
+    ],
+    "source_url": "http://www.colourlovers.com/palette/3609015/Indie_Lemon",
+    "source_api_url": "http://www.colourlovers.com/api/palette/3609015"
+  },
+  {
+    "palette": [
+      "D7E8D5",
+      "E6F0AF",
+      "E8ED76",
+      "FFCD57",
+      "4A3A47"
+    ],
+    "source_url": "http://www.colourlovers.com/palette/3652723/Indie_lemon",
+    "source_api_url": "http://www.colourlovers.com/api/palette/3652723"
+  },
+  {
+    "palette": [
+      "4A3A47",
+      "6A6EBE",
+      "957AC7",
+      "F0AFDE",
+      "D7E8D5"
+    ],
+    "source_url": "http://www.colourlovers.com/palette/3646993/Purple_exchange",
+    "source_api_url": "http://www.colourlovers.com/api/palette/3646993"
+  },
+  {
+    "palette": [
+      "D7E8D5",
+      "620D10",
+      "345E46",
+      "85AC91",
+      "0B384B"
+    ],
+    "source_url": "http://www.colourlovers.com/palette/733545/Custom_Westy_Classic",
+    "source_api_url": "http://www.colourlovers.com/api/palette/733545"
+  },
+  {
+    "palette": [
+      "B028B8",
+      "FFFFFF",
+      "D7E8D5",
+      "B7C2B6",
+      "8C968A"
+    ],
+    "source_url": "http://www.colourlovers.com/palette/1133192/pushup",
+    "source_api_url": "http://www.colourlovers.com/api/palette/1133192"
+  },
+  {
+    "palette": [
+      "FAE0E9",
+      "D7E8D5",
+      "FEFEFE",
+      "F2DCC5",
+      "FCEEE3"
+    ],
+    "source_url": "http://www.colourlovers.com/palette/106506/Kaira",
+    "source_api_url": "http://www.colourlovers.com/api/palette/106506"
+  }
+]
+      </code></pre>
 
   		<h2 id="theme">List theme by color and font category</h2>
         <p>Returns a mix of fonts and palettes</p>
@@ -204,77 +428,93 @@
         </table>
 
         <h3>Example request</h3>
-        <code class="ex_request">curl -i http://www.mashit.nu/api/v1/theme/111111/monospace?num_results=2</code>
+        <code class="ex_request">curl -i http://www.mashit.nu/api/v1/theme/D7E8D5/monospace?num_results=3</code>
 
         <h3>Example response</h3>
         <code class="response response_header">
           Status: 200 OK <br>
           Content-Type:application/json
         </code>
-        <pre><code class="response response_body">
-
-[
+        <pre><code class="response response_body">[
   {
-    "resource_location": "/api/v1/theme/111111/monospace"
+  "resource_location": "/api/v1/theme/D7E8D5/monospace"
   },
   {
     "font": {
-      "font-family": "Source Code Pro",
+      "font-family": "PT Mono",
       "variants": [
-      "200",
-      "300",
-      "regular",
-      "500",
-      "600",
-      "700",
-      "900"
+        "regular"
       ],
       "subsets": [
-      "latin",
-      "latin-ext"
+        "latin-ext",
+        "cyrillic-ext",
+        "cyrillic",
+        "latin"
       ],
-      "css_import": "@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,500,600,700,900);",
-      "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,500,600,700,900' rel='stylesheet' type='text/css'&gt;"
+      "css_import": "@import url(http://fonts.googleapis.com/css?family=PT+Mono:);",
+      "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=PT+Mono:' rel='stylesheet' type='text/css'&gt;"
     },
     "color-palette": {
       "palette": [
-      "111111",
-      "3B1D1D",
-      "000000",
-      "FF0036",
-      "FFFFFF"
-      ]
+        "D7E8D5",
+        "E6F0AF",
+        "E8ED76",
+        "FFCD57",
+        "4A3A47"
+      ],
+      "source_url": "http://www.colourlovers.com/palette/3652723/Indie_lemon",
+      "source_api_url": "http://www.colourlovers.com/api/palette/3652723"
     }
   },
   {
     "font": {
-      "font-family": "Cousine",
-      "variants": [
-      "regular",
-      "italic",
-      "700",
-      "700italic"
-      ],
-      "subsets": [
-      "greek",
-      "vietnamese",
-      "latin",
-      "cyrillic-ext",
-      "cyrillic",
-      "greek-ext",
-      "latin-ext"
-      ],
-      "css_import": "@import url(http://fonts.googleapis.com/css?family=Cousine:700,700italic);",
-      "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Cousine:700,700italic' rel='stylesheet' type='text/css'&gt;"
+    "font-family": "Cutive Mono",
+    "variants": [
+      "regular"
+    ],
+    "subsets": [
+      "latin-ext",
+      "latin"
+    ],
+    "css_import": "@import url(http://fonts.googleapis.com/css?family=Cutive+Mono:);",
+    "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Cutive+Mono:' rel='stylesheet' type='text/css'&gt;"
     },
     "color-palette": {
-      "palette": [
-      "F3E0BE",
-      "111111",
-      "BB484A",
-      "FA656A",
-      "FFFFFF"
-      ]
+    "palette": [
+      "FAE0E9",
+      "D7E8D5",
+      "FEFEFE",
+      "F2DCC5",
+      "FCEEE3"
+    ],
+    "source_url": "http://www.colourlovers.com/palette/106506/Kaira",
+    "source_api_url": "http://www.colourlovers.com/api/palette/106506"
+    }
+  },
+  {
+    "font": {
+    "font-family": "Inconsolata",
+    "variants": [
+      "regular",
+      "700"
+    ],
+    "subsets": [
+      "latin-ext",
+      "latin"
+    ],
+    "css_import": "@import url(http://fonts.googleapis.com/css?family=Inconsolata:700);",
+    "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Inconsolata:700' rel='stylesheet' type='text/css'&gt;"
+    },
+    "color-palette": {
+    "palette": [
+      "B028B8",
+      "FFFFFF",
+      "D7E8D5",
+      "B7C2B6",
+      "8C968A"
+    ],
+    "source_url": "http://www.colourlovers.com/palette/1133192/pushup",
+    "source_api_url": "http://www.colourlovers.com/api/palette/1133192"
     }
   }
 ]
