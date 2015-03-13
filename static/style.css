@@ -388,13 +388,34 @@ select{
 	overflow: scroll;
 }
 
-#test, #submit_color, #fonta{
+#test, #submit_color, #fonta, #random_color{
 	float:right;
 	width:110px;
 	text-align: center;
 	height:30px;
 	font-family: 'Muli';
 	font-size: .9em,
+}
+
+#random_color{
+	margin-top: -3%;
+}
+
+/*.input-box { position: relative; }*/
+
+input[type=text] { 
+	padding: 0px 0px 0px 20px; 
+}
+
+.unit{ 
+	color:#777;
+	position: absolute; 
+	display: block; 
+	width:10px; 
+	margin-left: 7px; 
+	margin-top: -45px; 
+	z-index: 9; 
+	font-size: 1.3em;
 }
 
 #test{
@@ -432,7 +453,7 @@ select{
 }
 
 #palette{
-	margin-top:3%;
+	margin-top:10%;
 	width:100%;
 	height:auto;
 }
@@ -459,7 +480,7 @@ select{
 
 .hex_name{
 	margin-top:-4%;
-	margin-bottom: 20% !important;
+	margin-bottom: 10% !important;
 	text-align:center; 
 
 }

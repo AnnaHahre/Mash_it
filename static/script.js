@@ -1,5 +1,6 @@
 $(document).ready(function(){
   $('#submit_color').click(getPalette); //COLORS
+  $('#random_color').click(getPalette);
 
   $("#fonta").click(getFonts); //FONT
 
@@ -78,7 +79,7 @@ $(document).ready(function(){
    })
   });
 
-  $('input, #tabcontrols, #category, #fontsize').click(function(event){
+  $('input, #tabcontrols, #category, #fontsize, #random_color').click(function(event){
     event.stopPropagation();
   });
 
@@ -88,7 +89,13 @@ $(document).ready(function(){
 //*
 function getPalette(event){
   $('#palette').empty();
-  var hex = $('#colors').val();
+  if ($('#colors').val() == ""){
+    random_array = ["111111", "222222", "333333", "444444", "555555", "666666", "777777", "888888", "999999", "000000", "aaaaaa", "bbbbbb", "ccccccc", "dddddd", "eeeeee", "ff9900", "008080", "ffc0cb", "00ffff", "40e0d0", "008080", "33FF33", "FF0000", "0000FF", "8B8B7E"];
+    var hex = random_array.sort(function() {return 0.5 - Math.random()})[1];
+  }
+  else{
+    var hex = $('#colors').val();
+  }
   event.preventDefault();
   $.ajax({
     type: "GET",

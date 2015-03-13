@@ -55,8 +55,10 @@
       <div id="colors_choice" data-value="#colors_choice">
         <h1>Choose a color:</h1>
         <form action="" method="GET">
-          <input type="text" id="colors" name="colors" placeholder="Enter a valid hexcode without #"/>
+          <input type="text" id="colors" name="colors" placeholder="Enter a valid 6-digit hexcode"/>
+          <span class="unit">#</span>
           <input type="submit" id="submit_color" value="Get Palettes">
+          <input type="button" id="random_color" value="Random">
         </form>
         <div id="palette"></div><!--end #palette-->
       </div><!--end .colors_choice-->
