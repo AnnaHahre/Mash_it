@@ -113,12 +113,23 @@ function getPalette(event){
 }
 
 function showPalette(response){
-  $.each(response, function(index, value) {
-    $.each(value, function(index, color) {
+/*  alert (response);
+
+  $.each(response, function(i, obj){
+    var palette = obj['id'];
+    alert(palette);
+  });*/
+  var palette_list = response.slice(1, response.length); //removes description-object (object 1).
+
+  $.each(palette_list, function(index, value) {
+    var palette_obj = value['palette'];
+
+    $.each(palette_obj, function(colors, item) {
       //if (color.length == 5){
-        $.each(color, function(index, item) {
+        //alert(colors);
+        //$.each(colors, function(index, item) {
            $('#palette').append("<div class='col' value='#" + item + "'><p class='col_p' style=background-color:#" +item + ";' value=" +item+ "></p><p class='hex_name'>#" +item+"</p></div>");
-        });
+        //});
      // }
     });
   });

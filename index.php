@@ -71,7 +71,8 @@ $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
   }
 
   //get & return palette
-	$palette = get_ColorLovers_Palette($hex, $num_results);
+  $route = $app->request()->getPath();
+	$palette = get_ColorLovers_Palette($hex, $route, $num_results);
 	$response = $app->response();
 	$response->header('Content-Type', 'application/json');
   //echo json_encode($palette);
@@ -198,9 +199,8 @@ $num = $app->request->get('num_results');
       exit;
     }
   }
-
-  $palettes = get_ColorLovers_Palette($hex, 20);
   $route = $app->request()->getPath();
+  $palettes = get_ColorLovers_Palette($hex, $route, 20);
   $fonts = getGoogleFonts($catname, $route);
 
   $route = $app->request()->getPath();
@@ -212,37 +212,6 @@ $num = $app->request->get('num_results');
 
 }) ->conditions(array('hex' => '[a-fA-F0-9]{6}', 'catname' => '(monospace|sans-serif|serif|handwriting|display)'));
 
-
-
-function makeTheme($num, $route, $palettes, $fonts) {
-  
-    $keys_font = array_keys($fonts);
-      shuffle($keys_font);
-      foreach($keys_font as $key_font) {
-          $new_fonts[] = $fonts[$key_font];
-      }
-      $fonts = $new_fonts;
-
-    $keys_palettes = array_keys($palettes);
-      shuffle($keys_palettes);
-      foreach($keys_palettes as $key_palettes) {
-          $new_palettes[] = $palettes[$key_palettes];
-      }
-      $palettes = $new_palettes;
-
-    //return $palettes;
-
-    $theme = array();
-    array_push($theme, array("resource_location"=>$route));
-    for ($i = 1; $i <= $num; $i++) {
-      $theme_item = array(
-        "font"=>$fonts[$i],
-        "color-palette"=>$palettes[$i]
-        );
-      array_push($theme, $theme_item);
-    } 
-    return json_encode($theme);
-}
 
 
 //*-----------------ERROR HANDLING ---------------------
@@ -290,7 +259,7 @@ $app->notFound(function () use ($app) {
 //*
 //*
 
-function get_ColorLovers_Palette($hex, $num) {
+function get_ColorLovers_Palette($hex, $route, $num) {
   $client = new GuzzleHttp\Client();
 
   $url = "http://www.colourlovers.com/api/palettes/top?hex=".$hex."&format=json&sortBy=asc&numResults=".$num;
@@ -299,14 +268,16 @@ function get_ColorLovers_Palette($hex, $num) {
   $response = $client->get($url);
   $data = $response->json();
 
-  /*$color_data = array('palette' => $data);*/
-  $all_palettes = [];
+  //$color_data = array('palette' => $data);
+
+  $all_palettes = array();
+  array_push($all_palettes, array("resource_location"=>$route));
   foreach ($data as $color) {
     if (count($color['colors']) == 5){
         $palette = array(
           "palette"=>$color['colors'],
-          //"source_url"=>$color['url'],
-          //"source_api_url"=>$color['apiUrl'],
+          "source_url"=>$color['url'],
+          "source_api_url"=>$color['apiUrl'],
           );
     }
     else{
@@ -334,49 +305,48 @@ function getGoogleFonts($catname, $route, $num=null, $random=0) {
   $response = $client->get($url);
   $data = $response->json();
 
-      //Categorizing fonts by $catname
-      $fontlist = json_encode($data);
-      $arr = json_decode($fontlist);
+  //Categorizing fonts by $catname
+  $fontlist = json_encode($data);
+  $arr = json_decode($fontlist);
 
-      $category_list = array();
+  $category_list = array();
 
-      $items = $arr->items;
-      array_push($category_list, array("resource_location"=>$route));
-      //array_push($category_list, array("fonts"=>[]));
+  $items = $arr->items;
+  array_push($category_list, array("resource_location"=>$route));
 
-      foreach ( $items as $item )
-      {
-          if($item->category == $catname) {
-            $family_name=$item->family;
-            $family_name_new = str_replace(" ", "+", $family_name);
-            $font_variants = "";
+  foreach ( $items as $item )
+  {
+    if($item->category == $catname) {
+      $family_name=$item->family;
+      $family_name_new = str_replace(" ", "+", $family_name); //make family-name useable for import strings
+      $font_variants = "";
 
-            foreach ($item->variants as $variant) {
-              if (preg_match('/[1-9]00|[1-9]00italic/',$variant)) {
-              $font_variants .= $variant.",";
-            }
-            $font_variants_new = substr($font_variants, 0, -1);
-            }
-
-            $css_import = "@import url(http://fonts.googleapis.com/css?family=".$family_name_new.":".$font_variants_new.");";
-            $link_import = "<link href='http://fonts.googleapis.com/css?family=".$family_name_new.":".$font_variants_new."' rel='stylesheet' type='text/css'>";
-
-            $font_item = array(
-              "font-family"=>$item->family,
-              "variants"=>$item->variants,
-              "subsets"=>$item->subsets,
-              "css_import"=>$css_import,
-              "link_import"=>$link_import
-              );
-            array_push($category_list, $font_item);
-          }
+      foreach ($item->variants as $variant) { //get alla font variants to be included in the import
+        if (preg_match('/[1-9]00|[1-9]00italic/',$variant)) { //reg-ex: 100-900 / 100italic-900italic.
+        $font_variants .= $variant.",";
+        }
+      $font_variants_new = substr($font_variants, 0, -1);
       }
 
-  if ($num == null) {
+      $css_import = "@import url(http://fonts.googleapis.com/css?family=".$family_name_new.":".$font_variants_new.");";
+      $link_import = "<link href='http://fonts.googleapis.com/css?family=".$family_name_new.":".$font_variants_new."' rel='stylesheet' type='text/css'>";
+
+      $font_item = array(
+        "font-family"=>$item->family,
+        "variants"=>$item->variants,
+        "subsets"=>$item->subsets,
+        "css_import"=>$css_import,
+        "link_import"=>$link_import
+        );
+      array_push($category_list, $font_item);
+    }
+  }
+
+  if ($num == null) { //check if parameter-value for num_results is set
     return $category_list;
   }
   else {
-    if ($random == 1) {
+    if ($random == 1) { //checks if parameter value for ramdom is set
     $keys_font = array_keys($category_list);
       shuffle($keys_font);
       foreach($keys_font as $key_font) {
@@ -389,11 +359,44 @@ function getGoogleFonts($catname, $route, $num=null, $random=0) {
   }
 }
 
+
+//*-------- FUNCTIONS USED BY THE API-FUNCTIONS ---------
+//*
+//*
+
+
+
 function filterVariants($filter) {
  //make function to filter variants
 }
 
+function makeTheme($num, $route, $palettes, $fonts) {
+  
+    $keys_font = array_keys($fonts);
+      shuffle($keys_font);
+      foreach($keys_font as $key_font) {
+          $new_fonts[] = $fonts[$key_font];
+      }
+      $fonts = $new_fonts;
 
+    $keys_palettes = array_keys($palettes);
+      shuffle($keys_palettes);
+      foreach($keys_palettes as $key_palettes) {
+          $new_palettes[] = $palettes[$key_palettes];
+      }
+      $palettes = $new_palettes;
+
+    $theme = array();
+    array_push($theme, array("resource_location"=>$route));
+    for ($i = 1; $i <= $num; $i++) {
+      $theme_item = array(
+        "font"=>$fonts[$i],
+        "color-palette"=>$palettes[$i]
+        );
+      array_push($theme, $theme_item);
+    } 
+    return json_encode($theme);
+}
 
 
 $app->run();
