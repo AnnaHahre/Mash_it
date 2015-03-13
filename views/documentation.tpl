@@ -3,6 +3,8 @@
   <head>
     <title>Mash:it</title>
     <link rel='stylesheet' href='/static/style.css' />
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type='text/javascript' src="/static/script_doc.js"></script>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
   </head>
   <body class="api_doc">
@@ -14,7 +16,7 @@
       <nav>
         <h1>Index</h1>
         <ul>
-          <li><a href="#font">Endpoints</a>
+          <li><a href="#endpoint">Endpoints</a>
             <ul>
               <li><a href="#font">List fonts by category</a></li>
               <li><a href="#palette">List color-palettes by color</a></li>
@@ -31,7 +33,7 @@
         </ul>
     </nav>
 
-      <h2>Endpoints</h2>
+      <h2 id="endpoint">Endpoints</h2>
         <code class="endpoints">
         <ul>
           <li><a href="#font">GET /api/v1/fonts/category</a></li>
@@ -45,34 +47,38 @@
       <h3>Endpoint</h3>
   		<code class="request">GET /api/v1/fonts/category/<em>name</em> <em>?num_results=n&amp;random={1|0}</em></code>
       <table>
+      <thead>
       <tr>
         <th>name</th>
         <th>type</th>
-        <th>data-type</th>
-        <th>description</th>
+        <th class="data_type">data-type</th>
+        <th class="description">description</th>
         <th>opt/req</th>
       </tr>  
+    </thead>
+    <tbody>
       <tr>
         <td><em>name</em></td>
         <td>endpoint</td>
-        <td>name = monospace | sans-serif | serif | handwriting | display</td>
-        <td>returns the full set of fonts from the requested category</td>
+        <td class="data_type">name = monospace | sans-serif | serif | handwriting | display</td>
+        <td class="description">returns the full set of fonts from the requested category</td>
         <td>(required)</td>
       </tr>  
       <tr>
         <td><em>num_results</em></td>
         <td>parameter</td>
-        <td>n = 1-10 </td>
-        <td>returns the requested number of results in default or randomized order (default= full set of fonts).</td>
+        <td class="data_type">n = 1-10 </td>
+        <td class="description">returns the requested number of results in default or randomized order (default= full set of fonts).</td>
         <td>(optional) when used, parameter random required</td>
       </tr>  
       <tr>
         <td><em>ramdom</em></td>
         <td>parameter</td>
-        <td>{1|0} </td>
-        <td>returns the requested number of results in default(google font popularity) or randomized order.</td>
+        <td class="data_type">{1|0} </td>
+        <td class="description">returns the requested number of results in default(google font popularity) or randomized order.</td>
         <td>(optional) when used, parameter num_results required</td>
       </tr>  
+    </tbody>
       </table>
 
       <h3>Example request</h3>
@@ -131,22 +137,22 @@
           <tr>
             <th>name</th>
             <th>type</th>
-            <th>data-type</th>
-            <th>description</th>
+            <th class="data_type">data-type</th>
+            <th class="description">description</th>
             <th>opt/req</th>
           </tr>  
           <tr>
             <td><em>color</em></td>
             <td>endpoint</td>
-            <td>color = [a-fA-F0-9]{6} (hex-code)</td>
-            <td>returns a set of color-palettes based on the requested color.</td>
+            <td class="data_type">color = [a-fA-F0-9]{6} (hex-code)</td>
+            <td class="description">returns a set of color-palettes based on the requested color.</td>
             <td>(required)</td>
           </tr>  
           <tr>
             <td><em>num_results</em></td>
             <td>parameter</td>
-            <td>n = 1-10</td>
-            <td>returns the requested number of results (default=6)</td>
+            <td class="data_type">n = 1-10</td>
+            <td class="description">returns the requested number of results (default=6)</td>
             <td>(optional)</td>
           </tr>  
         </table>
@@ -170,49 +176,115 @@
           <tr>
             <th>name</th>
             <th>type</th>
-            <th>data-type</th>
-            <th>description</th>
+            <th class="data_type">data-type</th>
+            <th class="description">description</th>
             <th>opt/req</th>
           </tr>  
           <tr>
             <td><em>color</em></td>
             <td>endpoint</td>
-            <td>hex = [a-fA-F0-9]{6}</td>
-            <td>returns themes with palettes based on the requested color (hex).</td>
+            <td class="data_type">hex = [a-fA-F0-9]{6}</td>
+            <td class="description">returns themes with palettes based on the requested color (hex).</td>
             <td>(required)</td>
           </tr>
           <tr>
           <td><em>category</em></td>
           <td>endpoint</td>
-          <td>name = monospace | sans-serif | serif | handwriting | display </td>
-          <td>returns themes with fonts from the requested category</td>
+          <td class="data_type">name = monospace | sans-serif | serif | handwriting | display </td>
+          <td class="description">returns themes with fonts from the requested category</td>
           <td>(required)</td>
           </tr>    
           <tr>
             <td><em>num_results</em></td>
             <td>parameter</td>
-            <td>n = 1-10 </td>
-            <td>returns the requested number of results (default=10)</td>
+            <td class="data_type">n = 1-10 </td>
+            <td class="description">returns the requested number of results (default=10)</td>
             <td>(optional)</td>
           </tr>  
         </table>
 
         <h3>Example request</h3>
-        <code class="ex_request">curl -i http://www.mashit.nu/api/v1/palette/222222?num_results=2</code>
+        <code class="ex_request">curl -i http://www.mashit.nu/api/v1/theme/111111/monospace?num_results=2</code>
 
         <h3>Example response</h3>
         <code class="response response_header">
           Status: 200 OK <br>
           Content-Type:application/json
         </code>
-        <pre><code class="response response_body">Test
+        <pre><code class="response response_body">
+
+[
+  {
+    "resource_location": "/api/v1/theme/111111/monospace"
+  },
+  {
+    "font": {
+      "font-family": "Source Code Pro",
+      "variants": [
+      "200",
+      "300",
+      "regular",
+      "500",
+      "600",
+      "700",
+      "900"
+      ],
+      "subsets": [
+      "latin",
+      "latin-ext"
+      ],
+      "css_import": "@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,500,600,700,900);",
+      "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,500,600,700,900' rel='stylesheet' type='text/css'&gt;"
+    },
+    "color-palette": {
+      "palette": [
+      "111111",
+      "3B1D1D",
+      "000000",
+      "FF0036",
+      "FFFFFF"
+      ]
+    }
+  },
+  {
+    "font": {
+      "font-family": "Cousine",
+      "variants": [
+      "regular",
+      "italic",
+      "700",
+      "700italic"
+      ],
+      "subsets": [
+      "greek",
+      "vietnamese",
+      "latin",
+      "cyrillic-ext",
+      "cyrillic",
+      "greek-ext",
+      "latin-ext"
+      ],
+      "css_import": "@import url(http://fonts.googleapis.com/css?family=Cousine:700,700italic);",
+      "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Cousine:700,700italic' rel='stylesheet' type='text/css'&gt;"
+    },
+    "color-palette": {
+      "palette": [
+      "F3E0BE",
+      "111111",
+      "BB484A",
+      "FA656A",
+      "FFFFFF"
+      ]
+    }
+  }
+]
 
         </code></pre>
 
-      <h2>Error handling</h2>
+      <h2 id="error">Error handling</h2>
       <p>400,404,500</p>
 
-      <h2>License</h2>
+      <h2 id="license">License</h2>
       <p>Attribution-Noncommercial-Share Alike - <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a></p>
 
   	</section>

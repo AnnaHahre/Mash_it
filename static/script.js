@@ -290,6 +290,7 @@ function getFonts() {
         type: "GET",
         url: "http://localhost:1234/api/v1/font/category/" + $user_choice,
         dataType: "json",
+        beforeSend: function() { $('#font_choice').addClass("loading") }, //start loading animation
         success: function(response) {
             showfonts(response, $user_choice);
 
@@ -351,6 +352,8 @@ function showfonts(fonts, category) {
 
     //bindet get-element till varje li-element som innehåller fontfamiljer.
     $('.user_fonts').bind("click", changeStyle);
+    $('#font_choice').removeClass("loading"); //end loading animation
+
 }   
 
 function appendFonts(script_families) {
