@@ -203,7 +203,8 @@ $num = $app->request->get('num_results');
   $route = $app->request()->getPath();
   $fonts = getGoogleFonts($catname, $route);
 
-  $theme = makeTheme($num_results, $palettes, $fonts);
+  $route = $app->request()->getPath();
+  $theme = makeTheme($num_results, $route, $palettes, $fonts);
 
   $response = $app->response();
   $response->header('Content-Type', 'application/json');
@@ -213,7 +214,7 @@ $num = $app->request->get('num_results');
 
 
 
-function makeTheme($num, $palettes, $fonts) {
+function makeTheme($num, $route, $palettes, $fonts) {
   
     $keys_font = array_keys($fonts);
       shuffle($keys_font);
@@ -232,6 +233,7 @@ function makeTheme($num, $palettes, $fonts) {
     //return $palettes;
 
     $theme = array();
+    array_push($theme, array("resource_location"=>$route));
     for ($i = 1; $i <= $num; $i++) {
       $theme_item = array(
         "font"=>$fonts[$i],

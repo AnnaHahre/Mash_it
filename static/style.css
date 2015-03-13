@@ -111,8 +111,16 @@ body{
 	}
 
 	.api_doc td, .api_doc th {
-		padding: 0.5% 2%;
+		padding: 1% 2%;
+		width: 14.29%;
 		vertical-align: top;
+	}
+	
+	.api_doc .data_type {
+		width: 24.05%
+	}
+	.api_doc .description {
+		width: 33.1%
 	}
 
 	.api_doc table em {
@@ -412,7 +420,7 @@ select{
 }
 
 #font_list li:hover {
-	cursor: pointer;
+	cursor: crosshair;
 	background-color: #efefef;
 	transition: all 1 ease;
 }
@@ -432,7 +440,7 @@ select{
 }
 
 #palette .col p:hover {
-	cursor: pointer;
+	cursor: crosshair;
 }
 
 .col_p{
