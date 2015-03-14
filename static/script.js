@@ -1,7 +1,10 @@
+var clicked = false;
 $(document).ready(function(){
   $('#submit_color').click(getPalette); //COLORS
-  $('#random_color').click(getPalette);
-
+  $('#random_color').click(function(){
+    clicked = true;
+    getPalette();
+  });
   $("#fonta").click(getFonts); //FONT
 
   $('#test').click(getElementStyle); //GET STYLES TO GENERATE CSS
@@ -89,14 +92,16 @@ $(document).ready(function(){
 //*
 function getPalette(event){
   $('#palette').empty();
-  if ($('#colors').val() == ""){
+  if (clicked){
     random_array = ["111111", "222222", "333333", "444444", "555555", "666666", "777777", "888888", "999999", "000000", "aaaaaa", "bbbbbb", "ccccccc", "dddddd", "eeeeee", "ff9900", "008080", "ffc0cb", "00ffff", "40e0d0", "008080", "33FF33", "FF0000", "0000FF", "8B8B7E"];
     var hex = random_array.sort(function() {return 0.5 - Math.random()})[1];
+    clicked = false;
   }
   else{
     var hex = $('#colors').val();
+    event.preventDefault();
   }
-  event.preventDefault();
+  
   $.ajax({
     type: "GET",
     url: "http://localhost:1234/api/v1/palette/" +hex,
@@ -106,7 +111,7 @@ function getPalette(event){
      showPalette(response);
     },
     error: function() {
-      alert('Not working!');
+      $('#palette').append('<p style="font-size: .9em; color:#ffffff">ERROR "Invalid input": <br> Please check if you entered a valid hexcode - 6 characters, a combination of A-F, a-f and/or 0-9. Please try again.</p>');
       }
     });
   $('#colors').val("");
