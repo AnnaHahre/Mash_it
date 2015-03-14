@@ -319,7 +319,7 @@ function getFonts() {
 
         },
         error: function() {
-            alert('Not working!');
+          $('#error').append('<p style="font-size:.9em; color:#ffffff; margin-top:20px;">ERROR:<br> There seems to be a problem with the connection. <br>Please try again or if the problem persists please contact ut at info@mashit.nu .</p>');
         }
     });
 }
