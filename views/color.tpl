@@ -55,7 +55,7 @@
       <div id="colors_choice" data-value="#colors_choice">
         <h1>Choose a color:</h1>
         <form action="" method="GET">
-          <input type="text" id="colors" name="colors" placeholder="Enter a valid 6-digit hexcode"/>
+          <input type="text" id="colors" name="colors" placeholder=""/>
           <span class="unit">#</span>
           <input type="submit" id="submit_color" value="Get Palettes">
           <input type="button" id="random_color" value="Random">
@@ -84,12 +84,13 @@
             <ul id="font_list">
               <!--Placeholding fontlist-->
             </ul>
+
             <!--<h1>Set font-size</h1>
      
             <input type="text" id="fontsize" placeholder="Enter fontsize in em">-->
 
         </div><!--end #show_fonts-->
-
+        <div id="error"></div>
       </div><!--end .font_choie-->
       
       <div id="code_choice" data-value="#code_choice">
