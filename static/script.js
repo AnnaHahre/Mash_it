@@ -1,16 +1,15 @@
-var clicked = false;
+var clicked = false; //VARIBLE THAT IS SET TO TRUE IF RANDOM BUTTON IS CLICKED
+
 $(document).ready(function(){
-  $('#submit_color').click(getPalette); //COLORS
-  $('#random_color').click(function(){
+  $('#submit_color').click(getPalette); //PALETTE
+  $('#random_color').click(function(){ //RANDOM PALETTE
     clicked = true;
     getPalette();
   });
+
   $("#fonta").click(getFonts); //FONT
 
   $('#test').click(getElementStyle); //GET STYLES TO GENERATE CSS
-
-  //$('input[name=radioName]:checked', '#myForm').val()
-
 
   $('#tabcontrols li').click(function(){
     $('code').empty(); //EMPTY THE CODE-BLOCK
@@ -18,8 +17,8 @@ $(document).ready(function(){
 
   $('#exit_icon').click(function(){
     location.href="http://localhost:1234/index.php";
-    
-  })
+  });
+
   window.onbeforeunload = function() {
     return "Are you sure you want to leave? Your changes will not be saved!";
   }
@@ -62,7 +61,6 @@ $(document).ready(function(){
 
     if ($(this).hasClass('selected')){
       event.preventDefault();
-
       $(value).hide();
       $('#tabcontrols li').removeClass();
 
@@ -73,7 +71,6 @@ $(document).ready(function(){
       $('#tabcontrols li').removeClass();
       $(this).addClass('selected');
       $(value).show();
-
     }
  
     $('#colors_choice, #font_choice, #code_choice').click(function(){
@@ -124,21 +121,26 @@ function showPalette(response){
     var palette = obj['id'];
     alert(palette);
   });*/
+  
   var palette_list = response.slice(1, response.length); //removes description-object (object 1).
+  if (palette_list.length == 0){
+    $('#palette').append('<p style="font-size: .9em; color:#ffffff">Sorry. There is no available palettes with choosen or random hexcode.</p>');
+  }
+  else{
+    $.each(palette_list, function(index, value) {
+      var palette_obj = value['palette'];
 
-  $.each(palette_list, function(index, value) {
-    var palette_obj = value['palette'];
-
-    $.each(palette_obj, function(colors, item) {
-      //if (color.length == 5){
-        //alert(colors);
-        //$.each(colors, function(index, item) {
-           $('#palette').append("<div class='col' value='#" + item + "'><p class='col_p' style=background-color:#" +item + ";' value=" +item+ "></p><p class='hex_name'>#" +item+"</p></div>");
-        //});
-     // }
+      $.each(palette_obj, function(colors, item) {
+        //if (color.length == 5){
+          //alert(colors);
+          //$.each(colors, function(index, item) {
+             $('#palette').append("<div class='col' value='#" + item + "'><p class='col_p' style=background-color:#" +item + ";' value=" +item+ "></p><p class='hex_name'>#" +item+"</p></div>");
+          //});
+       // }
+      });
     });
-  });
-   $('.col').bind("click", changeStyle);
+    $('.col').bind("click", changeStyle);
+  }  
 }
 
 //*---------------- SCRIPT FOR CHANGING STYLES ON WEBPAGE ----------------
