@@ -61,6 +61,7 @@ $(document).ready(function(){
 
     if ($(this).hasClass('selected')){
       event.preventDefault();
+
       $(value).hide();
       $('#tabcontrols li').removeClass();
 
@@ -79,7 +80,7 @@ $(document).ready(function(){
    })
   });
 
-  $('input, #tabcontrols, #category, #fontsize, #random_color').click(function(event){
+  $('input, #tabcontrols, #category, #fontsize, #random_color, .css_code').click(function(event){
     event.stopPropagation();
   });
 
@@ -90,7 +91,7 @@ $(document).ready(function(){
 function getPalette(event){
   $('#palette').empty();
   if (clicked){
-    random_array = ["111111", "222222", "333333", "444444", "555555", "666666", "777777", "888888", "999999", "000000", "aaaaaa", "bbbbbb", "ccccccc", "dddddd", "eeeeee", "ff9900", "008080", "ffc0cb", "00ffff", "40e0d0", "008080", "33FF33", "FF0000", "0000FF", "8B8B7E"];
+    random_array = ["111111", "222222", "333333", "444444", "555555", "666666", "777777", "888888", "999999", "000000", "aaaaaa", "bbbbbb", "cccccc", "dddddd", "eeeeee", "ff9900", "008080", "ffc0cb", "00ffff", "40e0d0", "008080", "33FF33", "FF0000", "0000FF", "8B8B7E"];
     var hex = random_array.sort(function() {return 0.5 - Math.random()})[1];
     clicked = false;
   }
@@ -125,6 +126,7 @@ function showPalette(response){
   var palette_list = response.slice(1, response.length); //removes description-object (object 1).
   if (palette_list.length == 0){
     $('#palette').append('<p style="font-size: .9em; color:#ffffff">Sorry. There is no available palettes with choosen or random hexcode.</p>');
+
   }
   else{
     $.each(palette_list, function(index, value) {
