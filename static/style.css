@@ -349,7 +349,7 @@ select{
 	width:400px;
 	height:534px;
 	padding:1% 5%;
-	background-color: #8caf9a;
+	background-color: #8caf9a; /*#f1f1ec*/
 	border-radius: 0 10px 10px 0;
 	-webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.25);
 	-moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.75);

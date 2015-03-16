@@ -4,6 +4,10 @@ $(document).ready(function(){
   $('#submit_color').click(getPalette); //PALETTE
   $('#random_color').click(function(){ //RANDOM PALETTE
     clicked = true;
+    $(this).attr('disabled','disabled');
+        setTimeout(function() {
+           $('input[type="button"]').removeAttr('disabled');
+        }, 750);
     getPalette();
   });
 
