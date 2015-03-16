@@ -7,7 +7,7 @@ $(document).ready(function(){
     $(this).attr('disabled','disabled');
         setTimeout(function() {
            $('input[type="button"]').removeAttr('disabled');
-        }, 750);
+        }, 1000);
     getPalette();
   });
 
