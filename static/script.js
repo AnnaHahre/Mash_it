@@ -4,9 +4,9 @@ $(document).ready(function(){
   $('#submit_color').click(getPalette); //PALETTE
   $('#random_color').click(function(){ //RANDOM PALETTE
     clicked = true;
-    $(this).attr('disabled','disabled');
+    $(this).attr('disabled','disabled'); //DISABLES BUTTON UNTIL REQUEST HAS BEEN FULFILLED
         setTimeout(function() {
-           $('input[type="button"]').removeAttr('disabled');
+           $('#random_color').removeAttr('disabled');
         }, 1000);
     getPalette();
   });
