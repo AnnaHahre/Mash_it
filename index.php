@@ -1,12 +1,6 @@
 <?php
 require'./vendor/autoload.php';
 
-/*
-error_reporting(-1);
-ini_set('display_errors', 1);
-ini_set('output_buffering', 0);
-*/
-
 use \Slim\Slim as Slim;
 
 Slim::registerAutoloader();
@@ -84,12 +78,6 @@ $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
 //*------------------ FONT ENDPOINT -----------------
 //*
 //*
-
-//root/theme/font/category
-/*$app->get('/api/v1/font/category', function() use ($app){
-  $json = getGoogleFonts();
-  echo json_encode($json);
-}); */
 
 $app->get('/api/v1/font/category/:name', function($name) use ($app){
 //variants 100, 200, 300, 400, 600, 700, 800, 900, 100italic, 200italic, 300italic, 400italic, 500italic, 600italic, 700italic, 800italic, 900italic.
@@ -201,7 +189,7 @@ $num = $app->request->get('num_results');
   }
   $route = $app->request()->getPath();
   $palettes = get_ColorLovers_Palette($hex, $route, 20);
-  //felhantering - antal paletter.
+
   $fonts = getGoogleFonts($catname, $route);
 
   $route = $app->request()->getPath();
@@ -274,23 +262,15 @@ function get_ColorLovers_Palette($hex, $route, $num) {
   $all_palettes = array();
   array_push($all_palettes, array("resource_location"=>$route));
   foreach ($data as $color) {
-    if (count($color['colors']) == 5){
+    if (count($color['colors']) == 5) {
         $palette = array(
           "palette"=>$color['colors'],
           "source_url"=>$color['url'],
           "source_api_url"=>$color['apiUrl'],
           );
+        array_push($all_palettes, $palette);
     }
-    else{
-      continue;
-    }
-        //foreach ($color['colors'] as $value) {
-           // array_push($palette, $value);
-           // }
-
-      array_push($all_palettes, $palette);
-        }
-    //}
+  }
   return $all_palettes;
   $hex = null;
   
@@ -369,35 +349,45 @@ function filterVariants($filter) {
  //make function to filter variants
 }
 
-function makeTheme($num, $route, $palette, $font) {
 
+function makeTheme($num, $route, $palette, $font) {
+  if(count($palette) == 1) {
+    $num = 0;
+  }
+  else if (count($palette) <= $num+1) {
+    $num = count($palette) - 1;
+  }
+
+  $theme = array();
+  array_push($theme, array("resource_location"=>$route));
+
+  if ($num != 0) {
     $palettes = array_slice($palette, 1, count($palette));
     $fonts = array_slice($font, 1, count($font));
-  
+    
     $keys_font = array_keys($fonts);
       shuffle($keys_font);
       foreach($keys_font as $key_font) {
           $new_fonts[] = $fonts[$key_font];
       }
-      $fonts = $new_fonts;
+    $fonts = $new_fonts;
 
     $keys_palettes = array_keys($palettes);
       shuffle($keys_palettes);
       foreach($keys_palettes as $key_palettes) {
           $new_palettes[] = $palettes[$key_palettes];
       }
-      $palettes = $new_palettes;
+    $palettes = $new_palettes;
 
-    $theme = array();
-    array_push($theme, array("resource_location"=>$route));
-    for ($i = 1; $i <= $num; $i++) {
+    for ($i = 0; $i < $num; $i++) {
       $theme_item = array(
         "font"=>$fonts[$i],
         "color-palette"=>$palettes[$i]
         );
       array_push($theme, $theme_item);
     } 
-    return json_encode($theme);
+  }
+  return json_encode($theme);
 }
 
 

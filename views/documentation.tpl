@@ -286,6 +286,7 @@
   		<h2 id="palette">List color-palettes by color</h2>
         <p>Returns a set of palettes created by the <a href="http://www.colourlovers.com/">COLOURlovers community</a>.</p>
         
+        <h3>Endpoint</h3>
     		<code class="request">GET /api/v1/palette/<em>color</em> <em>?num_results=n</em></code>
         <table>
           <tr>
@@ -303,13 +304,17 @@
             <td>(required)</td>
           </tr>  
           <tr>
-            <td><em>num_results</em></td>
+            <td><em>num_results*</em></td>
             <td>parameter</td>
             <td class="data_type">n = 1-10</td>
             <td class="description">returns the requested number of results (default=6)</td>
             <td>(optional)</td>
           </tr>  
         </table>
+        <p class="num_info">
+          * Mash:it will return a reduced (or empty) set of palettes when less then (or none of) the requested number of palettes are aviable at the 
+          <a href="http://www.colourlovers.com/">COLOURlovers community</a>.
+        </p>
 
         <h3>Example request</h3>
         <code class="ex_request">curl -i http://www.mashit.nu/api/v1/palette/D7E8D5</code>
@@ -395,6 +400,7 @@
   		<h2 id="theme">List theme by color and font category</h2>
         <p>Returns a mix of fonts and palettes</p>
 
+        <h3>Endpoint</h3>
     		<code class="request">GET /api/v1/theme/<em>color</em>/<em>category</em> <em>?num_results=n</em></code>
 
         <table>
@@ -420,13 +426,17 @@
           <td>(required)</td>
           </tr>    
           <tr>
-            <td><em>num_results</em></td>
+            <td><em>num_results*</em></td>
             <td>parameter</td>
             <td class="data_type">n = 1-10 </td>
             <td class="description">returns the requested number of results (default=10)</td>
             <td>(optional)</td>
           </tr>  
         </table>
+        <p class="num_info">
+          * Mash:it will return a reduced (or empty) set of palettes when less then (or none of) the requested number of palettes are aviable at the 
+          <a href="http://www.colourlovers.com/">COLOURlovers community</a>.
+        </p>
 
         <h3>Example request</h3>
         <code class="ex_request">curl -i http://www.mashit.nu/api/v1/theme/D7E8D5/monospace?num_results=3</code>

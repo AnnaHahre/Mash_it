@@ -49,6 +49,11 @@ body{
 
 
 /*Styles for API-doc*/
+	
+	.num_info {
+		font-style: italic;
+		line-height: 1.5em;
+	}
 
 	.api_doc {
 		background-color: #ffffff;
