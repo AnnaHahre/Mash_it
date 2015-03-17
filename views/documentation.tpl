@@ -22,11 +22,12 @@
               <li><a href="#palette">List color-palettes by color</a></li>
               <li><a href="#theme">List theme by color and font category</a></li>
             </ul>
-          <li><a href="#error">Error-handling</a>
+          <li><a href="#statuscodes">Status codes</a>
             <ul>
-              <li><a href="#400">400</a></li>
-              <li><a href="#404">404</a></li>
-              <li><a href="#500">500</a></li>
+              <li><a href="#statuscodes">200</a></li>
+              <li><a href="#statuscodes">400</a></li>
+              <li><a href="#statuscodes">404</a></li>
+              <li><a href="#statuscodes">500</a></li>
             </ul>
           </li>
           <li><a href="#license">License</a></li>
@@ -521,8 +522,33 @@
 
         </code></pre>
 
-      <h2 id="error">Error handling</h2>
-      <p>400,404,500</p>
+      <h2 id="statuscodes">Status codes</h2>
+      <table>
+        <tr>
+          <th>Statuscode</th>
+          <th>Message</th>
+          <th>Probably caused by</th>
+        </tr>
+        <tr>
+          <td>200</td>
+          <td>OK</td>
+          <td>-</td>
+        </tr>
+          <td>400</td>
+          <td>Bad request</td>
+          <td>Invalid parameters, check the documentation</td>
+        </tr>
+        <tr>
+          <td>404</td>
+          <td>Resource not found</td>
+          <td>Not a valid endpoint, check the documentation</td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>Internal server error</td>
+          <td>Something went wrong in the application, please contact info@mashit.nu</td>
+        </tr>
+      </table>
 
       <h2 id="license">License</h2>
       <p>Attribution-Noncommercial-Share Alike - <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a></p>

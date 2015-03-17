@@ -201,6 +201,7 @@ $num = $app->request->get('num_results');
   }
   $route = $app->request()->getPath();
   $palettes = get_ColorLovers_Palette($hex, $route, 20);
+  //felhantering - antal paletter.
   $fonts = getGoogleFonts($catname, $route);
 
   $route = $app->request()->getPath();
