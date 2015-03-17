@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mash:it</title>
+    <title>Mash:it API</title>
     <link rel='stylesheet' href='/static/style.css' />
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type='text/javascript' src="/static/script_doc.js"></script>
@@ -10,30 +10,26 @@
   <body class="api_doc">
   	<div id="wrapper">
   	<header>
-  		<h1>API documentation { mash:it; }</h1>
+      <hgroup>
+    		<h1>mash:it; <span class="api">API</span></h1>
+      </hgroup>
   	</header>
-  	<section>
-      <nav>
-        <h1>Index</h1>
+    <nav>
         <ul>
           <li><a href="#endpoint">Endpoints</a>
             <ul>
-              <li><a href="#font">List fonts by category</a></li>
-              <li><a href="#palette">List color-palettes by color</a></li>
-              <li><a href="#theme">List theme by color and font category</a></li>
+              <li><a href="#font">fonts by category</a></li>
+              <li><a href="#palette">palettes by color</a></li>
+              <li><a href="#theme">theme by color and font-category</a></li>
             </ul>
-          <li><a href="#statuscodes">Status codes</a>
-            <ul>
-              <li><a href="#statuscodes">200</a></li>
-              <li><a href="#statuscodes">400</a></li>
-              <li><a href="#statuscodes">404</a></li>
-              <li><a href="#statuscodes">500</a></li>
-            </ul>
-          </li>
+          <li><a href="#statuscodes">Status codes</a></li>
           <li><a href="#license">License</a></li>
         </ul>
+    <footer>
+      <p><a href="/index.php">Mash:it</a></p>
+    </footer>
     </nav>
-
+  	<section>
       <h2 id="endpoint">Endpoints</h2>
         <code class="endpoints">
         <ul>
@@ -283,7 +279,7 @@
 ]
       </code></pre>
 
-  		<h2 id="palette">List color-palettes by color</h2>
+  		<h2 id="palette">List palettes by color</h2>
         <p>Returns a set of palettes created by the <a href="http://www.colourlovers.com/">COLOURlovers community</a>.</p>
         
         <h3>Endpoint</h3>
@@ -564,9 +560,6 @@
       <p>Attribution-Noncommercial-Share Alike - <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a></p>
 
   	</section>
-    <footer>
-      <p><a href="/index.php">Mash:it</a></p>
-    </footer>
   </div><!--#wrapper .api_doc-->
   </body>
 </html>
