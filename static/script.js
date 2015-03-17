@@ -27,15 +27,15 @@ $(document).ready(function(){
     return "Are you sure you want to leave? Your changes will not be saved!";
   }
   
- /* $('#fontsize').change('click', function(){
+ /*$('#fontsize').change(function(){
     choice = $('#fontsize').val();
     setFontsize(choice);
   })
 
   function setFontsize(choice){
-    $('h1,h2,p').click(function () {
+    $('#template h1, #template h2, .featurette p').click(function () {
       $(this).css({
-        fontSize : parseInt(choice) +"em"
+        fontSize : parseInt(choice) + "em"
         });
       });
   }*/
@@ -113,7 +113,7 @@ function getPalette(event){
      showPalette(response);
     },
     error: function() {
-      $('#palette').append('<p style="font-size: .9em; color:#ffffff">ERROR "Invalid input": <br> Please check if you entered a valid hexcode - 6 characters, a combination of A-F, a-f and/or 0-9. Please try again.</p>');
+      $('#palette').append('<p style="font-size: .9em; color:#000000">ERROR "Invalid input": <br> Please check if you entered a valid hexcode - 6 characters, a combination of A-F, a-f and/or 0-9. Please try again.</p>');
       }
     });
   $('#colors').val("");
@@ -327,7 +327,7 @@ function getFonts() {
 
         },
         error: function() {
-          $('#error').append('<p style="font-size:.9em; color:#ffffff; margin-top:20px;">ERROR:<br> There seems to be a problem with the connection. <br>Please try again or if the problem persists please contact ut at info@mashit.nu .</p>');
+          $('#error').append('<p style="font-size:.9em; color:#000000; margin-top:20px;">ERROR:<br> There seems to be a problem with the connection. <br>Please try again or if the problem persists please contact ut at info@mashit.nu .</p>');
         }
     });
 }

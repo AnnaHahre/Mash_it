@@ -85,12 +85,12 @@
               <!--Placeholding fontlist-->
             </ul>
 
-            <!--<h1>Set font-size</h1>
-     
-            <input type="text" id="fontsize" placeholder="Enter fontsize in em">-->
+            
 
         </div><!--end #show_fonts-->
         <div id="error"></div>
+       <!-- <h1>Set font-size</h1>
+          <input type="text" id="fontsize" placeholder="Enter fontsize in em">-->
       </div><!--end .font_choie-->
       
       <div id="code_choice" data-value="#code_choice">
