@@ -53,7 +53,6 @@
 
     <div id="tabs">
       <div id="colors_choice" data-value="#colors_choice">
-        <h1>Choose a color:</h1>
         <form action="" method="GET">
           <input type="text" id="colors" name="colors" placeholder=""/>
           <span class="unit">#</span>
@@ -66,7 +65,6 @@
 
       <div id="font_choice" data-value="#font_choice">
         <div id="font_select">
-          <h1>Choose font-family:</h1>
           <form action="" method="GET">
             <select name="font_category" id="category">
               <option value="" disabled selected>Select your option</option>
@@ -94,7 +92,7 @@
       </div><!--end .font_choie-->
       
       <div id="code_choice" data-value="#code_choice">
-        <h1>Generate CSS code:</h1>
+        <h1>Generate CSS</h1>
         <input type="button" id="test" value="Generate CSS">
             <code class="css_code"></code>
       </div><!--end .code_choie-->
