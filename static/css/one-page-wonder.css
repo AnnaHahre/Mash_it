@@ -19,14 +19,21 @@ body {
     -o-background-size: cover;
 }
 
+
+
 .headline {
     padding: 120px 0;
+
+
 }
 
 .headline h1 {
     font-size: 130px;
     background: #fff;
     background: rgba(255,255,255,0.9);
+    width:1140px;
+    overflow:hidden;
+    height:150px;
 }
 
 .headline h2 {

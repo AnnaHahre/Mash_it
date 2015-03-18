@@ -24,32 +24,27 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-
   </head>
 
 <body>
 
   <!--Dashboard -->
- <div id="dashboard" style="display:none">
-  <ul id="tabcontrols">
-    <h2>mash:it</h2>
-    <!--<li>
-      <a href="#template_choice">Template</a>
-    </li>-->
-    <li id="color_icon" data-value="#colors_choice">
-      <a href="#colors_choice"></a>
-    </li>
-    <li id="font_icon" data-value="#font_choice">
-      <a href="#font_choice"></a>
-    </li>
-    <li id="code_icon" data-value="#code_choice">
-      <a href="#code_choice"></a>
-    </li>
-    <li id="exit_icon">
-      <a href="/index.php"></a>
-    </li>
-  </ul>
+  <div id="dashboard" style="display:none">
+    <ul id="tabcontrols">
+      <h2>mash:it</h2>
+      <li id="color_icon" data-value="#colors_choice">
+        <a href="#colors_choice"></a>
+      </li>
+      <li id="font_icon" data-value="#font_choice">
+        <a href="#font_choice"></a>
+      </li>
+      <li id="code_icon" data-value="#code_choice">
+        <a href="#code_choice"></a>
+      </li>
+      <li id="exit_icon">
+        <a href="/index.php"></a>
+      </li>
+    </ul>
 
     <div id="tabs">
       <div id="colors_choice" data-value="#colors_choice">
@@ -82,44 +77,42 @@
             <ul id="font_list">
               <!--Placeholding fontlist-->
             </ul>
-
-            
-
         </div><!--end #show_fonts-->
+        <!--<button id="bigger" value="increase">+</buttom>
+        <button id="smaller" value="decrease">-</button>-->
         <div id="error"></div>
-       <!-- <h1>Set font-size</h1>
-          <input type="text" id="fontsize" placeholder="Enter fontsize in em">-->
+
       </div><!--end .font_choie-->
-      
+        
       <div id="code_choice" data-value="#code_choice">
         <h1>Generate CSS</h1>
-        <input type="button" id="test" value="Generate CSS">
-            <code class="css_code"></code>
+        <input type="button" id="css_button" value="Generate CSS">
+          <code class="css_code"></code>
       </div><!--end .code_choie-->
     </div><!--end #tabs-->
   </div><!--end #dashboard-->
 
-<div id="template">
+  <div id="template">
    <!--Divs for template_choice-->
 
-      <div id="template_choice">
-        <h1>Choose a template and start mash:it;</h1>
-        <div id="template_one">
-          <img src="static/img/templateOne.png" alt="">
-          <h2>One Page Wonder</h2>
-          <p>A simple one page template</p>
-          <button id="temp_one">Use Template</button>
-        </div>
-        <div id="template_two">
-          <img src="static/img/template_two.png" alt="">
-          <h2>One Page Blogg</h2>
-          <p>A blog post one page template</p>
-          <button id="temp_two">Use Template</button>
-        </div>
-       
-      </div> <!--end #template_choice-->
+    <div id="template_choice">
+      <h1>Choose a template and start mash:it;</h1>
+      <div id="template_one">
+        <img src="static/img/templateOne.png" alt="">
+        <h2>One Page Wonder</h2>
+        <p>A simple one page template</p>
+        <button id="temp_one">Use Template</button>
+      </div>
+      <div id="template_two">
+        <img src="static/img/template_two.png" alt="">
+        <h2>One Page Blogg</h2>
+        <p>A blog post one page template</p>
+        <button id="temp_two">Use Template</button>
+      </div>
+     
+    </div> <!--end #template_choice-->
   <!-- /.container -->
-</div><!--end #template-->
+  </div><!--end #template-->
 
   <!-- jQuery -->
   <script src="static/js/jquery.js"></script>

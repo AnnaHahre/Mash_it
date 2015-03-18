@@ -13,7 +13,7 @@ $(document).ready(function(){
 
   $("#fonta").click(getFonts); //FONT
 
-  $('#test').click(getElementStyle); //GET STYLES TO GENERATE CSS
+  $('#css_button').click(getElementStyle); //GET STYLES TO GENERATE CSS
 
   $('#tabcontrols li').click(function(){
     $('code').empty(); //EMPTY THE CODE-BLOCK
@@ -26,20 +26,18 @@ $(document).ready(function(){
   window.onbeforeunload = function() {
     return "Are you sure you want to leave? Your changes will not be saved!";
   }
+
+  /*$('#bigger').click(function(){
+    type = $(this).val();
+    fontSize(type);
+
+ });
+  $('#smaller').click(function(){
+    type = $(this).val();
   
- /*$('#fontsize').change(function(){
-    choice = $('#fontsize').val();
-    setFontsize(choice);
-  })
-
-  function setFontsize(choice){
-    $('#template h1, #template h2, .featurette p').click(function () {
-      $(this).css({
-        fontSize : parseInt(choice) + "em"
-        });
-      });
-  }*/
-
+    fontSize(type);
+  });*/
+  
 
   //*---------------- LOAD TEMPLATES ----------------
   //*
@@ -54,7 +52,6 @@ $(document).ready(function(){
     $('#dashboard').css({'display': 'block'});
 
   });  
-
 
   //*---------------- TAB-CONTROLL ----------------
   //*
@@ -84,11 +81,27 @@ $(document).ready(function(){
    })
   });
 
-  $('input, #tabcontrols, #category, #fontsize, #random_color, .css_code').click(function(event){
+  $('input, #tabcontrols, #category, #fontsize, #random_color, .css_code, button').click(function(event){
     event.stopPropagation();
   });
 
 });
+
+/*function fontSize(type){
+
+    
+   if (type == 'increase'){
+    $()
+      var curFontSize = $("#template h1").css('font-size');
+      $("#template h1").css('font-size', parseInt(curFontSize) + 2);
+      curFontSize = null;
+      }
+  else if (type == "decrease"){
+      var curFontSize = $("#template h1").css('font-size');
+      $("#template h1").css('font-size', parseInt(curFontSize) - 2);
+      curFontSize = null;
+}
+}*/
 
 //*----------------- COLOR-SCRIPT ------------------
 //*
@@ -120,13 +133,6 @@ function getPalette(event){
 }
 
 function showPalette(response){
-/*  alert (response);
-
-  $.each(response, function(i, obj){
-    var palette = obj['id'];
-    alert(palette);
-  });*/
-  
   var palette_list = response.slice(1, response.length); //removes description-object (object 1).
   if (palette_list.length == 0){
     $('#palette').append('<p style="font-size: .9em; color:#ffffff">Sorry. There is no available palettes with choosen or random hexcode.</p>');
@@ -137,12 +143,8 @@ function showPalette(response){
       var palette_obj = value['palette'];
 
       $.each(palette_obj, function(colors, item) {
-        //if (color.length == 5){
-          //alert(colors);
-          //$.each(colors, function(index, item) {
-             $('#palette').append("<div class='col' value='#" + item + "'><p class='col_p' style=background-color:#" +item + ";' value=" +item+ "></p><p class='hex_name'>#" +item+"</p></div>");
-          //});
-       // }
+        $('#palette').append("<div class='col' value='#" + item + "'><p class='col_p' style=background-color:#" +item + ";' value=" +item+ "></p><p class='hex_name'>#" +item+"</p></div>");
+     
       });
     });
     $('.col').bind("click", changeStyle);
@@ -389,8 +391,8 @@ function showfonts(fonts, category) {
 
 function appendFonts(script_families) {
   for (i = 0; i < script_families.length; i++) { 
-          $("head").append("<link href='https://fonts.googleapis.com/css?family=" + script_families[i] + "' rel='stylesheet' type='text/css'>");
-      }
+    $("head").append("<link href='https://fonts.googleapis.com/css?family=" + script_families[i] + "' rel='stylesheet' type='text/css'>");
+  }
 }   
 
 
@@ -428,12 +430,10 @@ function getElementStyle(){
   else{
     elements['p']  = $('.lead').attr('style');
   }
-
   if ($('.text-muted').attr('style') === undefined){ }
   else{
     elements['p span']  = $('.text-muted').attr('style');
   }
-
   if ($('footer p').attr('style') === undefined){ }
   else{
     elements['footer p']  = $('footer p').attr('style');
@@ -451,22 +451,18 @@ function getElementStyle(){
   else{
     elements['.article p']  = $('.article').attr('style');
   }
-
   if ($('.form_heading').attr('style') === undefined){ }
   else{
     elements['.form h4']  = $('.form_heading').attr('style');
   }
-
   if ($('.media-heading').attr('style') === undefined){ }
   else{
     elements['.comments h4']  = $('.media-heading').attr('style');
   }
-
   if ($('.comment').attr('style') === undefined){ }
   else{
     elements['.comments p']  = $('.comment').attr('style');
   }
-
   if ($('.widget_heading').attr('style') === undefined){ }
   else{
     elements['.widget h4']  = $('.widget_heading').attr('style');
@@ -475,7 +471,6 @@ function getElementStyle(){
   else{
     elements['.widget p']  = $('.widget').attr('style');
   }
-
   if ($('.cat_item').attr('style') === undefined){ }
   else{
     elements['.categories li']  = $('.cat_item').attr('style');
