@@ -3,6 +3,7 @@
 @import url(http://fonts.googleapis.com/css?family=Architects+Daughter);
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600);
+@import url(http://fonts.googleapis.com/css?family=Slabo+27px);
 
 
 * {
@@ -546,6 +547,10 @@ input[type=text] {
 	margin-top: -45px; 
 	z-index: 9; 
 	font-size: 1.3em;
+}
+
+.slabo_style {
+	font-family:'Slabo 27px', serif;
 }
 
 #css_button{

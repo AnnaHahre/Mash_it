@@ -171,7 +171,7 @@ function changeStyle(e){
     else {
       $(e.target).css({
       'font-family' : choice
-       });
+      });
     }
   });
 
@@ -352,8 +352,9 @@ function showfonts(fonts, category) {
 
     $.each(font_list, function(i, obj) { //for every object
         var family = obj['font-family'];
-        var font_name = "<li class='user_fonts' value='" + obj['font-family'] + "' style='font-family:" + obj['font-family'] + ";'>" + obj['font-family'] + "</li>"; //skapa ett li-item
-
+        var fam = '"'+obj['font-family']+'"'; //fix for numreric styles
+        var font_name = "<li class='user_fonts' value='" + fam + "' style='font-family:" + fam + ";'>" + family + "</li>"; //skapa ett li-item
+      
         var family_name = family.replace(' ','+');
         script_families.push(family_name);
         font_tag_list.push(font_name);
