@@ -62,7 +62,7 @@
         <div id="font_select">
           <form action="" method="GET">
             <select name="font_category" id="category">
-              <option value="" disabled selected>Select your option</option>
+              <option value="" disabled selected>Select font category</option>
               <option value="sans-serif">Sans-serif</option>
               <option value="serif">Serif</option>
               <option value="monospace">Monospace</option>
@@ -74,21 +74,21 @@
         </div><!--end #font_selected-->
         <div id="show_fonts" style="display:block">
           <div class="loading_space"></div>
+          <div id="error"><!--Shows error message if error occured--></div>
             <ul id="font_list">
               <!--Placeholding fontlist-->
             </ul>
         </div><!--end #show_fonts-->
-        <!--<button id="bigger" value="increase">+</buttom>
-        <button id="smaller" value="decrease">-</button>-->
-        <div id="error"></div>
-
+        <button id="bigger" value="increase">+</buttom>
+        <button id="smaller" value="decrease">-</button>
       </div><!--end .font_choie-->
         
       <div id="code_choice" data-value="#code_choice">
         <h1>Generate CSS</h1>
         <input type="button" id="css_button" value="Generate CSS">
-          <code class="css_code"></code>
+        <code class="css_code"></code>
       </div><!--end .code_choie-->
+
     </div><!--end #tabs-->
   </div><!--end #dashboard-->
 

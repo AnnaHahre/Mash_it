@@ -27,7 +27,7 @@ $(document).ready(function(){
     return "Are you sure you want to leave? Your changes will not be saved!";
   }
 
-  /*$('#bigger').click(function(){
+  $('#bigger').click(function(){
     type = $(this).val();
     fontSize(type);
 
@@ -36,7 +36,7 @@ $(document).ready(function(){
     type = $(this).val();
   
     fontSize(type);
-  });*/
+  });
   
 
   //*---------------- LOAD TEMPLATES ----------------
@@ -87,21 +87,24 @@ $(document).ready(function(){
 
 });
 
-/*function fontSize(type){
-
+function fontSize(type){
+  $('#template h1, #template h2, #template p').click(function(){
     
    if (type == 'increase'){
-    $()
-      var curFontSize = $("#template h1").css('font-size');
-      $("#template h1").css('font-size', parseInt(curFontSize) + 2);
+    
+      var curFontSize = $(this).css('font-size');
+      $(this).css('font-size', parseInt(curFontSize) + 2);
       curFontSize = null;
+      return false;
       }
   else if (type == "decrease"){
-      var curFontSize = $("#template h1").css('font-size');
-      $("#template h1").css('font-size', parseInt(curFontSize) - 2);
+      var curFontSize = $(this).css('font-size');
+      $(this).css('font-size', parseInt(curFontSize) - 2);
       curFontSize = null;
+      return false;
 }
-}*/
+});
+}
 
 //*----------------- COLOR-SCRIPT ------------------
 //*
@@ -329,7 +332,7 @@ function getFonts() {
 
         },
         error: function() {
-          $('#error').append('<p style="font-size:.9em; color:#000000; margin-top:20px;">ERROR:<br> There seems to be a problem with the connection. <br>Please try again or if the problem persists please contact ut at info@mashit.nu .</p>');
+          $('#error').append('<p style="font-size:.9em; color:#000000; margin-top:10px; padding:10px;">ERROR:<br> There seems to be a problem with the connection. <br>Please try again or if the problem persists please contact us at info@mashit.nu.</p>');
         }
     });
 }
