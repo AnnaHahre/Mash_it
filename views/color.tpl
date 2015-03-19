@@ -29,9 +29,12 @@
 <body>
 
   <!--Dashboard -->
-  <div id="dashboard" style="display:none">
+  <div id="dashboard">
     <ul id="tabcontrols">
       <h2>mash:it;</h2>
+      <li id="color_icon" data-value="#template_choice">
+        <a href="#template_choice"></a>
+      </li>
       <li id="color_icon" data-value="#colors_choice">
         <a href="#colors_choice"></a>
       </li>
@@ -47,6 +50,20 @@
     </ul>
 
     <div id="tabs">
+      <div id="template_choice">
+        <div id="template_one">
+          <img src="static/img/templateOne.png" alt="">
+          <h2>One Page Wonder</h2>
+          <p>A simple one page template</p>
+          
+        </div>
+        <div id="template_two">
+          <img src="static/img/template_two.png" alt="">
+          <h2>One Page Blogg</h2>
+          <p>A blog post one page template</p>
+        
+        </div>
+      </div> <!--end #template_choice-->
       <div id="colors_choice" data-value="#colors_choice">
         <form action="" method="GET">
           <input type="text" id="colors" name="colors" placeholder=""/>
@@ -95,22 +112,7 @@
   <div id="template">
    <!--Divs for template_choice-->
 
-    <div id="template_choice">
-      <h1>Choose a template and start mash:it;</h1>
-      <div id="template_one">
-        <img src="static/img/templateOne.png" alt="">
-        <h2>One Page Wonder</h2>
-        <p>A simple one page template</p>
-        <button id="temp_one">Use Template</button>
-      </div>
-      <div id="template_two">
-        <img src="static/img/template_two.png" alt="">
-        <h2>One Page Blogg</h2>
-        <p>A blog post one page template</p>
-        <button id="temp_two">Use Template</button>
-      </div>
-     
-    </div> <!--end #template_choice-->
+    
   <!-- /.container -->
   </div><!--end #template-->
 
