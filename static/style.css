@@ -217,11 +217,12 @@ body{
 	}
 
 	.api_doc footer a {
-		color: #222;
+		text-decoration: underline;
+		color: "#cecece";
 	}
 
 	.api_doc footer a:hover, .api_doc footer a:active  {
-		text-decoration: none;
+		background-color: #222;
 	}
 
 	.api_doc footer a:visited {
@@ -329,7 +330,7 @@ body{
 
 /*Styles for error-page (404, 400, 500)*/
 	.not_found {
-		font-family: monospace;
+		font-family: "PT Mono", monospace;
 		background-color: #111;
 		color: #fff;
 		width: 100%;
@@ -354,10 +355,14 @@ body{
 	}
 
 	.not_found a {
-
+		color: #ff038a;
 	}
 	.not_found a:hover{
 		text-decoration: none;
+	}
+
+	.not_found a:visited {
+		color: #ff038a;
 	}
 /* */
 
