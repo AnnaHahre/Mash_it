@@ -31,7 +31,7 @@
   <!--Dashboard -->
   <div id="dashboard" style="display:none">
     <ul id="tabcontrols">
-      <h2>mash:it</h2>
+      <h2>mash:it;</h2>
       <li id="color_icon" data-value="#colors_choice">
         <a href="#colors_choice"></a>
       </li>

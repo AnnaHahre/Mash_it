@@ -3,7 +3,8 @@
 @import url(http://fonts.googleapis.com/css?family=Architects+Daughter);
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600);
-@import url(http://fonts.googleapis.com/css?family=Slabo+27px);
+@import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
 
 
 * {
@@ -77,6 +78,7 @@ body{
 	.api_doc header h1 {
 		font-weight: 300;
 		font-size: 1.1em;
+		font-family: 'Cutive Mono', monospace; 
 		color: #f1f1f1;
 		width: 100%;
 		margin: 0;
@@ -90,6 +92,7 @@ body{
 		font-family: 'Open Sans', sans-serif;
 		font-size: 0.8em;
 	}
+
 	.api_doc header p{
 		width: 100%;
 		font-family: muli;
@@ -398,26 +401,14 @@ body{
 	margin-bottom: 10%; 
 }
 
-input[type=text]{
-	width:65%;
-	margin-bottom:5%;
-	height: 30px;
-}
-
 select{
-	width:65%;
-    height: 30px;
+	width:83%;
+    height: 40px;
     overflow: hidden;
     border: 1px solid #ccc;
 }
 
-#fonta{
-	height:30px;
-	width:110px;
 
-
-
-}
 #dashboard h1, #dashboard h2{
 	font-size: 1em;
 
@@ -440,11 +431,11 @@ select{
 #tabcontrols h2{
 	margin-bottom: 0 !important;
 	height:45px;
-	color:#ff038a;
+	color:#fff;
 	text-align: center;
-	font-family: 'Ubuntu Mono';
-	font-weight: 700;
-	font-size: 1.75em;
+	font-family: 'Cutive Mono', monospace;
+	font-size: 1.3em;
+	padding-left: 7px;
 	border-bottom: 1px solid #555;
 
 }
@@ -482,8 +473,10 @@ select{
 }
 
 #code_choice h1 {
-	margin: 0;
+	margin: 3.5% 0;
 	padding: 0;
+	display: inline-block;
+	width: 50%;
 }
 
 #font_select{
@@ -492,7 +485,8 @@ select{
 }
 
 #colors_choice{
-	margin-top: 65px;	
+	margin-top: 65px;
+	padding: 8% 2% 1% 5%;	
 }
 
 #font_choice{
@@ -522,21 +516,45 @@ select{
 	background-color: #ffffff;
 }
 
-#css_button, #submit_color, #fonta, #random_color{
+/*css_button, #submit_color, #fonta, #random_color{
 	float:right;
 	width:110px;
 	text-align: center;
 	height:30px;
 	font-family: 'Muli';
 	font-size: .9em,
+}*/
+
+#submit_color, #fonta, #css_button {
+	margin-left: 2%;
+	background: url("img/go_b.png")no-repeat;
+    cursor:pointer;
+    width: 40px;
+    height: 40px;
+    border: none;;
+    text-indent: -9999px;
+}
+
+#css_button {
+	float: right;
+	margin-bottom: 2%;
 }
 
 #random_color{
-	margin-top: -3%;
+	background: url("img/shuffle_b.png")no-repeat;
+    cursor:pointer;
+    width: 40px;
+    height: 40px;
+    border: none;
+    margin-left: 1%;
+    text-indent: -9999px;
 }
 
 input[type=text] { 
 	padding: 0px 0px 0px 20px; 
+	width:70%;
+	margin-bottom:5%;
+	height: 40px;
 }
 
 .unit{ 
@@ -545,14 +563,9 @@ input[type=text] {
 	display: block; 
 	width:10px; 
 	margin-left: 7px; 
-	margin-top: -45px; 
+	margin-top: -50px; 
 	z-index: 9; 
 	font-size: 1.3em;
-}
-
-#css_button{
-	margin-top: -8%;
-	margin-bottom: 5%;
 }
 
 #show_fonts{
@@ -586,7 +599,7 @@ input[type=text] {
 
 #palette{
 	margin-top:10%;
-	width:100%;
+	width:95%;
 	height:auto;
 }
 
@@ -638,17 +651,6 @@ input[type=text] {
 #template_choice p{
 	font-family: 'Muli';
 	font-size: 1.15em;
-}
-
-#template_choice button{
-	width:40%;
-	height:40px;
-	border:1px solid #639577;
-	border-radius: 8px;
-	background-color: #8caf9a;
-	margin: 5% 0%;
-	font-family: 'Muli';
-	font-size: 1.2em;
 }
 
 #template_one{

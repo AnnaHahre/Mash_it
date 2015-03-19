@@ -24,7 +24,7 @@
     <section id="one">
             <h1>Choose. Create. Generate.</h> 
             
-            <div id="block1">Mash:IT</div>
+            <div id="block1">mash:it;</div>
     </section>
 
     <section id="intro">
@@ -108,7 +108,7 @@
 </div> <!-- WRAPPER END -->
 
         <section id="five">
-            <div id="block5"> <h1 class="h1_black">ABOUT Mash:IT</h1></div>
+            <div id="block5"> <h1 class="h1_black">ABOUT mash:it;</h1></div>
             
 
                     <article id="left_col">
@@ -135,7 +135,7 @@
     </section>
 
     
-    <footer>Copyright MashIT 2015</footer>
+    <footer>Copyright mash:it; 2015</footer>
 
 </body>
 

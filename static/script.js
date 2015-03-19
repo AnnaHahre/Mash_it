@@ -11,7 +11,10 @@ $(document).ready(function(){
     getPalette();
   });
 
-  $("#fonta").click(getFonts); //FONT
+  $("#fonta").click(function(){
+    $('#error').empty();
+    getFonts();
+  }); //FONT
 
   $('#css_button').click(getElementStyle); //GET STYLES TO GENERATE CSS
 
