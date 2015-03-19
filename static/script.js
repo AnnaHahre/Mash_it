@@ -32,12 +32,13 @@ $(document).ready(function(){
 
   $('#bigger').click(function(){
     type = $(this).val();
+    $('#template h1, #template h2, #template p').off('click');
     fontSize(type);
-
  });
+  
   $('#smaller').click(function(){
     type = $(this).val();
-  
+    $('#template h1, #template h2, #template p').off('click');
     fontSize(type);
   });
   
@@ -91,19 +92,16 @@ $(document).ready(function(){
 });
 
 function fontSize(type){
-  $('#template h1, #template h2, #template p').click(function(){
+  $('#template h1, #template h2, #template p').on('click', function(){
     
    if (type == 'increase'){
-    
       var curFontSize = $(this).css('font-size');
       $(this).css('font-size', parseInt(curFontSize) + 2);
-      curFontSize = null;
       return false;
       }
   else if (type == "decrease"){
       var curFontSize = $(this).css('font-size');
       $(this).css('font-size', parseInt(curFontSize) - 2);
-      curFontSize = null;
       return false;
 }
 });
@@ -489,6 +487,7 @@ function getElementStyle(){
     $('.css_code').append('No elements has been styled!')
   }
   else{
+    //Lägga till import
     $.each(elements, function(key,value){
       $('.css_code').append(key + " {<br>" + value + "<br>}<br>");
     });
