@@ -465,7 +465,7 @@ select{
 	margin-top:-2px;
 }
 
-#colors_choice, #font_choice, #code_choice{
+#colors_choice, #font_choice, #code_choice, #template_choice{
 	margin-left:100px;
 	display:block;
 	width:400px;
@@ -491,7 +491,7 @@ select{
 	top: 0;
 }
 
-#colors_choice{
+#colors_choice, #template_choice{
 	margin-top: 65px;	
 }
 
@@ -617,64 +617,41 @@ input[type=text] {
 
 }
 
-#template_choice{
-	width:70%;
-	margin:0 auto;
-}
-
-#template_choice h1{
-	font-family: 'Architects Daughter';
-	font-size: 3em;
-	height:65px;
-	margin:9% 0% 2% 5%;
-	
-}
 
 #template_choice h2{
-	margin: 8% 0% 4% 0%;
+	margin: 4% 0% 1.5% 0%;
 	font-family: 'Montserrat';
+	font-size: 1.1em;
 }
 
 #template_choice p{
 	font-family: 'Muli';
-	font-size: 1.15em;
-}
-
-#template_choice button{
-	width:40%;
-	height:40px;
-	border:1px solid #639577;
-	border-radius: 8px;
-	background-color: #8caf9a;
-	margin: 5% 0%;
-	font-family: 'Muli';
-	font-size: 1.2em;
+	font-size: .9em;
+	margin-bottom: 6%;
 }
 
 #template_one{
 	background:url('img/crossword.png');
 	margin:0 auto;
-	width:40%;
-	float:left;
-	margin: 0 5%;
+	width:80%;
 	border:1px solid #ccc;
 	text-align: center;
 	border-radius: 5px;
+	margin-top:6%;
+	margin-bottom:8%;
 }
 
 #template_one img, #template_two img{
 	margin:1.5%;
 	width:97%;
 	border:1px solid #ddd;
-	height:250px;
+	height:150px;
 }
 
 #template_two{
 	background:url('img/crossword.png');
 	margin:0 auto;
-	width:40%;
-	float:left;
-	margin:0% 5%;
+	width:80%;
 	border:1px solid #ccc;
 	text-align: center;
 	border-radius: 5px;

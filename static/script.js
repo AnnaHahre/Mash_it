@@ -41,13 +41,13 @@ $(document).ready(function(){
 
   //*---------------- LOAD TEMPLATES ----------------
   //*
-  $('#temp_one').bind('click', function(){
+  $('#template_one').bind('click', function(){
     $('#template').load('views/template_one.tpl'); 
     $('#dashboard').css({'display': 'block'});
 
   });
 
-  $('#temp_two').bind('click', function(){
+  $('#template_two').bind('click', function(){
     $('#template').load('views/template_two.tpl');
     $('#dashboard').css({'display': 'block'});
 
@@ -75,7 +75,7 @@ $(document).ready(function(){
       $(value).show();
     }
  
-    $('#colors_choice, #font_choice, #code_choice').click(function(){
+    $('#colors_choice, #font_choice, #code_choice, #template_choice').click(function(){
       $(this).hide();
       $('#tabcontrols li').removeClass();
    })
