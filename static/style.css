@@ -330,10 +330,13 @@ body{
 /*Styles for error-page (404, 400, 500)*/
 	.not_found {
 		font-family: monospace;
-		background-color: #B7CBBF;
+		background-color: #111;
+		color: #fff;
 		width: 100%;
 		margin: auto;
 		text-align: center;
+		-webkit-font-smoothing: antialiased;
+    	-moz-osx-font-smoothing: grayscale;
 	}
 
 	.not_found h1{
@@ -350,6 +353,9 @@ body{
 		line-height: 1.7em;
 	}
 
+	.not_found a {
+
+	}
 	.not_found a:hover{
 		text-decoration: none;
 	}
@@ -420,7 +426,7 @@ body{
 }
 
 #exit_icon[class="selected"] a{
-    background: url("img/exit_icon_s.png");
+    background: url("img/exit_icon.png");
 }
 
 
