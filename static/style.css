@@ -1,11 +1,40 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(http://fonts.googleapis.com/css?family=Muli:300,400);
 @import url(http://fonts.googleapis.com/css?family=Architects+Daughter);
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600);
 @import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
 @import url(http://fonts.googleapis.com/css?family=PT+Mono);
 
+
+
+#welcome_mash {
+	width: 80%;
+	overflow: hidden;
+	padding-top: 2%;
+	margin: auto;
+	height: 600px;
+}
+
+#welcome_mash span {
+	color: #ff038a;
+}
+#welcome_mash h1 {
+	margin: 12% 5% 10% 15%;
+	padding: 0% 10%;
+	font-family: 'Shadows Into Light';
+	text-align: center;
+	font-size: 9em;
+	line-height: 1.3em;
+}
+
+.arrow {
+	transform:rotate(50deg);
+	margin-left: 5%;
+	bottom: 30%;
+	position: absolute;
+}
 
 * {
 	-webkit-padding-start: 0px;
@@ -326,12 +355,16 @@ body{
 	}
 /* */
 
-#color_icon a, #font_icon a, #code_icon a, #exit_icon a{
+#color_icon a, #font_icon a, #code_icon a, #exit_icon a, #temp_icon a{
 	width: 100px;
 	height: 100px;
 	padding:15%;
 	text-indent: -99em;
 	display: inline-block;
+}
+
+#temp_icon a {
+	background: url("img/temp_icon_s.png");
 }
 
 #color_icon a {
@@ -350,6 +383,10 @@ body{
     background: url("img/exit_icon.png");
 }
 
+#temp_icon a:hover {
+	background: url("img/temp_icon.png");
+}
+
 #color_icon a:hover {
 	background: url("img/color_icon_s.png");
 }
@@ -364,6 +401,10 @@ body{
 
 #exit_icon a:hover{
     background: url("img/exit_icon_s.png");
+}
+
+#temp_icon[class="selected"] a {
+    background: url("img/temp_icon.png");
 }
 
 #color_icon[class="selected"] a {
@@ -387,7 +428,6 @@ body{
 
 #dashboard{
 	position:fixed;
-	overflow: auto;
 	top:80px;
 	left:0;
 	border-radius: 0 5px 0px 0;
@@ -417,7 +457,7 @@ select{
 
 #tabcontrols{
 	float:left;
-	height: 600px;
+	height: 590px;
 	background-color: rgba(0,0,0,1);
 	overflow: auto;
 	margin:0;
@@ -460,7 +500,7 @@ select{
 	margin-left:100px;
 	display:block;
 	width:400px;
-	height:537.5px;
+	height:527.5px;
 	padding:1% 5%;
 	background-color: #f1f1f1;
 	border-radius: 0 10px 10px 0;
@@ -643,7 +683,9 @@ input[type=text] {
 	margin-bottom: 6%;
 }
 
+
 #template_one{
+	cursor: pointer;
 	background:url('img/crossword.png');
 	margin:0 auto;
 	width:80%;
@@ -662,6 +704,7 @@ input[type=text] {
 }
 
 #template_two{
+	cursor: pointer;
 	background:url('img/crossword.png');
 	margin:0 auto;
 	width:80%;

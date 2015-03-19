@@ -32,7 +32,7 @@
   <div id="dashboard">
     <ul id="tabcontrols">
       <h2>mash:it;</h2>
-      <li id="color_icon" data-value="#template_choice">
+      <li id="temp_icon" data-value="#template_choice">
         <a href="#template_choice"></a>
       </li>
       <li id="color_icon" data-value="#colors_choice">
@@ -111,8 +111,10 @@
 
   <div id="template">
    <!--Divs for template_choice-->
-
-    
+    <div id="welcome_mash">
+      <img class="arrow" width="200" height="200" src="/static/img/start/arrow_flip.png"></img>
+      <h1>Ready, steady, go <span>mash:it;</span></h1>
+    </div>    
   <!-- /.container -->
   </div><!--end #template-->
 
