@@ -1,0 +1,463 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+@import url(http://fonts.googleapis.com/css?family=Comfortaa);
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+
+
+
+	body {
+  font-family: 'PT Mono', sans-serif, cursive;
+	/* background-color: #fff;  grå: #f1f1f1 mörk blå 123037*/
+  background-image:url('img/start/background.png');
+	margin: 0;
+  height:100%;
+  width:100%;
+  padding:0;
+}
+
+/*/ Section dividers */
+
+section {
+    display: block;
+    height:100%;
+    width:100%;
+    box-sizing: border-box;
+}
+
+/*  ************ TOP NAVIGATION *************** */
+
+nav {
+    width: 500px;
+    height: 100px;
+    float: right;
+    color: #000;
+    font-size: 16px;
+    font-family: 'Comfortaa', cursive;
+    margin-top: 2%;
+}
+
+nav ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+/* Flyter kategorierna till vänster istället för nedåt */
+nav ul li {
+    padding: 1.5%;
+    float: left;
+}
+
+nav ul li a {
+    text-decoration: none;
+    width:  140px;
+    padding: 2%;
+    display: block;
+    text-align: center;
+    color: #fff;
+    font-weight: normal;
+    text-decoration-color: #F03775;
+  }
+
+a{
+  text-decoration: none;
+  
+}
+
+
+nav ul li a:hover {
+    border-bottom: solid;
+    border-bottom-width: thick;
+    border-bottom-color: #F03775;
+}
+
+nav ul li a:active {
+    text-decoration: underline;
+}
+
+
+/*  ************ END NAVIGATION *************** */
+
+
+#wrapper{
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 2%;
+  margin-bottom: 10%;
+}
+
+#one {
+    background: #000; /* alt. 123037 */
+    color: #fff;
+    font-size: 60px;
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+    padding-top: 180px;
+    padding-bottom: 100px;
+}
+
+#intro {
+  background-color: #fff;
+  overflow: hidden;
+  padding-bottom: 4%;
+
+}
+
+#intro_A {
+    width: 60%;
+    color: #000;
+    padding-top: 15px;
+    text-align: center;
+    background: #fff;
+    float: left;
+    padding-left: 10%;
+}
+
+#intro_B {
+    width: 40%;
+    color: #000;
+    text-align: center;
+    background: #fff;
+    float: right;
+    padding-top: 100px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+
+#banner {
+    width:100%;
+    height: 300px;
+    float: left;
+    /*background: #aaa; #158184 blågrön - snygg!*/
+    color: #000;
+    padding-top: 35px;
+    text-align: center;
+    opacity: 50%;  /* ??? */
+}
+
+#two {
+  clear: left;
+    width:100%;
+    /*height: 380px;*/
+    float: left;
+    color: #000;
+    font-size: 30px;
+    padding-top: 15px;
+}
+
+#three {
+    width:100%;
+    /*height: 380px;*/
+    float: left;
+    color: #000;
+    font-size: 30px;
+    padding-top: 15px;
+}
+
+#three_A {
+    width:70%;
+    float: left;
+    color: #000;
+    font-size: 30px;
+    text-align: right;
+}
+
+#three_B {
+    width:30%;
+    float: right;
+    color: #000;
+    font-size: 30px;
+}
+
+#four {
+    width: 100%;
+    float: left;
+    color: #000;
+    font-size: 30px;
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+
+#five {
+    width: 100%;
+    height: 500px;
+    float: left;
+    background: #fff;
+    font-size: 30px;
+    padding-top: 15px;
+}
+
+#six {
+    width: 100%;
+    height: 500px;
+    float: left;
+    background: #F03775;
+    font-size: 30px;
+    padding-top: 15px;
+}
+
+/*/ End Section dividers */
+
+/*/ Blocks that are placed inside each divider, used here for title*/
+
+#block1 { /*Used here for Mash:IT-title*/
+	  background: #000;
+    color: #F03775;
+    font-size: 70px;
+    font-family: 'PT Mono', sans-serif;
+    padding: 10px;
+    text-align: center;
+}
+
+#block2 {
+    text-align: center;
+	  background: #fff;
+    color: #000;
+}
+
+#block5 {
+    text-align: center;
+    background: #fff;
+}
+
+#block6 {
+    text-align: center;
+    background: #F03775;
+}
+
+
+/* End Blocks */
+
+/* Font sizes and types */
+
+.h1_black {
+    color: #000;
+    font-size: 40px;
+    padding: 0%;
+    font-family: 'Comfortaa', cursive;
+    font-weight: bold;
+    border-bottom: solid;
+    border-bottom-style: dotted;
+    border-bottom-width: 0.15em;
+    border-bottom-color: #000;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.h1_white {
+    color: #fff;
+    font-size: 40px;
+    padding: 0%;
+    font-family: 'Comfortaa', cursive;
+    font-weight: bold;
+    border-bottom: solid;
+    border-bottom-style: dotted;
+    border-bottom-width: 0.15em;
+    border-bottom-color: #fff;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.h1_handwritten {
+    font-size: 50px;
+    padding: 0.5%;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+
+/* End font sizes and types */
+
+/*********** IMAGES ***********/
+
+img {
+
+}
+
+.round_left1 img {
+      display: block;
+      /* Stretch 
+         height: 100%;
+         width: 100%; */
+      min-width: 100%;
+      min-height: 100%;
+      float: left;
+}
+
+.round_left1 {
+      border-radius: 50%;
+      overflow: hidden;
+      width: 200px;
+      height: 200px;
+      float: left;
+      margin-right: 2%;
+}
+
+
+.round_left2 img {
+      display: block;
+      /* Stretch 
+         height: 100%;
+         width: 100%; */
+      min-width: 100%;
+      min-height: 100%;
+      float: left;
+}
+
+.round_left2 {
+      border-radius: 50%;
+      overflow: hidden;
+      width: 200px;
+      height: 200px;
+      float: left;
+      margin-right: 2%;
+      margin-left: 5%;
+}
+
+.round_right img {
+      display: block;
+      /* Stretch 
+         height: 100%;
+         width: 100%; */
+      min-width: 100%;
+      min-height: 100%;
+      float: right;
+}
+
+.round_right {
+      border-radius: 50%;
+      overflow: hidden;
+      width: 200px;
+      height: 200px;
+      float: right;
+      /*margin-top: -90%;*/
+      margin-right: 5%;
+}
+
+.arrow {
+      margin-bottom: 0%;
+      position: absolute;
+      left: 10%;
+      z-index: 10;
+
+}
+
+
+#MASHIT {
+
+}
+
+/*********** END IMAGES ***********/
+
+article {
+
+}
+
+
+#left_col {
+   float:left;
+   width:30%;
+   display: block;
+   padding-left: 15%;
+   text-align: justify;
+   font-size: 18px;
+}
+
+
+#right_col {
+   float:right;
+   width:30%;
+   display: block;
+   padding-right: 15%;
+   text-align: justify;
+   font-size: 18px;
+}
+
+/*********** FOOTER ***********/
+
+footer {
+      width: 100%;
+      height: 50px;
+      background: #123037;
+      text-align:center;
+      font-family: 'PT Mono', cursive;
+      color: #fff;
+      font-size: 16px;
+      padding-top: 2%;
+      clear: both;
+}
+
+/*********** END FOOTER ***********/
+
+.GO_box {
+   padding: 20px;
+   margin: 10px;
+   background: #F03775;
+   color: #fff;
+   font-size: 21px;
+   font-weight: bold;
+   line-height: 1.3em;
+   border: 2px dashed #fff;
+   border-radius: 10px;
+   box-shadow: 0 0 0 4px #F03775, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #aa3030;
+   font-weight: normal;
+}
+
+
+/*/ Code for star icon
+
+#star {
+   margin: 10% 0;
+   position: relative;
+   display: block;
+   color: fff;
+   width: 0px;
+   height: 0px;
+   border-right:  100px solid transparent;
+   border-bottom: 70px  solid #fff;
+   border-left:   100px solid transparent;
+   -moz-transform:    rotate(35deg);
+   -webkit-transform: rotate(35deg);
+   -ms-transform:     rotate(35deg);
+   -o-transform:      rotate(35deg);
+}
+
+#star:before {
+   border-bottom: 80px solid #fff;
+   border-left: 30px solid transparent;
+   border-right: 30px solid transparent;
+   position: absolute;
+   height: 0;
+   width: 0;
+   top: -45px;
+   left: -65px;
+   display: block;
+   content: '';
+   -webkit-transform: rotate(-35deg);
+   -moz-transform:    rotate(-35deg);
+   -ms-transform:     rotate(-35deg);
+   -o-transform:      rotate(-35deg);
+
+}
+#star:after {
+   position: absolute;
+   display: block;
+   color: fff;
+   top: 3px;
+   left: -105px;
+   width: 0px;
+   height: 0px;
+   border-right: 100px solid transparent;
+   border-bottom: 70px solid #fff;
+   border-left: 100px solid transparent;
+   -webkit-transform: rotate(-70deg);
+   -moz-transform:    rotate(-70deg);
+   -ms-transform:     rotate(-70deg);
+   -o-transform:      rotate(-70deg);
+   content: '';
+}
+
+End code for star icon */
