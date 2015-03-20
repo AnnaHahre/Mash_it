@@ -49,12 +49,34 @@ $(document).ready(function(){
 
   //*---------------- LOAD TEMPLATES ----------------
   //*
+
+  var first_load = true; // used to identify the first template-choice done by session.
   $('#template_one').bind('click', function(){
-    $('#template').load('views/template_one.tpl'); 
+    if(first_load) {
+      $('#template').load('views/template_one.tpl'); 
+      first_load = false;
+    }
+    else {
+      if (confirm('Are you sure you want to change template? Your changes will not be saved!')) {
+        $('#template').load('views/template_one.tpl'); 
+      } else {
+        // Do nothing.
+      }
+    }
   });
 
   $('#template_two').bind('click', function(){
-    $('#template').load('views/template_two.tpl');
+    if(first_load) {
+      $('#template').load('views/template_two.tpl'); 
+      first_load = false;
+    }
+    else {
+      if (confirm('Are you sure you want to change template? Your changes will not be saved!')) {
+        $('#template').load('views/template_two.tpl'); 
+      } else {
+        // Do nothing.
+      }
+    }
   });  
 
   //*---------------- TAB-CONTROLL ----------------
@@ -407,15 +429,21 @@ function getElementStyle(){
 
   if ($('nav').attr('style') === undefined){ }
   else{
-    elements['nav'] = $('nav').attr('style');
+    var styles = $('nav').attr('style');
+    styles = styles.split(";");
+    elements['nav'] = styles;
   }
   if ($('nav a').attr('style') === undefined){ }
   else{
-    elements['nav a'] = $('nav a').attr('style');
+    var styles = $('nav a').attr('style');
+    styles = styles.split(";");
+    elements['nav a'] = styles;
   }
   if ($('header').attr('style') === undefined){ }
   else{
-    elements['header'] = $('header').attr('style');
+    var styles = $('header').attr('style');
+    styles = styles.split(";");
+    elements['header'] = styles;
   }
   if ($('header h1').attr('style') === undefined){ }
   else{
@@ -431,19 +459,27 @@ function getElementStyle(){
   }
   if ($('.featurette h2').attr('style') === undefined){ }
   else{
-    elements['h2'] = $('.featurette h2').attr('style');
+    var styles = $('.featurette h2').attr('style');
+    styles = styles.split(";");
+    elements['h2'] = styles;
   }
   if ($('.lead').attr('style') === undefined){ }
   else{
-    elements['p']  = $('.lead').attr('style');
+    var styles = $('.lead').attr('style');
+    styles = styles.split(";");
+    elements['p'] = styles;
   }
   if ($('.text-muted').attr('style') === undefined){ }
   else{
-    elements['p span']  = $('.text-muted').attr('style');
+    var styles = $('.text-muted').attr('style');
+    styles = styles.split(";");
+    elements['p span'] = styles;
   }
   if ($('footer p').attr('style') === undefined){ }
   else{
-    elements['footer p']  = $('footer p').attr('style');
+    var styles = $('footer p').attr('style');
+    styles = styles.split(";");
+    elements['footer p'] = styles;
   }
 
   //*--------- CODE FOR GENERATING CSS CODE FOR TEMPLATE ONE --------
@@ -497,15 +533,15 @@ function getElementStyle(){
           new_family = fam.replace(/\s/g, '+');
           var css_import = "@import url(http://fonts.googleapis.com/css?family=" + new_family+ ");";
           $('.css_code').append( css_import + "<br><br>");
-          //lägg in varje i array - loopa och skriv ej ut dubletter
+          //lägg in varje i array - loopa och skriv ej ut
         }
       };
     });
 
 
     $.each(elements, function(key,value){   
-      css_value = "";
       $.each(elements, function(key,value){
+        css_value = "";
         for (var i = 0; i < value.length -1; i++) {
           css_value += value[i] + ";<br>";
           }
@@ -514,6 +550,16 @@ function getElementStyle(){
     });
   }
 
+}
+
+          //JQuery-converter (RBG to HEX)
+// orrowed from sitepoint.com: http://www.sitepoint.com/jquery-convert-rgb-hex-color/
+function rgb2hex(rgb){
+ rgb = rgb.match(/^rgb((d+),s*(d+),s*(d+))$/);
+ return "#" +
+  ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
+  ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
+  ("0" + parseInt(rgb[3],10).toString(16)).slice(-2);
 }
 
 
