@@ -32,21 +32,13 @@ $(document).ready(function(){
 
   $('#bigger').click(function(){
     type = $(this).val();
-<<<<<<< HEAD
-    $('#template h1, #template h2, #template p').off('click.size');
-=======
-    $('#template h1, #template h2, #template p, .container h1, .container h4, .list-unstyled, nav, span').off('click');
->>>>>>> origin/master
+    $('#template h1, #template h2, #template p, .container h1, .container h4, .list-unstyled, nav, span').off('click.size');
     fontSize(type);
  });
   
   $('#smaller').click(function(){
     type = $(this).val();
-<<<<<<< HEAD
-    $('#template h1, #template h2, #template p').off('click.size');
-=======
-    $('#template h1, #template h2, #template p, .container h1, .container h4, .list-unstyled, nav, span').off('click');
->>>>>>> origin/master
+    $('#template h1, #template h2, #template p, .container h1, .container h4, .list-unstyled, nav, span').off('click.size');
     fontSize(type);
   });
 
