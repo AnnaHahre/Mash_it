@@ -1,6 +1,6 @@
 var clicked = false; //VARIBLE THAT IS SET TO TRUE IF RANDOM BUTTON IS CLICKED
 
-$(document).ready(function(){
+$(document).ready(function(){  
   $('#submit_color').click(getPalette); //PALETTE
   $('#random_color').click(function(){ //RANDOM PALETTE
     clicked = true;
@@ -54,28 +54,58 @@ $(document).ready(function(){
   $('#template_one').bind('click', function(){
     if(first_load) {
       $('#template').load('views/template_one.tpl'); 
-      first_load = false;
+          first_load = false; 
     }
     else {
-      if (confirm('Are you sure you want to change template? Your changes will not be saved!')) {
-        $('#template').load('views/template_one.tpl'); 
-      } else {
-        // Do nothing.
-      }
+      sweetAlert({   
+        title: "Are you sure you want to change template?",   
+        text: "Your changes will get lost!",   
+        type: "warning",   
+        showCancelButton: true,   
+        confirmButtonColor: "FE63B5",   
+        confirmButtonText: "Yes, change it!",   
+        cancelButtonText: "No, keep my changes!",   
+        closeOnConfirm: true,   
+        closeOnCancel: true 
+      }, 
+      function(isConfirm){   
+        if (isConfirm) {     
+          $('#template').load('views/template_one.tpl'); 
+          return false;
+        } 
+        else {
+         // Do nothing.   
+        } 
+      });
     }
   });
 
   $('#template_two').bind('click', function(){
     if(first_load) {
       $('#template').load('views/template_two.tpl'); 
-      first_load = false;
+          first_load = false; 
     }
     else {
-      if (confirm('Are you sure you want to change template? Your changes will not be saved!')) {
-        $('#template').load('views/template_two.tpl'); 
-      } else {
-        // Do nothing.
-      }
+      sweetAlert({   
+        title: "Are you sure you want to change template?",   
+        text: "Your changes will get lost!",   
+        type: "warning",   
+        showCancelButton: true,   
+        confirmButtonColor: "FE63B5",   
+        confirmButtonText: "Yes, change it!",   
+        cancelButtonText: "No, keep my changes!",   
+        closeOnConfirm: true,   
+        closeOnCancel: true 
+      }, 
+      function(isConfirm){   
+        if (isConfirm) {     
+          $('#template').load('views/template_two.tpl'); 
+          return false;
+        } 
+        else {
+         // Do nothing.   
+        } 
+      });
     }
   });  
 

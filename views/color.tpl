@@ -9,6 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+      <!--SWEET-alert package-->
+      <script src="static/lib/sweet-alert.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="static/lib/sweet-alert.css">
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type='text/javascript' src="static/script.js"></script>
      <!-- Bootstrap Core CSS -->

@@ -10,7 +10,28 @@
 
 
 
+/* Styles for sweet-alert JQuery-plugin
+*/
+.sweet-alert h2 {
+	font-family: "Shadows Into Light" !important;
+	color: #555 !important;
+}
 
+.sweet-alert p {
+	color: #555 !important;
+}
+.sweet-alert button {
+	text-transform: uppercase;
+	font-size: 1em !important;
+	margin-bottom: 4% !important; 
+}
+
+.sweet-alert .confirm {
+	background-color: #FE63B5 !important;
+}
+
+/* Styles for welcome-template
+*/
 #welcome_mash {
 	width: 80%;
 	overflow: hidden;
@@ -38,6 +59,7 @@
 	position: absolute;
 }
 
+
 * {
 	-webkit-padding-start: 0px;
 }
@@ -45,7 +67,6 @@
 body{
 	background-color: #ccc;
 }
-
 
 .loading_space {
 	opacity: 0;
