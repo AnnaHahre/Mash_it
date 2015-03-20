@@ -354,7 +354,7 @@ function showfonts(fonts, category) {
         var fam = '"'+obj['font-family']+'"'; //fix for numreric styles
         var font_name = "<li class='user_fonts' value='" + fam + "' style='font-family:" + fam + ";'>" + family + "</li>"; //skapa ett li-item
       
-        var family_name = family.replace(' ','+');
+        var family_name = family.replace(/\s/g,'+');
         script_families.push(family_name);
         font_tag_list.push(font_name);
 
@@ -419,11 +419,15 @@ function getElementStyle(){
   }
   if ($('header h1').attr('style') === undefined){ }
   else{
-    elements['header h1'] = $('header h1').attr('style');
+    var styles = $('header h1').attr('style');
+    styles = styles.split(";");
+    elements['header h1'] = styles;
   }
   if ($('header h2').attr('style') === undefined){ }
   else{
-    elements['header h2'] = $('header h2').attr('style');
+    var styles = $('header h2').attr('style');
+    styles = styles.split(";");
+    elements['header h2'] = styles;
   }
   if ($('.featurette h2').attr('style') === undefined){ }
   else{
@@ -485,9 +489,28 @@ function getElementStyle(){
     $('.css_code').append('No elements has been styled!')
   }
   else{
-    //Lägga till import
-    $.each(elements, function(key,value){
-      $('.css_code').append(key + " {<br>" + value + "<br>}<br>");
+    $.each(elements, function(key,value){      
+      for (var i = 0; i < value.length; i++) {
+        if (value[i].search("font-family") != -1) {
+          var family = value[i].split(':');
+          var fam = family[1].substring(2,family[1].length -1);
+          new_family = fam.replace(/\s/g, '+');
+          var css_import = "@import url(http://fonts.googleapis.com/css?family=" + new_family+ ");";
+          $('.css_code').append( css_import + "<br><br>");
+          //lägg in varje i array - loopa och skriv ej ut dubletter
+        }
+      };
+    });
+
+
+    $.each(elements, function(key,value){   
+      css_value = "";
+      $.each(elements, function(key,value){
+        for (var i = 0; i < value.length -1; i++) {
+          css_value += value[i] + ";<br>";
+          }
+      });
+      $('.css_code').append(key + " {<br>" + css_value + "}<br>");
     });
   }
 
