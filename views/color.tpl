@@ -96,8 +96,13 @@
               <!--Placeholding fontlist-->
             </ul>
         </div><!--end #show_fonts-->
-        <button id="bigger" value="increase">+</buttom>
-        <button id="smaller" value="decrease">-</button>
+        <h1>Font resize</h1>
+        <div id="resize_fonts">
+          <span id="smaller_size">smaller</span>
+            <button id="smaller" value="decrease">-</button>
+            <button id="bigger" value="increase">+</button>
+          <span id="bigger_size">bigger</span>
+        </div><!--End #resize-fonts-->
       </div><!--end .font_choie-->
         
       <div id="code_choice" data-value="#code_choice">

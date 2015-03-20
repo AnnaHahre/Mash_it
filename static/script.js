@@ -32,14 +32,18 @@ $(document).ready(function(){
 
   $('#bigger').click(function(){
     type = $(this).val();
-    $('#template h1, #template h2, #template p').off('click');
+    $('#template h1, #template h2, #template p').off('click.size');
     fontSize(type);
  });
   
   $('#smaller').click(function(){
     type = $(this).val();
-    $('#template h1, #template h2, #template p').off('click');
+    $('#template h1, #template h2, #template p').off('click.size');
     fontSize(type);
+  });
+
+    $('#tabcontrols, #category, #font_list').click(function(){
+    $('#template h1, #template h2, #template p').off('click.size');
   });
   
 
@@ -92,19 +96,17 @@ $(document).ready(function(){
 });
 
 function fontSize(type){
-  $('#template h1, #template h2, #template p').on('click', function(){
+  $('#template h1, #template h2, #template p').on('click.size', function(){
     
    if (type == 'increase'){
       var curFontSize = $(this).css('font-size');
       $(this).css('font-size', parseInt(curFontSize) + 2);
-      return false;
       }
   else if (type == "decrease"){
       var curFontSize = $(this).css('font-size');
       $(this).css('font-size', parseInt(curFontSize) - 2);
-      return false;
-}
-});
+      }
+  });
 }
 
 //*----------------- COLOR-SCRIPT ------------------

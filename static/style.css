@@ -6,6 +6,8 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600);
 @import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
 @import url(http://fonts.googleapis.com/css?family=PT+Mono);
+@import url(http://fonts.googleapis.com/css?family=Comfortaa);
+
 
 
 
@@ -551,8 +553,9 @@ select{
 #colors_choice h1, #font_choice h1, #code_choice h1{
 	text-transform: uppercase;
 	color:#222;
-	font-family: 'Muli';
 	font-size: 1.15em;
+	font-family: "Muli", sans-serif;
+
 }
 
 .css_code{
@@ -622,7 +625,7 @@ input[type=text] {
 #show_fonts{
 	background-color: #ffffff;
 	border:1px solid #cecece;
-	height:400px;
+	height:300px;
 	margin-top: 5%;
 	padding-bottom: 20%;
 	margin-bottom: 1%;
@@ -646,6 +649,50 @@ input[type=text] {
 	cursor: crosshair;
 	background-color: #efefef;
 	transition: all 1 ease;
+}
+
+
+#resize_fonts {
+	margin: auto;
+	width: 70%;
+	margin-top: 2%;
+	text-align: center;
+}
+
+#smaller {
+	background: url("img/minus_icon.png")no-repeat;
+    cursor:pointer;
+    width: 30px;
+    height: 30px;
+    border: none;
+    margin-right: 3%;
+    text-indent: -9999px;
+}
+
+#bigger {
+	background: url("img/plus_icon.png")no-repeat;
+    cursor:pointer;
+    width: 30px;
+    height: 30px;
+    border: none;
+    margin-left: 3%;
+    text-indent: -9999px;
+}
+
+#smaller_size, #bigger_size {
+	font-family: "Shadows Into Light";
+	font-size: 1.5em;
+	color: #000;
+	display: inline-block;
+	margin-top: 2%;
+}
+
+#smaller_size {
+	margin-right: 4%;
+}
+
+#bigger_size {
+	margin-left: 4%;
 }
 
 #palette{
