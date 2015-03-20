@@ -48,7 +48,7 @@ $(document).ready(function(){
   
 
   //*---------------- LOAD TEMPLATES ----------------
-  //*
+  //* Using sweetAlert-plugin.
 
   var first_load = true; // used to identify the first template-choice done by session.
   $('#template_one').bind('click', function(){
@@ -553,50 +553,51 @@ function getElementStyle(){
   //*
 
   $('.css_code').empty();
+
   if ($.isEmptyObject(elements)){
     $('.css_code').append('No elements has been styled!')
   }
   else{
     $.each(elements, function(key,value){      
       for (var i = 0; i < value.length; i++) {
-        if (value[i].search("font-family") != -1) {
+        if (value[i].search("font-family") != -1) { //create google fonts import
           var family = value[i].split(':');
           var fam = family[1].substring(2,family[1].length -1);
           new_family = fam.replace(/\s/g, '+');
           var css_import = "@import url(http://fonts.googleapis.com/css?family=" + new_family+ ");";
-          $('.css_code').append( css_import + "<br><br>");
+          $('.css_code').append( css_import + "<br><br>"); //append font-import
           //lägg in varje i array - loopa och skriv ej ut
         }
       };
     });
 
-    $.each(elements, function(key,value){   
       $.each(elements, function(key,value){
         css_value = "";
         for (var i = 0; i < value.length -1; i++) {
-          /*if (value[i].search("color") != -1) { //convert RGB to HEX
+          if (value[i].search("color") != -1) { //convert RGB to HEX
+            new_col = "";
             var color = value[i].split(':');
             var col = color[1].substring(1,color[1].length);
-            alert(col);
-          }*/
-          css_value += value[i] + ";<br>";
+            new_col = rgb2hex(col);
+            css_value += "color: " + new_col + ";<br>"; //write RGB
           }
+          else {
+          css_value += value[i] + ";<br>"; //write other style-types
+          }
+        }
+        $('.css_code').append(key + " {<br>" + css_value + "}<br>"); //append string to .css_code
       });
-      $('.css_code').append(key + " {<br>" + css_value + "}<br>");
-    });
-}
-
+  }
 }
 
 
 //JQuery-converter (RBG to HEX)
-// orrowed from sitepoint.com: http://www.sitepoint.com/jquery-convert-rgb-hex-color/
 function rgb2hex(rgb){
- rgb = rgb.match(/^rgb((d+),s*(d+),s*(d+))$/);
- return "#" +
+ rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+ return (rgb && rgb.length === 4) ? "#" +
   ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
   ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
-  ("0" + parseInt(rgb[3],10).toString(16)).slice(-2);
+  ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
 }
 
 
