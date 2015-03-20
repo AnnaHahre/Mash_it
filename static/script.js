@@ -32,13 +32,13 @@ $(document).ready(function(){
 
   $('#bigger').click(function(){
     type = $(this).val();
-    $('#template h1, #template h2, #template p').off('click');
+    $('#template h1, #template h2, #template p, .container h1, .container h4, .list-unstyled, nav, span').off('click');
     fontSize(type);
  });
   
   $('#smaller').click(function(){
     type = $(this).val();
-    $('#template h1, #template h2, #template p').off('click');
+    $('#template h1, #template h2, #template p, .container h1, .container h4, .list-unstyled, nav, span').off('click');
     fontSize(type);
   });
   
@@ -47,14 +47,10 @@ $(document).ready(function(){
   //*
   $('#template_one').bind('click', function(){
     $('#template').load('views/template_one.tpl'); 
-    $('#dashboard').css({'display': 'block'});
-
   });
 
   $('#template_two').bind('click', function(){
     $('#template').load('views/template_two.tpl');
-    $('#dashboard').css({'display': 'block'});
-
   });  
 
   //*---------------- TAB-CONTROLL ----------------
@@ -85,14 +81,14 @@ $(document).ready(function(){
    })
   });
 
-  $('input, #tabcontrols, #category, #fontsize, #random_color, .css_code, button').click(function(event){
+  $('input, #tabcontrols, #category, #fontsize, #random_color, .css_code').click(function(event){
     event.stopPropagation();
   });
 
 });
 
 function fontSize(type){
-  $('#template h1, #template h2, #template p').on('click', function(){
+  $('#template h1, #template h2, #template p, .container h1, .container h4, .list-unstyled, nav, span').on('click', function(){
     
    if (type == 'increase'){
       var curFontSize = $(this).css('font-size');
