@@ -521,6 +521,8 @@ function getElementStyle(){
 
   //*--------- APPENDS CSS CODE TO CODE-BLOCK --------
   //*
+
+  $('.css_code').empty();
   if ($.isEmptyObject(elements)){
     $('.css_code').append('No elements has been styled!')
   }
@@ -538,21 +540,26 @@ function getElementStyle(){
       };
     });
 
-
     $.each(elements, function(key,value){   
       $.each(elements, function(key,value){
         css_value = "";
         for (var i = 0; i < value.length -1; i++) {
+          /*if (value[i].search("color") != -1) { //convert RGB to HEX
+            var color = value[i].split(':');
+            var col = color[1].substring(1,color[1].length);
+            alert(col);
+          }*/
           css_value += value[i] + ";<br>";
           }
       });
       $('.css_code').append(key + " {<br>" + css_value + "}<br>");
     });
-  }
+}
 
 }
 
-          //JQuery-converter (RBG to HEX)
+
+//JQuery-converter (RBG to HEX)
 // orrowed from sitepoint.com: http://www.sitepoint.com/jquery-convert-rgb-hex-color/
 function rgb2hex(rgb){
  rgb = rgb.match(/^rgb((d+),s*(d+),s*(d+))$/);
