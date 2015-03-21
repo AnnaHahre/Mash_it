@@ -576,8 +576,15 @@ function getElementStyle(){
       for (var i = 0; i < value.length; i++) {
         if (value[i].search("font-family") != -1) { //create google fonts import
           var family = value[i].split(':');
-          var fam = family[1].substring(2,family[1].length -1);
+          alert(family);
+          if ((family[1].search("'") != -1) || family[1].search("\"") != -1) {
+              var fam = family[1].substring(2,family[1].length -1);
+            }
+            else {
+              var fam = family[1].substring(1,family[1].length);
+            }
           new_family = fam.replace(/\s/g, '+');
+          alert(new_family);
           var css_import = "@import url(http://fonts.googleapis.com/css?family=" + new_family+ ");";
           $('.css_code').append( css_import + "<br><br>"); //append font-import
           //lägg in varje i array - loopa och skriv ej ut
