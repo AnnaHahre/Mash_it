@@ -572,25 +572,33 @@ function getElementStyle(){
     $('.css_code').append('No elements has been styled!')
   }
   else{
-    $.each(elements, function(key,value){      
+    var css_imports = []; 
+    $.each(elements, function(key,value){     
       for (var i = 0; i < value.length; i++) {
         if (value[i].search("font-family") != -1) { //create google fonts import
           var family = value[i].split(':');
-          alert(family);
           if ((family[1].search("'") != -1) || family[1].search("\"") != -1) {
-              var fam = family[1].substring(2,family[1].length -1);
-            }
-            else {
-              var fam = family[1].substring(1,family[1].length);
-            }
+              var fam = family[1].substring(2,family[1].length -1); //remove quotation marks
+          }
+          else {
+            var fam = family[1].substring(1,family[1].length); //no quotation marks
+          }
+
           new_family = fam.replace(/\s/g, '+');
-          alert(new_family);
           var css_import = "@import url(http://fonts.googleapis.com/css?family=" + new_family+ ");";
-          $('.css_code').append( css_import + "<br><br>"); //append font-import
-          //lägg in varje i array - loopa och skriv ej ut
+          css_imports.push(css_import);  
         }
       };
     });
+    
+    var css_to_be_imported = css_imports.sort().filter(function(item, pos) { //remove dublicated of CSS-imports
+      return !pos || item != css_imports[pos - 1];
+    })
+
+    for (var i = 0; i < css_to_be_imported.length; i++) {
+      $('.css_code').append(css_to_be_imported[i] + "<br><br>"); //append font-import
+    };
+
 
       $.each(elements, function(key,value){
         css_value = "";
@@ -600,13 +608,18 @@ function getElementStyle(){
             var color = value[i].split(':');
             var col = color[1].substring(1,color[1].length);
             new_col = rgb2hex(col);
-            css_value += "color: " + new_col + ";<br>"; //write RGB
+            if (color[0] == "background-color") {
+              css_value += "background-color: " + new_col + ";<br>"; //write RGB (background-color)
+            }
+            else {
+              css_value += "color: " + new_col + ";<br>"; //write RGB (color)
+            }
           }
           else {
-          css_value += value[i] + ";<br>"; //write other style-types
+            css_value += value[i] + ";<br>"; //write other style-types
           }
         }
-        $('.css_code').append(key + " {<br>" + css_value + "}<br>"); //append string to .css_code
+        $('.css_code').append(key + " {<br>" + css_value + "}<br><br>"); //append string to .css_code
       });
   }
 }
