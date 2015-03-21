@@ -514,35 +514,51 @@ function getElementStyle(){
 
   if ($('.row h1').attr('style') === undefined){ }
   else{
-    elements['h1']  = $('.row h1').attr('style');
+    var styles = $('.row h1').attr('style');
+    styles = styles.split(";");
+    elements['h1'] = styles;
   }
   if ($('.article').attr('style') === undefined){ }
   else{
-    elements['.article p']  = $('.article').attr('style');
+    var styles = $('.article').attr('style');
+    styles = styles.split(";");
+    elements['.article p'] = styles;
   }
   if ($('.form_heading').attr('style') === undefined){ }
   else{
-    elements['.form h4']  = $('.form_heading').attr('style');
+    var styles = $('.form_heading').attr('style');
+    styles = styles.split(";");
+    elements['.form h4'] = styles;
   }
   if ($('.media-heading').attr('style') === undefined){ }
   else{
-    elements['.comments h4']  = $('.media-heading').attr('style');
+    var styles = $('.media-heading').attr('style');
+    styles = styles.split(";");
+    elements['.comments h4'] = styles;
   }
   if ($('.comment').attr('style') === undefined){ }
   else{
-    elements['.comments p']  = $('.comment').attr('style');
+    var styles = $('.comment').attr('style');
+    styles = styles.split(";");
+    elements['.comment p'] = styles;
   }
   if ($('.widget_heading').attr('style') === undefined){ }
   else{
-    elements['.widget h4']  = $('.widget_heading').attr('style');
+    var styles = $('.widget_heading').attr('style');
+    styles = styles.split(";");
+    elements['.widget h4'] = styles;
   }
   if ($('.widget').attr('style') === undefined){ }
   else{
-    elements['.widget p']  = $('.widget').attr('style');
+    var styles = $('.widget').attr('style');
+    styles = styles.split(";");
+    elements['.widget p'] = styles;
   }
   if ($('.cat_item').attr('style') === undefined){ }
   else{
-    elements['.categories li']  = $('.cat_item').attr('style');
+    var styles = $('.cat_item').attr('style');
+    styles = styles.split(";");
+    elements['.categories li'] = styles;
   }
 
   //*--------- APPENDS CSS CODE TO CODE-BLOCK --------
