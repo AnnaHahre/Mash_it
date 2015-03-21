@@ -18,10 +18,6 @@ $(document).ready(function(){
 
   $('#css_button').click(getElementStyle); //GET STYLES TO GENERATE CSS
 
-  $('#tabcontrols li').click(function(){
-    $('code').empty(); //EMPTY THE CODE-BLOCK
-  });
-
   $('#exit_icon').click(function(){
     location.href="http://localhost:1234/index.php";
   });
@@ -32,17 +28,17 @@ $(document).ready(function(){
 
   $('#bigger').click(function(){
     type = $(this).val();
-    $('#template h1, #template h2, #template p, .container h1, .container h4, .list-unstyled, nav, span').off('click.size');
+    $('#template h1, #template h2, #template p, .container h1, .container h4, .list-unstyled, nav, span').off('click.size'); //reset click.size-events
     fontSize(type);
  });
   
   $('#smaller').click(function(){
     type = $(this).val();
-    $('#template h1, #template h2, #template p, .container h1, .container h4, .list-unstyled, nav, span').off('click.size');
+    $('#template h1, #template h2, #template p, .container h1, .container h4, .list-unstyled, nav, span').off('click.size'); //reset click.size-events
     fontSize(type);
   });
 
-    $('#tabcontrols, #category, #font_list').click(function(){
+    $('#tabcontrols, #category, #font_list').click(function(){ //reset click.size-events
     $('#template h1, #template h2, #template p').off('click.size');
   });
   
@@ -109,7 +105,7 @@ $(document).ready(function(){
     }
   });  
 
-  //*---------------- TAB-CONTROLL ----------------
+  //*---------------- TAB-CONTROLL FOR DASHBOARD ----------------
   //*
   $('#tabs').find('> div').hide();
  
@@ -121,7 +117,6 @@ $(document).ready(function(){
 
       $(value).hide();
       $('#tabcontrols li').removeClass();
-
     }
     else{
       event.preventDefault();
@@ -141,8 +136,10 @@ $(document).ready(function(){
     event.stopPropagation();
   });
 
-});
+}); //END DOCUMENT.READY FUNCTION
 
+//*---------------- SIZE-SCRIPT ----------------
+//*
 function fontSize(type){
   $('#template h1, #template h2, #template p, .container h1, .container h4, .list-unstyled, nav, span').on('click.size', function(){
     
@@ -369,25 +366,25 @@ function changeStyle(e){
 //*------------------ FONT SCRIPT -----------------
 //*
 //*
-
 function getFonts() {
   $user_choice = $("#category").val();
 
    $.ajax({
-        type: "GET",
-        url: "http://localhost:1234/api/v1/font/category/" + $user_choice,
-        dataType: "json",
-        beforeSend: function() { $('#font_choice').addClass("loading") }, //start loading animation
-        success: function(response) {
-            showfonts(response, $user_choice);
+    type: "GET",
+    url: "http://localhost:1234/api/v1/font/category/" + $user_choice,
+    dataType: "json",
+    beforeSend: function() { $('#font_choice').addClass("loading") }, //start loading animation
+    success: function(response) {
+      showfonts(response, $user_choice);
 
-        },
-        error: function() {
-          $('#error').append('<p style="font-size:.9em; color:#000000; margin-top:10px; padding:10px;">ERROR:<br> There seems to be a problem with the connection. <br>Please try again or if the problem persists please contact us at info@mashit.nu.</p>');
-        }
+    },
+    error: function() {
+      $('#error').append('<p style="font-size:.9em; color:#000000; margin-top:10px; padding:10px;">ERROR:<br> There seems to be a problem with the connection. <br>Please try again or if the problem persists please contact us at info@mashit.nu.</p>');
+    }
     });
 }
 
+//Global variables preventing dubble load of script links.
 var monospace = false;
 var sans_serif = false;
 var serif = false;
@@ -395,23 +392,22 @@ var handwriting = false;
 var display = false;
 
 function showfonts(fonts, category) {
-
     $("#font_list").empty(); //Empty #font_list
     var script_families = [];
     var font_tag_list = [];
     var font_list = fonts.slice(1, fonts.length); //removes description-object (object 1).
 
     $.each(font_list, function(i, obj) { //for every object
-        var family = obj['font-family'];
-        var fam = '"'+obj['font-family']+'"'; //fix for numreric styles
-        var font_name = "<li class='user_fonts' value='" + fam + "' style='font-family:" + fam + ";'>" + family + "</li>"; //skapa ett li-item
-      
-        var family_name = family.replace(/\s/g,'+');
-        script_families.push(family_name);
-        font_tag_list.push(font_name);
-
+      var family = obj['font-family'];
+      var fam = '"'+obj['font-family']+'"'; //fix for numreric styles <" ">
+      var font_name = "<li class='user_fonts' value='" + fam + "' style='font-family:" + fam + ";'>" + family + "</li>"; //create li-item
+    
+      var family_name = family.replace(/\s/g,'+'); //create link-name
+      script_families.push(family_name);
+      font_tag_list.push(font_name);
     });
 
+    //print font-links to head (via appendFonts())
     if (category == "monospace" && monospace == false) {
       appendFonts(script_families);
       monospace = true;
@@ -433,13 +429,12 @@ function showfonts(fonts, category) {
       display = true;
     }
 
-    //skriver ut alla font-taggar
+    //print all font-tags to page
     for (i = 0; i < font_tag_list.length; i++) { 
         $("#font_list").append(font_tag_list[i]);
     }
 
-    //bindet get-element till varje li-element som innehåller fontfamiljer.
-    $('.user_fonts').bind("click", changeStyle);
+    $('.user_fonts').bind("click", changeStyle); //bind click-event
     $('#font_choice').removeClass("loading"); //end loading animation
 
 }   
@@ -450,7 +445,8 @@ function appendFonts(script_families) {
   }
 }   
 
-
+//*--------- CODE FOR GENERATING CSS CODE-------------------
+//*
 function getElementStyle(){
   elements = {};
   //*--------- CODE FOR GENERATING CSS CODE FOR TEMPLATE ONE --------
