@@ -178,7 +178,7 @@ $(document).ready(function(){
    })
   });
 
-  $('input, #tabcontrols, #category, #fontsize, #random_color, .css_code').click(function(event){
+  $('input, #tabcontrols, #category, #fontsize, #random_color, .css_code, #fonta').click(function(event){
     event.stopPropagation();
   });
 
@@ -223,7 +223,25 @@ function getPalette(event){
      showPalette(response);
     },
     error: function() {
-      $('#palette').append('<p style="font-size: .9em; color:#000000">ERROR "Invalid input": <br> Please check if you entered a valid hexcode - 6 characters, a combination of A-F, a-f and/or 0-9. Please try again.</p>');
+      //$('#palette').append('<p style="font-size: .9em; color:#000000">ERROR "Invalid input": <br> Please check if you entered a valid hexcode - 6 characters, a combination of A-F, a-f and/or 0-9. Please try again.</p>');
+      sweetAlert({   
+        title: "Invalid input!",   
+        text: "Check if you entered a valid hexcode - 6 characters, a combination of A-F, a-f and/or 0-9. Please try again.",   
+        type: "warning",    
+        confirmButtonColor: "FE63B5",   
+        confirmButtonText: "Ok",   
+        closeOnConfirm: true,   
+      }, 
+      function(isConfirm){   
+        if (isConfirm) {     
+          $('#colors_choice').hide();
+          $('#tabcontrols li').removeClass();
+          //window.scrollTo(0);
+        } 
+        else {
+         // Do nothing.   
+        } 
+      });
       }
     });
   $('#colors').val("");
@@ -499,7 +517,26 @@ function getFonts() {
 
     },
     error: function() {
-      $('#error').append('<p style="font-size:.9em; color:#000000; margin-top:10px; padding:10px;">ERROR:<br> There seems to be a problem with the connection. <br>Please try again or if the problem persists please contact us at info@mashit.nu.</p>');
+      //$('#error').append('<p style="font-size:.9em; color:#000000; margin-top:10px; padding:10px;">ERROR:<br> There seems to be a problem with the connection. <br>Please try again or if the problem persists please contact us at info@mashit.nu.</p>');
+      sweetAlert({   
+        title: "There seems to be a problem with the connection!",   
+        text: "Please try again or if the problem persists please contact us at info@mashit.nu",   
+        type: "warning",    
+        confirmButtonColor: "FE63B5",   
+        confirmButtonText: "Ok",   
+        closeOnConfirm: true,   
+      }, 
+      function(isConfirm){   
+        if (isConfirm) {     
+          $('#font_choice').hide();
+          $('#tabcontrols li').removeClass();
+          $('#font_choice').removeClass("loading")
+          //window.scrollTo(0);
+        } 
+        else {
+         // Do nothing.   
+        } 
+      });
     }
     });
 }
