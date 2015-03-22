@@ -8,8 +8,6 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Mono);
 @import url(http://fonts.googleapis.com/css?family=Comfortaa);
 
-
-
 /* Styles for sweet-alert JQuery-plugin
 */
 .sweet-alert h2 {
@@ -72,7 +70,7 @@ body{
 	opacity: 0;
 	z-index: -10000;
 	position: absolute;
-	top: 140px;
+	top: 100px;
 	left: 120px;
     height:		400px;
     width:      360px;
@@ -104,6 +102,7 @@ body{
 
 
 /*Styles for API-doc*/
+
 	
 	.num_info {
 		font-style: italic;
@@ -217,13 +216,17 @@ body{
 		transition: background-color 0.5s ease;
 	}
 
+	.api_doc .active {
+		background-color: #ff038a;
+		transition: background-color 0.5s ease;
+	}
 	.api_doc section{
 		background-color: #ffffff;
 		position: relative;
 		float: right;
 		width: 57%;
 		margin: 0;
-		padding: 0% 10% 10% 10%;
+		padding: 0% 10% 40% 10%;
 		overflow: hidden;
 	}
 
@@ -749,6 +752,9 @@ input[type=text] {
 
 }
 
+#template_choice {
+	overflow: scroll;
+}
 
 #template_choice h2{
 	margin: 4% 0% 1.5% 0%;
@@ -775,11 +781,21 @@ input[type=text] {
 	margin-bottom:8%;
 }
 
-#template_one img, #template_two img{
+#template_one img, #template_two img, #template_three img{
 	margin:1.5%;
 	width:97%;
 	border:1px solid #ddd;
 	height:150px;
+}
+
+#template_three {
+	cursor: pointer;
+	background:url('img/crossword.png');
+	margin:0 auto;
+	width:80%;
+	border:1px solid #ccc;
+	text-align: center;
+	border-radius: 5px;
 }
 
 #template_two{
@@ -790,5 +806,6 @@ input[type=text] {
 	border:1px solid #ccc;
 	text-align: center;
 	border-radius: 5px;
+	margin-bottom:8%;
 
 }

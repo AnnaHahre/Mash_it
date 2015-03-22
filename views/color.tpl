@@ -14,12 +14,17 @@
       <link rel="stylesheet" type="text/css" href="static/lib/sweet-alert.css">
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type='text/javascript' src="static/script.js"></script>
+
      <!-- Bootstrap Core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <!--<link href="/static/css/blog-post.css" rel="stylesheet">-->
 
     <!-- Custom CSS -->
     <link href="/static/css/one-page-wonder.css" rel="stylesheet">
+
+    <!-- CSS for template three - clean blog -->
+    <link href="/static/css/clean_temp.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -58,13 +63,16 @@
           <img src="static/img/templateOne.png" alt="">
           <h2>One Page Wonder</h2>
           <p>A simple one page template</p>
-          
         </div>
         <div id="template_two">
           <img src="static/img/template_two.png" alt="">
           <h2>One Page Blogg</h2>
           <p>A blog post one page template</p>
-        
+        </div>
+        <div id="template_three">
+          <img src="static/img/template_three.png" alt="">
+          <h2>Clean Blog Post</h2>
+          <p>A blog post template</p>
         </div>
       </div> <!--end #template_choice-->
       <div id="colors_choice" data-value="#colors_choice">

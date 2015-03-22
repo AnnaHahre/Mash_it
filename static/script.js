@@ -52,7 +52,7 @@ $(document).ready(function(){
   $('#template_one').bind('click', function(){
     if(first_load) {
       $('#template').load('views/template_one.tpl'); 
-          first_load = false; 
+      first_load = false; 
     }
     else {
       sweetAlert({   
@@ -69,7 +69,7 @@ $(document).ready(function(){
       function(isConfirm){   
         if (isConfirm) {     
           $('#template').load('views/template_one.tpl'); 
-          return false;
+          //return false;
         } 
         else {
          // Do nothing.   
@@ -81,7 +81,7 @@ $(document).ready(function(){
   $('#template_two').bind('click', function(){
     if(first_load) {
       $('#template').load('views/template_two.tpl'); 
-          first_load = false; 
+      first_load = false; 
     }
     else {
       sweetAlert({   
@@ -98,7 +98,7 @@ $(document).ready(function(){
       function(isConfirm){   
         if (isConfirm) {     
           $('#template').load('views/template_two.tpl'); 
-          return false;
+          //return false;
         } 
         else {
          // Do nothing.   
@@ -106,6 +106,35 @@ $(document).ready(function(){
       });
     }
   });  
+  $('#template_three').bind('click', function(){
+    if(first_load) {
+      $('#template').load('views/template_three.tpl');
+      first_load = false; 
+    }
+    else {
+      sweetAlert({   
+        title: "Are you sure you want to change template?",   
+        text: "Your changes will get lost!",   
+        type: "warning",   
+        showCancelButton: true,   
+        confirmButtonColor: "FE63B5",   
+        confirmButtonText: "Yes, change it!",   
+        cancelButtonText: "No, keep my changes!",   
+        closeOnConfirm: true,   
+        closeOnCancel: true 
+      }, 
+      function(isConfirm){   
+        if (isConfirm) {     
+          $('#template').load('views/template_three.tpl'); 
+          //return false;
+          //window.scrollTo(0);
+        } 
+        else {
+         // Do nothing.   
+        } 
+      });
+    }
+  });
 
   //*---------------- TAB-CONTROLL FOR DASHBOARD ----------------
   //*
@@ -363,6 +392,80 @@ function changeStyle(e){
       });
     }
   });
+
+//handles for template three
+
+$('.clean_temp article p').on('click.style', function(e){
+    e.stopPropagation();
+    if (choice.substring(0,1) == "#") {
+      $('.clean_temp article p').css({
+        'color' : choice
+      });
+    }
+    else {
+      $('.clean_temp article p').css({
+        'font-family' : choice
+      });
+    }
+  });
+
+$('.clean_temp article blockquote').on('click.style', function(e){
+    e.stopPropagation();
+    if (choice.substring(0,1) == "#") {
+      $('.clean_temp article blockquote').css({
+        'color' : choice
+      });
+    }
+    else {
+      $('.clean_temp article blockquote').css({
+        'font-family' : choice
+      });
+    }
+  });
+
+$('.clean_temp article h2').on('click.style', function(e){
+    e.stopPropagation();
+    if (choice.substring(0,1) == "#") {
+      $('.clean_temp article h2').css({
+        'color' : choice
+      });
+    }
+    else {
+      $('.clean_temp article h2').css({
+        'font-family' : choice
+      });
+    }
+  });
+
+$('.clean_temp .meta').on('click.style', function(e){
+    e.stopPropagation();
+    if (choice.substring(0,1) == "#") {
+      $('.clean_temp .meta').css({
+        'color' : choice
+      });
+    }
+    else {
+      $('.clean_temp .meta').css({
+        'font-family' : choice
+      });
+    }
+  });
+
+$('.clean_temp footer').on('click.style', function(e){
+    e.stopPropagation();
+    $('.clean_temp footer').css({
+      'background-color' : choice
+    });
+  });
+
+$('.clean_temp').on('click.style', function(e){
+    e.stopPropagation();
+    $('.clean_temp').css({
+      'background-color' : choice
+    });
+  });
+
+
 }
 
 //*------------------ FONT SCRIPT -----------------
@@ -399,12 +502,16 @@ function showfonts(fonts, category) {
     var font_tag_list = [];
     var font_list = fonts.slice(1, fonts.length); //removes description-object (object 1).
 
+    //create li-tag and link-tag name for every font-obj
     $.each(font_list, function(i, obj) { //for every object
       var family = obj['font-family'];
       var fam = '"'+obj['font-family']+'"'; //fix for numreric styles <" ">
       var font_name = "<li class='user_fonts' value='" + fam + "' style='font-family:" + fam + ";'>" + family + "</li>"; //create li-item
     
       var family_name = family.replace(/\s/g,'+'); //create link-name
+      if ($.inArray( "regular", obj['variants']) == -1) { //check for fonts not aviable as regular variants (returns as 400)
+        family_name += ":" + obj['variants'][0]; //add variant
+      }
       script_families.push(family_name);
       font_tag_list.push(font_name);
     });
@@ -510,7 +617,7 @@ function getElementStyle(){
     elements['footer p'] = styles;
   }
 
-  //*--------- CODE FOR GENERATING CSS CODE FOR TEMPLATE ONE --------
+  //*--------- CODE FOR GENERATING CSS CODE FOR TEMPLATE TWO --------
   //* not the prettiest code - but it works :)
   //*
 
@@ -561,6 +668,45 @@ function getElementStyle(){
     var styles = $('.cat_item').attr('style');
     styles = styles.split(";");
     elements['.categories li'] = styles;
+  }
+
+   //*--------- CODE FOR GENERATING CSS CODE FOR TEMPLATE THREE --------
+  //* not the prettiest code - but it works :)
+  //* SOME CODE FROM THE ABOW TEMPLATES INHERITS
+
+  if ($('.clean_temp article p').attr('style') === undefined){ }
+  else{
+    var styles = $('.clean_temp article p').attr('style');
+    styles = styles.split(";");
+    elements['article p'] = styles;
+  }
+
+  if ($('.clean_temp article blockquote').attr('style') === undefined){ }
+  else{
+    var styles = $('.clean_temp article blockquote').attr('style');
+    styles = styles.split(";");
+    elements['article blockquote'] = styles;
+  }
+
+   if ($('.clean_temp article h2').attr('style') === undefined){ }
+  else{
+    var styles = $('.clean_temp article h2').attr('style');
+    styles = styles.split(";");
+    elements['article h2'] = styles;
+  }
+
+  if ($('.clean_temp .meta').attr('style') === undefined){ }
+  else{
+    var styles = $('.clean_temp .meta').attr('style');
+    styles = styles.split(";");
+    elements['header .meta'] = styles;
+  }
+
+  if ($('.clean_temp').attr('style') === undefined){ }
+  else{
+    var styles = $('.clean_temp').attr('style');
+    styles = styles.split(";");
+    elements['body'] = styles;
   }
 
   //*--------- APPENDS CSS CODE TO CODE-BLOCK --------
