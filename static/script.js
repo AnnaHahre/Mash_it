@@ -155,6 +155,7 @@ $(document).ready(function(){
   $('#tabs').find('> div').hide();
  
   $('#tabcontrols li').click( function(event) {
+    $('.css_code').empty();
     var value = $(this).attr("data-value");
 
     if ($(this).hasClass('selected')){
@@ -203,8 +204,8 @@ function fontSize(type){
 //*
 function getPalette(event){
   $('#palette').empty();
-  if (clicked){
-    random_array = ["111111", "222222", "333333", "444444", "555555", "666666", "777777", "888888", "999999", "000000", "aaaaaa", "bbbbbb", "cccccc", "dddddd", "eeeeee", "ff9900", "008080", "ffc0cb", "00ffff", "40e0d0", "008080", "33FF33", "FF0000", "0000FF", "8B8B7E"];
+  if (clicked){ 
+    random_array = ["111111", "222222", "333333", "444444", "555555", "666666", "777777", "888888", "999999", "000000", "aaaaaa", "bbbbbb", "cccccc", "dddddd", "eeeeee", "ff9900", "008080", "ffc0cb", "00ffff", "40e0d0", "008080", "33FF33", "FF0000", "0000FF", "8B8B7E"]; //made this array because there isnt palettes for all hex codes that a hexcode generator would generate.
     var hex = random_array.sort(function() {return 0.5 - Math.random()})[1];
     clicked = false;
   }
