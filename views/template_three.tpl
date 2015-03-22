@@ -95,7 +95,7 @@
         </div>
     </article>
 
-    <hr>
+    <!--<hr>-->
 
     <!-- Footer -->
     <footer>
