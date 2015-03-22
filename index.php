@@ -145,6 +145,8 @@ $app->get('/api/v1/font/category/:name', function($name) use ($app){
 
     $response = $app->response();
     $response->header('Content-Type', 'application/json');
+    $app->etag('unique-resource-id'); //cache
+    $app->expires('+1 week'); //update after 1 week
     $app->response->setBody(json_encode($fontlist));
 
 })->conditions(array('name' => '(monospace|sans-serif|serif|handwriting|display)')); 
