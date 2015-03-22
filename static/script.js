@@ -19,12 +19,26 @@ $(document).ready(function(){
   $('#css_button').click(getElementStyle); //GET STYLES TO GENERATE CSS
 
   $('#exit_icon').click(function(){
-    location.href="http://localhost:1234/index.php";
+    sweetAlert({   
+        title: "Are you sure you want to leave?",    
+        type: "warning",   
+        showCancelButton: true,   
+        confirmButtonColor: "FE63B5",   
+        confirmButtonText: "Yes, leave!",   
+        cancelButtonText: "No, stay!",   
+        closeOnConfirm: true,   
+        closeOnCancel: true 
+      }, 
+      function(isConfirm){   
+        if (isConfirm) {     
+          location.href="http://localhost:1234/index.php"; 
+          return false;
+        } 
+        else {
+         // Do nothing.   
+        } 
+      });
   });
-
-  window.onbeforeunload = function() {
-    return "Are you sure you want to leave? Your changes will not be saved!";
-  }
 
   $('#bigger').click(function(){
     type = $(this).val();
