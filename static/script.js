@@ -723,6 +723,14 @@ function getElementStyle(){
     elements['body'] = styles;
   }
 
+  if ($('.clean_temp footer').attr('style') === undefined){ }
+  else{
+    var styles = $('.clean_temp footer').attr('style');
+    styles = styles.split(";");
+    elements['footer'] = styles;
+  }
+  
+
   //*--------- APPENDS CSS CODE TO CODE-BLOCK --------
   //*
 
