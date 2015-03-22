@@ -35,7 +35,6 @@ $(document).ready(function(){
           return false;
         } 
         else {
-         // Do nothing.   
         } 
       });
   });
@@ -236,7 +235,6 @@ function getPalette(event){
         if (isConfirm) {     
           $('#colors_choice').hide();
           $('#tabcontrols li').removeClass();
-          //window.scrollTo(0);
         } 
         else {
          // Do nothing.   
@@ -523,18 +521,13 @@ function getFonts() {
         text: "Please try again or if the problem persists please contact us at info@mashit.nu",   
         type: "warning",    
         confirmButtonColor: "FE63B5",   
-        confirmButtonText: "Ok",   
+        confirmButtonText: "OK",   
         closeOnConfirm: true,   
       }, 
       function(isConfirm){   
         if (isConfirm) {     
-          $('#font_choice').hide();
-          $('#tabcontrols li').removeClass();
+          $('#category').val('');
           $('#font_choice').removeClass("loading")
-          //window.scrollTo(0);
-        } 
-        else {
-         // Do nothing.   
         } 
       });
     }
