@@ -460,9 +460,6 @@ body{
     background: url("img/exit_icon.png");
 }
 
-
-
-
 #dashboard{
 	position:fixed;
 	top:80px;
@@ -594,14 +591,9 @@ select{
 	background-color: #ffffff;
 }
 
-/*css_button, #submit_color, #fonta, #random_color{
-	float:right;
-	width:110px;
-	text-align: center;
-	height:30px;
-	font-family: 'Muli';
-	font-size: .9em,
-}*/
+#template_choice:last-child{
+	margin-bottom: 100px;
+}
 
 #submit_color, #fonta, #css_button {
 	margin-left: 2%;
@@ -769,7 +761,7 @@ input[type=text] {
 }
 
 
-#template_one{
+#template_one, #template_two, #template_three{
 	cursor: pointer;
 	background:url('img/crossword.png');
 	margin:0 auto;
@@ -786,26 +778,4 @@ input[type=text] {
 	width:97%;
 	border:1px solid #ddd;
 	height:150px;
-}
-
-#template_three {
-	cursor: pointer;
-	background:url('img/crossword.png');
-	margin:0 auto;
-	width:80%;
-	border:1px solid #ccc;
-	text-align: center;
-	border-radius: 5px;
-}
-
-#template_two{
-	cursor: pointer;
-	background:url('img/crossword.png');
-	margin:0 auto;
-	width:80%;
-	border:1px solid #ccc;
-	text-align: center;
-	border-radius: 5px;
-	margin-bottom:8%;
-
 }
