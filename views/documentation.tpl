@@ -16,29 +16,29 @@
   	</header>
     <nav>
         <ul>
-          <li><a href="#endpoint">Endpoints</a>
+          <li><a href="#endpoint" id="nav_endpoint">Endpoints</a>
             <ul>
-              <li><a href="#font">fonts by category</a></li>
-              <li><a href="#palette">palettes by color</a></li>
-              <li><a href="#theme">theme by color and font-category</a></li>
+              <li><a href="#fontsbycat" id="#nav_fontsbycat">fonts by category</a></li>
+              <li><a href="#palette" id="nav_palette">palettes by color</a></li>
+              <li><a href="#theme" id="nav_theme">theme by color and font-category</a></li>
             </ul>
-          <li><a href="#statuscodes">Status codes</a></li>
-          <li><a href="#license">License</a></li>
+          <li><a href="#statuscodes" id="nav_statuscodes">Status codes</a></li>
+          <li><a href="#license" id="nav_license">License</a></li>
         </ul>
     <footer>
       <p><a href="/index.php">Mash:it</a></p>
     </footer>
     </nav>
   	<section>
-      <h2 id="endpoint">Endpoints</h2>
+      <h2 id="endpoint" class="section">Endpoints</h2>
         <code class="endpoints">
         <ul>
-          <li><a href="#font">GET /api/v1/fonts/category</a></li>
+          <li><a href="#fontsbycat">GET /api/v1/fonts/category</a></li>
           <li><a href="#palette">GET /api/v1/palette/hex</a></li>
           <li><a href="#theme">GET /api/v1/theme/hex/category</a></li>
         </ul>
       </code>
-  		<h2 id="font">List fonts by category</h2>
+  		<h2 id="fontsbycat" class="section">List fonts by category</h2>
       <p>Returns a list of categorized fonts from <a href="https://www.google.com/fonts">google fonts</a>.</p>
 
       <h3>Endpoint</h3>
@@ -279,7 +279,7 @@
 ]
       </code></pre>
 
-  		<h2 id="palette">List palettes by color</h2>
+  		<h2 id="palette" class="section">List palettes by color</h2>
         <p>Returns a set of palettes created by the <a href="http://www.colourlovers.com/">COLOURlovers community</a>.</p>
         
         <h3>Endpoint</h3>
@@ -393,7 +393,7 @@
 ]
       </code></pre>
 
-  		<h2 id="theme">List theme by color and font category</h2>
+  		<h2 id="theme" class="section">List theme by color and font category</h2>
         <p>Returns a mix of fonts and palettes</p>
 
         <h3>Endpoint</h3>
@@ -528,7 +528,7 @@
 
         </code></pre>
 
-      <h2 id="statuscodes">Status codes</h2>
+      <h2 id="statuscodes" class="section">Status codes</h2>
       <table>
         <tr>
           <th>Statuscode</th>
@@ -556,7 +556,7 @@
         </tr>
       </table>
 
-      <h2 id="license">License</h2>
+      <h2 id="license" class="section">License</h2>
       <p>Attribution-Noncommercial-Share Alike - <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a></p>
 
   	</section>
