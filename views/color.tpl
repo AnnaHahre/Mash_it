@@ -13,6 +13,7 @@
       <script src="static/lib/sweet-alert.min.js"></script>
       <link rel="stylesheet" type="text/css" href="static/lib/sweet-alert.css">
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type='text/javascript' src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <script type='text/javascript' src="static/script.js"></script>
 
      <!-- Bootstrap Core CSS -->
@@ -56,6 +57,7 @@
         <a href="/index.php"></a>
       </li>
     </ul>
+  </div><!--end #dashboard-->
 
     <div id="tabs">
       <div id="template_choice">
@@ -123,7 +125,6 @@
       </div><!--end .code_choie-->
 
     </div><!--end #tabs-->
-  </div><!--end #dashboard-->
 
   <div id="template">
    <!--Divs for template_choice-->

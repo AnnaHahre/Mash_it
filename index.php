@@ -11,7 +11,6 @@ $app = new Slim(array(
 ));
 
 $app->get('/', function () use ($app) {
-	$message = array('title'=>"Mash It");
 	$app->render('index.tpl', $message);
 });
 

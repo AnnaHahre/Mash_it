@@ -463,10 +463,11 @@ body{
 #dashboard{
 	position:fixed;
 	top:80px;
+	width: 100px;
+	background-color: transparent;
 	left:0;
 	border-radius: 0 5px 0px 0;
 	overflow: hidden;
-	clear:both;
 	z-index: 99 !important;
 }
 
@@ -485,15 +486,12 @@ select{
 
 #dashboard h1, #dashboard h2{
 	font-size: 1em;
-
 }
 
-
 #tabcontrols{
-	float:left;
-	height: 590px;
+	width: 100px;
 	background-color: rgba(0,0,0,1);
-	overflow: auto;
+	overflow: hidden;	
 	margin:0;
 	padding: 0;
 }
@@ -527,11 +525,22 @@ select{
 }
 
 #tabs{
-	margin-top:-2px;
+	position:fixed;
+	height:527.5px;
+	top:143px;
+	left:0;
+	border-radius: 0 5px 0px 0;
+	overflow: hidden;
+	z-index: 88 !important;
+}
+
+#tabs p {
+	font-size: .7em;
 }
 
 #colors_choice, #font_choice, #code_choice, #template_choice{
-	margin-left:100px;
+	position: fixed;
+	left: -300px;
 	display:block;
 	width:400px;
 	height:527.5px;
@@ -543,7 +552,7 @@ select{
 }
 
 #colors_choice, #font_choice, #code_choice {
-	padding-top: 8%;
+	padding-top: 30px;
 }
 
 #code_choice h1 {
@@ -559,16 +568,7 @@ select{
 }
 
 
-#colors_choice, #template_choice{
-	margin-top: 65px;	
-}
-
-#font_choice{
-	margin-top: 13.0%;	
-}
-
-#code_choice{
-	margin-top: 13.0%;	
+#colors_choice, #template_choice, #font_choice, #code_choice{
 }
 
 #colors_choice h1, #font_choice h1, #code_choice h1{

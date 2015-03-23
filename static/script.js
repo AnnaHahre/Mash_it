@@ -151,7 +151,7 @@ $(document).ready(function(){
 
   //*---------------- TAB-CONTROLL FOR DASHBOARD ----------------
   //*
-  $('#tabs').find('> div').hide();
+  //$('#tabs').find('> div').hide();
  
   $('#tabcontrols li').click( function(event) {
     $('.css_code').empty();
@@ -160,21 +160,36 @@ $(document).ready(function(){
     if ($(this).hasClass('selected')){
       event.preventDefault();
 
-      $(value).hide();
+      $(value).animate(
+                    {
+                      left: '-300px'
+                    });
       $('#tabcontrols li').removeClass();
     }
     else{
       event.preventDefault();
-      $('#tabs > div').hide();
+      $('#tabs > div').animate(
+                    {
+                      left: '-300px'
+                    });
       $('#tabcontrols li').removeClass();
+
       $(this).addClass('selected');
-      $(value).show();
+      
+      $(value).animate({
+                        left: '100px',
+                      });
     }
  
     $('#colors_choice, #font_choice, #code_choice, #template_choice').click(function(){
-      $(this).hide();
+      $(this).animate(
+                    {
+                      left: '-300px'
+
+                    });
       $('#tabcontrols li').removeClass();
    })
+
   });
 
   $('input, #tabcontrols, #category, #fontsize, #random_color, .css_code, #fonta').click(function(event){
