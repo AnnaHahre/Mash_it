@@ -192,7 +192,7 @@ $(document).ready(function(){
 
   });
 
-  $('input, #tabcontrols, #category, #fontsize, #random_color, .css_code').click(function(event){
+  $('input, #tabcontrols, #category, #fontsize, #random_color, .css_code, #fonta').click(function(event){
     event.stopPropagation();
   });
 
