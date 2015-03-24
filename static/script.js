@@ -192,7 +192,7 @@ $(document).ready(function(){
 
   });
 
-  $('input, #tabcontrols, #category, #fontsize, #random_color, .css_code, #fonta').click(function(event){
+  $('input, #tabcontrols, #category, #fontsize, #random_color, .css_code').click(function(event){
     event.stopPropagation();
   });
 
@@ -237,6 +237,8 @@ function getPalette(event){
      showPalette(response);
     },
     error: function() {
+      $('#colors_choice').animate({left: '-300px'});
+      $('#tabcontrols li').removeClass();
       //$('#palette').append('<p style="font-size: .9em; color:#000000">ERROR "Invalid input": <br> Please check if you entered a valid hexcode - 6 characters, a combination of A-F, a-f and/or 0-9. Please try again.</p>');
       sweetAlert({   
         title: "Invalid input!",   
@@ -248,7 +250,6 @@ function getPalette(event){
       }, 
       function(isConfirm){   
         if (isConfirm) {     
-          $('#colors_choice').hide();
           $('#tabcontrols li').removeClass();
         } 
         else {
@@ -530,6 +531,8 @@ function getFonts() {
 
     },
     error: function() {
+      $('#font_choice').animate({left: '-300px'});
+      $('#tabcontrols li').removeClass();
       //$('#error').append('<p style="font-size:.9em; color:#000000; margin-top:10px; padding:10px;">ERROR:<br> There seems to be a problem with the connection. <br>Please try again or if the problem persists please contact us at info@mashit.nu.</p>');
       sweetAlert({   
         title: "There seems to be a problem with the connection!",   

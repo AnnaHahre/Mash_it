@@ -104,7 +104,6 @@
         </div><!--end #font_selected-->
         <div id="show_fonts" style="display:block">
           <div class="loading_space"></div>
-          <div id="error"><!--Shows error message if error occured--></div>
             <ul id="font_list">
               <!--Placeholding fontlist-->
             </ul>
