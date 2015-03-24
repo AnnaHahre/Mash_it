@@ -33,7 +33,7 @@
       <h2 id="endpoint" class="section">Endpoints</h2>
         <code class="endpoints">
         <ul>
-          <li><a href="#fontsbycat">GET /api/v1/fonts/category</a></li>
+          <li><a href="#fontsbycat">GET /api/v1/font/category</a></li>
           <li><a href="#palette">GET /api/v1/palette/hex</a></li>
           <li><a href="#theme">GET /api/v1/theme/hex/category</a></li>
         </ul>
@@ -42,7 +42,7 @@
       <p>Returns a list of categorized fonts from <a href="https://www.google.com/fonts">google fonts</a>.</p>
 
       <h3>Endpoint</h3>
-  		<code class="request">GET /api/v1/fonts/category/<em>name</em> <em>?num_results=n&amp;random={1|0}</em></code>
+  		<code class="request">GET /api/v1/font/category/<em>name</em> <em>?num_results=n&amp;random={1|0}</em></code>
       <table>
       <thead>
       <tr>
