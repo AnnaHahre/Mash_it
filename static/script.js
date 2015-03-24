@@ -12,7 +12,6 @@ $(document).ready(function(){
   });
 
   $("#fonta").click(function(){
-    $('#error').empty();
     getFonts();
   }); //FONT
 
@@ -53,9 +52,9 @@ $(document).ready(function(){
     fontSize(type);
   });
 
-    $('#tabcontrols, #category, #font_list').click(function(){ //reset click.size-events
+   /* $('#category, #font_list').click(function(){ //reset click.size-events
     $('#template *').off('click.size');
-  });
+  });*/
   
 
   //*---------------- LOAD TEMPLATES ----------------
@@ -164,7 +163,7 @@ $(document).ready(function(){
                     {
                       left: '-300px'
                     });
-      $('#tabcontrols li').removeClass();
+      $('#tabcontrols li').removeClass("selected");
     }
     else{
       event.preventDefault();
@@ -172,7 +171,7 @@ $(document).ready(function(){
                     {
                       left: '-300px'
                     });
-      $('#tabcontrols li').removeClass();
+      $('#tabcontrols li').removeClass("selected");
 
       $(this).addClass('selected');
       
@@ -181,18 +180,17 @@ $(document).ready(function(){
                       });
     }
  
-    $('#colors_choice, #font_choice, #code_choice, #template_choice').click(function(){
+    $('#colors_choice, #font_choice, #code_choice, #template_choice').click(function(event){
       $(this).animate(
                     {
                       left: '-300px'
 
                     });
-      $('#tabcontrols li').removeClass();
+      $('#tabcontrols li').removeClass("selected");
    })
-
   });
 
-  $('input, #tabcontrols, #category, #fontsize, #random_color, .css_code, #fonta').click(function(event){
+  $('input, #category, #fontsize, #random_color, .css_code, #fonta').click(function(event){
     event.stopPropagation();
   });
 
@@ -285,6 +283,7 @@ function showPalette(response){
 //*
 
 function changeStyle(e){
+  $('#template *').off('click.size');
   choice = $(this).attr('value');
 
   $('#template h1, #template h2, h3, h4, .text-muted, footer p, .lead p').on('click.style', function(e){
@@ -527,13 +526,14 @@ function getFonts() {
     dataType: "json",
     beforeSend: function() { $('#font_choice').addClass("loading") }, //start loading animation
     success: function(response) {
+      //$('#font_choice').addClass("loading"); //start loading-space
+      //$('#font_choice').addClass("loading");
       showfonts(response, $user_choice);
-
+      $('#font_choice').removeClass("loading"); //end loading animation
     },
     error: function() {
-      $('#font_choice').animate({left: '-300px'});
-      $('#tabcontrols li').removeClass();
       //$('#error').append('<p style="font-size:.9em; color:#000000; margin-top:10px; padding:10px;">ERROR:<br> There seems to be a problem with the connection. <br>Please try again or if the problem persists please contact us at info@mashit.nu.</p>');
+      $('#font_choice').removeClass("loading")
       sweetAlert({   
         title: "There seems to be a problem with the connection!",   
         text: "Please try again or if the problem persists please contact us at info@mashit.nu",   
@@ -545,7 +545,6 @@ function getFonts() {
       function(isConfirm){   
         if (isConfirm) {     
           $('#category').val('');
-          $('#font_choice').removeClass("loading")
         } 
       });
     }
@@ -607,7 +606,6 @@ function showfonts(fonts, category) {
     }
 
     $('.user_fonts').bind("click", changeStyle); //bind click-event
-    $('#font_choice').removeClass("loading"); //end loading animation
 
 }   
 
@@ -684,9 +682,9 @@ function getElementStyle(){
   //* not the prettiest code - but it works :)
   //*
 
-  if ($('.row h1').attr('style') === undefined){ }
+  if ($('#post_title').attr('style') === undefined){ }
   else{
-    var styles = $('.row h1').attr('style');
+    var styles = $('#post_title').attr('style');
     styles = styles.split(";");
     elements['h1'] = styles;
   }
