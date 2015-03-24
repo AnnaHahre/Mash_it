@@ -3,6 +3,9 @@
 //* Mash:it; 2015
 //*
 
+if (!ini_get('date.timezone')) //Added cuz of problem seeing fonts on localhost - complaining about timezone
+{ date_default_timezone_set('Europe/Stockholm');}
+
 require "ex_apis.php"; //functions for handling external api's
 require'./vendor/autoload.php';
 

@@ -237,7 +237,6 @@ function getPalette(event){
     error: function() {
       $('#colors_choice').animate({left: '-300px'});
       $('#tabcontrols li').removeClass();
-      //$('#palette').append('<p style="font-size: .9em; color:#000000">ERROR "Invalid input": <br> Please check if you entered a valid hexcode - 6 characters, a combination of A-F, a-f and/or 0-9. Please try again.</p>');
       sweetAlert({   
         title: "Invalid input!",   
         text: "Check if you entered a valid hexcode - 6 characters, a combination of A-F, a-f and/or 0-9. Please try again.",   
@@ -532,7 +531,6 @@ function getFonts() {
       $('#font_choice').removeClass("loading"); //end loading animation
     },
     error: function() {
-      //$('#error').append('<p style="font-size:.9em; color:#000000; margin-top:10px; padding:10px;">ERROR:<br> There seems to be a problem with the connection. <br>Please try again or if the problem persists please contact us at info@mashit.nu.</p>');
       $('#font_choice').removeClass("loading")
       sweetAlert({   
         title: "There seems to be a problem with the connection!",   
