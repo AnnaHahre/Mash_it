@@ -60,12 +60,17 @@ function getGoogleFonts($catname, $route, $num=null, $random=0) {
         if (preg_match('/[1-9]00|[1-9]00italic/',$variant)) { //reg-ex: 100-900 / 100italic-900italic.
         $font_variants .= $variant.",";
         }
+        else if($variant == "regular") {
+          $font_variants .= "400,";
+        }
+        else if ($variant == "italic") {
+          $font_variants .= "400italic,";
+        }
       $font_variants_new = substr($font_variants, 0, -1);
       }
 
       $css_import = "@import url(http://fonts.googleapis.com/css?family=".$family_name_new.":".$font_variants_new.");";
       $link_import = "<link href='http://fonts.googleapis.com/css?family=".$family_name_new.":".$font_variants_new."' rel='stylesheet' type='text/css'>";
-
       $font_item = array(
         "font-family"=>$item->family,
         "variants"=>$item->variants,
