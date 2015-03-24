@@ -34,7 +34,7 @@ function get_ColorLovers_Palette($hex, $route, $num) {
 function getGoogleFonts($catname, $route, $num=null, $random=0) {
   $client = new GuzzleHttp\Client();
 
-  $url = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyDJAA0NAK2blMwOkDSlYo56ljaqW16WoDY&sort=popularity";
+  $url = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyAVHvP2G42qU1pcZ-OshZ5x7_CKNUEmX_E&sort=popularity";
   $headers = array('ACCEPT' => 'application/json');
 
   $response = $client->get($url);
