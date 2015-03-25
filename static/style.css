@@ -775,3 +775,7 @@ input[type=text] {
 	border:1px solid #ddd;
 	height:150px;
 }
+
+#template h1, #template h2, h3, h4, .text-muted, footer p, .lead p, .list-unstyled a, .featurette p, nav a, header, nav, .comment, .article, .widget, .cat_item, .clean_temp article p, .clean_temp article blockquote, .clean_temp article h2, .clean_temp .meta, .clean_temp footer {
+	cursor:pointer;
+}
