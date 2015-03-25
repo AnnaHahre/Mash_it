@@ -1,4 +1,4 @@
-var clicked = false; //VARIBLE THAT IS SET TO TRUE IF RANDOM BUTTON IS CLICKED
+var clicked = false; //GLOBAL VARIBLE THAT IS SET TO TRUE IF RANDOM BUTTON IS CLICKED
 
 $(document).ready(function(){  
   $('#submit_color').click(getPalette); //PALETTE
@@ -11,9 +11,9 @@ $(document).ready(function(){
     getPalette();
   });
 
-  $("#fonta").click(function(){
+  $("#fonta").click(function(){ //FONT
     getFonts();
-  }); //FONT
+  }); 
 
   $('#css_button').click(getElementStyle); //GET STYLES TO GENERATE CSS
 
@@ -50,12 +50,7 @@ $(document).ready(function(){
     $('#template *').off('click.style'); //reset click.style-events
     $('#template *').off('click.size'); //reset click.size-events
     fontSize(type);
-  });
-
-   /* $('#category, #font_list').click(function(){ //reset click.size-events
-    $('#template *').off('click.size');
-  });*/
-  
+  });  
 
   //*---------------- LOAD TEMPLATES ----------------
   //* Using sweetAlert-plugin.
@@ -81,7 +76,6 @@ $(document).ready(function(){
       function(isConfirm){   
         if (isConfirm) {     
           $('#template').load('views/template_one.tpl'); 
-          //return false;
         } 
         else {
          // Do nothing.   
@@ -110,7 +104,6 @@ $(document).ready(function(){
       function(isConfirm){   
         if (isConfirm) {     
           $('#template').load('views/template_two.tpl'); 
-          //return false;
         } 
         else {
          // Do nothing.   
@@ -138,8 +131,6 @@ $(document).ready(function(){
       function(isConfirm){   
         if (isConfirm) {     
           $('#template').load('views/template_three.tpl'); 
-          //return false;
-          //window.scrollTo(0);
         } 
         else {
          // Do nothing.   
@@ -150,7 +141,6 @@ $(document).ready(function(){
 
   //*---------------- TAB-CONTROLL FOR DASHBOARD ----------------
   //*
-  //$('#tabs').find('> div').hide();
  
   $('#tabcontrols li').click( function(event) {
     $('.css_code').empty();
@@ -158,36 +148,22 @@ $(document).ready(function(){
 
     if ($(this).hasClass('selected')){
       event.preventDefault();
-
-      $(value).animate(
-                    {
-                      left: '-300px'
-                    });
+      $(value).animate({ left: '-300px' });
       $('#tabcontrols li').removeClass("selected");
     }
+
     else{
       event.preventDefault();
-      $('#tabs > div').animate(
-                    {
-                      left: '-300px'
-                    });
+      $('#tabs > div').animate({ left: '-300px' });
       $('#tabcontrols li').removeClass("selected");
-
       $(this).addClass('selected');
-      
-      $(value).animate({
-                        left: '100px',
-                      });
+      $(value).animate({ left: '100px' });
     }
  
     $('#colors_choice, #font_choice, #code_choice, #template_choice').click(function(event){
-      $(this).animate(
-                    {
-                      left: '-300px'
-
-                    });
+      $(this).animate({ left: '-300px' });
       $('#tabcontrols li').removeClass("selected");
-   })
+    })
   });
 
   $('input, #category, #fontsize, #random_color, .css_code, #fonta').click(function(event){
@@ -201,16 +177,16 @@ $(document).ready(function(){
 function fontSize(type){
   $('#template h1, #template h2, #template p, .container h1, .container h4, .list-unstyled, nav, span').on('click.size', function(){
     
-   if (type == 'increase'){
+    if (type == 'increase'){
       var curFontSize = $(this).css('font-size');
       $(this).css('font-size', parseInt(curFontSize) + 2);
       }
-  else if (type == "decrease"){
+    else if (type == "decrease"){
       var curFontSize = $(this).css('font-size');
       $(this).css('font-size', parseInt(curFontSize) - 2);
       }
   });
-}
+} //END FUNCTION fontSize
 
 //*----------------- COLOR-SCRIPT ------------------
 //*
@@ -255,27 +231,39 @@ function getPalette(event){
       });
       }
     });
-  $('#colors').val("");
-}
+  $('#colors').val(""); //Clears input box from userinput
+} //END FUNCTION getPalette
 
 function showPalette(response){
   var palette_list = response.slice(1, response.length); //removes description-object (object 1).
   if (palette_list.length == 0){
-    $('#palette').append('<p style="font-size: .9em; color:#ffffff">Sorry. There is no available palettes with choosen or random hexcode.</p>');
-
+    sweetAlert({   
+        title: "Invalid input!",   
+        text: "Sorry. There is no available palettes with choosen or random hexcode.",   
+        type: "warning",    
+        confirmButtonColor: "FE63B5",   
+        confirmButtonText: "Ok",   
+        closeOnConfirm: true,   
+      }, 
+      function(isConfirm){   
+        if (isConfirm) {     
+        } 
+        else {
+         // Do nothing.   
+        } 
+      });
   }
   else{
     $.each(palette_list, function(index, value) {
       var palette_obj = value['palette'];
-
       $.each(palette_obj, function(colors, item) {
         $('#palette').append("<div class='col' value='#" + item + "'><p class='col_p' style=background-color:#" +item + ";' value=" +item+ "></p><p class='hex_name'>#" +item+"</p></div>");
-     
       });
     });
-    $('.col').bind("click", changeStyle);
+    $('.col').bind("click", changeStyle); //Adds click in colordivs and function changeStyle
+    
   }  
-}
+} //END FUNCTION showPalette
 
 //*---------------- SCRIPT FOR CHANGING STYLES ON WEBPAGE ----------------
 //* not the prettiest code - but it works :)
@@ -509,9 +497,7 @@ $('.clean_temp').on('click.style', function(e){
       'background-color' : choice
     });
   });
-
-
-}
+} //END FUNCTION changeStyle
 
 //*------------------ FONT SCRIPT -----------------
 //*
@@ -836,7 +822,6 @@ function getElementStyle(){
       });
   }
 }
-
 
 //JQuery-converter (RBG to HEX)
 function rgb2hex(rgb){

@@ -94,8 +94,6 @@ body{
    z-index: 99999;
 }
 
-
-
 /*Styles for API-doc*/
 
 	
@@ -387,6 +385,7 @@ body{
 	}
 /* */
 
+/*Styles for dashboard*/
 #color_icon a, #font_icon a, #code_icon a, #exit_icon a, #temp_icon a{
 	width: 100px;
 	height: 100px;
@@ -563,16 +562,11 @@ select{
 	display: block;
 }
 
-
-#colors_choice, #template_choice, #font_choice, #code_choice{
-}
-
 #colors_choice h1, #font_choice h1, #code_choice h1{
 	text-transform: uppercase;
 	color:#222;
 	font-size: 1.15em;
 	font-family: "Muli", sans-serif;
-
 }
 
 .css_code{
@@ -756,7 +750,6 @@ input[type=text] {
 	margin-bottom: 6%;
 }
 
-
 #template_one, #template_two, #template_three{
 	cursor: pointer;
 	background:url('img/crossword.png');
@@ -776,6 +769,11 @@ input[type=text] {
 	height:150px;
 }
 
+/* */
+
+/*Styles for templates*/
 #template h1, #template h2, h3, h4, .text-muted, footer p, .lead p, .list-unstyled a, .featurette p, nav a, header, nav, .comment, .article, .widget, .cat_item, .clean_temp article p, .clean_temp article blockquote, .clean_temp article h2, .clean_temp .meta, .clean_temp footer {
 	cursor:pointer;
 }
+
+/* */
