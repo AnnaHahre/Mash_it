@@ -36,11 +36,14 @@
 	padding-top: 2%;
 	margin: auto;
 	height: 600px;
+	z-index: -1000 !important;
 }
 
 #welcome_mash span {
 	color: #ff038a;
 }
+
+
 #welcome_mash h1 {
 	margin: 12% 5% 10% 15%;
 	padding: 0% 10%;
@@ -55,6 +58,8 @@
 	margin-left: 5%;
 	bottom: 30%;
 	position: absolute;
+	z-index: -10000;
+
 }
 
 
@@ -525,7 +530,7 @@ select{
 	left:0;
 	border-radius: 0 5px 0px 0;
 	overflow: hidden;
-	z-index: 88 !important;
+	z-index: 80;
 }
 
 #tabs p {
@@ -543,6 +548,7 @@ select{
 	border-radius: 0 10px 10px 0;
 	border: 2px solid rgba(50, 50, 50, 0.20);
 	border-left: none;
+	z-index: 99999;
 }
 
 #colors_choice, #font_choice, #code_choice {
@@ -769,11 +775,13 @@ input[type=text] {
 	height:150px;
 }
 
+
+
 /* */
 
 /*Styles for templates*/
 #template h1, #template h2, h3, h4, .text-muted, footer p, .lead p, .list-unstyled a, .featurette p, nav a, header, nav, .comment, .article, .widget, .cat_item, .clean_temp article p, .clean_temp article blockquote, .clean_temp article h2, .clean_temp .meta, .clean_temp footer {
-	cursor:pointer;
+	cursor:crosshair;
 }
 
 /* */

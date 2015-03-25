@@ -2,6 +2,9 @@
 @import url(http://fonts.googleapis.com/css?family=Comfortaa);
 @import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
 @import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
+@import url(http://fonts.googleapis.com/css?family=Arizonia);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Lily+Script+One);
 
 
 body {
@@ -12,6 +15,7 @@ body {
       height:100%;
       width:100%;
       padding:0;
+      -webkit-font-smoothing: antialiased;
 }
 
 
@@ -67,6 +71,19 @@ nav ul li a:active {
 
 a {
   text-decoration: none;
+}
+
+#about_col a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+#about_col a:hover, #about_col a:active {
+  text-decoration: none;
+}
+
+#about_col a :visited{
+  color: #ffffff;
 }
 
 /*  ************ END NAVIGATION *************** */
@@ -344,6 +361,16 @@ article {
     position: relative;
 }
 
+.round_left1 h2, .round_left2 h2, .round_right h2 {
+  font-family: "Comfortaa", sans-serif;
+}
+
+.round_left1 p, .round_left2 p, .round_right p {
+  font-family: Georgia, serif;
+  font-style: italic;
+  line-height: 1.5em;
+}
+
 .round_left1 h2 {
     text-transform: uppercase;
     color: #fff;
@@ -408,8 +435,6 @@ article {
 }
 
 .round_left2 p {
-    font-family: Georgia, serif;
-    font-style: italic;
     font-size: 1.1em;
     position: relative;
     color: #fff;
@@ -461,8 +486,6 @@ article {
 }
 
 .round_right p {
-    font-family: Georgia, serif;
-    font-style: italic;
     font-size: 1.1em;
     position: relative;
     color: #fff;
@@ -553,7 +576,8 @@ article {
 }
 
 p.how_to {
-  font-size: 1.3em;
+  font-size: 1.2em;
+  line-height: 1.5em;
 }
 
 p.contact {
@@ -610,3 +634,41 @@ footer {
 }
 
 /*********** END FOOTER ***********/
+
+.gill_sans {
+ font-family: "Lily Script One";
+ font-size: 1.3em;
+ line-height: 1em;
+}
+
+.hex_1E7B82 {
+  background-color: #1E7B82;
+  font-size: 0.8em;
+  padding: 3%;
+}
+
+.hex_222222 {
+  background-color: #222;
+  font-size: 0.8em;
+  padding: 3%;
+  
+}
+
+.hex_000000 {
+  background-color: #000000;
+  font-size: 0.8em;
+  padding: 3%;
+}
+
+.arizonia {
+font-family: "arizonia";
+font-size: 1.7em;
+line-height: 1em;
+}
+
+
+.roboto {
+  font-family: "lobster";
+  font-size: 1.5em;
+  line-height: 1em;
+}

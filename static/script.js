@@ -1,5 +1,6 @@
 var clicked = false; //GLOBAL VARIBLE THAT IS SET TO TRUE IF RANDOM BUTTON IS CLICKED
 
+
 $(document).ready(function(){  
   $('#submit_color').click(getPalette); //PALETTE
   $('#random_color').click(function(){ //RANDOM PALETTE
@@ -30,7 +31,7 @@ $(document).ready(function(){
       }, 
       function(isConfirm){   
         if (isConfirm) {     
-          location.href="http://localhost:1234/index.php"; 
+          location.href="/index.php"; 
           return false;
         } 
         else {
@@ -204,7 +205,7 @@ function getPalette(event){
   
   $.ajax({
     type: "GET",
-    url: "http://localhost:1234/api/v1/palette/" +hex,
+    url: "/api/v1/palette/" +hex,
     dataType: "json",
 
     success: function(response) {
@@ -507,7 +508,7 @@ function getFonts() {
 
    $.ajax({
     type: "GET",
-    url: "http://localhost:1234/api/v1/font/category/" + $user_choice,
+    url: "/api/v1/font/category/" + $user_choice,
     dataType: "json",
     beforeSend: function() { $('#font_choice').addClass("loading") }, //start loading animation
     success: function(response) {
