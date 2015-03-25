@@ -1,43 +1,33 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Mono);
-@import url(http://fonts.googleapis.com/css?family=Poiret+One);
 @import url(http://fonts.googleapis.com/css?family=Comfortaa);
 @import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
 @import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
 
 
-
-
-
-	body {
-  font-family: 'PT Mono', sans-serif, cursive;
-	/* background-color: #fff;  grå: #f1f1f1 mörk blå 123037*/
-  background-image:url('img/start/background.png');
-	margin: 0;
-  height:100%;
-  width:100%;
-  padding:0;
+body {
+      font-family: 'PT Mono', sans-serif, cursive;
+      background-image:url('img/start/background.png');
+      margin: 0;
+      font-size: 16px;
+      height:100%;
+      width:100%;
+      padding:0;
 }
 
-/*/ Section dividers */
-
-section {
-    display: block;
-    height:100%;
-    width:100%;
-    box-sizing: border-box;
-}
 
 /*  ************ TOP NAVIGATION *************** */
+
 
 nav {
     width: 500px;
     height: 100px;
     float: right;
     color: #000;
-    font-size: 16px;
+    font-size: 1em;
     font-family: 'Comfortaa', cursive;
     margin-top: 2%;
 }
+
 
 nav ul {
     list-style: none;
@@ -45,11 +35,12 @@ nav ul {
     padding-left: 0;
 }
 
-/* Flyter kategorierna till vänster istället för nedåt */
-nav ul li {
+
+nav ul li {         /* Makes it float left instead of vertical */
     padding: 1.5%;
     float: left;
 }
+
 
 nav ul li a {
     text-decoration: none;
@@ -62,11 +53,6 @@ nav ul li a {
     text-decoration-color: #F03775;
   }
 
-a{
-  text-decoration: none;
-
-}
-
 
 nav ul li a:hover {
     border-bottom: solid;
@@ -74,15 +60,58 @@ nav ul li a:hover {
     border-bottom-color: #F03775;
 }
 
+
 nav ul li a:active {
     text-decoration: underline;
 }
 
+a {
+  text-decoration: none;
+}
 
 /*  ************ END NAVIGATION *************** */
 
 
-#wrapper{
+/*  ************ GET STARTED BUTTON *************** */
+
+
+.GO_box {
+   padding: 20px;
+   margin: 10px;
+   background: #F03775;
+   color: #fff;
+   font-size: 1.2em;
+   font-weight: bold;
+   line-height: 1.3em;
+   border: 2px dashed #fff;
+   border-radius: 10px;
+   box-shadow: 0 0 0 4px #F03775, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #aa3030;
+   font-weight: normal;
+}
+
+.GO_box:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    font-size: 1.5em;
+}
+
+
+/*  ************ GET STARTED END *************** */
+
+
+/* ************ SECTION DIVIDERS ************ */
+
+section {
+    display: block;
+    height:100%;
+    width:100%;
+    box-sizing: border-box;
+}
+
+
+#wrapper {
   width: 70%;
   margin-left: 15%;
   margin-right: 15%;
@@ -90,22 +119,28 @@ nav ul li a:active {
   margin-bottom: 10%;
 }
 
-#one {
-    background: #000; /* alt. 123037 */
+
+#welcome {
+    background: #000;
     color: #fff;
-    font-size: 60px;
+    font-size: 3.75em;
     font-family: 'Comfortaa', cursive;
     text-align: center;
     padding-top: 180px;
     padding-bottom: 100px;
 }
 
-#intro {
+#welcome h1 {
+  margin:0;
+  padding: 5% 0% 2% 0%;
+}
+
+#intro {     /* Wraps DIV A and B */
   background-color: #fff;
   overflow: hidden;
   padding-bottom: 4%;
-
 }
+
 
 #intro_A {
     width: 60%;
@@ -114,8 +149,9 @@ nav ul li a:active {
     text-align: center;
     background: #fff;
     float: left;
-    padding-left: 10%;
+    padding: 5% 0% 2% 10%;
 }
+
 
 #intro_B {
     width: 40%;
@@ -133,29 +169,23 @@ nav ul li a:active {
     width:100%;
     height: 300px;
     float: left;
-    /*background: #aaa; #158184 blågrön - snygg!*/
     color: #000;
     padding-top: 35px;
     text-align: center;
-    opacity: 50%;  /* ??? */
 }
 
 #two {
-  clear: left;
+    clear: left;
     width:100%;
-    /*height: 380px;*/
     float: left;
     color: #000;
-    font-size: 30px;
     padding-top: 15px;
 }
 
-#three {
+#three {          /* Wraps DIV A and B */
     width:100%;
-    /*height: 380px;*/
     float: left;
     color: #000;
-    font-size: 30px;
     padding-top: 15px;
 }
 
@@ -163,7 +193,6 @@ nav ul li a:active {
     width:70%;
     float: left;
     color: #000;
-    font-size: 30px;
     text-align: right;
 }
 
@@ -171,70 +200,369 @@ nav ul li a:active {
     width:30%;
     float: right;
     color: #000;
-    font-size: 30px;
 }
+
 
 #four {
     width: 100%;
     float: left;
     color: #000;
-    font-size: 30px;
     padding-top: 15px;
-    padding-bottom: 25px;
+    padding-bottom: 70px;
 }
 
-#five {
-    width: 100%;
-    height: 500px;
-    float: left;
-    background: #fff;
-    font-size: 30px;
-    padding-top: 15px;
-}
 
-#six {
+#five {           /* Wraps DIV A, B and C */
     width: 100%;
-    height: 500px;
     float: left;
     background: #F03775;
-    font-size: 30px;
-    padding-top: 15px;
+    font-size: 1.9em;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
-/*/ End Section dividers */
+#five img {
+  float: left;
+  padding-right: 5%;
+}
 
-/*/ Blocks that are placed inside each divider, used here for title*/
+#five_A {
+    width: 33%;
+    float: left;
+    background: #F03775;
+    padding-left: 2%;
+    padding-top: 30px;
+}
+
+#five_B {
+    width: 34%;
+    float: left;
+    background: #F03775;
+    padding-left: 3%;
+    padding-top: 30px;
+}
+
+#five_C {
+    width: 33%;
+    float: right;
+    background: #F03775;
+    padding-left: 3%;
+    padding-top: 30px;
+}
 
 
-#block1 { /*Used here for Mash:IT-title*/
-	  background: #000;
+/************** END SECTION DIVIDERS  ***************/
+
+
+/* Blocks that are placed inside some sections */
+
+
+#block1 { /*Used here for logo mash:it; - in pink */
     color: #F03775;
-    font-size: 70px;
+    font-size: 1.8em;
     font-family: 'Cutive Mono', monospace;
     padding: 10px;
     text-align: center;
 }
 
-#block2 {
-    text-align: center;
-	  background: #fff;
-    color: #000;
-}
 
-#block5 {
+#block2 { /*Used here for "New to Mash:IT?"-title */
     text-align: center;
-    background: #fff;
-}
-
-#block6 {
-    text-align: center;
-    background: #F03775;
 }
 
 
-/* End Blocks */
+#block5 { /*Used here for "ABOUT Mash:IT"-title */
+    text-align: center;
+}
 
-/* Font sizes and types */
+
+/************** END BLOCKS  ***************/
+
+
+/* ************ ARTICLES PLACES INSIDE SECTIONS ************ */
+
+article {
+
+}
+
+
+#about_col {
+   float:left;
+   width:60%;
+   text-align: justify;
+   color: #fff;
+   font-size: 1em;
+   line-height: 1em;
+   padding-bottom: 3%;
+   margin-left: 20%;
+   margin-right: 20%;
+   background-color: #F03775;
+}
+
+
+.contact_box {
+  float: left;
+  margin-left: 1%;
+  /*margin-right: 50px;*/
+  color: #fff;
+}
+
+/* ************ END ARTICLES  ************ */
+
+
+/*********** BOX-EFFECT AND IMG ON HOW TO-SECTION ***********/ 
+
+/* LEFT IMG ROUND */
+
+.round_left1 {
+    width: 250px;
+    height: 250px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    border-radius: 50%;
+    -webkit-box-shadow: 3px 3px 3px #7C7C7C;
+    box-shadow: 3px 3px 3px 3px #7C7C7C;
+    margin-right: 30px;
+
+}
+.round_left1 .mask, .round_left1 .content {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0
+}
+
+.round_left1 img {
+    display: block;
+    position: relative;
+}
+
+.round_left1 h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 1em;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    margin: 35px 0 0 0
+}
+.round_left1 p {
+    font-family: Georgia, serif;
+    font-size: 1.1em;
+    position: relative;
+    color: #fff;
+    padding: 10px 20px 20px;
+    text-align: center
+}
+
+/* END LEFT IMG ROUND */
+
+/* SECOND LEFT IMG ROUND */
+
+.round_left2 {
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    border-radius: 50%;
+    -webkit-box-shadow: 3px 3px 3px #7C7C7C; 
+    box-shadow: 4px 4px 4px 0px #7C7C7C;
+    margin-right: 30px;
+}
+
+.round_left2 .mask, .round_left2 .content {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0
+}
+
+.round_left2 img {
+    display: block;
+    position: relative;
+}
+
+.round_left2 h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 1em;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.6); 
+    margin: 35px 0 0 0
+}
+
+.round_left2 p {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 1.1em;
+    position: relative;
+    color: #fff;
+    padding: 10px 20px 20px;
+    text-align: center
+}
+
+/* END SECOND LEFT IMG */
+
+/* RIGHT IMG ROUND */
+
+.round_right {
+    width: 250px;
+    height: 250px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    border-radius: 50%;
+    -webkit-box-shadow: 3px 3px 3px #7C7C7C; 
+    box-shadow: 3px 3px 3px 0px #7C7C7C;
+    margin-left: 30px;
+}
+
+.round_right .mask, .round_right .content {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0
+}
+
+.round_right img {
+    display: block;
+    position: relative;
+}
+
+.round_right h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 1em;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.6); 
+    margin: 35px 0 0 0
+}
+
+.round_right p {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 1.1em;
+    position: relative;
+    color: #fff;
+    padding: 10px 20px 20px;
+    text-align: center
+}
+
+/* END RIGHT IMG */
+
+
+/* EFFECTS: WORKS FOR ALL ROUND HOW-TO IMG */
+
+.view-first img { 
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.view-first .mask {
+  border-radius: 50%;
+  opacity: 0;
+  background-color: rgba(30,123,130, 0.8); /* #1E7B82 */
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+.view-first h2 {
+  -webkit-transform: translateY(-100px);
+  transform: translateY(-100px);
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.view-first p { 
+  -webkit-transform: translateY(100px);
+  opacity: 0;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+
+
+/* EFFECT HOVER: WORKS FOR ALL ROUND HOW-TO IMG */
+
+
+.view-first:hover img {   /* Enlarges the img */
+    transform: scale(1.1);
+} 
+.view-first:hover .mask { 
+    opacity: 1;
+}
+.view-first:hover h2,
+.view-first:hover p {
+    opacity: 1;
+    transform: translateY(0px);
+}
+.view-first:hover p {
+    transition-delay: 0.1s;
+}
+
+
+/***********  END HOW TO-IMAGES  ***********/
+
+
+/***********  HEADINGS & FONTS  ***********/
+
+.h1_white {
+    color: #fff;
+    font-size: 1.2em;
+    padding: 0%;
+    font-family: 'Comfortaa', cursive;
+    font-weight: bold;
+    border-bottom: solid;
+    border-bottom-style: dotted;
+    border-bottom-width: 0.15em;
+    border-bottom-color: #fff;
+    margin: 2% 38% 0.5% 38%;
+}
+
+
+.handwritten {
+    font-size: 3em;
+    font-family: 'Shadows Into Light', cursive;
+    margin: 0;
+}
+
+.handwritten_contact {
+    font-size: 1.1em;
+    font-family: 'Shadows Into Light', cursive;
+    margin: 0;
+}
+
+p.how_to {
+  font-size: 1.3em;
+}
+
+p.contact {
+  color: #fff;
+  font-size: 0.5em;
+}
+
+
+/* Currently not in use 
 
 .h1_black {
     color: #000;
@@ -249,134 +577,23 @@ nav ul li a:active {
     margin-left: 35%;
     margin-right: 35%;
 }
-
-.h1_white {
-    color: #fff;
-    font-size: 40px;
-    padding: 0%;
-    font-family: 'Comfortaa', cursive;
-    font-weight: bold;
-    border-bottom: solid;
-    border-bottom-style: dotted;
-    border-bottom-width: 0.15em;
-    border-bottom-color: #fff;
-    margin-left: 35%;
-    margin-right: 35%;
-}
-
-.h1_handwritten {
-    font-size: 50px;
-    padding: 0.5%;
-    font-family: 'Shadows Into Light', cursive;
-}
+*/
 
 
-/* End font sizes and types */
-
-/*********** IMAGES ***********/
-
-img {
-
-}
-
-.round_left1 img {
-      display: block;
-      /* Stretch 
-         height: 100%;
-         width: 100%; */
-      min-width: 100%;
-      min-height: 100%;
-      float: left;
-}
-
-.round_left1 {
-      border-radius: 50%;
-      overflow: hidden;
-      width: 200px;
-      height: 200px;
-      float: left;
-      margin-right: 2%;
-}
+/*********** END FONTS ***********/ 
 
 
-.round_left2 img {
-      display: block;
-      /* Stretch 
-         height: 100%;
-         width: 100%; */
-      min-width: 100%;
-      min-height: 100%;
-      float: left;
-}
-
-.round_left2 {
-      border-radius: 50%;
-      overflow: hidden;
-      width: 200px;
-      height: 200px;
-      float: left;
-      margin-right: 2%;
-      margin-left: 5%;
-}
-
-.round_right img {
-      display: block;
-      /* Stretch 
-         height: 100%;
-         width: 100%; */
-      min-width: 100%;
-      min-height: 100%;
-      float: right;
-}
-
-.round_right {
-      border-radius: 50%;
-      overflow: hidden;
-      width: 200px;
-      height: 200px;
-      float: right;
-      /*margin-top: -90%;*/
-      margin-right: 5%;
-}
+/*********** ARROW ***********/
 
 .arrow {
       margin-bottom: 0%;
       position: absolute;
       left: 10%;
       z-index: 10;
-
 }
 
+/*********** END ARROW ***********/
 
-#MASHIT {
-
-}
-
-/*********** END IMAGES ***********/
-
-article {
-
-}
-
-
-#left_col {
-   float:left;
-   width:30%;
-   display: block;
-   padding-left: 15%;
-   text-align: justify;
-   font-size: 18px;
-}
-
-
-#right_col {
-   float:right;
-   width:30%;
-   display: block;
-   padding-right: 15%;
-   text-align: justify;
-   font-size: 18px;
-}
 
 /*********** FOOTER ***********/
 
@@ -387,80 +604,9 @@ footer {
       text-align:center;
       font-family: 'PT Mono', cursive;
       color: #fff;
-      font-size: 16px;
+      font-size: 1em;
       padding-top: 2%;
       clear: both;
 }
 
 /*********** END FOOTER ***********/
-
-.GO_box {
-   padding: 20px;
-   margin: 10px;
-   background: #F03775;
-   color: #fff;
-   font-size: 21px;
-   font-weight: bold;
-   line-height: 1.3em;
-   border: 2px dashed #fff;
-   border-radius: 10px;
-   box-shadow: 0 0 0 4px #F03775, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
-   text-shadow: -1px -1px #aa3030;
-   font-weight: normal;
-}
-
-
-/*/ Code for star icon
-
-#star {
-   margin: 10% 0;
-   position: relative;
-   display: block;
-   color: fff;
-   width: 0px;
-   height: 0px;
-   border-right:  100px solid transparent;
-   border-bottom: 70px  solid #fff;
-   border-left:   100px solid transparent;
-   -moz-transform:    rotate(35deg);
-   -webkit-transform: rotate(35deg);
-   -ms-transform:     rotate(35deg);
-   -o-transform:      rotate(35deg);
-}
-
-#star:before {
-   border-bottom: 80px solid #fff;
-   border-left: 30px solid transparent;
-   border-right: 30px solid transparent;
-   position: absolute;
-   height: 0;
-   width: 0;
-   top: -45px;
-   left: -65px;
-   display: block;
-   content: '';
-   -webkit-transform: rotate(-35deg);
-   -moz-transform:    rotate(-35deg);
-   -ms-transform:     rotate(-35deg);
-   -o-transform:      rotate(-35deg);
-
-}
-#star:after {
-   position: absolute;
-   display: block;
-   color: fff;
-   top: 3px;
-   left: -105px;
-   width: 0px;
-   height: 0px;
-   border-right: 100px solid transparent;
-   border-bottom: 70px solid #fff;
-   border-left: 100px solid transparent;
-   -webkit-transform: rotate(-70deg);
-   -moz-transform:    rotate(-70deg);
-   -ms-transform:     rotate(-70deg);
-   -o-transform:      rotate(-70deg);
-   content: '';
-}
-
-End code for star icon */
