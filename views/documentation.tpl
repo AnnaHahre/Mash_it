@@ -16,9 +16,9 @@
   	</header>
     <nav>
         <ul>
-          <li><a href="#endpoint" id="nav_endpoint">Endpoints</a>
+          <li><a href="#endpoint" id="nav_endpoint" class="active">Endpoints</a>
             <ul>
-              <li><a href="#fontsbycat" id="#nav_fontsbycat">fonts by category</a></li>
+              <li><a href="#fontsbycat" id="nav_fontsbycat">fonts by category</a></li>
               <li><a href="#palette" id="nav_palette">palettes by color</a></li>
               <li><a href="#theme" id="nav_theme">theme by color and font-category</a></li>
             </ul>
@@ -69,7 +69,7 @@
         <td>(optional) when used, parameter random required</td>
       </tr>  
       <tr>
-        <td><em>ramdom</em></td>
+        <td><em>random</em></td>
         <td>parameter</td>
         <td class="data_type">{1|0} </td>
         <td class="description">returns the requested number of results in default(google font popularity) or randomized order.</td>
@@ -79,7 +79,7 @@
       </table>
 
       <h3>Example request</h3>
-      <code class="ex_request">curl -i http://www.mashit.nu/api/v1/fonts/category/monospace</code>
+      <code class="ex_request">curl -i http://www.mashit.nu/api/v1/font/category/monospace</code>
 
       <h3>Example response</h3>
       <code class="response response_header">
@@ -308,7 +308,7 @@
           </tr>  
         </table>
         <p class="num_info">
-          * Mash:it will return a reduced (or empty) set of palettes when less then (or none of) the requested number of palettes are aviable at the 
+          * Mash:it will return a reduced (or empty) set of palettes when less then (or none of) the requested number of palettes are available at the 
           <a href="http://www.colourlovers.com/">COLOURlovers community</a>.
         </p>
 
@@ -430,7 +430,7 @@
           </tr>  
         </table>
         <p class="num_info">
-          * Mash:it will return a reduced (or empty) set of palettes when less then (or none of) the requested number of palettes are aviable at the 
+          * Mash:it will return a reduced (or empty) set of palettes when less then (or none of) the requested number of palettes are available at the 
           <a href="http://www.colourlovers.com/">COLOURlovers community</a>.
         </p>
 
