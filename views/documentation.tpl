@@ -100,8 +100,8 @@
       "latin-ext",
       "latin"
     ],
-    "css_import": "@import url(http://fonts.googleapis.com/css?family=Inconsolata:700);",
-    "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Inconsolata:700' rel='stylesheet' type='text/css'&gt;"
+    "css_import": "@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);",
+    "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'&gt;"
   },
   {
   "font-family": "Source Code Pro",
@@ -118,8 +118,8 @@
     "latin-ext",
     "latin"
   ],
-  "css_import": "@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,500,600,700,900);",
-  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,500,600,700,900' rel='stylesheet' type='text/css'&gt;"
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'&gt;"
   },
   {
   "font-family": "Droid Sans Mono",
@@ -129,8 +129,8 @@
   "subsets": [
     "latin"
   ],
-  "css_import": "@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono:);",
-  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono:' rel='stylesheet' type='text/css'&gt;"
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono:400);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono:400' rel='stylesheet' type='text/css'&gt;"
   },
   {
   "font-family": "Ubuntu Mono",
@@ -148,8 +148,8 @@
     "greek-ext",
     "greek"
   ],
-  "css_import": "@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:700,700italic);",
-  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:700,700italic' rel='stylesheet' type='text/css'&gt;"
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic' rel='stylesheet' type='text/css'&gt;"
   },
   {
   "font-family": "Cousine",
@@ -168,8 +168,8 @@
     "vietnamese",
     "greek"
   ],
-  "css_import": "@import url(http://fonts.googleapis.com/css?family=Cousine:700,700italic);",
-  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Cousine:700,700italic' rel='stylesheet' type='text/css'&gt;"
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Cousine:400,400italic,700,700italic);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Cousine:400,400italic,700,700italic' rel='stylesheet' type='text/css'&gt;"
   },
   {
   "font-family": "Anonymous Pro",
@@ -185,8 +185,8 @@
     "latin",
     "greek"
   ],
-  "css_import": "@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:700,700italic);",
-  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Anonymous+Pro:700,700italic' rel='stylesheet' type='text/css'&gt;"
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400,400italic,700,700italic);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Anonymous+Pro:400,400italic,700,700italic' rel='stylesheet' type='text/css'&gt;"
   },
   {
   "font-family": "PT Mono",
@@ -199,8 +199,8 @@
     "cyrillic",
     "latin"
   ],
-  "css_import": "@import url(http://fonts.googleapis.com/css?family=PT+Mono:);",
-  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=PT+Mono:' rel='stylesheet' type='text/css'&gt;"
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=PT+Mono:400);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=PT+Mono:400:' rel='stylesheet' type='text/css'&gt;"
   },
   {
   "font-family": "Nova Mono",
@@ -211,8 +211,8 @@
     "latin",
     "greek"
   ],
-  "css_import": "@import url(http://fonts.googleapis.com/css?family=Nova+Mono:);",
-  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Nova+Mono:' rel='stylesheet' type='text/css'&gt;"
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Nova+Mono:400);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Nova+Mono:400' rel='stylesheet' type='text/css'&gt;"
   },
   {
   "font-family": "Cutive Mono",
@@ -223,8 +223,8 @@
     "latin-ext",
     "latin"
   ],
-  "css_import": "@import url(http://fonts.googleapis.com/css?family=Cutive+Mono:);",
-  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Cutive+Mono:' rel='stylesheet' type='text/css'&gt;"
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Cutive+Mono:400);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Cutive+Mono:400' rel='stylesheet' type='text/css'&gt;"
   },
   {
   "font-family": "Oxygen Mono",
@@ -235,8 +235,8 @@
     "latin-ext",
     "latin"
   ],
-  "css_import": "@import url(http://fonts.googleapis.com/css?family=Oxygen+Mono:);",
-  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Oxygen+Mono:' rel='stylesheet' type='text/css'&gt;"
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Oxygen+Mono:400);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Oxygen+Mono:400' rel='stylesheet' type='text/css'&gt;"
   },
   {
   "font-family": "VT323",
@@ -246,8 +246,8 @@
   "subsets": [
     "latin"
   ],
-  "css_import": "@import url(http://fonts.googleapis.com/css?family=VT323:);",
-  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=VT323:' rel='stylesheet' type='text/css'&gt;"
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=VT323:400);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=VT323:400' rel='stylesheet' type='text/css'&gt;"
   },
   {
   "font-family": "Share Tech Mono",
@@ -257,8 +257,8 @@
   "subsets": [
     "latin"
   ],
-  "css_import": "@import url(http://fonts.googleapis.com/css?family=Share+Tech+Mono:);",
-  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Share+Tech+Mono:' rel='stylesheet' type='text/css'&gt;"
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Share+Tech+Mono:400);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Share+Tech+Mono:400' rel='stylesheet' type='text/css'&gt;"
   },
   {
   "font-family": "Fira Mono",
@@ -273,8 +273,8 @@
     "latin",
     "greek"
   ],
-  "css_import": "@import url(http://fonts.googleapis.com/css?family=Fira+Mono:700);",
-  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Fira+Mono:700' rel='stylesheet' type='text/css'&gt;"
+  "css_import": "@import url(http://fonts.googleapis.com/css?family=Fira+Mono:400,700);",
+  "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Fira+Mono:400,700' rel='stylesheet' type='text/css'&gt;"
   }
 ]
       </code></pre>
@@ -458,8 +458,8 @@
         "cyrillic",
         "latin"
       ],
-      "css_import": "@import url(http://fonts.googleapis.com/css?family=PT+Mono:);",
-      "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=PT+Mono:' rel='stylesheet' type='text/css'&gt;"
+      "css_import": "@import url(http://fonts.googleapis.com/css?family=PT+Mono:400);",
+      "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=PT+Mono:400' rel='stylesheet' type='text/css'&gt;"
     },
     "color-palette": {
       "palette": [
@@ -483,8 +483,8 @@
       "latin-ext",
       "latin"
     ],
-    "css_import": "@import url(http://fonts.googleapis.com/css?family=Cutive+Mono:);",
-    "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Cutive+Mono:' rel='stylesheet' type='text/css'&gt;"
+    "css_import": "@import url(http://fonts.googleapis.com/css?family=Cutive+Mono:400);",
+    "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Cutive+Mono:400' rel='stylesheet' type='text/css'&gt;"
     },
     "color-palette": {
     "palette": [
@@ -509,8 +509,8 @@
       "latin-ext",
       "latin"
     ],
-    "css_import": "@import url(http://fonts.googleapis.com/css?family=Inconsolata:700);",
-    "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Inconsolata:700' rel='stylesheet' type='text/css'&gt;"
+    "css_import": "@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);",
+    "link_import": "&lt;link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'&gt;"
     },
     "color-palette": {
     "palette": [
