@@ -147,6 +147,7 @@ body{
 	}
 
 	.api_doc header h1 {
+		cursor: default;
 		font-weight: 300;
 		font-size: 1.1em;
 		font-family: 'Cutive Mono', monospace; 
@@ -270,31 +271,30 @@ body{
 	}
 
 	.api_doc footer li {
-		width: 49.5%;
-		margin-right: 0.5%;
-		margin: 0;
+		width: 50%;
+		margin: 2% 0%;
 		padding: 0;
-		float: left;
 		display: inline-block;
 	}
 
 	.api_doc footer a {
+		border-radius: 2px;
 		text-decoration: none;
+		background-color: #ffffff;
 		color: "#cecece";
 		text-transform: uppercase;
-		color: #ff038a !important;
-		background-color: #ff038a;
+		color: #111111 !important;
 		font-weight: 600;
-		background-color: #fff;
 		cursor: pointer;
 		margin: 0;
 		padding: 12px 5px;
 	}
 
 	.api_doc footer a:hover, .api_doc footer a:active  {
-		color: #fff !important;
-		background-color: #ff038a;
 		font-weight: 600;
+		color: #ffffff !important;
+		background-color: #ff038a;
+		text-decoration: underline;
 		transition: all 1s ease;
 	}
 

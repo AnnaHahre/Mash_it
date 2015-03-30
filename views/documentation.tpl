@@ -49,7 +49,7 @@
       <footer>
         <ul>
           <li><a href="/">startpage</a></li>
-          <li><a href="/mash">the tool</a></li>
+          <li><a href="/mash">mashit tool</a></li>
         </ul>
       </footer>
     </nav>
