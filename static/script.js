@@ -191,7 +191,7 @@ $(document).ready(function(){
     })
   });
 
-  $('input, #category, #fontsize, #random_color, .css_code, #fonta').click(function(event){
+  $('input, #category, #fontsize, #random_color, .css_code, #fonta, p.hex_name').click(function(event){
     event.stopPropagation();
   });
 

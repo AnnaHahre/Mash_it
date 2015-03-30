@@ -442,9 +442,7 @@ body{
 
 /*Styles for dashboard*/
 
-#do_icon{
-	pointer:cursor !important;
-}
+
 #color_icon a, #font_icon a, #code_icon a, #exit_icon a, #temp_icon a{
 	width: 100px;
 	height: 100px;
@@ -465,7 +463,7 @@ body{
 	padding:15%;
 	text-indent: -99em;
 	display: inline-block;
-
+	cursor:pointer;
 }
 
 
@@ -478,7 +476,7 @@ body{
 	padding:15%;
 	text-indent: -99em;
 	display: inline-block;
-
+	cursor:pointer;
 
 }
 
@@ -810,9 +808,9 @@ input[type=text] {
 }
 
 #palette{
-	margin-top:10%;
+	margin-top:6%;
 	width:95%;
-	height:310px;
+	height:330px;
 	overflow: hidden;
 }
 
@@ -830,15 +828,14 @@ input[type=text] {
 .col_p{
 	text-align:center; 
 	padding:0% 5%; 
-
 	width:100%; 
 	height:35px; 
 	border:1px solid black; 
 }
 
 .hex_name{
-	margin-top:-4%;
-	margin-bottom: 10% !important;
+	margin-top:-15%;
+	margin-bottom: 30% !important;
 	text-align:center; 
 
 }
