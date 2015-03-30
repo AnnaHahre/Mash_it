@@ -1,5 +1,6 @@
 var clicked = false; //GLOBAL VARIBLE THAT IS SET TO TRUE IF RANDOM BUTTON IS CLICKED
-
+var undoArr = []; //GLOABL ARRAY FOR UNDO STYLES BUTTON
+var redoArr = []; //GLOABL ARRAY FOR REDO STYLES BUTTON
 
 $(document).ready(function(){  
   $('#submit_color').click(getPalette); //PALETTE
@@ -17,6 +18,25 @@ $(document).ready(function(){
   }); 
 
   $('#css_button').click(getElementStyle); //GET STYLES TO GENERATE CSS
+
+  $('#undo_button').on('click.undo', function(){
+    $('#redo_button').off('click.undo')
+    undoStyle();
+  });
+
+  $('#redo_button').on('click.redo', function(){
+    $('#undo_button').off('click.redo')
+    redoStyle();
+  });
+
+  $('#colors_choice, #font_choice').click(function(){ 
+    if (redoArr != 0){
+      redoArr = [];
+    }
+  });
+
+  $('#standard .col').bind('click', changeStyle);
+
 
   $('#exit_icon').click(function(){
     sweetAlert({   
@@ -176,8 +196,9 @@ $(document).ready(function(){
 //*---------------- SIZE-SCRIPT ----------------
 //*
 function fontSize(type){
+  //add getSize to get undo to work if user only changed fontsize.
   $('#template h1, #template h2, #template p, .container h1, .container h4, .list-unstyled, nav, span').on('click.size', function(){
-    
+    getStyle(this);
     if (type == 'increase'){
       var curFontSize = $(this).css('font-size');
       $(this).css('font-size', parseInt(curFontSize) + 2);
@@ -262,7 +283,6 @@ function showPalette(response){
       });
     });
     $('.col').bind("click", changeStyle); //Adds click in colordivs and function changeStyle
-    
   }  
 } //END FUNCTION showPalette
 
@@ -270,33 +290,100 @@ function showPalette(response){
 //* not the prettiest code - but it works :)
 //*
 
+function undoStyle(){
+  if (undoArr.length == 0){
+    sweetAlert({   
+      title: "There is no changes to undo!",   
+      type: "warning",   
+      confirmButtonColor: "FE63B5",   
+      confirmButtonText: "OK!",   
+      closeOnConfirm: true,   
+    }, 
+    function(isConfirm){   
+      if (isConfirm) {     
+      } 
+      else {} 
+    });
+  }
+
+  else{
+    getCurStyle_toRedo();
+    if (undoArr[undoArr.length - 1][1] == undefined){
+      $(undoArr[undoArr.length - 1][0]).css({
+        'color':'',
+        'background-color':'',
+        'font-family':'',
+        'font-size':''
+      });
+      undoArr.pop(undoArr[undoArr.length - 1])
+    }
+    else{
+      $(undoArr[undoArr.length - 1][0]).attr('style', undoArr[undoArr.length - 1][1])
+      undoArr.pop(undoArr[undoArr.length - 1]);
+     }
+   }
+}
+
+function getStyle(element){
+  el = []
+  style = $(element).attr('style');
+  el.push(element, style)
+  undoArr.push(el);
+}
+
+function getCurStyle_toRedo(){
+  curEl = [];
+  curStyle = $(undoArr[undoArr.length - 1][0]).attr('style');
+  curElement = undoArr[undoArr.length - 1][0]; 
+  curEl.push(curElement, curStyle);
+  redoArr.push(curEl)
+}
+
+function getCurStyle_toUndo(){
+  curEl = [];
+  curStyle = $(redoArr[redoArr.length - 1][0]).attr('style');
+  curElement = redoArr[redoArr.length - 1][0]; 
+  curEl.push(curElement, curStyle);
+  undoArr.push(curEl)
+}
+
+function redoStyle(){
+  if (redoArr != 0){
+    getCurStyle_toUndo();
+    $(redoArr[redoArr.length - 1][0]).attr('style', redoArr[redoArr.length - 1][1])
+    redoArr.pop(redoArr[redoArr.length -1]); 
+  }
+  else{
+    sweetAlert({   
+      title: "There is no changes to redo!",   
+      type: "warning",   
+      confirmButtonColor: "FE63B5",   
+      confirmButtonText: "OK!",   
+      closeOnConfirm: true,   
+    }, 
+    function(isConfirm){   
+      if (isConfirm) {     
+      } 
+      else {} 
+    });
+  } 
+}
+
 function changeStyle(e){
+  $('#template *').off('click.style');
   $('#template *').off('click.size');
   choice = $(this).attr('value');
 
-  $('#template h1, #template h2, h3, h4, .text-muted, footer p, .lead p').on('click.style', function(e){
+  $('#template h1, #template h2, h3, .text-muted, footer p, .lead p, .list-unstyled a').on('click.style', function(e){
     e.stopPropagation();
+    getStyle(this);
     if (choice.substring(0,1) == "#") {
       $(e.target).css({
         'color' : choice
       });
     }
     else {
-      $(e.target).css({
-      'font-family' : choice
-      });
-    }
-  });
-
-  $('.list-unstyled a').on('click.style', function(e){
-    e.stopPropagation();
-    if (choice.substring(0,1) == "#") {
-      $('.list-unstyled a').css({
-        'color' : choice
-      });
-    }
-    else {
-      $('.list-unstyled a').css({
+     $(e.target).css({
         'font-family' : choice
       });
     }
@@ -304,6 +391,7 @@ function changeStyle(e){
 
   $('.featurette p').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('.featurette p');
     if (choice.substring(0,1) == "#") {
       $('.featurette p').css({
         'color' : choice
@@ -318,6 +406,7 @@ function changeStyle(e){
 
   $('nav a').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('nav a');
     if (choice.substring(0,1) == "#") {
       $('nav a').css({
         'color' : choice
@@ -332,6 +421,7 @@ function changeStyle(e){
 
   $('header').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('header');
     $('header').css({
       'background-color' : choice
     });
@@ -339,6 +429,7 @@ function changeStyle(e){
 
   $('nav').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('nav');
     $('nav').css({
       'background-color' : choice,
       'border' : "0px"
@@ -347,6 +438,7 @@ function changeStyle(e){
 
   $('.comment').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('.comment');
     if (choice.substring(0,1) == "#") {
       $('.comment').css({
         'color' : choice
@@ -360,6 +452,7 @@ function changeStyle(e){
   });
   $('.media-heading').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('.media-heading');
     if (choice.substring(0,1) == "#") {
       $('.media-heading').css({
         'color' : choice
@@ -373,6 +466,7 @@ function changeStyle(e){
   });
   $('.article').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('.article');
     if (choice.substring(0,1) == "#") {
       $('.article').css({
         'color' : choice
@@ -387,6 +481,7 @@ function changeStyle(e){
 
   $('.widget').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('.widget');
     if (choice.substring(0,1) == "#") {
       $('.widget').css({
         'color' : choice
@@ -401,6 +496,7 @@ function changeStyle(e){
 
   $('.widget_heading').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('.widget_heading');
     if (choice.substring(0,1) == "#") {
       $('.widget_heading').css({
         'color' : choice
@@ -413,24 +509,27 @@ function changeStyle(e){
     }
   });
 
-  $('.cat_item').on('click.style', function(e){
+  $('small').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('small');
     if (choice.substring(0,1) == "#") {
-      $('.cat_item').css({
+      $('small').css({
         'color' : choice
       });
     }
     else {
-      $('.cat_item').css({
+      $('small').css({
         'font-family' : choice
       });
     }
   });
+
 
 //handles for template three
 
-$('.clean_temp article p').on('click.style', function(e){
+  $('.clean_temp article p').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('.clean_temp article p');
     if (choice.substring(0,1) == "#") {
       $('.clean_temp article p').css({
         'color' : choice
@@ -443,8 +542,9 @@ $('.clean_temp article p').on('click.style', function(e){
     }
   });
 
-$('.clean_temp article blockquote').on('click.style', function(e){
+  $('.clean_temp article blockquote').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('.clean_temp article blockquote');
     if (choice.substring(0,1) == "#") {
       $('.clean_temp article blockquote').css({
         'color' : choice
@@ -457,8 +557,9 @@ $('.clean_temp article blockquote').on('click.style', function(e){
     }
   });
 
-$('.clean_temp article h2').on('click.style', function(e){
+  $('.clean_temp article h2').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('.clean_temp article h2');
     if (choice.substring(0,1) == "#") {
       $('.clean_temp article h2').css({
         'color' : choice
@@ -471,8 +572,9 @@ $('.clean_temp article h2').on('click.style', function(e){
     }
   });
 
-$('.clean_temp .meta').on('click.style', function(e){
+  $('.clean_temp .meta').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('.clean_temp .meta');
     if (choice.substring(0,1) == "#") {
       $('.clean_temp .meta').css({
         'color' : choice
@@ -485,15 +587,17 @@ $('.clean_temp .meta').on('click.style', function(e){
     }
   });
 
-$('.clean_temp footer').on('click.style', function(e){
+  $('.clean_temp footer').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('.clean_temp footer');
     $('.clean_temp footer').css({
       'background-color' : choice
     });
   });
 
-$('.clean_temp').on('click.style', function(e){
+  $('.clean_temp').on('click.style', function(e){
     e.stopPropagation();
+    getStyle('.clean_temp');
     $('.clean_temp').css({
       'background-color' : choice
     });
@@ -608,55 +712,55 @@ function getElementStyle(){
   //* not the prettiest code - but it works :)
   //*
 
-  if ($('nav').attr('style') === undefined){ }
+  if ($('nav').attr('style') === undefined || $('nav').attr('style') == ""){ }
   else{
     var styles = $('nav').attr('style');
     styles = styles.split(";");
     elements['nav'] = styles;
   }
-  if ($('nav a').attr('style') === undefined){ }
+  if ($('nav a').attr('style') === undefined || $('nav a').attr('style') == ""){ }
   else{
     var styles = $('nav a').attr('style');
     styles = styles.split(";");
     elements['nav a'] = styles;
   }
-  if ($('header').attr('style') === undefined){ }
+  if ($('header').attr('style') === undefined || $('header').attr('style') == ""){ }
   else{
     var styles = $('header').attr('style');
     styles = styles.split(";");
     elements['header'] = styles;
   }
-  if ($('header h1').attr('style') === undefined){ }
+  if ($('header h1').attr('style') === undefined || $('header h1').attr('style') == ""){ }
   else{
     var styles = $('header h1').attr('style');
     styles = styles.split(";");
     elements['header h1'] = styles;
   }
-  if ($('header h2').attr('style') === undefined){ }
+  if ($('header h2').attr('style') === undefined || $('header h2').attr('style') == ""){ }
   else{
     var styles = $('header h2').attr('style');
     styles = styles.split(";");
     elements['header h2'] = styles;
   }
-  if ($('.featurette h2').attr('style') === undefined){ }
+  if ($('.featurette h2').attr('style') === undefined || $('.featurette h2').attr('style') == ""){ }
   else{
     var styles = $('.featurette h2').attr('style');
     styles = styles.split(";");
     elements['h2'] = styles;
   }
-  if ($('.lead').attr('style') === undefined){ }
+  if ($('.lead').attr('style') === undefined || $('.lead').attr('style') == ""){ }
   else{
     var styles = $('.lead').attr('style');
     styles = styles.split(";");
     elements['p'] = styles;
   }
-  if ($('.text-muted').attr('style') === undefined){ }
+  if ($('.text-muted').attr('style') === undefined || $('.text-muted').attr('style') == ""){ }
   else{
     var styles = $('.text-muted').attr('style');
     styles = styles.split(";");
     elements['p span'] = styles;
   }
-  if ($('footer p').attr('style') === undefined){ }
+  if ($('footer p').attr('style') === undefined || $('footer p').attr('style') == ""){ }
   else{
     var styles = $('footer p').attr('style');
     styles = styles.split(";");
@@ -667,49 +771,49 @@ function getElementStyle(){
   //* not the prettiest code - but it works :)
   //*
 
-  if ($('#post_title').attr('style') === undefined){ }
+  if ($('#post_title').attr('style') === undefined || $('#post_title').attr('style') == ""){ }
   else{
     var styles = $('#post_title').attr('style');
     styles = styles.split(";");
     elements['h1'] = styles;
   }
-  if ($('.article').attr('style') === undefined){ }
+  if ($('.article').attr('style') === undefined || $('.article').attr('style') == ""){ }
   else{
     var styles = $('.article').attr('style');
     styles = styles.split(";");
     elements['.article p'] = styles;
   }
-  if ($('.form_heading').attr('style') === undefined){ }
+  if ($('.form_heading').attr('style') === undefined || $('.form_heading').attr('style') == ""){ }
   else{
     var styles = $('.form_heading').attr('style');
     styles = styles.split(";");
     elements['.form h4'] = styles;
   }
-  if ($('.media-heading').attr('style') === undefined){ }
+  if ($('.media-heading').attr('style') === undefined || $('.media-heading').attr('style') == ""){ }
   else{
     var styles = $('.media-heading').attr('style');
     styles = styles.split(";");
     elements['.comments h4'] = styles;
   }
-  if ($('.comment').attr('style') === undefined){ }
+  if ($('.comment').attr('style') === undefined || $('.comment').attr('style') == ""){ }
   else{
     var styles = $('.comment').attr('style');
     styles = styles.split(";");
     elements['.comment p'] = styles;
   }
-  if ($('.widget_heading').attr('style') === undefined){ }
+  if ($('.widget_heading').attr('style') === undefined || $('.widget_heading').attr('style') == ""){ }
   else{
     var styles = $('.widget_heading').attr('style');
     styles = styles.split(";");
     elements['.widget h4'] = styles;
   }
-  if ($('.widget').attr('style') === undefined){ }
+  if ($('.widget').attr('style') === undefined || $('.widget').attr('style') == ""){ }
   else{
     var styles = $('.widget').attr('style');
     styles = styles.split(";");
     elements['.widget p'] = styles;
   }
-  if ($('.cat_item').attr('style') === undefined){ }
+  if ($('.cat_item').attr('style') === undefined || $('.cat_item').attr('style') == ""){ }
   else{
     var styles = $('.cat_item').attr('style');
     styles = styles.split(";");
@@ -720,42 +824,42 @@ function getElementStyle(){
   //* not the prettiest code - but it works :)
   //* SOME CODE FROM THE ABOW TEMPLATES INHERITS
 
-  if ($('.clean_temp article p').attr('style') === undefined){ }
+  if ($('.clean_temp article p').attr('style') === undefined || $('.clean_temp article p').attr('style') == ""){ }
   else{
     var styles = $('.clean_temp article p').attr('style');
     styles = styles.split(";");
     elements['article p'] = styles;
   }
 
-  if ($('.clean_temp article blockquote').attr('style') === undefined){ }
+  if ($('.clean_temp article blockquote').attr('style') === undefined || $('.clean_temp article blockquote').attr('style') == ""){ }
   else{
     var styles = $('.clean_temp article blockquote').attr('style');
     styles = styles.split(";");
     elements['article blockquote'] = styles;
   }
 
-   if ($('.clean_temp article h2').attr('style') === undefined){ }
+   if ($('.clean_temp article h2').attr('style') === undefined || $('.clean_temp article h2').attr('style') == ""){ }
   else{
     var styles = $('.clean_temp article h2').attr('style');
     styles = styles.split(";");
     elements['article h2'] = styles;
   }
 
-  if ($('.clean_temp .meta').attr('style') === undefined){ }
+  if ($('.clean_temp .meta').attr('style') === undefined || $('.clean_temp .meta').attr('style') == ""){ }
   else{
     var styles = $('.clean_temp .meta').attr('style');
     styles = styles.split(";");
     elements['header .meta'] = styles;
   }
 
-  if ($('.clean_temp').attr('style') === undefined){ }
+  if ($('.clean_temp').attr('style') === undefined || $('.clean_temp').attr('style') == ""){ }
   else{
     var styles = $('.clean_temp').attr('style');
     styles = styles.split(";");
     elements['body'] = styles;
   }
 
-  if ($('.clean_temp footer').attr('style') === undefined){ }
+  if ($('.clean_temp footer').attr('style') === undefined || $('.clean_temp footer').attr('style') == ""){ }
   else{
     var styles = $('.clean_temp footer').attr('style');
     styles = styles.split(";");

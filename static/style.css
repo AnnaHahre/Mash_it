@@ -391,6 +391,10 @@ body{
 /* */
 
 /*Styles for dashboard*/
+
+#do_icon{
+	pointer:cursor !important;
+}
 #color_icon a, #font_icon a, #code_icon a, #exit_icon a, #temp_icon a{
 	width: 100px;
 	height: 100px;
@@ -401,6 +405,31 @@ body{
 
 #temp_icon a {
 	background: url("img/temp_icon_s.png");
+}
+
+#undo_button {
+	background: url("img/undo.png");
+	float:left;
+	width: 50px;
+	height: 50px;
+	padding:15%;
+	text-indent: -99em;
+	display: inline-block;
+
+}
+
+
+
+#redo_button {
+	background: url("img/redo.png");
+	float:left;
+	width: 50px;
+	height: 50px;
+	padding:15%;
+	text-indent: -99em;
+	display: inline-block;
+
+
 }
 
 #color_icon a {
@@ -417,6 +446,15 @@ body{
 
 #exit_icon a{
     background: url("img/exit_icon.png");
+}
+
+#redo_button:hover {
+	background: url("img/redo_hover.png");
+
+}
+
+#undo_button:hover {
+	background: url("img/undo_hover.png");	
 }
 
 #temp_icon a:hover {
@@ -461,7 +499,7 @@ body{
 
 #dashboard{
 	position:fixed;
-	top:80px;
+	bottom:10px;
 	width: 100px;
 	background-color: transparent;
 	left:0;
@@ -525,8 +563,8 @@ select{
 
 #tabs{
 	position:fixed;
+	bottom: 59px;
 	height:527.5px;
-	top:143px;
 	left:0;
 	border-radius: 0 5px 0px 0;
 	overflow: hidden;
@@ -542,7 +580,7 @@ select{
 	left: -300px;
 	display:block;
 	width:400px;
-	height:527.5px;
+	height:577px;
 	padding:1% 2%;
 	background-color: #f1f1f1;
 	border-radius: 0 10px 10px 0;
@@ -637,10 +675,10 @@ input[type=text] {
 #show_fonts{
 	background-color: #ffffff;
 	border:1px solid #cecece;
-	height:300px;
+	height:350px;
 	margin-top: 5%;
-	padding-bottom: 20%;
-	margin-bottom: 1%;
+	padding-bottom: 10%;
+	margin-bottom: 10%;
 	overflow: scroll;
 	border-radius: 3px;
 }
@@ -707,10 +745,24 @@ input[type=text] {
 	margin-left: 4%;
 }
 
+#standard{
+	width:80%;
+	position: absolute;
+	bottom:40px;
+	margin-left:1.2%;
+}
+
+#standard .col{
+	width:20%;
+	float:right;
+	cursor:crosshair;
+}
+
 #palette{
 	margin-top:10%;
 	width:95%;
-	height:auto;
+	height:310px;
+	overflow: hidden;
 }
 
 .col{

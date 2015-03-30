@@ -54,9 +54,14 @@
       <li id="code_icon" data-value="#code_choice">
         <a href="#code_choice"></a>
       </li>
+      <li id="do_icon">
+        <a id="undo_button"></a>
+        <a id="redo_button"></a>
+      </li>
       <li id="exit_icon">
         <a href="/index.php"></a>
       </li>
+      
     </ul>
   </div><!--end #dashboard-->
 
@@ -86,6 +91,21 @@
           <input type="button" id="random_color" value="Random">
         </form>
         <div id="palette"></div><!--end #palette-->
+        <div id="standard">
+          <div class='col' value="#000000">
+            <p class="col_p" style="background-color:#000000"; value="000000"></p>
+            <p class='hex_name'>#000000</p>
+          </div>
+          <div class='col' value="#222222">
+            <p class="col_p" style="background-color:#222222"; value="222222"></p>
+            <p class='hex_name'>#222222</p>
+          </div>
+          <div class='col' value="#ffffff">
+            <p class="col_p" style="background-color:#ffffff"; value="ffffff"></p>
+            <p class='hex_name'>#FFFFFFF</p>
+          </div>
+        </div>
+
       </div><!--end .colors_choice-->
 
 
