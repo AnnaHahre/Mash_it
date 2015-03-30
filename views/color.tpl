@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mash:it;</title>
+    <title>mash:it; - tool</title>
     <link rel='stylesheet' href='static/style.css' />
 
     <meta content="text/html;charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Webdesign and webdeveloper tool for trying out fonts and colors live in templates">
+    <meta name="keywords" content="mashit, font, color, themes, webdesigntool, designtool, webdevelopertool, developertool, webdesign, webdevelopment">
+    <meta name="author" content="Mashit">
+
     <!--SWEET-alert package-->
     <script src="static/lib/sweet-alert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="static/lib/sweet-alert.css">
-    
+
+    <!-- jQuery -->
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type='text/javascript' src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <script type='text/javascript' src="static/script.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/js/bootstrap.min.js"></script>
+
      <!-- Bootstrap Core CSS -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
-    <!--<link href="/static/css/blog-post.css" rel="stylesheet">-->
 
-    <!-- Custom CSS -->
+    <!-- CSS for template one - one page wonder -->
     <link href="/static/css/one-page-wonder.css" rel="stylesheet">
 
     <!-- CSS for template three - clean blog -->
@@ -34,9 +39,19 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
   </head>
 
 <body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59200536-2', 'auto');
+  ga('send', 'pageview');
+</script>
 
   <!--Dashboard -->
   <div id="dashboard">
@@ -59,7 +74,7 @@
         <a id="redo_button"></a>
       </li>
       <li id="exit_icon">
-        <a href="/index.php"></a>
+        <a href="/"></a>
       </li>
       
     </ul>
@@ -151,15 +166,9 @@
     <div id="welcome_mash">
       <img class="arrow" width="200" height="200" src="/static/img/start/arrow_flip.png"></img>
       <h1>Ready, steady, go <span>mash:it;</span></h1>
-    </div>    
+    </div>
   <!-- /.container -->
   </div><!--end #template-->
-
-  <!-- jQuery -->
-  <script src="static/js/jquery.js"></script>
-
-  <!-- Bootstrap Core JavaScript -->
-  <script src="static/js/bootstrap.min.js"></script>
   </body>
 </html>
 

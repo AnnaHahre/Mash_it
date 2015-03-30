@@ -1,4 +1,6 @@
-    <!-- Navigation -->
+<!--Template three-->
+
+<!-- Navigation -->
 <div class="clean_temp">
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
@@ -128,4 +130,4 @@
         </div>
     </footer>
 </div><!--End .clean_temp-->
-
+<!--End Template three-->

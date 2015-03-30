@@ -32,7 +32,7 @@ $app->get('/api/v1/doc', function () use ($app) {
 
 //*---------------- PALETTE ENDPOINT ----------------
 //*
-//* TODO: add noting found response (hex).
+//*
 
 $app->get('/api/v1/palette/:hex', function ($hex) use ($app) {
 
@@ -248,6 +248,7 @@ $app->notFound(function () use ($app) {
     $app->render('error.tpl', $error, 404);
   }
 });
+
 
 
 $app->run();

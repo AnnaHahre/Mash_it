@@ -1,17 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(http://fonts.googleapis.com/css?family=Muli:300,400);
 @import url(http://fonts.googleapis.com/css?family=Architects+Daughter);
 @import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
-@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600);
 @import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
 @import url(http://fonts.googleapis.com/css?family=PT+Mono);
-@import url(http://fonts.googleapis.com/css?family=Comfortaa);
+@import url(http://fonts.googleapis.com/css?family=Muli);
+
 
 /* Styles for sweet-alert JQuery-plugin
 */
 .sweet-alert h2 {
-	font-family: "Shadows Into Light" !important;
+	font-family: "Shadows Into Light", cursive !important;
 	color: #555 !important;
 }
 
@@ -36,7 +35,7 @@
 	padding-top: 2%;
 	margin: auto;
 	height: 600px;
-	/*z-index: -1000 !important;*/
+	z-index: -1000 !important;
 }
 
 #welcome_mash span {
@@ -45,37 +44,17 @@
 
 
 #welcome_mash h1 {
-	margin: 12% 5% 0% 15%;
+	margin: 12% 5% 10% 15%;
 	padding: 0% 10%;
-	font-family: 'Shadows Into Light';
+	font-family: 'Shadows Into Light', cursive;
 	text-align: center;
 	font-size: 9em;
 	line-height: 1.3em;
 }
 
-#welcome_mash p {
-	color: #404040;
-	font-family: 'PT mono', monospace;
-	position: fixed;
-	right: 2%;
-	bottom: 0;
-}
-
-#welcome_mash a {
-	color: #404040;
-	text-decoration: underline;
-}
-
-#welcome_mash a:visited {
-	color: #404040;
-	text-decoration: underline;
-}
-
-#welcome_mash a:hover {
-	text-decoration: none;
-}
-
 .arrow {
+	-ms-transform: rotate(50deg); /* IE 9 */
+    -webkit-transform: rotate(50deg);
 	transform:rotate(50deg);
 	margin-left: 5%;
 	bottom: 30%;
@@ -83,6 +62,7 @@
 	z-index: -10000;
 
 }
+
 
 * {
 	-webkit-padding-start: 0px;
@@ -132,8 +112,8 @@ body{
 		background-color: #ffffff;
 		font-family: monospace;
 		margin: 0;
-		font-size: 13px;
 		padding: 0;
+		font-size: 13px;
 	}
 
 	.api_doc header hgroup{
@@ -143,7 +123,7 @@ body{
 		overflow: hidden;
 		width: 23%;
 		background-color: #222;
-		font-size: 1.3em;
+		font-size: 1.2em;
 	}
 
 	.api_doc header h1 {
@@ -161,11 +141,12 @@ body{
 	.api {
 		color: #ff038a;
 		font-family: 'Open Sans', sans-serif;
+		font-size: 0.8em;
 	}
 
 	.api_doc header p{
 		width: 100%;
-		font-family: muli;
+		font-family: 'Open Sans', sans-serif;
 		margin: 0;
 		padding: 0;
 	}
@@ -179,14 +160,13 @@ body{
 	}
 
 	.api_doc nav {
-		font-size: 1em;
+		cursor: none;
 		position: fixed;
 		top: 10%;
 		left: 0;
 		width: 23%;
 		padding: 0;
 		margin: 0;
-		overflow: hidden;
 		vertical-align: bottom;
 	}
 
@@ -203,6 +183,7 @@ body{
 		padding: 0;
 		margin: auto;
 		width: 100%;
+		/*font-size: 0.9em;*/
 		font-family: 'Open Sans', sans-serif;
 		font-weight: 400;
 		text-transform: uppercase;
@@ -215,6 +196,7 @@ body{
 
 	.api_doc nav a {
 		cursor: pointer;
+		font-size: 1.1em;
 		display: inline-block;
 		width: 100%;
 		margin: 0;
@@ -234,11 +216,17 @@ body{
 	.api_doc nav a:hover {
 		background-color: #ff038a;
 		color: #222;
+		-o-transition: background-color 0.5s ease;
+		-moz-transition: background-color 0.5s ease;
+		-webkit-transition: background-color 0.5s ease;
 		transition: background-color 0.5s ease;
 	}
 
 	.api_doc .active {
 		background-color: #ff038a;
+		-o-transition: background-color 0.5s ease;
+		-moz-transition: background-color 0.5s ease;
+		-webkit-transition: background-color 0.5s ease;
 		transition: background-color 0.5s ease;
 	}
 	.api_doc section{
@@ -252,55 +240,26 @@ body{
 	}
 
 	.api_doc footer{
-		border-right: 1px solid #222;
 		position: fixed;
-		width: 22.2%;
+		width: 20%;
 		bottom: 0;
 		margin: 0;
 		padding: 0;
-		cursor: none;
-	}
-
-	.api_doc footer ul {
-		width: 100%;
-		text-transform: none;
-		text-align: center;
-		margin: 0 0 7% 0;
-		padding: 0;
-	}
-
-	.api_doc footer li {
-		width: 49.5%;
-		margin-right: 0.5%;
-		margin: 0;
-		padding: 0;
-		float: left;
-		display: inline-block;
 	}
 
 	.api_doc footer a {
 		text-decoration: none;
 		color: "#cecece";
-		text-transform: uppercase;
-		color: #ff038a !important;
-		background-color: #ff038a;
-		font-weight: 600;
-		background-color: #fff;
-		cursor: pointer;
+		padding: 0;
 		margin: 0;
-		padding: 12px 5px;
 	}
 
 	.api_doc footer a:hover, .api_doc footer a:active  {
-		color: #fff !important;
-		background-color: #ff038a;
-		font-weight: 600;
-		transition: all 1s ease;
+		background-color: #222;
 	}
 
 	.api_doc footer a:visited {
 		color: #cecece;
-		font-weight: 600;
 	}
 
 	.endpoints ul, li {
@@ -310,6 +269,7 @@ body{
 	}
 
 	.api_doc nav h1 {
+		cursor: none;
 		text-align: left;
 		padding: 0;
 		margin: 0;
@@ -441,10 +401,6 @@ body{
 /* */
 
 /*Styles for dashboard*/
-
-#do_icon{
-	pointer:cursor !important;
-}
 #color_icon a, #font_icon a, #code_icon a, #exit_icon a, #temp_icon a{
 	width: 100px;
 	height: 100px;
@@ -455,31 +411,6 @@ body{
 
 #temp_icon a {
 	background: url("img/temp_icon_s.png");
-}
-
-#undo_button {
-	background: url("img/undo.png");
-	float:left;
-	width: 50px;
-	height: 50px;
-	padding:15%;
-	text-indent: -99em;
-	display: inline-block;
-
-}
-
-
-
-#redo_button {
-	background: url("img/redo.png");
-	float:left;
-	width: 50px;
-	height: 50px;
-	padding:15%;
-	text-indent: -99em;
-	display: inline-block;
-
-
 }
 
 #color_icon a {
@@ -496,15 +427,6 @@ body{
 
 #exit_icon a{
     background: url("img/exit_icon.png");
-}
-
-#redo_button:hover {
-	background: url("img/redo_hover.png");
-
-}
-
-#undo_button:hover {
-	background: url("img/undo_hover.png");	
 }
 
 #temp_icon a:hover {
@@ -548,15 +470,14 @@ body{
 }
 
 #dashboard{
-	z-index: 1;
 	position:fixed;
-	bottom:10px;
+	top:80px;
 	width: 100px;
 	background-color: transparent;
 	left:0;
 	border-radius: 0 5px 0px 0;
 	overflow: hidden;
-	z-index: 99;
+	z-index: 99 !important;
 }
 
 #dashboard p{
@@ -609,13 +530,16 @@ select{
 }
 
 .selected a, #tabcontrols li:hover {
+	-o-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
 	transition: all 0.5s ease;
 }
 
 #tabs{
 	position:fixed;
-	bottom: 59px;
 	height:527.5px;
+	top:143px;
 	left:0;
 	border-radius: 0 5px 0px 0;
 	overflow: hidden;
@@ -631,13 +555,13 @@ select{
 	left: -300px;
 	display:block;
 	width:400px;
-	height:577px;
+	height:527.5px;
 	padding:1% 2%;
 	background-color: #f1f1f1;
 	border-radius: 0 10px 10px 0;
 	border: 2px solid rgba(50, 50, 50, 0.20);
 	border-left: none;
-	/*z-index: 99999;*/
+	z-index: 99999;
 }
 
 #colors_choice, #font_choice, #code_choice {
@@ -657,12 +581,6 @@ select{
 	display: block;
 }
 
-#colors_choice h1, #font_choice h1, #code_choice h1{
-	text-transform: uppercase;
-	color:#222;
-	font-size: 1.15em;
-	font-family: "Muli", sans-serif;
-}
 
 .css_code{
 	width:100%;
@@ -686,7 +604,7 @@ select{
     cursor:pointer;
     width: 40px;
     height: 40px;
-    border: none;
+    border: none;;
     text-indent: -9999px;
 }
 
@@ -719,17 +637,17 @@ input[type=text] {
 	width:10px; 
 	margin-left: 7px; 
 	margin-top: -50px; 
-	/*z-index: 9; */
+	z-index: 9; 
 	font-size: 1.3em;
 }
 
 #show_fonts{
 	background-color: #ffffff;
 	border:1px solid #cecece;
-	height:350px;
+	height:300px;
 	margin-top: 5%;
-	padding-bottom: 10%;
-	margin-bottom: 10%;
+	padding-bottom: 20%;
+	margin-bottom: 1%;
 	overflow: scroll;
 	border-radius: 3px;
 }
@@ -749,7 +667,10 @@ input[type=text] {
 #font_list li:hover {
 	cursor: crosshair;
 	background-color: #efefef;
-	transition: all 1 ease;
+	-o-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-webkit-transition: all 1s ease;
+	transition: all 1s ease;
 }
 
 
@@ -781,7 +702,7 @@ input[type=text] {
 }
 
 #smaller_size, #bigger_size {
-	font-family: "Shadows Into Light";
+	font-family: "Shadows Into Light", cursive;
 	font-size: 1.5em;
 	color: #000;
 	display: inline-block;
@@ -796,24 +717,10 @@ input[type=text] {
 	margin-left: 4%;
 }
 
-#standard{
-	width:80%;
-	position: absolute;
-	bottom:40px;
-	margin-left:1.2%;
-}
-
-#standard .col{
-	width:20%;
-	float:right;
-	cursor:crosshair;
-}
-
 #palette{
 	margin-top:10%;
 	width:95%;
-	height:310px;
-	overflow: hidden;
+	height:auto;
 }
 
 .col{
@@ -849,12 +756,12 @@ input[type=text] {
 
 #template_choice h2{
 	margin: 4% 0% 1.5% 0%;
-	font-family: 'Montserrat';
+	font-family: 'Montserrat', sans-serif;
 	font-size: 1.1em;
 }
 
 #template_choice p{
-	font-family: 'Muli';
+	font-family: 'Muli', sans-serif;
 	font-size: .9em;
 	margin-bottom: 6%;
 }
@@ -867,6 +774,8 @@ input[type=text] {
 	border:1px solid #ccc;
 	text-align: center;
 	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
 	margin-top:6%;
 	margin-bottom:8%;
 }
@@ -885,11 +794,4 @@ input[type=text] {
 	cursor:crosshair;
 }
 
-
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-	/*IE 10+*/
-	#tabs {
-		z-index: 0;
-	}
-}
+/* */

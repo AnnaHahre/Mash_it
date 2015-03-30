@@ -1,5 +1,5 @@
-
-    <!-- Navigation -->
+<!--Template two-->
+<!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -203,5 +203,5 @@
 
     </div>
     <!-- /.container -->
-
-
+</div><!--End .one_page_blog-->
+<!--End template two-->

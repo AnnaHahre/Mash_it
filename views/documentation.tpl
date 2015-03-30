@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mash:it API</title>
+    <title>mash:it; - API documentation</title>
     <link rel='stylesheet' href='/static/style.css' />
+    <meta name="description" content="Webdesign and webdeveloper tool for trying out fonts and colors live in templates">
+    <meta name="keywords" content="mashit, font, color, themes, webdesigntool, designtool, webdevelopertool, developertool, webdesign, webdevelopment">
+    <meta name="author" content="Mashit">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type='text/javascript' src="/static/script_doc.js"></script>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body class="api_doc">
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59200536-2', 'auto');
+    ga('send', 'pageview');
+
+  </script>
   	<div id="wrapper">
   	<header>
       <hgroup>
@@ -25,9 +46,12 @@
           <li><a href="#statuscodes" id="nav_statuscodes">Status codes</a></li>
           <li><a href="#license" id="nav_license">License</a></li>
         </ul>
-    <footer>
-      <p><a href="/index.php">Mash:it</a></p>
-    </footer>
+      <footer>
+        <ul>
+          <li><a href="/">startpage</a></li>
+          <li><a href="/mash">the tool</a></li>
+        </ul>
+      </footer>
     </nav>
   	<section>
       <h2 id="endpoint" class="section">Endpoints</h2>
@@ -280,7 +304,7 @@
       </code></pre>
 
   		<h2 id="palette" class="section">List palettes by color</h2>
-        <p>Returns a set of palettes created by the <a href="http://www.colourlovers.com/">COLOURlovers community</a>.</p>
+        <p>Returns a set of palettes created by the <a href="http://www.colourlovers.com/community">COLOURlovers community</a>.</p>
         
         <h3>Endpoint</h3>
     		<code class="request">GET /api/v1/palette/<em>color</em> <em>?num_results=n</em></code>

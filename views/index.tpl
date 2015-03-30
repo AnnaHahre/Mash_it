@@ -4,18 +4,39 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>mash:it; - Try it yourself Templates</title>
+        <meta name="description" content="Webdesign and webdeveloper tool for trying out fonts and colors live in templates">
+        <meta name="keywords" content="mashit, font, color, themes, webdesigntool, designtool, webdevelopertool, developertool, webdesign, webdevelopment">
+        <meta name="author" content="Mashit">
+        <link href="/static/style_start.css" rel="stylesheet" type="text/css">
+
         <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type='text/javascript' src="/static/script_start.js"></script>
-        <link href="/static/style_start.css" rel="stylesheet" type="text/css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
     </head>
 
 <body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-59200536-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
     <nav>
             <ul>
-                <li><a href="#intro_A">HOW IT WORKS</a></li>
-                <li><a href="#five">ABOUT</a></li>
-                <li><a href="/api/v1/doc"> MASH:IT API</a></li>
+                <li><a href="#intro_A" id="nav_intro_A">HOW IT WORKS</a></li>
+                <li><a href="#five" id="nav_five">ABOUT</a></li>
+                <li><a href="/api/v1/doc"> Mashit API</a></li>
+                <li id="tool"><a href="/mash">Mashit tool</a></li>
             </ul>
 
     </nav>
@@ -29,7 +50,7 @@
 
     <section id="intro">
 
-        <section id="intro_A">
+        <section id="intro_A" class="section">
 
               <h1 class="handwritten">NEW TO MASH:IT? THIS IS HOW EASY IT IS!</h1>
                 
@@ -136,7 +157,7 @@
 </div> <!-- WRAPPER END -->
     
 
-    <section id="five">
+    <section id="five" class="section">
 
 
         <div id="block5"><h1 class="h1_white">ABOUT mash:it;</h1> </div>
@@ -145,7 +166,7 @@
 
                             <p class="contact"> mash:it is a web service that is produced and run by three 2nd year students at the Bachelor program Information Architect at Malmo University. The aim is to provide a tool for anyone who enjoys web development, either on a professional level or just for fun. Credits to <a href="http://www.colourlovers.com/community">Colourlovers community</a> and <a href="http://www.startbootstrap.com"> Start Bootstrap</a>. </p>
                     </article>
-
+        <div id="avatars">
             <section id="five_A">
                         
                     <img src="/static/img/start/anna.png" alt="avatar of anna">
@@ -193,12 +214,13 @@
                     </article>
 
             </section>
+        </div><!--End #avatars-->
 
 
     </section> <!--End #five-->
 
     
-    <footer>Copyright mash:it; 2015</footer>
+    <footer>Copyright mash:it; 2015 | info[at]mashit.nu</footer>
 
 </body>
 

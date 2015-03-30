@@ -51,7 +51,7 @@ $(document).ready(function(){
       }, 
       function(isConfirm){   
         if (isConfirm) {     
-          location.href="/index.php"; 
+          location.href="/"; 
           return false;
         } 
         else {
@@ -170,6 +170,7 @@ $(document).ready(function(){
     if ($(this).hasClass('selected')){
       event.preventDefault();
       $(value).animate({ left: '-300px' });
+      $("#tabs").animate({ width: '-500px' }); //fix for safari
       $('#tabcontrols li').removeClass("selected");
     }
 
@@ -178,11 +179,14 @@ $(document).ready(function(){
       $('#tabs > div').animate({ left: '-300px' });
       $('#tabcontrols li').removeClass("selected");
       $(this).addClass('selected');
+      //$(value).addClass("show");
       $(value).animate({ left: '100px' });
+      $("#tabs").animate({ width: '500px' }); //fix for safari
     }
  
     $('#colors_choice, #font_choice, #code_choice, #template_choice').click(function(event){
       $(this).animate({ left: '-300px' });
+      $("#tabs").animate({ width: '0px' });
       $('#tabcontrols li').removeClass("selected");
     })
   });
