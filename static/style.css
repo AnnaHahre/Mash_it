@@ -548,7 +548,7 @@ body{
 #dashboard{
 	z-index: 1;
 	position:fixed;
-	bottom:10px;
+	bottom:55px;
 	width: 100px;
 	background-color: transparent;
 	left:0;
@@ -612,7 +612,7 @@ select{
 
 #tabs{
 	position:fixed;
-	bottom: 59px;
+	bottom: 104px;
 	height:527.5px;
 	left:0;
 	border-radius: 0 5px 0px 0;
