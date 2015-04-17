@@ -189,9 +189,8 @@ section {
 
 
 #wrapper {
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
+  width: 75%;
+  margin: auto;
   margin-top: 2%;
   margin-bottom: 10%;
 }
@@ -208,8 +207,13 @@ section {
 }
 
 #welcome h1 {
+  font-size: 1.5em;
   margin:0;
-  padding: 5% 0% 2% 0%;
+  padding: 5% 0% 0% 0%;
+}
+
+#welcome h2 {
+  font-size: 1em;
 }
 
 #intro {     /* Wraps DIV A and B */
@@ -304,29 +308,55 @@ section {
   padding-right: 5%;
 }
 
+
+
 #avatars {
-  width: 94%;
+  width: 100%;
   margin: 0%;
-  padding: 4% 3% 0% 3%;
+  padding: 4% 3% 4% 3%;
   overflow: hidden;
+  box-sizing: border-box;
+}
+
+.img_avatar {
+  width: 32%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.single_avatar {
+  width: 33.33333333%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.single_avatar p{
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0;
+}
+
+.contact_box {
+  width: 67%;
+  float: left;
+  margin-left: 1%;
+  /*margin-right: 50px;*/
+  color: #fff;
+  box-sizing: border-box;
 }
 
 #five_A {
-    width: 33.33%;
-    float: left;
     padding-left: 2%;
 }
 
 #five_B {
-    width: 33.33%;
-    float: left;
-    padding-left: 3%;
+    padding-left: 2%;
 }
 
 #five_C {
-    width: 32.33%;
-    float: left;
-    padding-left: 1%;
+    padding-left: 2%;
 }
 
 
@@ -378,13 +408,6 @@ article {
    background-color: #F03775;
 }
 
-
-.contact_box {
-  float: left;
-  margin-left: 0%;
-  /*margin-right: 50px;*/
-  color: #fff;
-}
 
 /* ************ END ARTICLES  ************ */
 
@@ -509,7 +532,7 @@ article {
 .round_right {
     width: 250px;
     height: 250px;
-    float: left;
+    float: right;
     overflow: hidden;
     position: relative;
     text-align: center;

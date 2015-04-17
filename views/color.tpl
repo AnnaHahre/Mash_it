@@ -29,6 +29,28 @@
     <!-- CSS for template one - one page wonder -->
     <link href="/static/css/one-page-wonder.css" rel="stylesheet">
 
+    <!-- CSS for template agency -->
+    <link href="/static/css/agency.css" rel="stylesheet">
+
+
+
+
+    <!-- Plugin JavaScript -->
+    <script src="/static/js/classie.js"></script>
+    <script src="/static/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/static/js/jqBootstrapValidation.js"></script>
+    <script src="/static/js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/static/js/agency.js"></script>
+
+
+
+
+
+
     <!-- CSS for template three - clean blog -->
     <link href="/static/css/clean_temp.css" rel="stylesheet">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
