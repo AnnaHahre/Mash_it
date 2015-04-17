@@ -40,7 +40,7 @@
           <li><a href="#endpoint" id="nav_endpoint" class="active">Endpoints</a>
             <ul>
               <li><a href="#fontsbycat" id="nav_fontsbycat">fonts by category</a></li>
-              <li><a href="#palette" id="nav_palettes">palettes by color</a></li>
+              <li><a href="#palettes" id="nav_palettes">palettes by color</a></li>
               <li><a href="#theme" id="nav_theme">theme by color and font-category</a></li>
             </ul>
           <li><a href="#statuscodes" id="nav_statuscodes">Status codes</a></li>
