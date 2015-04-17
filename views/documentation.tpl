@@ -40,7 +40,7 @@
           <li><a href="#endpoint" id="nav_endpoint" class="active">Endpoints</a>
             <ul>
               <li><a href="#fontsbycat" id="nav_fontsbycat">fonts by category</a></li>
-              <li><a href="#palette" id="nav_palette">palettes by color</a></li>
+              <li><a href="#palette" id="nav_palettes">palettes by color</a></li>
               <li><a href="#theme" id="nav_theme">theme by color and font-category</a></li>
             </ul>
           <li><a href="#statuscodes" id="nav_statuscodes">Status codes</a></li>
@@ -58,7 +58,7 @@
         <code class="endpoints">
         <ul>
           <li><a href="#fontsbycat">GET /api/v1/font/category</a></li>
-          <li><a href="#palette">GET /api/v1/palette/hex</a></li>
+          <li><a href="#palettes">GET /api/v1/palette/hex</a></li>
           <li><a href="#theme">GET /api/v1/theme/hex/category</a></li>
         </ul>
       </code>
@@ -303,7 +303,7 @@
 ]
       </code></pre>
 
-  		<h2 id="palette" class="section">List palettes by color</h2>
+  		<h2 id="palettes" class="section">List palettes by color</h2>
         <p>Returns a set of palettes created by the <a href="http://www.colourlovers.com/community">COLOURlovers community</a>.</p>
         
         <h3>Endpoint</h3>
