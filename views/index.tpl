@@ -12,6 +12,9 @@
         <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type='text/javascript' src="/static/script_start.js"></script>
 
+        <link rel="icon" type="image/png" href="favicon.ico" sizes="16x16" />
+
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -167,9 +170,9 @@
                             <p class="contact"> mash:it is a web service that is produced and run by three 2nd year students at the Bachelor program Information Architect at Malmo University. The aim is to provide a tool for anyone who enjoys web development, either on a professional level or just for fun. Credits to <a href="http://www.colourlovers.com/community">Colourlovers community</a> and <a href="http://www.startbootstrap.com"> Start Bootstrap</a>. </p>
                     </article>
         <div id="avatars">
-            <section id="five_A">
+            <section id="five_A" class="single_avatar">
                         
-                    <img src="/static/img/start/anna.png" alt="avatar of anna">
+                    <img src="/static/img/start/anna.png" alt="avatar of anna" class="img_avatar">
 
                     <article class="contact_box"> 
                             <h3 class="handwritten_contact">Anna</h3>
@@ -184,9 +187,9 @@
                     </article>
             </section>
 
-            <section id="five_B">
+            <section id="five_B" class="single_avatar">
                         
-                        <img src="/static/img/start/jennie.png" alt="avatar of jennie">
+                        <img src="/static/img/start/jennie.png" alt="avatar of jennie" class="img_avatar">
 
                     <article class="contact_box"> 
                             <h3 class="handwritten_contact">Jennie</h3>
@@ -200,9 +203,9 @@
                     </article>
             </section>
 
-            <section id="five_C">
+            <section id="five_C" class="single_avatar">
                         
-                        <img src="/static/img/start/michelle.png" alt="avatar of Michelle ">
+                        <img src="/static/img/start/michelle.png" alt="avatar of Michelle" class="img_avatar">
 
                     <article class="contact_box"> 
                             <h3 class="handwritten_contact">Michelle</h3>
