@@ -163,32 +163,39 @@ $(document).ready(function(){
   //*---------------- TAB-CONTROLL FOR DASHBOARD ----------------
   //*
  
-  $('#tabcontrols li').click( function(event) {
+    $('#tabcontrols li').click( function(event) {
     $('.css_code').empty();
     var value = $(this).attr("data-value");
 
     if ($(this).hasClass('selected')){
       event.preventDefault();
-      $(value).animate({ left: '-300px' });
-      $("#tabs").animate({ width: '-500px' }); //fix for safari
+      $(value).animate({ left: '-475px' }, { duration: 200, queue: false });
+      $("#tabs").animate({ width: '-475px' }, { duration: 200, queue: false }); //fix for safari
       $('#tabcontrols li').removeClass("selected");
     }
 
     else{
       event.preventDefault();
-      $('#tabs > div').animate({ left: '-300px' });
+      $('#tabs > div').animate({ left: '-475px' }, { duration: 200, queue: false });
       $('#tabcontrols li').removeClass("selected");
       $(this).addClass('selected');
       //$(value).addClass("show");
-      $(value).animate({ left: '100px' });
-      $("#tabs").animate({ width: '500px' }); //fix for safari
+      $(value).animate({ left: '75px' }, { duration: 200, queue: false });
+      $("#tabs").animate({ width: '475px' }, { duration: 200, queue: false }); //fix for safari
     }
  
     $('#colors_choice, #font_choice, #code_choice, #template_choice').click(function(event){
-      $(this).animate({ left: '-300px' });
-      $("#tabs").animate({ width: '0px' });
+      $(this).animate({ left: '-475px'}, { duration: 200, queue: false });
+      $("#tabs").animate({ width: '0px' }, { duration: 200, queue: false });
       $('#tabcontrols li').removeClass("selected");
     })
+
+    /*$('#template_choice').click(function(event){
+      $(this).animate({ left: '-330px' });
+      $("#template").animate({ left: '75px' }, { duration: 200, queue: false });
+      $("#tabs").animate({ width: '0px' }, { duration: 200, queue: false });
+      $('#tabcontrols li').removeClass("selected");
+    })*/
   });
 
   $('input, #category, #fontsize, #random_color, .css_code, #fonta, p.hex_name').click(function(event){

@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>mash:it; - Try it yourself Templates</title>
         <meta name="description" content="Webdesign and webdeveloper tool for trying out fonts and colors live in templates">
-        <meta name="keywords" content="mashit, font, color, themes, webdesigntool, designtool, webdevelopertool, developertool, webdesign, webdevelopment">
+        <meta name="keywords" content="mashit, font, color, themes, web, design, web, development, tool,webdesigntool, designtool, webdevelopertool, developertool, webdesign, webdevelopment">
         <meta name="author" content="Mashit">
         <link href="/static/style_start.css" rel="stylesheet" type="text/css">
 
@@ -55,9 +55,9 @@
 
         <section id="intro_A" class="section">
 
-              <h1 class="handwritten">NEW TO MASH:IT? THIS IS HOW EASY IT IS!</h1>
+              <h1 class="handwritten">New to Mash:it? This is how easy it is!</h1>
                 
-                <p> mash:it offers you a tool where you get the chance to play around with different fonts and colors in different templates. Style you headings and p-tags like never before!</p>
+                <p> mash:it offers you a tool to try out and play around with different fonts and colors, just for fun or before you embed them in your own web designs. Style your headings and p-tags like never before!</p>
                 <p>
                 And best of all - it's <strong>ALL FOR FREE!</strong> If you never have used it before, check out the 3 quick steps below and you'll be ready to rock in no time!</p>
             
@@ -92,6 +92,7 @@
 
     <section id="two">
 
+            <a href="/mash">
             <div class="round_left1"> 
                 <div class="view-first">  
                     <img alt="template image" src="/static/img/start/template.png">
@@ -102,9 +103,10 @@
                      </div>  
                 </div>
             </div>  
+            </a>
 
                 <article> 
-                        <h3 class="handwritten">Step 1. Choose!</h3>
+                        <h3 class="handwritten">Step 1. Choose a template!</h3>
                         <p class="how_to">Pick a template you wish to personalize. Choose between a first pager or sub-pages. The option is yours!</p>
                 </article>
 
@@ -115,15 +117,16 @@
         <section id="three_A">
 
                     <article> 
-                            <h3 class="handwritten">Step 2. Create!</h3>
-                            <p class="how_to">You can style text with both font and color and other elements can be colored. </p>
+                            <h3 class="handwritten">Step 2. Create - mix colors and fonts!</h3>
+                            <p class="how_to">Generate color palettes and fonts and click and style the elements to preview the result.</p>
                     </article>
         </section>
 
         <section id="three_B">
 
-            <div class="round_right"> 
 
+        <a href="/mash">
+            <div class="round_right"> 
                 <div class="view-first">  
                     <img alt="fontface icon" src="/static/img/start/typo.png">
                      <div class="mask">  
@@ -132,6 +135,7 @@
                      </div>  
                 </div>
             </div>  
+        </a>
 
         </section>
 
@@ -140,20 +144,21 @@
 
     <section id="four">
 
-        <div class="round_left2"> 
-
-            <div class="view-first">  
-                <img alt="css icon" src="/static/img/start/css.png"> 
+        <a href="/mash">
+            <div class="round_left2"> 
+                <div class="view-first">  
+                    <img alt="css icon" src="/static/img/start/css.png"> 
                      <div class="mask">  
                         <h2>CSS-CODE</h2>  
                         <p>Output your masterpiece to CSS-code. Voilá, you're done!</p>
                      </div>  
-                </div>
-        </div>  
+                 </div>
+            </div>  
+        </a>
 
                 <article> 
-                        <h3 class="handwritten">Step 3. Generate! </h3> 
-                        <p class="how_to">Make sure you get the most out of your mash:it and generate your styling to useful CSS-code.</p>
+                        <h3 class="handwritten">Step 3. Generate CSS! </h3> 
+                        <p class="how_to">Make sure you get the most out of your mash:it and generate your styling to useful CSS-code. <a href="/mash">Let's get started!</a></p>
                 </article>
     </section> <!--End #four-->
 
@@ -196,9 +201,10 @@
                             <p class="contact">
                             Favourite font: <span class="roboto">Lobster</span> <br><br>
                             Favourite hex: <span class="hex_222222">#222222</span> <br><br>
-                            
 
+                            <a href="http://www.jenniehellqvist.com"> <img height="30" width="30" alt="homepage logotype" src="/static/img/start/home.png"/> </a>
                             <a href="http://se.linkedin.com/in/jenniehellqvist"> <img height="30" width="30" alt="linkedIn logotype" src="/static/img/start/linkedin.png"/> </a>
+
 
                     </article>
             </section>

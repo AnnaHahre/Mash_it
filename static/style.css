@@ -7,6 +7,8 @@
 @import url(http://fonts.googleapis.com/css?family=Cutive+Mono);
 @import url(http://fonts.googleapis.com/css?family=PT+Mono);
 @import url(http://fonts.googleapis.com/css?family=Comfortaa);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
 
 /* Styles for sweet-alert JQuery-plugin
 */
@@ -30,6 +32,7 @@
 
 /* Styles for welcome-template
 */
+
 #welcome_mash {
 	width: 80%;
 	overflow: hidden;
@@ -53,30 +56,8 @@
 	line-height: 1.3em;
 }
 
-#welcome_mash p {
-	color: #404040;
-	font-family: 'PT mono', monospace;
-	position: fixed;
-	right: 2%;
-	bottom: 0;
-}
-
-#welcome_mash a {
-	color: #404040;
-	text-decoration: underline;
-}
-
-#welcome_mash a:visited {
-	color: #404040;
-	text-decoration: underline;
-}
-
-#welcome_mash a:hover {
-	text-decoration: none;
-}
-
 .arrow {
-	transform:rotate(50deg);
+	transform: rotate(50deg);
 	margin-left: 5%;
 	bottom: 30%;
 	position: absolute;
@@ -442,117 +423,185 @@ body{
 
 /*Styles for dashboard*/
 
-
-#color_icon a, #font_icon a, #code_icon a, #exit_icon a, #temp_icon a{
-	width: 100px;
-	height: 100px;
+#color_icon a, #font_icon a, #code_icon a, #exit_icon a, #temp_icon a {
+	width: 70px;
+	height: 70px;
 	padding:15%;
 	text-indent: -99em;
 	display: inline-block;
+}
+
+#redo_icon, #undo_icon {
+	width: 37.5px;
+	float: left;
+}
+
+#exit_icon a{
+	display: block;
+	bottom: 0;
+	position: absolute;
+}
+
+#undo_icon a, #redo_icon a {
+	width: 35px;
+	height: 35px;
+	text-indent: -99em;
+	float: left;
 }
 
 #temp_icon a {
 	background: url("img/temp_icon_s.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+    background-position: center; 
+}
+
+#do_button {
+	width: 70px;
+	height: 70px;
 }
 
 #undo_button {
 	background: url("img/undo.png");
-	float:left;
-	width: 50px;
-	height: 50px;
-	padding:15%;
-	text-indent: -99em;
-	display: inline-block;
+	background-size: 100%;
+	background-repeat: no-repeat;
+    background-position: center; 
 	cursor:pointer;
-}
-
+	}
 
 
 #redo_button {
 	background: url("img/redo.png");
-	float:left;
-	width: 50px;
-	height: 50px;
-	padding:15%;
-	text-indent: -99em;
-	display: inline-block;
+	background-size: 100%;
+	background-repeat: no-repeat;
+    background-position: center; 
 	cursor:pointer;
-
 }
 
 #color_icon a {
 	background: url("img/color_icon.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #font_icon a {
     background: url("img/font_icon.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #code_icon a {
     background: url("img/code_icon.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #exit_icon a{
     background: url("img/exit_icon.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #redo_button:hover {
 	background: url("img/redo_hover.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+    background-position: center; 
+	cursor:pointer;
 
 }
 
 #undo_button:hover {
 	background: url("img/undo_hover.png");	
+	background-size: 100%;
+	background-repeat: no-repeat;
+    background-position: center; 
+	cursor:pointer;
 }
 
 #temp_icon a:hover {
 	background: url("img/temp_icon.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #color_icon a:hover {
 	background: url("img/color_icon_s.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #font_icon a:hover {
     background: url("img/font_icon_s.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #code_icon a:hover {
     background: url("img/code_icon_s.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #exit_icon a:hover{
     background: url("img/exit_icon_s.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #temp_icon[class="selected"] a {
     background: url("img/temp_icon.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #color_icon[class="selected"] a {
 	background: url("img/color_icon_s.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #font_icon[class="selected"] a {
     background: url("img/font_icon_s.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #code_icon[class="selected"] a {
     background: url("img/code_icon_s.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #exit_icon[class="selected"] a{
     background: url("img/exit_icon.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #dashboard{
-	z-index: 1;
+	z-index: 2000 !important;
 	position:fixed;
-	bottom:55px;
-	width: 100px;
+	bottom:0px;
+	top: 0px;
+	width: 75px;
+	height: 100%;
 	background-color: transparent;
 	left:0;
-	border-radius: 0 5px 0px 0;
 	overflow: hidden;
 	z-index: 99;
 }
@@ -572,38 +621,46 @@ select{
 
 #dashboard h1, #dashboard h2{
 	font-size: 1em;
+	text-align: center;
 }
 
 #tabcontrols{
-	width: 100px;
-	background-color: rgba(0,0,0,1);
+	width: 100%;
+	height: 100%;
+	background-color: #151515;/*rgba(0,0,0,1);*/
 	overflow: hidden;	
 	margin:0;
 	padding: 0;
 }
 
-#tabcontrols li{
+#tabcontrols li a{
 	list-style: none;
+}
+
+#tabcontrols a {
+	width: 100%;
 }
 
 #tabcontrols h2{
 	margin-bottom: 0 !important;
-	height:45px;
+	height: 70px;
+	width: 70px;
+	margin: auto;
+	padding: 20% 0%;
 	color:#fff;
 	text-align: center;
 	font-family: 'Cutive Mono', monospace;
-	font-size: 1.3em;
-	padding-left: 7px;
+	font-size: 2.2em;
 	border-bottom: 1px solid #555;
 
 }
 
 .selected {
-	background-color: #f1f1f1;
+	background-color: #fefefe;
 }
 
-#exit_icon[class="selected"] {
-	background-color: #000000;
+#exit_icon[class="selected"], #undo_icon[class="selected"], #redo_icon[class="selected"] {
+	background-color: transparent;
 }
 
 .selected a, #tabcontrols li:hover {
@@ -612,12 +669,12 @@ select{
 
 #tabs{
 	position:fixed;
-	bottom: 104px;
-	height:527.5px;
+	height: 100%;
 	left:0;
+	top: 0;
 	border-radius: 0 5px 0px 0;
 	overflow: hidden;
-	z-index: 80;
+	z-index: 1900 !important;
 }
 
 #tabs p {
@@ -626,15 +683,16 @@ select{
 
 #colors_choice, #font_choice, #code_choice, #template_choice{
 	position: fixed;
-	left: -300px;
+	left: -400px;
 	display:block;
-	width:400px;
-	height:577px;
+	width: 400px;
+	height:100%;
 	padding:1% 2%;
-	background-color: #f1f1f1;
-	border-radius: 0 10px 10px 0;
+	background-color: #fefefe;
+	border-right: 1px solid #cecece; /*#f1f1f1;*/
+	/*border-radius: 0 10px 10px 0;
 	border: 2px solid rgba(50, 50, 50, 0.20);
-	border-left: none;
+	border-left: none;*/
 	/*z-index: 99999;*/
 }
 
@@ -659,19 +717,20 @@ select{
 	text-transform: uppercase;
 	color:#222;
 	font-size: 1.15em;
-	font-family: "Muli", sans-serif;
+	font-family: "Helvetica neue", "Arial", sans-serif;
+	font-weight: 300;
 }
 
 .css_code{
 	width:100%;
-	height:400px;	
+	height:70%;	
 	color:#000;
 	font-size: .8em;
 	padding:2%;
 	margin-bottom: 5%;
 	overflow: scroll;
-	border:1px solid #cecece;
-	background-color: #ffffff;
+	border:1px solid #ececec;
+	background-color: #fefefe;
 }
 
 #template_choice:last-child{
@@ -706,7 +765,8 @@ select{
 input[type=text] { 
 	padding: 0px 0px 0px 20px; 
 	width:70%;
-	margin-bottom:5%;
+	margin-bottom:0%;
+	border: 1px solid #ececec;
 	height: 40px;
 }
 
@@ -716,20 +776,28 @@ input[type=text] {
 	display: block; 
 	width:10px; 
 	margin-left: 7px; 
-	margin-top: -50px; 
+	margin-top: -35px; 
 	/*z-index: 9; */
 	font-size: 1.3em;
 }
 
 #show_fonts{
-	background-color: #ffffff;
-	border:1px solid #cecece;
-	height:350px;
+	border: 1px solid #ececec;
+	height:70%;
 	margin-top: 5%;
 	padding-bottom: 10%;
 	margin-bottom: 10%;
 	overflow: scroll;
 	border-radius: 3px;
+}
+
+
+select {
+	border: 0;
+	font-family: "Helvetica neue", "Arial", sans-serif;
+	text-transform: uppercase;
+	background-color: #fefefe;
+	border: 1px solid #ececec;
 }
 
 #font_list ul {
@@ -797,7 +865,7 @@ input[type=text] {
 #standard{
 	width:80%;
 	position: absolute;
-	bottom:40px;
+	bottom:10px;
 	margin-left:1.2%;
 }
 
@@ -807,17 +875,26 @@ input[type=text] {
 	cursor:crosshair;
 }
 
+.white {
+		border: 1px solid #ececec;
+
+}
+
 #palette{
-	margin-top:6%;
-	width:95%;
-	height:330px;
-	overflow: hidden;
+	/*background-color: rgba(0,0,0,0.1);*/
+	border: 1px solid #ececec;
+	height:70%;
+	margin-top: 5%;
+	padding: 0% 2% 10% 2%;
+	margin-bottom: 10%;
+	overflow: scroll;
+	border-radius: 3px;
 }
 
 .col{
 	float:left; 
 	width:20%; 
-	padding:2% 1%;
+	padding:3% 0.5%;
 	margin-bottom: -4%;
 }
 
@@ -827,16 +904,20 @@ input[type=text] {
 
 .col_p{
 	text-align:center; 
-	padding:0% 5%; 
+	padding:0%; 
 	width:100%; 
-	height:35px; 
-	border:1px solid black; 
+	height:75px; 
+	/*border:1px solid black; */
+	-webkit-font-smoothing: antialiased;
 }
 
 .hex_name{
-	margin-top:-15%;
+	margin-top:-10%;
 	margin-bottom: 30% !important;
 	text-align:center; 
+	font-family: "Helvetica neue", "Arial", sans-serif;
+	font-weight: 500;
+	color: #222;
 
 }
 
@@ -889,4 +970,313 @@ input[type=text] {
 	#tabs {
 		z-index: 0;
 	}
+}
+
+/*STYLES for how_to*/
+
+/*********** BOX-EFFECT AND IMG ON HOW TO-SECTION ***********/ 
+
+/* LEFT IMG ROUND */
+
+#how_to {
+/*background-image:url('img/bak.jpeg');*/
+	background-color: #fefefe;
+	width: 100%;
+	padding: 2% 10% 14% 10%;
+	margin: auto;
+	overflow: hidden
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow: hidden;
+}
+
+#banner {
+    width:100%;
+    padding: 2% 0% 0% 0%;
+    text-align: center;
+}
+
+#how_to section {
+    display: block;
+    height:100%;
+    width:100%;
+    padding-top: 4%;
+    box-sizing: border-box;
+}
+
+#choose, #create, #generate {          /* Wraps DIV A and B */
+    width:100%;
+    float: right;
+    color: #000;
+    padding-top: 0;
+}
+
+#choose article, #create article, #generate article {          /* Wraps DIV A and B */
+    padding-top: 55px;
+
+}
+
+#choose article, #generate article {
+	float: left;
+	width: 60% !important;
+}
+
+#create article {
+}
+
+
+#create article {
+    width:60% !important;
+    float: right;
+    color: #000;
+    text-align: right;
+}
+
+.round_left1 {
+    width: 250px;
+    height: 250px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    border-radius: 50%;
+    -webkit-box-shadow: 3px 3px 3px #7C7C7C;
+    box-shadow: 3px 3px 3px 3px #7C7C7C;
+    margin-right: 30px;
+
+}
+.round_left1 .mask, .round_left1 .content {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0
+}
+
+.round_left1 img {
+    display: block;
+    position: relative;
+}
+
+.round_left1 h2, .round_left2 h2, .round_right h2 {
+  font-family: "Comfortaa", sans-serif;
+}
+
+.round_left1 p, .round_left2 p, .round_right p {
+  font-family: Georgia, serif;
+  font-style: italic;
+  line-height: 1.5em;
+}
+
+.round_left1 h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 1em;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    margin: 35px 0 0 0
+}
+.round_left1 p {
+    font-family: Georgia, serif;
+    font-size: 1.1em;
+    position: relative;
+    color: #fff;
+    padding: 10px 20px 20px;
+    text-align: center
+}
+
+/* END LEFT IMG ROUND */
+
+/* SECOND LEFT IMG ROUND */
+
+.round_left2 {
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    border-radius: 50%;
+    -webkit-box-shadow: 3px 3px 3px #7C7C7C; 
+    box-shadow: 4px 4px 4px 0px #7C7C7C;
+    margin-right: 30px;
+}
+
+.round_left2 .mask, .round_left2 .content {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0
+}
+
+.round_left2 img {
+    display: block;
+    position: relative;
+}
+
+.round_left2 h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 1em;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.6); 
+    margin: 35px 0 0 0
+}
+
+.round_left2 p {
+    font-size: 1.1em;
+    position: relative;
+    color: #fff;
+    padding: 10px 20px 20px;
+    text-align: center
+}
+
+/* END SECOND LEFT IMG */
+
+/* RIGHT IMG ROUND */
+
+.round_right {
+    width: 250px;
+    height: 250px;
+    float: right;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+    border-radius: 50%;
+    -webkit-box-shadow: 3px 3px 3px #7C7C7C; 
+    box-shadow: 3px 3px 3px 0px #7C7C7C;
+    margin-left: 30px;
+}
+
+.round_right .mask, .round_right .content {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0
+}
+
+.round_right img {
+    display: block;
+    position: relative;
+}
+
+.round_right h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 1em;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.6); 
+    margin: 35px 0 0 0
+}
+
+.round_right p {
+    font-size: 1.1em;
+    position: relative;
+    color: #fff;
+    padding: 10px 20px 20px;
+    text-align: center
+}
+
+/* END RIGHT IMG */
+
+
+/* EFFECTS: WORKS FOR ALL ROUND HOW-TO IMG */
+
+.view-first img { 
+	border-radius: 50%;
+	-webkit-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+.view-first .mask {
+	border-radius: 50%;
+	opacity: 0;
+	background-color: rgba(30,123,130, 0.8); /* #1E7B82 */
+	-webkit-transition: all 0.8s ease-in-out;
+	transition: all 0.8s ease-in-out;
+}
+.view-first h2 {
+	-webkit-transform: translateY(-100px);
+	transform: translateY(-100px);
+	opacity: 0;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+.view-first p { 
+	-webkit-transform: translateY(100px);
+	opacity: 0;
+	-webkit-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+
+
+
+/* EFFECT HOVER: WORKS FOR ALL ROUND HOW-TO IMG */
+
+
+.view-first:hover img {   /* Enlarges the img */
+    transform: scale(1.1);
+    border-radius: 50%;
+} 
+.view-first:hover .mask { 
+	border-radius: 50%;
+    opacity: 1;
+}
+.view-first:hover h2,
+.view-first:hover p {
+    opacity: 1;
+    transform: translateY(0px);
+}
+.view-first:hover p {
+    transition-delay: 0.1s;
+}
+
+
+/***********  END HOW TO-IMAGES  ***********/
+
+.step {
+	width: 25%;
+    float: left;
+    text-align: center;
+    color: #151515;
+    line-height: 1.3em;
+}
+
+.step_two {
+	float: right !important;
+}
+
+.step_one, .step_two, .step_three {
+	font-family: 'arial', sans-serif;
+	font-size: 10.5em;
+}
+
+.how_to_p {
+  font-size: 1.35em;
+  line-height: 1.6em;
+}
+
+.handwritten {
+    font-size: 2.5em;
+    /*font-family: 'Roboto';*/
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300;
+    margin: 1.5% 0%;
+
 }

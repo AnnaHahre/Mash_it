@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Webdesign and webdeveloper tool for trying out fonts and colors live in templates">
-    <meta name="keywords" content="mashit, font, color, themes, webdesigntool, designtool, webdevelopertool, developertool, webdesign, webdevelopment">
+    <meta name="keywords" content="mashit, font, color, themes, web, design, web, development, tool,webdesigntool, designtool, webdevelopertool, developertool, webdesign, webdevelopment">
     <meta name="author" content="Mashit">
 
     <!--SWEET-alert package-->
@@ -28,6 +28,8 @@
 
     <!-- CSS for template one - one page wonder -->
     <link href="/static/css/one-page-wonder.css" rel="stylesheet">
+
+
 
     <!-- CSS for template three - clean blog -->
     <link href="/static/css/clean_temp.css" rel="stylesheet">
@@ -56,7 +58,7 @@
   <!--Dashboard -->
   <div id="dashboard">
     <ul id="tabcontrols">
-      <h2>mash:it;</h2>
+      <h2>m</h2>
       <li id="temp_icon" data-value="#template_choice">
         <a href="#template_choice"></a>
       </li>
@@ -69,8 +71,10 @@
       <li id="code_icon" data-value="#code_choice">
         <a href="#code_choice"></a>
       </li>
-      <li id="do_icon">
+      <li id="undo_icon">
         <a id="undo_button"></a>
+      </li>
+      <li id="redo_icon">
         <a id="redo_button"></a>
       </li>
       <li id="exit_icon">
@@ -116,7 +120,7 @@
             <p class='hex_name'>#222222</p>
           </div>
           <div class='col' value="#ffffff">
-            <p class="col_p" style="background-color:#ffffff"; value="ffffff"></p>
+            <p class="col_p white" style="background-color:#ffffff"; value="ffffff"</p>
             <p class='hex_name'>#FFFFFFF</p>
           </div>
         </div>
@@ -164,9 +168,9 @@
   <div id="template">
    <!--Divs for template_choice-->
     <div id="welcome_mash">
-      <img class="arrow" width="200" height="200" src="/static/img/start/arrow_flip.png"></img>
-      <h1>Ready, steady, go <span>mash:it;</span></h1>
-    </div>
+        <img class="arrow" width="200" height="200" src="/static/img/start/arrow_flip.png"></img>
+        <h1>Ready, steady, go <span>mash:it;</span></h1>
+      </div>
   <!-- /.container -->
   </div><!--end #template-->
   </body>

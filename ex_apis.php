@@ -8,11 +8,12 @@ function get_ColorLovers_Palette($hex, $route, $num) {
   //update to request and process more plalettes to make sure we always returns palattes of 5-colors.
   $client = new GuzzleHttp\Client();
 
-  $url = "http://www.colourlovers.com/api/palettes/top?hex=".$hex."&format=json&sortBy=asc&numResults=".$num;
+  $url = "http://www.colourlovers.com/api/palettes/top?hex=".urlencode($hex)."&format=json&sortBy=asc&numResults=".urlencode($num);
   $headers = array('ACCEPT' => 'application/json');
 
   $response = $client->get($url);
   $data = $response->json();
+
 
   $all_palettes = array();
   array_push($all_palettes, array("resource_location"=>$route));
